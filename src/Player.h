@@ -1,10 +1,6 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-struct Position{
-    int posX,posY;
-};
-
 
 //nos include
 #include "Bullet.h"
