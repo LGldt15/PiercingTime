@@ -1,6 +1,6 @@
 #include "IHM.h"
 
-Controls getInputs(){
+IHM::Controls getInputs(){
     Controls c;
     c.up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
     c.down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
