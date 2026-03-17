@@ -7,6 +7,16 @@
 //nos include
 #include "Shop.h"
 #include "Map.h"
+#include "MainMenu.h"
+
+struct Controls{
+    bool up;
+    bool down;
+    bool right;
+    bool left;
+    bool pause;
+    bool select;
+};
 
 class IHM{
 private:
@@ -22,8 +32,10 @@ public:
     ~IHM();
     void renderShop(Shop shop,Player* players,int nbPlayers) const;
     void renderMap(Map level) const;
-    void renderUI(UI ui) const;
+    void renderUI(MainMenu ui) const;
     void playerSelect(Player* players,int nbPlayers) const;
+    Controls getInputs();
+
 };
 
 
