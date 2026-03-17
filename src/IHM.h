@@ -6,7 +6,6 @@
 
 //nos include
 #include "Shop.h"
-#include "Player.h"
 #include "Map.h"
 
 class IHM{
