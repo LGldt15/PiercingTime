@@ -4,6 +4,11 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
+//nos include
+#include "Shop.h"
+#include "Player.h"
+#include "Map.h"
+
 class IHM{
 private:
     sf::Texture playerTypes[2];
@@ -17,10 +22,9 @@ public:
     IHM();
     ~IHM();
     void renderShop(Shop shop,Player* players,int nbPlayers) const;
-    void renderMap(Map level,Player* players,int nbPlayers,Enemy *enemies,int nbEnemies,Bullet *bullets,int nbBullets,Collectibles* collectibles,int nbCollectibles) const;
-    void renderUI() const;
-
-    void renderApp() const;
+    void renderMap(Map level) const;
+    void renderUI(UI ui) const;
+    void playerSelect(Player* players,int nbPlayers) const;
 };
 
 
