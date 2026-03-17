@@ -4,10 +4,11 @@
 struct Position{
     float posX,posY;
     float length();
-    Position operator +();
-    Position operator -();
-    Position operator *();
-    Position operator /();
+    void operator +(Position p2);
+    void operator -(Position p2);
+    void operator *(Position p2);
+    void operator *(float f);
+    void operator /(float f);
 
 };
 
