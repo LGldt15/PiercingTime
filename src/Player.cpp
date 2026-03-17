@@ -1,5 +1,14 @@
 #include "Player.h"
 
+Player::Player(){
+    hp=10;
+    attack=0;
+    position.posX=position.posY=0;
+}
+
+Player::~Player(){}
+
+
 void Player::move(const Controls &c){
     float dx=0.0f; // variation de position en largeur
     float dy=0.0f; // variation de position en hauteur
