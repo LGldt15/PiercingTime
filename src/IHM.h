@@ -5,8 +5,7 @@
 #include <SFML/Graphics/Texture.hpp>
 
 //nos include
-#include "Shop.h"
-#include "Map.h"
+#include "Game.h"
 #include "MainMenu.h"
 
 struct Controls{
@@ -20,6 +19,9 @@ struct Controls{
 
 class IHM{
 private:
+    Game game;
+    MainMenu mainMenu;
+
     sf::Texture playerTypes[2];
     sf::Texture enemyTypes[4];
     sf::Texture mapTypes[9];//one level uses one map
