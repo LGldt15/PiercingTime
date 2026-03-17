@@ -2,6 +2,7 @@
 #define _MAP_H
 
 #include "Bullet.h"
+#include "Enemy.h"
 #include "Player.h"
 
 
@@ -10,11 +11,21 @@ private:
     int idMap;
     Player* players;
     int nbPlayers;
-    Enemy* enemies;
+    Enemy enemies[50];
     int nbEnemies;
-    Bullet* bullets;
+    Bullet bullets[500];
     int nbBullets;
 public:
+    Map();
+    Map(int idS,Player &p,int nbP);
+
+    void move(Controls &c);
+    void damageE();
+    void damageP();
+    void damageAll();
+
+    void update();
+
 
 };
 
