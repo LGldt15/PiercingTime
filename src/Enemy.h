@@ -12,13 +12,12 @@ private:
     unsigned int hp;
     unsigned int attack;
     unsigned int experience;
-    unsigned int speed;
+    float speed;
 public:
     Position position;
     bool isAlive;
     Enemy* next;
-    Enemy(bool a=false);
-    Enemy(int health=1,int damage=0,bool isAlive=false);
+    Enemy(int health=1,int damage=0,bool isAlive=false,float s=0.05);
     ~Enemy();
     void shoot(Bullet &bullets);
     bool takeDamageBullet(Bullet &bullets);

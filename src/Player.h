@@ -19,12 +19,12 @@ class Player{
 private:
     unsigned int sprites;
     unsigned int height,width;
-    Position position;
     unsigned int hp;
     unsigned int attack;
     unsigned int experience;
     float speed;
 public:
+    Position position;
     Player();
     ~Player();
     bool dead;

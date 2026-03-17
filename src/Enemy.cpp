@@ -1,11 +1,12 @@
 #include "Enemy.h"
+#include "cmath"
 
-Enemy::Enemy(bool a){
-    hp=1;
-    attack=0;
-    speed=0.05;
-    position.x=rand()%800;
-    position.y=rand()%800;
+Enemy::Enemy(int h,int d,bool a,float s){
+    hp=h;
+    attack=d;
+    speed=s;
+    position.posX=rand()%800;
+    position.posY=rand()%800;
     isAlive=a;
 }
 

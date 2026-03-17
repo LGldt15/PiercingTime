@@ -31,7 +31,7 @@ void Map::move(Controls &c){
     for (int i=0;i<nbPlayers;i++){
         players[i].move(c);
         for (int i=0;i<nbEnemies;i++){
-            enemies[i].move(player[i].position);
+            enemies[i].move(players[i].position);
         }
     }    
     for (int i=0;i<nbBullets;i++){
