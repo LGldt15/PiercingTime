@@ -30,7 +30,7 @@ public:
     Player();
     ~Player();
     bool dead;
-    void shoot(Bullet *bullets);
+    void shoot(Bullet &bullets);
     bool takeDamageBullet(Bullet &bullets);
     bool takeDamage(const Enemy &enemies);
     void move(const Controls &c);
