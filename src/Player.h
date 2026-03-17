@@ -1,20 +1,22 @@
-<<<<<<< HEAD
-=======
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
 #include <vector>
 
 
+//nos include
+#include "Bullet.h"
+#include "Enemy.h"
+
 class Player{
 private:
     unsigned int sprites;
     unsigned int height,width;
-    vector<float> position;
+    std::vector<float> position;
     unsigned int hp;
     unsigned int attack;
     unsigned int experience;
-    float speed
+    float speed;
 public:
     Player();
     ~Player();
@@ -24,7 +26,7 @@ public:
     void move();
     void levcelUP();
     bool dead();
-    vector<float> getPos();
+    std::vector<float> getPos();
 };
 
 
@@ -37,4 +39,3 @@ public:
 
 
 #endif
->>>>>>> 0984e16 (player.h)
