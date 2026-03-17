@@ -8,14 +8,7 @@
 #include "Game.h"
 #include "MainMenu.h"
 
-struct Controls{
-    bool up;
-    bool down;
-    bool right;
-    bool left;
-    bool pause;
-    bool select;
-};
+
 
 class IHM{
 private:

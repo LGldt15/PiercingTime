@@ -8,6 +8,15 @@
 #include "Bullet.h"
 #include "Enemy.h"
 
+struct Controls{
+    bool up;
+    bool down;
+    bool right;
+    bool left;
+    bool pause;
+    bool select;
+};
+
 class Player{
 private:
     unsigned int sprites;
@@ -20,12 +29,12 @@ private:
 public:
     Player();
     ~Player();
+    bool dead;
     void shoot(Bullet *bullets);
     bool takeDamageBullet(Bullet &bullets);
     bool takeDamage(const Enemy &enemies);
-    void move();
+    void move(const Controls &c);
     void levcelUP();
-    bool dead();
     std::vector<float> getPos();
 };
 
