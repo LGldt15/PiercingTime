@@ -16,8 +16,8 @@ private:
 public:
     IHM();
     ~IHM();
-    void renderShop() const;
-    void renderMap() const;
+    void renderShop(Shop shop,Player* players,int nbPlayers) const;
+    void renderMap(Map level,Player* players,int nbPlayers,Enemy *enemies,int nbEnemies,Bullet *bullets,int nbBullets,Collectibles* collectibles,int nbCollectibles) const;
     void renderUI() const;
 
     void renderApp() const;
