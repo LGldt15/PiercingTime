@@ -7,7 +7,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Inventory.h"
-
+#include "Map.h"
 
 
 class Game{
@@ -15,13 +15,11 @@ private:
     Player players[4];
     Inventory inventory[4];
     unsigned int nbJoueur;
-    Enemy enemies[50];
-    int nbEnemies;
-    Bullet bullets[500];
-    int nbBullet;
-    sf::Sprite* levels;
-    unsigned int level;
+
+
+    Map level;
     unsigned int difficulty;
+    
 public:
     Game(sf::Texture &t,sf::Texture &playerSprites);
     ~Game();
