@@ -25,7 +25,10 @@ public:
     void damageAll();
 
     void update(Controls &c);
+    //utilities to get stuff vacj up to the renderer
 
+    int getNbEnemies();
+    Enemy* getEnemies();
 
 };
 

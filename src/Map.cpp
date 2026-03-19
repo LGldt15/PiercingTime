@@ -39,8 +39,18 @@ void Map::move(Controls &c){
     }
 
 }
+
+
+    
     void damageE();
     void damageP();
     void damageAll();
 
     void update();
+
+int Map::getNbEnemies(){
+    return nbEnemies;
+}
+Enemy* Map::getEnemies(){
+    return &enemies[0];
+}

@@ -26,3 +26,11 @@ void Game::update(Controls c){
 }
 
 
+
+Enemy* Game::getEnemies(){
+    return level.getEnemies();
+}
+int Game::getNbEnemys(){
+    return level.getNbEnemies();
+}
+

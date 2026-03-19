@@ -32,6 +32,8 @@ public:
     void setNbPlayers(int i);
     ///in game stuff
     void update(Controls c);
+    Enemy* getEnemies();
+    int getNbEnemys();
 };
 
 #endif

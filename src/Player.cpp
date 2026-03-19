@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Bullet.h"
 
 Player::Player(){
     hp=10;
@@ -25,6 +26,7 @@ void Player::move(const Controls &c){
 bool Player::takeDamage(const Enemy &enemy){
     float radius = 1; // rayon de la hitbox (à remplacer par le rayon de l'ennemy?)
     unsigned int damage = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
+    Position distance=enemy.position-position;
     if((enemy.position-position).length()<=radius){
         if (hp<=damage){hp=0;dead=true;} 
         else hp-=damage;
