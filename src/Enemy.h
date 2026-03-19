@@ -14,6 +14,7 @@ private:
     unsigned int experience;
     float speed;
 public:
+    Enemy();
     Position position;
     bool isAlive;
     Enemy* next;
@@ -21,7 +22,7 @@ public:
     ~Enemy();
     void shoot(Bullet &bullets);
     bool takeDamageBullet(Bullet &bullets);
-    void move(const Position &player);
+    void move(Position &player);
 };
 
 
