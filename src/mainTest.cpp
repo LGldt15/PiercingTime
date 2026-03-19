@@ -1,9 +1,12 @@
-#include <IHM.h>
+#include "IHM.h"
 
 
 int main(){
-srand(Time(NULL));
-
+    srand(time(NULL));
+    IHM game;
+    while (true){
+        game.renderMap();
+    }
 
 
     return 0;
