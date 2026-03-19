@@ -7,14 +7,7 @@
 #include "Bullet.h"
 #include "Enemy.h"
 
-struct Controls{
-    bool up;
-    bool down;
-    bool right;
-    bool left;
-    bool pause;
-    bool select;
-};
+
 
 class Player{
 private:

@@ -23,6 +23,14 @@ Item getItems();
 
 };
 
+struct Controls{
+    bool up;
+    bool down;
+    bool right;
+    bool left;
+    bool pause;
+    bool select;
+};
 
 
 
