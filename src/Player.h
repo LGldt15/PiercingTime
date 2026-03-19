@@ -25,6 +25,7 @@ private:
     unsigned int experience;
     float speed;
 public:
+    unsigned int gold; 
     Position position;
     Player();
     ~Player();

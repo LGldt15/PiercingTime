@@ -26,9 +26,14 @@ bool Player::takeDamage(const Enemy &enemy){
     float radius = 1; // rayon de la hitbox (à remplacer par le rayon de l'ennemy?)
     unsigned int damage = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
     if((enemy.position-position).length()<=radius){
-        if (hp<=damage) hp=0;
+        if (hp<=damage){hp=0;dead=true;} 
         else hp-=damage;
         return true;
     }
     return false;
 }
+
+ bool Player::takeDamageBullet(Bullet &bullets){
+    
+
+ }
