@@ -21,7 +21,7 @@ Shop::~Shop(){
 }
 
 Item Shop::itemRandSelect(){
-    Item selectedItem
+    Item selectedItem;
     int randInt = (rand() % 5) + 1; 
     switch(randInt)
     {
@@ -75,7 +75,7 @@ Item Shop::itemRandSelect(){
         default:
             break;
     }
-  return (SelectedItem);
+  return (selectedItem);
 
 
 }
@@ -128,7 +128,7 @@ void Shop::selectValidation(Controls& c, Player& p) {
     if (c.right && currentCursor < 3) currentCursor++;
     if (c.left && currentCursor > 0) currentCursor--;
 
-    if (c.enter) {
+    if (c.select) {
         Item& target = item[currentCursor];
 
         if (target.name != "None" && p.gold >= target.price) {

@@ -2,6 +2,7 @@
 #define _SHOP_H
 #include <string>
 #include "Structs.h"
+#include "Player.h"
 
 
 
@@ -14,7 +15,7 @@ int currentCursor;
 public:
 Shop();
 ~Shop();
-void selectValidation(Item &it,Controls& c);
+void selectValidation(Controls& c,Player& p );
 void refreshShop();
 Item itemRandSelect();
 //getter items
