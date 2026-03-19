@@ -73,3 +73,6 @@ unsigned int Bullet::hitOrMiss(Position min,Position max){//renvoie les degat fa
 void Bullet::move(){
     pos=pos+speed;
 }
+
+void Bullet::setPos(Position p){pos=p;}
+void Bullet::setSpeed(Position s){speed=s;}

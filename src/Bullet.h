@@ -26,6 +26,9 @@ public:
     ~Bullet();
     unsigned int hitOrMiss(Position min,Position max);//renvoie les degat fait un une entite en foncion de la hitbpx de celle ci(xMin et yMin)
     void move();
+    void setPos(Position pos);
+    void setSpeed(Position speed);
+
 };
 
 

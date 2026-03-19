@@ -12,19 +12,20 @@
 
 class Player{
 private:
-    unsigned int sprites;
-    unsigned int height,width;
     unsigned int hp;
     unsigned int attack;
     unsigned int experience;
     float speed;
+    float bulletSpeed;
 public:
+    unsigned int sprites;
+    unsigned int height,width;
     unsigned int gold; 
     Position position;
     Player();
     ~Player();
     bool dead;
-    void shoot(Bullet &bullets);
+    void shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const;
     bool takeDamageBullet(Bullet &bullets);
     bool takeDamage(const Enemy &enemy);
     void move(const Controls &c);

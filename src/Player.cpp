@@ -6,6 +6,7 @@ Player::Player(){
     attack=0;
     speed=0.1;
     position.posX=position.posY=0;
+    bulletSpeed=0.05;
 }
 
 Player::~Player(){}
@@ -48,4 +49,19 @@ bool Player::takeDamageBullet(Bullet &bullets){
     return true;
  }
 
- //void Player::shoot(Bullet &bullets){}
+ void Player::shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const{
+    if(nbE==0){bullets.damage=0;return;}
+    Position dist=tabE[0].position-position;
+    float distMin=dist.length();
+    unsigned int idMin=0;
+    for(unsigned int i=1; i<=nbE;i++){
+        dist=tabE[i].position-position;
+        if(distMin>dist.length()){
+            idMin=i;
+            distMin=dist.length();
+        }
+    }
+    bullets.setSpeed((position-tabE[idMin].position)*bulletSpeed);
+    bullets.setPos(position);
+    bullets.fromPlayer=true;
+ }
