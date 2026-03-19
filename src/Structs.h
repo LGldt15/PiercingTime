@@ -8,7 +8,7 @@ struct Item {
     std::string name;
     int price;
     Stats effect;
-
+    bool isSelected;
     //On suppose que tous les items ont la meme rareté pour le debut
 
 };

@@ -10,6 +10,7 @@
     int nbBullets;
     
 Map::Map(){
+
     idMap=0;
     nbPlayers=0;
     nbEnemies=0;
