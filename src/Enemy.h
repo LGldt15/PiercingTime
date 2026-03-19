@@ -14,7 +14,6 @@ private:
     unsigned int experience;
     float speed;
 public:
-    Enemy();
     Position position;
     bool isAlive;
     Enemy* next;
