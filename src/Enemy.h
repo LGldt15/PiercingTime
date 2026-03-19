@@ -18,7 +18,7 @@ public:
     Position position;
     bool isAlive;
     Enemy* next;
-    Enemy(int health=1,int damage=0,bool isAlive=false,float s=0.05);
+    Enemy(int health=1,int damage=0,bool a=false,float s=0.05);
     ~Enemy();
     void shoot(Bullet &bullets);
     bool takeDamageBullet(Bullet &bullets);
