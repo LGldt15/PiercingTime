@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Bullet.h"
-#include "struct.h"
 
 Player::Player(){
     hp=10;
@@ -28,7 +27,7 @@ bool Player::takeDamage(const Enemy &enemy){
     float radius = 1; // rayon de la hitbox (à remplacer par le rayon de l'ennemy?)
     unsigned int damage = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
     Position distance=enemy.position-position;
-    if((enemy.position-position).length()<=radius){
+    if(distance.length()<=radius){
         if (hp<=damage){hp=0;dead=true;} 
         else hp-=damage;
         return true;
@@ -36,7 +35,17 @@ bool Player::takeDamage(const Enemy &enemy){
     return false;
 }
 
- bool Player::takeDamageBullet(Bullet &bullets){
-    
-
+bool Player::takeDamageBullet(Bullet &bullets){
+    if(bullets.fromPlayer)return false;
+    unsigned int dmg;
+    Position hitbox;
+    hitbox.posX=height;
+    hitbox.posY=width;
+    dmg=bullets.hitOrMiss(position,hitbox);
+    if(dmg==0)return false;
+    if (hp<=dmg){hp=0;dead=true;} 
+    else hp-=dmg;
+    return true;
  }
+
+ //void Player::shoot(Bullet &bullets){}

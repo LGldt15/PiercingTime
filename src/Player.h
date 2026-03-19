@@ -6,7 +6,7 @@
 //nos include
 #include "Bullet.h"
 #include "Enemy.h"
-#include "Structs.h"
+#include "Inventory.h"
 
 
 
