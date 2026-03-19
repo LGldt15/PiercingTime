@@ -46,7 +46,7 @@ Bullet::Bullet(){
     fromPlayer=true;
 }
 
-Bullet::Bullet(Bullet &n,int x,int y,int sX,int sY,int d,bool fp;){
+Bullet::Bullet(Bullet &n,float x,float y,float sX,float sY,unsigned int d,bool fP){
     next=&n;
     sprite=0;
     pos.posX=x;
@@ -54,7 +54,7 @@ Bullet::Bullet(Bullet &n,int x,int y,int sX,int sY,int d,bool fp;){
     speed.posX=sX;
     speed.posY=sY;
     damage=d;
-    fromPlayer=fp;
+    fromPlayer=fP;
 }
 
 Bullet::~Bullet(){}   
