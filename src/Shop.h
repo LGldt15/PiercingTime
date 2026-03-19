@@ -16,7 +16,7 @@ Shop();
 ~Shop();
 bool itemIsSelected(Controls &c);
 void refreshShop();
-void itemInit();
+Item itemRandSelect();
 //getter items
 Item getItems();
 

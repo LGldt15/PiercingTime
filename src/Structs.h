@@ -1,4 +1,4 @@
-
+#include <string>
 
 struct Stats{
 float PlayerSpeed, attackDamage, attackSpeed, hpBoost;
