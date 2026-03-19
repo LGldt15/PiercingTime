@@ -1,4 +1,4 @@
-#include "Structs.h"
+#include "Position.h"
 
 float  Position::length(){
     return sqrt(posX*posX+posY*posY);
