@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Bullet.h"
+#include "struct.h"
 
 Player::Player(){
     hp=10;
