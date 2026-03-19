@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Bullet.h"
+#include "Position.h"
 
 Player::Player(){
     stats.hp=10;
