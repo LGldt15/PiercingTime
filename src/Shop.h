@@ -1,6 +1,6 @@
 #ifndef _SHOP_H
 #define _SHOP_H
-<<<<<<< HEAD
+#include <string>
 #include "Stats.h"
 
 struct Item {
@@ -22,22 +22,13 @@ Shop();
 void refreshShop();
 
 
-};
-
-
-
-
-
-
-
-
-
-
-=======
-
-class Shop{
 
 };
 
->>>>>>> 49d8d7c4d7c0de7889ead7bac7e3d482bfd7522e
+
+
+
+
+
+
 #endif
