@@ -3,13 +3,7 @@
 #include <string>
 #include "Stats.h"
 
-struct Item {
-    std::string name;
-    int price;
-    Stats effect;
-    //On suppose que tous les items ont la meme rareté pour le debut
 
-};
 
 class Shop{
 private:
