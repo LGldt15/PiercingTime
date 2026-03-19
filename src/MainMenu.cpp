@@ -1,6 +1,12 @@
 #include "MainMenu.h"
 
+MainMenu::MainMenu(){
+        for (int i=0;i<3;i++){
+        spriteNotSelected[i]=0;
+        spriteSelected[i]=0;
 
+    }
+}
 MainMenu::MainMenu(int sNS[3],int sS[3]){
     for (int i=0;i<3;i++){
         spriteNotSelected[i]=sNS[i];

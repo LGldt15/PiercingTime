@@ -17,6 +17,9 @@ private:
     MainMenu mainMenu;
     Controls inputs;
 
+    
+    sf::RenderWindow window;
+    
     sf::Texture playerTypes[2];
     sf::Texture enemyTypes[4];
     sf::Texture mapTypes[9];//one level uses one map

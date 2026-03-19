@@ -15,6 +15,7 @@ private:
     bool isSelectedOnline;//id=2
     bool isSelectedSettings;//id=3
 public:
+    MainMenu();
     MainMenu(int sNS[3],int sS[3]);
     int getSelected();
     void modifSelected(Controls c);
