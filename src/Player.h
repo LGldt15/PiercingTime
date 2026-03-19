@@ -12,15 +12,16 @@
 
 class Player{
 private:
-    unsigned int hp;
-    unsigned int attack;
-    unsigned int experience;
-    float speed;
-    float bulletSpeed;
+    Stats stats;
+    unsigned int hp;//stats
+    unsigned int attack;//stats
+    unsigned int experience;//stats
+    float speed;//stats
+    float bulletSpeed;//stats
 public:
     unsigned int height,width;
     unsigned int sprites;
-    unsigned int gold; 
+    unsigned int gold;//stats
     Position position;
     Player();
     ~Player();
@@ -31,6 +32,7 @@ public:
     void move(const Controls &c);
     void levcelUP();
     Position getPos();
+    Stats getStats();
 };
 
 
