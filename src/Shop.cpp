@@ -100,15 +100,22 @@ while(itemToDisplay!=0){
         if (item[i].isSelected){
             item[i].isSelected=false;
             item[i]=itemRandSelect();
+            item[i].button=i;
+
+
+        }
+        else{
+            item[i]=itemRandSelect();
+            item[i].button=i;
 
         }
         
-
+    itemToDisplay--;
     }
     
 
 
-itemToDisplay--;
+
 }
 
 }

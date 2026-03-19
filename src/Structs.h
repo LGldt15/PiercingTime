@@ -9,6 +9,7 @@ struct Item {
     int price;
     Stats effect;
     bool isSelected;
+    int button;
     //On suppose que tous les items ont la meme rareté pour le debut
 
 };
