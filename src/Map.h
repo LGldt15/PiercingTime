@@ -24,7 +24,7 @@ public:
     void damageP();
     void damageAll();
 
-    void update();
+    void update(Controls &c);
 
 
 };

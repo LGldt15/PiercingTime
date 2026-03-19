@@ -3,12 +3,6 @@
 
 
 
-Item::Item(sf::Texture &t,int damageB,int hpB){
-    damageBoost=damageB;
-    hpBoost=hpB;
-}
-
-
 Weapon::Weapon(){
     baseDamage=0;
 }

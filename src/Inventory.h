@@ -4,14 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <vector>
-
-
-
-
-struct Item{
-    int hpBoost,damageBoost;//eventuelement d autre stat a voir dans el futur
-    Item(sf::Texture &t,int damageB=0,int hpB=0);
-};
+#include "Shop.h"
 
 struct Weapon{
     unsigned int baseDamage;
