@@ -41,8 +41,8 @@ endif
 
 # --- Cibles ---
 
-OBJ = $(OBJ_DIR)/mainTest.o $(OBJ_DIR)/Game.o \
-      $(OBJ_DIR)/Player.o $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/Inventory.o \
+OBJ = $(OBJ_DIR)/mainTest.o $(OBJ_DIR)/IHM.o $(OBJ_DIR)/Game.o \
+      $(OBJ_DIR)/Player.o $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/Shop.o $(OBJ_DIR)/Structs.o $(OBJ_DIR)/Inventory.o \
       $(OBJ_DIR)/Bullet.o
 
 TARGET = $(BIN_DIR)/PiercingTime

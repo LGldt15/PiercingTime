@@ -2,35 +2,39 @@
 #include "Bullet.h"
 
 Player::Player(){
-    hp=10;
-    attack=0;
-    speed=0.1;
+    stats.hp=10;
+    stats.attackDamage=0;
+    stats.experience;
+    stats.gold;
+    stats.playerSpeed=0.1;
+    stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
-    bulletSpeed=0.05;
+
 }
 
 Player::~Player(){}
 
+Stats Player::getStats(){return stats;}
 
 void Player::move(const Controls &c){
     float dx=0.0f; // variation de position en largeur
     float dy=0.0f; // variation de position en hauteur
-    if(c.up) dy-= speed;
-    if(c.down) dy+= speed;
-    if(c.right) dx+= speed;
-    if(c.left) dx-= speed;
-    if(dx*dy!=0){dx*=0.70710678118; dy*=0.70710678118;} //normalisation à speed (multiplication par sqrt(2)/2) si cas diagonal
+    if(c.up) dy-= stats.playerSpeed;
+    if(c.down) dy+= stats.playerSpeed;
+    if(c.right) dx+= stats.playerSpeed;
+    if(c.left) dx-= stats.playerSpeed;
+    if(dx*dy!=0){dx*=0.70710678118; dy*=0.70710678118;} //normalisation à playerSpeed (multiplication par sqrt(2)/2) si cas diagonal
     position.posX+=dx; //ajout à la position courante
     position.posY+=dy;
 }
 
 bool Player::takeDamage(const Enemy &enemy){
     float radius = 1; // rayon de la hitbox (à remplacer par le rayon de l'ennemy?)
-    unsigned int damage = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
+    unsigned int dmg = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
     Position distance=enemy.position-position;
     if(distance.length()<=radius){
-        if (hp<=damage){hp=0;dead=true;} 
-        else hp-=damage;
+        if (hp<=dmg){hp=0;dead=true;} 
+        else hp-=dmg;
         return true;
     }
     return false;
@@ -61,7 +65,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
             distMin=dist.length();
         }
     }
-    bullets.setSpeed((position-tabE[idMin].position)*bulletSpeed);
+    bullets.setSpeed((position-tabE[idMin].position)*stats.bulletSpeed);
     bullets.setPos(position);
     bullets.fromPlayer=true;
  }

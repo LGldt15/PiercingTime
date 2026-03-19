@@ -1,5 +1,6 @@
 #ifndef _BULLET_H
 #define _BULLET_H
+#include "Structs.h"
 
 class Bullet{
 private:

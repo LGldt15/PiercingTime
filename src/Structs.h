@@ -1,7 +1,8 @@
 #include <string>
 
 struct Stats{
-float PlayerSpeed, attackDamage, attackSpeed, hpBoost;
+float playerSpeed, bulletSpeed;
+unsigned int attackDamage, hp, experience, gold;
 };
 
 struct Item {
