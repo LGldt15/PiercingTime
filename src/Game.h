@@ -26,8 +26,8 @@ public:
     ///menu stuff (before game starts)
     void addPlayer();
     void removePlayer();
-    void renderMenu(sf::RenderWindow &window);
-    bool setup(sf::RenderWindow &window);
+    void renderMenu();
+    bool setup();
     ///in game stuff
     void startGame();
     void render(sf::RenderWindow &window) const;//sera appeler dans gameLoop
