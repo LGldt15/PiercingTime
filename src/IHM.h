@@ -34,6 +34,8 @@ public:
     void getInputs();
     void gameLoop();
 
+    void app();
+
 };
 
 

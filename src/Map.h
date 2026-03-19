@@ -9,7 +9,7 @@
 class Map{
 private:
     int idMap;
-    Player* players;
+    Player* players[4];
     int nbPlayers;
     Enemy enemies[50];
     int nbEnemies;
@@ -21,7 +21,7 @@ public:
 
     void move(Controls &c);
     void damageE();
-    void damageP();
+    void damageP(int player);
     void damageAll();
 
     void update(Controls &c);

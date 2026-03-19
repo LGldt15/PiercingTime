@@ -11,7 +11,6 @@
     
 Map::Map(){
     idMap=0;
-    players=nullptr;
     nbPlayers=0;
     nbEnemies=0;
     nbBullets=0;
@@ -20,7 +19,7 @@ Map::Map(){
 
 Map::Map(int idS,Player &p,int nbP){
     idMap=idS;
-    players=&p;
+    players[0]=&p;
     nbPlayers=nbP;
     nbEnemies=0;
     nbBullets=0;
@@ -29,9 +28,9 @@ Map::Map(int idS,Player &p,int nbP){
 
 void Map::move(Controls &c){
     for (int i=0;i<nbPlayers;i++){
-        players[i].move(c);
+        players[i]->move(c);
         for (int i=0;i<nbEnemies;i++){
-            enemies[i].move(players[i].position);
+            enemies[i].move(players[i]->position);
         }
     }    
     for (int i=0;i<nbBullets;i++){
@@ -42,11 +41,56 @@ void Map::move(Controls &c){
 
 
     
-    void damageE();
-    void damageP();
-    void damageAll();
+void Map::damageE(){
+    int iter=nbEnemies;
+    for(int i=0;i<iter;i++){
+        if(enemies[i].isAlive){
+            int iterBullet;
+            for(int j=0;j<iterBullet;j++){
+                if (bullets[j].damage==0) iterBullet++;
+                enemies[i].takeDamageBullet(bullets[j]);
+                if(!enemies[i].isAlive){
+                    enemies[i].next=enemies[0].next;
+                    enemies[0].next=&enemies[i];
+                }
+            }
+        }
+        else iter++;
+    }
+}
 
-    void update();
+void Map::damageP(int player){
+    int iter=nbEnemies;
+    for(int i=0;i<iter;i++){
+        if(enemies[i].isAlive){
+            if(players[player]->takeDamage(enemies[i])) return;
+        }
+        else iter++;
+    }
+    iter=nbBullets;
+    for(int i=0;i<iter;i++){
+        if(bullets[i].damage!=0){
+            if(players[player]->takeDamageBullet(bullets[i])){
+                bullets[i].next=bullets[0].next;
+                bullets[0].next=&bullets[i];
+                return;
+            } 
+        }
+        else iter++;
+    }
+}
+
+void Map::damageAll(){
+    for(int i=0;i<nbPlayers;i++){
+        damageP(i);
+    }
+    damageE();
+}
+
+void Map::update(Controls& c){
+    move(c);
+    damageAll();
+}
 
 int Map::getNbEnemies(){
     return nbEnemies;
