@@ -14,8 +14,6 @@ struct Item {
 
 };
 
-
-
 struct Controls{
     bool up;//1
     bool down;//2
@@ -25,3 +23,12 @@ struct Controls{
     bool select;//6
 };
 
+struct Position{
+    float posX,posY;
+    float length();
+    Position operator +(const Position &p2)const;
+    Position operator -(const Position &p2)const;
+    Position operator *(const float &q)const;
+    Position operator /(const float &q)const;
+
+};
