@@ -1,0 +1,19 @@
+#include "MainMenu.h"
+
+
+MainMenu::MainMenu(int sNS[3],int sS[3]){
+    for (int i=0;i<3;i++){
+        spriteNotSelected[i]=sNS[i];
+        spriteSelected[i]=sS[i];
+
+    }
+}
+
+int MainMenu::getSelected(){
+    return  idSelected;
+}
+
+void MainMenu::modifSelected(Controls c){
+    if (c.up)idSelected=((idSelected+1)%3)+1;
+    if (c.down)idSelected=((idSelected-1)%3)+1;
+}

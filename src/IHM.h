@@ -5,11 +5,18 @@
 #include <SFML/Graphics/Texture.hpp>
 
 //nos include
-#include "Shop.h"
-#include "Map.h"
+#include "Game.h"
+#include "MainMenu.h"
+#include "Player.h"
+
+
 
 class IHM{
 private:
+    Game game;
+    MainMenu mainMenu;
+    Controls inputs();
+
     sf::Texture playerTypes[2];
     sf::Texture enemyTypes[4];
     sf::Texture mapTypes[9];//one level uses one map
@@ -20,10 +27,13 @@ private:
 public:
     IHM();
     ~IHM();
-    void renderShop(Shop shop,Player* players,int nbPlayers) const;
-    void renderMap(Map level) const;
-    void renderUI(UI ui) const;
-    void playerSelect(Player* players,int nbPlayers) const;
+    void renderShop() const;
+    void renderMap() const;
+    void renderUI() const;
+    void playerSelect() const;
+
+    void gameLoop();
+
 };
 
 
