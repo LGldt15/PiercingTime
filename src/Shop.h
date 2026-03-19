@@ -14,22 +14,13 @@ Item item[4];//5 different items possible avec chacun un prix et des stats
 public:
 Shop();
 ~Shop();
+bool itemIsSelected(Controls &c);
 void refreshShop();
 void itemInit();
 //getter items
 Item getItems();
 
 
-
-};
-
-struct Controls{
-    bool up;
-    bool down;
-    bool right;
-    bool left;
-    bool pause;
-    bool select;
 };
 
 

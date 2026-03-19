@@ -72,23 +72,25 @@ void Shop::itemInit(){
 
 
 
+
 void Shop::refreshShop(){
 //srand(Time(null)) 
 // randomisation des items
 
 int itemToDisplay=0;
-bool isBought=false;
 
 while(itemToDisplay!=0){
 
     for (int i = 0; i < 4; i++)
     {
+        if (){
 
-        item[i];
+
+        }
+        
+
     }
     
-
-    item[i];
 
 
 
