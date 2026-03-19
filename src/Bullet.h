@@ -18,12 +18,12 @@ private:
     Position speed; // composantes en x et y du vecteur vitesse
     unsigned int sprite;
 public:
-    bool fromPlayer?;//true: viens d'un joueur , false: viens d'un ennemy
+    bool fromPlayer;//true: viens d'un joueur , false: viens d'un ennemy
     unsigned int damage;
     Bullet* next;
-    Bullet(Bullet &n, int x=0,int y=0,int sX=0,int sY=0,int d=0);
+    Bullet(Bullet &n, float x=0, float y=0, float sX=0, float sY=0, unsigned int d=0, bool fP=true);
     ~Bullet();
-    unsigned int hitOrMiss(int xMin,int xMax,int yMin,int yMax);//renvoie les degat fait un une entite en foncion de la hitbpx de celle ci(xMin et yMin)
+    unsigned int hitOrMiss(Position min,Position max);//renvoie les degat fait un une entite en foncion de la hitbpx de celle ci(xMin et yMin)
     void move();
 };
 

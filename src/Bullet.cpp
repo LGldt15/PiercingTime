@@ -31,21 +31,22 @@ Position Position::operator /(float q){
         Position p;
         p.posX=posX/q;
         p.posY=posY/q;
+        return p;
     }
     else{return *this;}
-    return p;
+
 }
 
 
 Bullet::Bullet(){
     next=nullptr;
-    pos.posX=pos.posY=0
+    pos.posX=pos.posY=0;
     speed.posX=speed.posY=0;
     damage=0;
-    hit=false;///si sa attaque les enemie u les joueur
+    fromPlayer=true;
 }
 
-Bullet::Bullet(Bullet &n,int x,int y,int sX,int sY,int d){
+Bullet::Bullet(Bullet &n,int x,int y,int sX,int sY,int d,bool fp;){
     next=&n;
     sprite=0;
     pos.posX=x;
@@ -53,14 +54,14 @@ Bullet::Bullet(Bullet &n,int x,int y,int sX,int sY,int d){
     speed.posX=sX;
     speed.posY=sY;
     damage=d;
-    fromPlayer?=true;
+    fromPlayer=fp;
 }
 
 Bullet::~Bullet(){}   
 
 
-unsigned int Bullet::hitOrMiss(int xMin,int xMax,int yMin,int yMax){//renvoie les degat fait un une entite en foncione de la hitbpx de celle ci(xMin et yMin sont ses coordonner xMax,yMax sont les hauteur et la largeur de la "hitbox")
-    if(pos.posX<=xMax && pos.posX>=xMin && pos.posY<=yMax && pos.posY>=yMin) {
+unsigned int Bullet::hitOrMiss(Position min,Position max){//renvoie les degat fait un une entite en foncione de la hitbpx de celle ci(xMin et yMin sont ses coordonner xMax,yMax sont les hauteur et la largeur de la "hitbox")
+    if(pos.posX<=max.posX && pos.posX>=min.posX && pos.posY<=max.posY && pos.posY>=min.posY) {
         unsigned int temp=damage; // on récupère les dégats
         damage=0; // on met damage à 0 pour détruire facilement l'objet
         return temp;
