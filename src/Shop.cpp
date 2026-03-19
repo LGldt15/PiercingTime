@@ -11,6 +11,7 @@ Shop::Shop(){
         item[i].name="None";
         item[i].button=0;
         item[i].isSelected=false;
+        //on touchera pas au gold, a l exp ou autres
     }
     std::cout<<"shop initialisé"<<std::endl;
 
@@ -30,36 +31,37 @@ Item Shop::itemRandSelect(){
             selectedItem.name="Dino essence";
             selectedItem.price=40;
             selectedItem.effect.attackDamage=10.0f;
-            selectedItem.effect.attackSpeed=0.5f;
-            selectedItem.effect.PlayerSpeed=0.5f;
-            selectedItem.effect.hpBoost=20.0f;
+            selectedItem.effect.bulletSpeed=0.5f;
+            selectedItem.effect.playerSpeed=0.5f;
+            selectedItem.effect.hp=20.0f;
+        
             break;
         case 2:
 
             selectedItem.name="Rubber Elastic";
             selectedItem.price=10;
             selectedItem.effect.attackDamage=0;
-            selectedItem.effect.attackSpeed=1.5f;
-            selectedItem.effect.PlayerSpeed=0;
-            selectedItem.effect.hpBoost=0;
+            selectedItem.effect.bulletSpeed=1.5f;
+            selectedItem.effect.playerSpeed=0;
+            selectedItem.effect.hp=0;
             break;
         case 3:
 
             selectedItem.name="Armadillo Shell";
             selectedItem.price=35;
             selectedItem.effect.attackDamage=10.0f;
-            selectedItem.effect.attackSpeed=-0.5;
-            selectedItem.effect.PlayerSpeed=-0.5f;
-            selectedItem.effect.hpBoost=50.0f;
+            selectedItem.effect.bulletSpeed=-0.5;
+            selectedItem.effect.playerSpeed=-0.5f;
+            selectedItem.effect.hp=50.0f;
             break;
         case 4:
 
             selectedItem.name="Weird Black Liquid";//petrol
             selectedItem.price=75;
             selectedItem.effect.attackDamage=20.0f;
-            selectedItem.effect.attackSpeed=8.0f;
-            selectedItem.effect.PlayerSpeed=2.5f;
-            selectedItem.effect.hpBoost=-10.0f;
+            selectedItem.effect.bulletSpeed=8.0f;
+            selectedItem.effect.playerSpeed=2.5f;
+            selectedItem.effect.hp=-10.0f;
 
             break;
         case 5:
@@ -67,9 +69,9 @@ Item Shop::itemRandSelect(){
             selectedItem.name="Bone Broth";
             selectedItem.price=15;
             selectedItem.effect.attackDamage=5.0f;
-            selectedItem.effect.attackSpeed=2.0f;
-            selectedItem.effect.PlayerSpeed=0.5f;
-            selectedItem.effect.hpBoost=25.0f;
+            selectedItem.effect.bulletSpeed=2.0f;
+            selectedItem.effect.playerSpeed=0.5f;
+            selectedItem.effect.hp=25.0f;
 
             break;
         default:
@@ -83,7 +85,7 @@ Item Shop::itemRandSelect(){
 
 void Shop::refreshShop(){
 //srand(Time(null)) 
-// randomisation des items
+// random des items
 
 int itemToDisplay=4;
 

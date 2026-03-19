@@ -1,5 +1,7 @@
 #include <string>
 
+//SVP ESSAYER DE NE PAS CHANGER LES STRUCTURES SANS PREVENIR! MERCI :)
+
 struct Stats{
 float playerSpeed, bulletSpeed;
 unsigned int attackDamage, hp, experience, gold;
