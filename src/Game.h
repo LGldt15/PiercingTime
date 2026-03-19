@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Inventory.h"
 #include "Map.h"
+#include "Shop.h"
 
 
 class Game{
@@ -19,24 +20,20 @@ private:
 
     Map level;
     unsigned int difficulty;
-    
+    Shop shop;
 public:
-    Game(sf::Texture &t,sf::Texture &playerSprites);
+    bool inConfig;//pour savoir si on affiche l ajou de joueur ou le jeu
+    Game();
     ~Game();
+    //utilistaire
+    int getNbJoueur();
+    Player* getPlayers();
     ///menu stuff (before game starts)
-    void addPlayer();
-    void removePlayer();
-    void renderMenu();
-    bool setup();
+    void setNbPlayers(int i);
     ///in game stuff
-    void startGame();
-    void render(sf::RenderWindow &window) const;//sera appeler dans gameLoop
-    void damagePlayers(int player);
-    void damageEnemies();
-    void damageAll();
-    void wave();
-    void shop();
-    void gameLoop(sf::RenderWindow &window);
+    void update(Controls c);
+    Enemy* getEnemies();
+    int getNbEnemys();
 };
 
 #endif

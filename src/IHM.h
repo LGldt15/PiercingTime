@@ -15,7 +15,7 @@ class IHM{
 private:
     Game game;
     MainMenu mainMenu;
-    Controls inputs();
+    Controls inputs;
 
     sf::Texture playerTypes[2];
     sf::Texture enemyTypes[4];
@@ -31,8 +31,10 @@ public:
     void renderMap() const;
     void renderUI() const;
     void playerSelect() const;
-
+    void getInputs();
     void gameLoop();
+
+    void app();
 
 };
 

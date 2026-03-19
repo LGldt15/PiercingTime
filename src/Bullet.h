@@ -14,19 +14,17 @@ struct Position{
 
 class Bullet{
 private:
-    int posX,posY;
-    int speedX,speedY;
-    bool hit;///si sa attaque les enemie u les joueur
-    //sf::Sprite* sprite;
+    Position pos;
+    Position speed; // composantes en x et y du vecteur vitesse
+    unsigned int sprite;
 public:
-    int damage;
+    bool fromPlayer?;//true: viens d'un joueur , false: viens d'un ennemy
+    unsigned int damage;
     Bullet* next;
-    Bullet();
-    //Bullet(sf::Texture &t,Bullet &n, int x=0,int y=0,int sX=0,int sY=0,int d=0);
+    Bullet(Bullet &n, int x=0,int y=0,int sX=0,int sY=0,int d=0);
     ~Bullet();
-    int hitOrMiss(int xMin,int xMax,int yMin,int yMax);//renvoie les degat fait un une entite en foncione de la hitbpx de celle ci(xMin et yMin sont ses coordonner xMax,yMax sont les hauteur et la largeur de la "hitbox")
+    unsigned int hitOrMiss(int xMin,int xMax,int yMin,int yMax);//renvoie les degat fait un une entite en foncion de la hitbpx de celle ci(xMin et yMin)
     void move();
-    //void render(sf::RenderWindow &window);
 };
 
 

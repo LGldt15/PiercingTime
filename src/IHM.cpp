@@ -1,13 +1,11 @@
 #include "IHM.h"
 
-Controls IHM::getInputs(){
-    Controls c;
-    c.up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
-    c.down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
-    c.right=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
-    c.left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
-    c.pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
-    c.select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
-    return c;
+void IHM::getInputs(){
+    inputs.up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
+    inputs.down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
+    inputs.right=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
+    inputs.left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
+    inputs.pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
+    inputs.select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
 }
 

@@ -9,7 +9,7 @@
 class Map{
 private:
     int idMap;
-    Player* players;
+    Player* players[4];
     int nbPlayers;
     Enemy enemies[50];
     int nbEnemies;
@@ -21,11 +21,14 @@ public:
 
     void move(Controls &c);
     void damageE();
-    void damageP();
+    void damageP(int player);
     void damageAll();
 
-    void update();
+    void update(Controls &c);
+    //utilities to get stuff vacj up to the renderer
 
+    int getNbEnemies();
+    Enemy* getEnemies();
 
 };
 
