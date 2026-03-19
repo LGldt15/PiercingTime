@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Bullet.h"
-#include "struct.h"
 
 Player::Player(){
     hp=10;
@@ -41,8 +40,8 @@ bool Player::takeDamageBullet(Bullet &bullets){
     unsigned int dmg;
     Position hitbox;
     hitbox.posX=height;
-    hitbox.posy=width;
-    dmg=Bullet.hitOrMiss(position,hitbox);
+    hitbox.posY=width;
+    dmg=bullets.hitOrMiss(position,hitbox);
     if(dmg==0)return false;
     if (hp<=dmg){hp=0;dead=true;} 
     else hp-=dmg;

@@ -16,8 +16,8 @@ bool Enemy::takeDamageBullet(Bullet &bullets){
     unsigned int dmg;
     Position hitbox;
     hitbox.posX=height;
-    hitbox.posy=width;
-    dmg=Bullet.hitOrMiss(position,hitbox);
+    hitbox.posY=width;
+    dmg=bullets.hitOrMiss(position,hitbox);
     if(dmg==0)return false;
     if (hp<=dmg){hp=0;isAlive=false;} 
     else hp-=dmg;
