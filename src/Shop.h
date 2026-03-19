@@ -9,12 +9,12 @@
 class Shop{
 private:
 Item item[4];//5 different items possible avec chacun un prix et des stats
-
+int currentCursor;
 
 public:
 Shop();
 ~Shop();
-bool itemIsSelected(Controls &c);
+void selectValidation(Item &it,Controls& c);
 void refreshShop();
 Item itemRandSelect();
 //getter items
