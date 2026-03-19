@@ -1,9 +1,7 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-<<<<<<< HEAD
 //eventuellement initialiser les stats 
-=======
 
 //nos include
 #include "Bullet.h"
@@ -17,7 +15,6 @@ struct Controls{
     bool pause;
     bool select;
 };
->>>>>>> 49d8d7c4d7c0de7889ead7bac7e3d482bfd7522e
 
 class Player{
 private:
