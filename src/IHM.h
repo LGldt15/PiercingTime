@@ -29,11 +29,13 @@ public:
     ~IHM();
     void renderShop() const;
     void renderMap() const;
-    void renderUI() const;
+    void renderMenu() const;
     void playerSelect() const;
+    //utilitaire
     void getInputs();
+    //loop
     void gameLoop();
-
+    //tout
     void app();
 
 };
