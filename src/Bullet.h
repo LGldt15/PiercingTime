@@ -6,7 +6,6 @@ struct Position{
     float length();
     void operator +(Position p2);
     void operator -(Position p2);
-    void operator *(Position p2);
     void operator *(float f);
     void operator /(float f);
 

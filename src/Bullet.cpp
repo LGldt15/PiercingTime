@@ -15,11 +15,6 @@ void Position::operator -(Position p2){
     posY-=p2.posY;
 }
 
-//Position Position::operator +(Position p2){
-//    posX+=p2.posX;
-//    posY+=p2.posY;
-//}
-
 void Position::operator *(float q){
     posX*=q;
     posY*=q;
