@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 //nos include
 #include "Game.h"
@@ -19,7 +20,7 @@ private:
 
     
     sf::RenderWindow window;
-    
+
     sf::Texture playerTypes[2];
     sf::Texture enemyTypes[4];
     sf::Texture mapTypes[9];//one level uses one map
@@ -30,10 +31,10 @@ private:
 public:
     IHM();
     ~IHM();
-    void renderShop() const;
-    void renderMap() const;
-    void renderMenu() const;
-    void playerSelect() const;
+    void renderShop();
+    void renderMap();
+    void renderMenu();
+    void playerSelect();
     //utilitaire
     void getInputs();
     //loop

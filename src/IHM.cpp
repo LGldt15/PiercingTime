@@ -1,4 +1,7 @@
 #include "IHM.h"
+#include "Enemy.h"
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Vector2.hpp>
 
 
 
@@ -17,18 +20,40 @@ void IHM::getInputs(){
 }
 
 
-void IHM::renderShop() const{
+void IHM::renderShop() {
 
 }
 
-void IHM::renderMap() const{
+void IHM::renderMap(){
+    window.clear(sf::Color::Black);
+    sf::Sprite map(mapTypes[game.getMapId()]);
+    window.draw(map);
+    Player* p=game.getPlayers();
+    for(int i=0;i<game.getNbJoueur();i++){
+        sf::Sprite player(playerTypes[p[i].sprites]);
+        sf::Vector2f pos;
+        pos.x=p[i].position.posX;
+        pos.y=p[i].position.posY;
+        player.setPosition(pos);
+        window.draw(player);
+    }
+    Enemy* enemyzero=game.getEnemies();
+    for(int i=0;i<game.getNbEnemys();i++){
+        sf::Sprite enemy(enemyTypes[enemyzero[i].sprite]);
+        sf::Vector2f pos;
+        pos.x=enemyzero[i].position.posX;
+        pos.y=enemyzero[i].position.posY;
+        enemy.setPosition(pos);
+        window.draw(enemy);
+    }
+    
+    window.display();  
+}
+
+void IHM::renderMenu() {
 
 }
 
-void IHM::renderMenu() const{
-
-}
-
-void IHM::playerSelect() const{
+void IHM::playerSelect() {
 
 }

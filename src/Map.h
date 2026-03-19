@@ -26,6 +26,7 @@ public:
 
     void update(Controls &c);
     //utilities to get stuff vacj up to the renderer
+    int getMapId();
 
     int getNbEnemies();
     Enemy* getEnemies();

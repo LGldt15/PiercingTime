@@ -7,13 +7,13 @@
 
 class Enemy{
 private:
-    unsigned int sprite;
     unsigned int height,width;
     unsigned int hp;
     unsigned int attack;
     unsigned int experience;
     float speed;
 public:
+    unsigned int sprite;
     Position position;
     bool isAlive;
     Enemy* next;

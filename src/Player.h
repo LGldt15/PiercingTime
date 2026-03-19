@@ -18,8 +18,8 @@ private:
     float speed;
     float bulletSpeed;
 public:
-    unsigned int sprites;
     unsigned int height,width;
+    unsigned int sprites;
     unsigned int gold; 
     Position position;
     Player();

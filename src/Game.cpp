@@ -34,3 +34,10 @@ int Game::getNbEnemys(){
     return level.getNbEnemies();
 }
 
+int Game::getMapId(){
+    return level.getMapId();
+}
+
+int Game::getPlayerId(int i){
+    return players[i].sprites;
+}

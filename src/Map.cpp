@@ -93,6 +93,9 @@ void Map::update(Controls& c){
     damageAll();
 }
 
+int Map::getMapId(){
+    return idMap;
+}
 int Map::getNbEnemies(){
     return nbEnemies;
 }
