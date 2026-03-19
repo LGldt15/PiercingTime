@@ -5,6 +5,7 @@
 
 Shop::Shop(){
 //init des prix
+    currentCursor=0; //selector dans le shop ≠ boutton d item
     for (int i=0; i<4; i++){
         item[i].price=0;
         item[i].name="None";
@@ -122,7 +123,26 @@ Item Shop::getItems(){
 
 
 
-void Shop::selectValidation(Controls& c){
+void Shop::selectValidation(Controls& c, Player& p) {
 
+    if (c.right && currentCursor < 3) currentCursor++;
+    if (c.left && currentCursor > 0) currentCursor--;
 
+    if (c.enter) {
+        Item& target = item[currentCursor];
+
+        if (target.name != "None" && p.gold >= target.price) {
+            
+
+            //ici mettre fonction qui applique les effets de l item et eneleve les gold au joueur
+
+            // On vide le slot du shop
+            target.name = "None";
+            target.price = 0;
+        }
+    }
 }
+
+
+
+//ICI METTRE LA FONCTION QUAND JAURAI RECUP LES TRUCS A CHARLIE
