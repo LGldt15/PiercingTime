@@ -15,7 +15,7 @@ private:
     Player players[4];
     Inventory inventory[4];
     unsigned int nbJoueur;
-
+    bool inConfig;
 
     Map level;
     unsigned int difficulty;
@@ -29,14 +29,7 @@ public:
     void renderMenu();
     bool setup();
     ///in game stuff
-    void startGame();
-    void render(sf::RenderWindow &window) const;//sera appeler dans gameLoop
-    void damagePlayers(int player);
-    void damageEnemies();
-    void damageAll();
-    void wave();
-    void shop();
-    void gameLoop(sf::RenderWindow &window);
+    void update();
 };
 
 #endif
