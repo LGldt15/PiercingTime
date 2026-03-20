@@ -80,7 +80,14 @@ void IHM::renderMap(){
 }
 
 void IHM::gameLoop(){
-    while(true){
+    while (window.isOpen()){
+        // Process events
+        while (const std::optional event = window.pollEvent())
+        {
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
         getInputs();
         game.update(inputs);
         renderMap();
