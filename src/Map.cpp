@@ -1,13 +1,13 @@
 #include "Map.h"
 #include "Player.h"
   
-  int idMap;
-    Player* players;
-    int nbPlayers;
-    Enemy* enemies;
-    int nbEnemies;
-    Bullet* bullets;
-    int nbBullets;
+  //int idMap;
+  //  Player* players;
+  //  int nbPlayers;
+  //  Enemy* enemies;
+  //  int nbEnemies;
+  //  Bullet* bullets;
+  //  int nbBullets;
     
 Map::Map(){
 
@@ -23,6 +23,8 @@ Map::Map(int idS,Player &p,int nbP){
     players[0]=&p;
     nbPlayers=nbP;
     nbEnemies=0;
+    nbEnemies=1;
+    enemies[0]=Enemy(1,0,true,0.05,0);
     nbBullets=0;
 }
 

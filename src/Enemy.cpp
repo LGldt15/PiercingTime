@@ -1,8 +1,8 @@
 #include "Enemy.h"
 #include <cmath>
 
-Enemy::Enemy(int health,int damage,bool a,float s){
-    hp=health; attack=damage; isAlive=a; speed=s;
+Enemy::Enemy(int health,int damage,bool a,float s,int idS){
+    hp=health; attack=damage; isAlive=a; speed=s; sprite=idS ;
 }
 
 Enemy::~Enemy(){

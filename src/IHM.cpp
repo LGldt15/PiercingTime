@@ -2,13 +2,15 @@
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
-
+#include "iostream"
 
 
 IHM::IHM(){
     sf::Vector2<unsigned int> size={800,800};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
     mapTypes[0].loadFromFile("./assets/Background.png");
+    playerTypes[0].loadFromFile("./assets/player.png");
+    enemyTypes[0].loadFromFile("./assets/gromgroi.png");
 }
 
 void IHM::getInputs(){
@@ -45,7 +47,12 @@ void IHM::renderMap(){
     }
     Enemy* enemyzero=game.getEnemies();
     for(int i=0;i<game.getNbEnemys();i++){
+        
         sf::Sprite enemy(enemyTypes[enemyzero[i].sprite]);
+        sf::Vector2u s=enemyTypes[enemyzero[i].sprite].getSize();
+        sf::Vector2f si={100.0f/s.x,60.0f/s.y};
+        //std::cout<<"here and si is :"<<si.x<<' '<<si.y<<std::endl;
+        enemy.setScale(si);
         sf::Vector2f pos;
         pos.x=enemyzero[i].position.posX;
         pos.y=enemyzero[i].position.posY;
@@ -54,6 +61,14 @@ void IHM::renderMap(){
     }
     
     window.display();  
+}
+
+void IHM::gameLoop(){
+    while(true){
+        getInputs();
+        game.update(inputs);
+        renderMap();
+    }
 }
 
 void IHM::renderMenu() {

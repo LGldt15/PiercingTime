@@ -6,9 +6,7 @@
 int main(){
     srand(time(NULL));
     IHM game;
-    while (true){
-        game.renderMap();
-    }
+    game.gameLoop();
 
 
     return 0;
