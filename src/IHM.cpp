@@ -19,6 +19,9 @@ void IHM::getInputs(){
     inputs.select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
 }
 
+IHM::~IHM(){
+    
+}
 
 void IHM::renderShop() {
 

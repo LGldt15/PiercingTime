@@ -5,6 +5,10 @@ Enemy::Enemy(int health,int damage,bool a,float s){
     hp=health; attack=damage; isAlive=a; speed=s;
 }
 
+Enemy::~Enemy(){
+
+}
+
 void Enemy::move(Position& player){
     Position dir = player - position; //direction
     float dist = sqrt(dir.posX * dir.posX + dir.posY * dir.posY); //norme du vecteur 

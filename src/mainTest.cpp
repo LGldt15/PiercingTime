@@ -1,4 +1,6 @@
 #include "IHM.h"
+//#include <random>
+#include <time.h>
 
 
 int main(){

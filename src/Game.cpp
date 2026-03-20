@@ -7,6 +7,10 @@ Game::Game(){
     difficulty=0;
 }
 
+Game::~Game(){
+    
+}
+
 int Game::getNbJoueur(){
     return nbJoueur;
 }

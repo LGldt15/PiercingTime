@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <vector>
-#include "Shop.h"
+#include "Structs.h"
 
 struct Weapon{
     unsigned int baseDamage;

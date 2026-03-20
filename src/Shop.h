@@ -1,7 +1,7 @@
 #ifndef _SHOP_H
 #define _SHOP_H
 #include <string>
-#include "Structs.h"
+#include "Inventory.h"
 #include "Player.h"
 
 

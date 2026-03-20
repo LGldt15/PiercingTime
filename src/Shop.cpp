@@ -1,7 +1,5 @@
 #include "Shop.h"
 #include<iostream>
-#include <random>
-#include <time.h>
 
 Shop::Shop(){
 //init des prix
