@@ -2,15 +2,18 @@
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
-#include "iostream"
+#include "../assets/Background.h"
+#include "../assets/gromgroi.h"
+#include "../assets/player.h"
+//#include "iostream"
 
 
 IHM::IHM(){
     sf::Vector2<unsigned int> size={800,800};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
-    mapTypes[0].loadFromFile("./assets/Background.png");
-    playerTypes[0].loadFromFile("./assets/player.png");
-    enemyTypes[0].loadFromFile("./assets/gromgroi.png");
+    mapTypes[0].loadFromMemory(Background_png,Background_png_len);
+    playerTypes[0].loadFromMemory(player_png,player_png_len);
+    enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len);
 }
 
 void IHM::getInputs(){
