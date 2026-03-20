@@ -83,45 +83,23 @@ Item Shop::itemRandSelect(){
 }
 
 
-void Shop::refreshShop(){
-//srand(Time(null)) 
-// random des items
-
-int itemToDisplay=4;
-
-while(itemToDisplay!=0){
-
-    for (int i = 0; i < 4; i++)
-    {
-        if (item[i].isSelected){
-            item[i].isSelected=false;
-            item[i]=itemRandSelect();
-            item[i].button=i+1;
-
-
+void Shop::refreshShop() {
+    for (int i = 0; i < 4; i++) {
+        if (item[i].name == "None") {
+            item[i] = itemRandSelect(); 
+            item[i].button = i + 1;     
+            item[i].isSelected = false;
         }
-        else{
-            item[i]=itemRandSelect();
-            item[i].button=i;
-
-        }
-        
-    itemToDisplay--;
+     
     }
     
-
-
-
 }
-
-}
-
 
 
 Item Shop::getItems(){
-    return item[5];
-
+    return item[4];
 }
+
 
 
 
@@ -132,13 +110,15 @@ void Shop::selectValidation(Controls& c, Player& p) {
 
     if (c.select) {
         Item& target = item[currentCursor];
+        target.isSelected=true;//donc a appeler avant refresh
 
-        if (target.name != "None" && p.gold >= target.price) {
+        if (target.name != "None" && p.getStats().gold >= target.price) {
             
 
-            //ici mettre fonction qui applique les effets de l item et eneleve les gold au joueur
+            //ici mettre la fonction qui applique les effets de l item et eneleve les gold au joueur
+            effectOnPlayer(p, target);
 
-            // On vide le slot du shop
+            // on vide le slot du shop
             target.name = "None";
             target.price = 0;
         }
@@ -147,4 +127,21 @@ void Shop::selectValidation(Controls& c, Player& p) {
 
 
 
-//ICI METTRE LA FONCTION QUAND JAURAI RECUP LES TRUCS A CHARLIE
+//modification des stats de player dont le gold
+
+void Shop::effectOnPlayer(Player &p, Item i){
+    Stats& s = p.getStats();
+    s.gold-=i.price;
+    s.attackDamage+=i.effect.attackDamage;
+    s.playerSpeed+=i.effect.playerSpeed;
+    s.bulletSpeed+=i.effect.bulletSpeed;
+    s.hp+=i.effect.hp;
+
+    
+
+
+
+
+
+}
+

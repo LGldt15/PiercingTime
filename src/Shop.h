@@ -17,6 +17,7 @@ Shop();
 ~Shop();
 void selectValidation(Controls& c,Player& p );
 void refreshShop();
+void effectOnPlayer(Player& p, Item i);
 Item itemRandSelect();
 //getter items
 Item getItems();

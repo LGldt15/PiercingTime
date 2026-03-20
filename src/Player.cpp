@@ -15,7 +15,7 @@ Player::Player(){
 
 Player::~Player(){}
 
-Stats Player::getStats(){return stats;}
+Stats& Player::getStats(){return stats;}
 
 void Player::move(const Controls &c){
     float dx=0.0f; // variation de position en largeur
@@ -34,8 +34,8 @@ bool Player::takeDamage(const Enemy &enemy){
     unsigned int dmg = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
     Position distance=enemy.position-position;
     if(distance.length()<=radius){
-        if (hp<=dmg){hp=0;dead=true;} 
-        else hp-=dmg;
+        if (stats.hp<=dmg){stats.hp=0;dead=true;} 
+        else stats.hp-=dmg;
         return true;
     }
     return false;
@@ -49,8 +49,8 @@ bool Player::takeDamageBullet(Bullet &bullets){
     hitbox.posY=width;
     dmg=bullets.hitOrMiss(position,hitbox);
     if(dmg==0)return false;
-    if (hp<=dmg){hp=0;dead=true;} 
-    else hp-=dmg;
+    if (stats.hp<=dmg){stats.hp=0;dead=true;} 
+    else stats.hp-=dmg;
     return true;
  }
 

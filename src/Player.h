@@ -13,15 +13,15 @@
 class Player{
 private:
     Stats stats;
-    unsigned int hp;//stats
-    unsigned int attack;//stats
-    unsigned int experience;//stats
-    float speed;//stats
-    float bulletSpeed;//stats
+    //unsigned int hp;//stats
+    //unsigned int attack;//stats
+   // unsigned int experience;//stats
+    //float speed;//stats
+    //float bulletSpeed;//stats
 public:
     unsigned int height,width;
     unsigned int sprites;
-    unsigned int gold;//stats
+    //unsigned int gold;//stats
     Position position;
     Player();
     ~Player();
@@ -31,8 +31,8 @@ public:
     bool takeDamage(const Enemy &enemy);
     void move(const Controls &c);
     void levcelUP();
-    Position getPos();
-    Stats getStats();
+    //Position getPos();
+    Stats& getStats();
 };
 
 
