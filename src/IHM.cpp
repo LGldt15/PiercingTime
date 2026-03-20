@@ -6,8 +6,9 @@
 
 
 IHM::IHM(){
-    sf::Vector2<unsigned int> size={1200,1200};
+    sf::Vector2<unsigned int> size={800,800};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+    mapTypes[0].loadFromFile("./assets/Background.png");
 }
 
 void IHM::getInputs(){
@@ -20,7 +21,7 @@ void IHM::getInputs(){
 }
 
 IHM::~IHM(){
-    
+
 }
 
 void IHM::renderShop() {
@@ -30,6 +31,8 @@ void IHM::renderShop() {
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
     sf::Sprite map(mapTypes[game.getMapId()]);
+    sf::Vector2f size={800,800};
+    map.setScale(size);
     window.draw(map);
     Player* p=game.getPlayers();
     for(int i=0;i<game.getNbJoueur();i++){
