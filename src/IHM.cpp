@@ -37,13 +37,14 @@ void IHM::getInputs(){
 
 IHM::~IHM(){
     for (int i=0;i<2;i++){
-        delete playerSprites[i];
+        if(playerSprites[i]!=nullptr)delete playerSprites[i];
+        
     }
     for (int i=0;i<4;i++){
-        delete enemySprites[i];
+        if(enemySprites[i]!=nullptr)delete enemySprites[i];
     }
         for (int i=0;i<9;i++){
-        delete mapSprites[i];
+        if(mapSprites[i]!=nullptr)delete mapSprites[i];
     }
 }
 
