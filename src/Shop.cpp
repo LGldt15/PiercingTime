@@ -59,7 +59,7 @@ Item Shop::itemRandSelect(){
             selectedItem.effect.attackDamage=20.0f;
             selectedItem.effect.bulletSpeed=8.0f;
             selectedItem.effect.playerSpeed=2.5f;
-            selectedItem.effect.hp=-10.0f;
+            selectedItem.effect.hp=-10;
 
             break;
         case 5:

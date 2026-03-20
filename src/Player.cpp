@@ -8,6 +8,7 @@ Player::Player(){
     stats.playerSpeed=0.1;
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
+    sprites=0;
 
 }
 

@@ -11,9 +11,19 @@
 IHM::IHM(){
     sf::Vector2<unsigned int> size={800,800};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+
     mapTypes[0].loadFromMemory(Background_png,Background_png_len);
+    mapSprites[0]=new sf::Sprite(mapTypes[0]);
+
+    sf::Vector2f sizeM={800.0f/1200,800.0f/1200};
+    mapSprites[0]->setScale(sizeM);
+
     playerTypes[0].loadFromMemory(player_png,player_png_len);
+    playerSprites[0]=new sf::Sprite(playerTypes[0]);
+
     enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len);
+    enemySprites[0]=new sf::Sprite(enemyTypes[0]);
+
 }
 
 void IHM::getInputs(){
@@ -26,7 +36,15 @@ void IHM::getInputs(){
 }
 
 IHM::~IHM(){
-
+    for (int i=0;i<2;i++){
+        delete playerSprites[i];
+    }
+    for (int i=0;i<4;i++){
+        delete enemySprites[i];
+    }
+        for (int i=0;i<9;i++){
+        delete mapSprites[i];
+    }
 }
 
 void IHM::renderShop() {
@@ -35,35 +53,29 @@ void IHM::renderShop() {
 
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
-    sf::Sprite map(mapTypes[game.getMapId()]);
-    sf::Vector2f size={800.0f/1200,800.0f/1200};
-    map.setScale(size);
-    window.draw(map);
+    window.draw(*mapSprites[0]);
     Player* p=game.getPlayers();
     for(int i=0;i<game.getNbJoueur();i++){
-        sf::Sprite player(playerTypes[p[i].sprites]);
         sf::Vector2f pos;
         pos.x=p[i].position.posX;
         pos.y=p[i].position.posY;
-        player.setPosition(pos);
-        window.draw(player);
+        playerSprites[0]->setPosition(pos);
+        window.draw(*playerSprites[0]);
     }
     Enemy* enemyzero=game.getEnemies();
     for(int i=0;i<game.getNbEnemys();i++){
-        
-        sf::Sprite enemy(enemyTypes[enemyzero[i].sprite]);
         sf::Vector2u s=enemyTypes[enemyzero[i].sprite].getSize();
         sf::Vector2f si={100.0f/s.x,60.0f/s.y};
         //std::cout<<"here and si is :"<<si.x<<' '<<si.y<<std::endl;
-        enemy.setScale(si);
+        enemySprites[0]->setScale(si);
         sf::Vector2f pos;
         pos.x=enemyzero[i].position.posX;
         pos.y=enemyzero[i].position.posY;
-        enemy.setPosition(pos);
-        window.draw(enemy);
+        enemySprites[0]->setPosition(pos);
+        window.draw(*enemySprites[0]);
     }
     
-    window.display();  
+    window.display(); 
 }
 
 void IHM::gameLoop(){

@@ -3,6 +3,8 @@
 
 Enemy::Enemy(int health,int damage,bool a,float s,int idS){
     hp=health; attack=damage; isAlive=a; speed=s; sprite=idS ;
+    position.posX=rand()%800;
+    position.posY=rand()%800;
 }
 
 Enemy::~Enemy(){

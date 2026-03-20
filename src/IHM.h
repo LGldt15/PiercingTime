@@ -22,8 +22,14 @@ private:
     sf::RenderWindow window;
 
     sf::Texture playerTypes[2];
+    sf::Sprite *playerSprites[2];
+
     sf::Texture enemyTypes[4];
+    sf::Sprite *enemySprites[4];
+
     sf::Texture mapTypes[9];//one level uses one map
+    sf::Sprite *mapSprites[9];//one level uses one map
+
     sf::Texture itemTypes[20];
     sf::Texture collectibles;
     sf::Texture buttons[10];

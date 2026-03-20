@@ -9,7 +9,7 @@
 
 class Shop{
 private:
-Item item[4];//5 different items possible avec chacun un prix et des stats
+Item item[5];//5 different items possible avec chacun un prix et des stats
 int currentCursor;
 
 public:
