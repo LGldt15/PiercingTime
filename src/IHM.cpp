@@ -31,7 +31,7 @@ void IHM::renderShop() {
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
     sf::Sprite map(mapTypes[game.getMapId()]);
-    sf::Vector2f size={800,800};
+    sf::Vector2f size={800.0f/1200,800.0f/1200};
     map.setScale(size);
     window.draw(map);
     Player* p=game.getPlayers();
