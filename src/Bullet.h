@@ -1,6 +1,9 @@
 #ifndef _BULLET_H
 #define _BULLET_H
+<<<<<<< HEAD
 
+=======
+>>>>>>> a69e6c37a82a086ed1a730bcaa6e117ef225d7b4
 #include "Position.h"
 
 class Bullet{
