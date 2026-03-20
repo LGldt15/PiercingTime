@@ -32,8 +32,8 @@ Map::Map(int idS,Player &p,int nbP){
 void Map::move(Controls &c){
     for (int i=0;i<nbPlayers;i++){
         players[i]->move(c);
-        for (int i=0;i<nbEnemies;i++){
-            enemies[i].move(players[i]->position);
+        for (int j=0;j<nbEnemies;j++){
+            enemies[j].move(players[i]->position);
         }
     }    
     for (int i=0;i<nbBullets;i++){
@@ -48,7 +48,7 @@ void Map::damageE(){
     int iter=nbEnemies;
     for(int i=0;i<iter;i++){
         if(enemies[i].isAlive){
-            int iterBullet;
+            int iterBullet=nbBullets;
             for(int j=0;j<iterBullet;j++){
                 if (bullets[j].damage==0) iterBullet++;
                 enemies[i].takeDamageBullet(bullets[j]);

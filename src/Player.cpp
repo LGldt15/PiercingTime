@@ -3,8 +3,8 @@
 Player::Player(){
     stats.hp=10;
     stats.attackDamage=0;
-    stats.experience;
-    stats.gold;
+    //stats.experience;
+    //stats.gold;
     stats.playerSpeed=0.1;
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;

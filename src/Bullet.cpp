@@ -18,6 +18,7 @@ Bullet::Bullet(Bullet &n,float x,float y,float sX,float sY,unsigned int d,bool f
     speed.posY=sY;
     damage=d;
     fromPlayer=fP;
+    next=nullptr;
 }
 
 Bullet::~Bullet(){}   
