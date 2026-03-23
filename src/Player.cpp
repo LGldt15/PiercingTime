@@ -1,15 +1,17 @@
 #include "Player.h"
 #include "Bullet.h"
+#include <iostream>
 
 Player::Player(){
     stats.hp=10;
-    stats.attackDamage=0;
+    stats.attackDamage=10;
     //stats.experience;
     //stats.gold;
     stats.playerSpeed=0.1;
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
     sprites=0;
+    cooldown=100;
 
 }
 
@@ -27,6 +29,7 @@ void Player::move(const Controls &c){
     if(dx*dy!=0){dx*=0.70710678118; dy*=0.70710678118;} //normalisation à playerSpeed (multiplication par sqrt(2)/2) si cas diagonal
     position.posX+=dx; //ajout à la position courante
     position.posY+=dy;
+    cooldown--;
 }
 
 bool Player::takeDamage(const Enemy &enemy){
@@ -59,12 +62,16 @@ bool Player::takeDamageBullet(Bullet &bullets){
     Position dist=tabE[0].position-position;
     float distMin=dist.length();
     unsigned int idMin=0;
-    for(unsigned int i=1; i<=nbE;i++){
+    for(unsigned int i=1; i<nbE;i++){
         dist=tabE[i].position-position;
         if(distMin>dist.length()){
             idMin=i;
             distMin=dist.length();
         }
     }
-    bullets=Bullet(position,(position-tabE[idMin].position)*stats.bulletSpeed,stats.attackDamage,true);
- }
+    Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
+    bullets.pos=position;
+    bullets.speed=speed*stats.bulletSpeed;
+    bullets.damage=stats.attackDamage;
+    bullets.fromPlayer=true;
+}

@@ -4,6 +4,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
 ///lib 
+#include "Bullet.h"
 #include "Enemy.h"
 #include "Player.h"
 #include "Inventory.h"
@@ -37,6 +38,8 @@ public:
     Enemy* getEnemies();
     int getNbEnemys();
     int getPlayerId(int i);
+    int getNbBullets();
+    Bullet* getBullets();
 };
 
 #endif

@@ -46,3 +46,10 @@ int Game::getMapId(){
 int Game::getPlayerId(int i){
     return players[i].sprites;
 }
+
+Bullet* Game::getBullets(){
+    return level.getBullets();
+}
+int Game::getNbBullets(){
+    return level.getNbBullet();
+}

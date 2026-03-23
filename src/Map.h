@@ -31,6 +31,10 @@ public:
     int getNbEnemies();
     Enemy* getEnemies();
 
+
+    int getNbBullet();
+    Bullet* getBullets();
+
 };
 
 #endif

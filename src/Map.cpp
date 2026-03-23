@@ -1,6 +1,8 @@
 #include "Map.h"
+#include "Bullet.h"
 #include "Player.h"
   
+#include <iostream>
   //int idMap;
   //  Player* players;
   //  int nbPlayers;
@@ -22,9 +24,9 @@ Map::Map(int idS,Player &p,int nbP){
     idMap=idS;
     players[0]=&p;
     nbPlayers=nbP;
-    nbEnemies=0;
-    nbEnemies=1;
+    nbEnemies=2;
     enemies[0]=Enemy(1,0,true,0.05,0);
+    enemies[1]=Enemy(1,0,true,0.05,0);
     nbBullets=0;
     for (int i=0;i<499;i++){
         bullets[i].next=&bullets[i+1];
@@ -97,14 +99,37 @@ void Map::update(Controls& c){
     move(c);
     damageAll();
     for(int i=0;i<nbPlayers;i++){
-        if(bullets[0].damage!=0){
+        if(bullets[0].damage==0 && players[i]->cooldown<=0){
+            std::cout<<"modified bullet 0\n";
             players[i]->shoot(bullets[0], nbEnemies, enemies);
+            nbBullets++;
+            players[i]->cooldown=1000;
+            std::cout<<"finished byullet 0\n";
         }
-        if(nbBullets<500){
-            players[i]->shoot(*bullets[0].next, nbEnemies, enemies);
-            bullets[0].next=bullets[0].next->next;
+        else if (nbBullets<500 && players[i]->cooldown<=0 && bullets[0].next!=nullptr){
+            std::cout<<"modified bullet not 0\n";
+            int k=0;
+            for(int j=0;j<500;j++){
+                if (bullets[k].pos.posX<0 || bullets[k].pos.posX>800 || bullets[k].pos.posY<0 || bullets[k].pos.posY>800){
+                    bullets[k].damage=0;
+                    bullets[k].pos={0,0};
+                    bullets[k].speed={0,0};
+                    k--;
+                    nbBullets--;
+                }
+                if (bullets[k].damage!=0){
+                    k++;
+                }
+            }
+            players[i]->shoot(bullets[k], nbEnemies, enemies);
+            nbBullets++;
+            players[i]->cooldown=1000;
+            for (int i=0;i<nbBullets;i++){
+                std::cout<<bullets[i].pos.posX<<' '<<bullets[i].pos.posY<<' '<<i<<std::endl;
+            }
         }
     }
+
 }
 
 int Map::getMapId(){
@@ -115,4 +140,12 @@ int Map::getNbEnemies(){
 }
 Enemy* Map::getEnemies(){
     return &enemies[0];
+}
+
+
+int Map::getNbBullet(){
+    return nbBullets;
+}
+Bullet* Map::getBullets(){
+    return &bullets[0];
 }

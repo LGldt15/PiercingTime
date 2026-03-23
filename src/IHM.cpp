@@ -1,11 +1,14 @@
 #include "IHM.h"
+#include "Bullet.h"
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "../assets/Background.h"
 #include "../assets/gromgroi.h"
 #include "../assets/player.h"
-//#include "iostream"
+#include "../assets/caillou.h"
+
+#include "iostream"
 
 
 IHM::IHM(){
@@ -24,6 +27,10 @@ IHM::IHM(){
     enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len);
     enemySprites[0]=new sf::Sprite(enemyTypes[0]);
 
+    bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len);
+    bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
+
+    
 }
 
 void IHM::getInputs(){
@@ -75,7 +82,16 @@ void IHM::renderMap(){
         enemySprites[0]->setPosition(pos);
         window.draw(*enemySprites[0]);
     }
-    
+    Bullet* bulletzero=game.getBullets();
+    for(int i=0;i<game.getNbBullets();i++){
+        if (bulletzero[i].damage!=0){
+            sf::Vector2f pos;
+            pos.x=bulletzero[i].pos.posX;
+            pos.y=bulletzero[i].pos.posY;
+            bulletSprites[bulletzero[i].getSprite()]->setPosition(pos);
+            window.draw(*bulletSprites[0]);
+        }
+    }
     window.display(); 
 }
 
