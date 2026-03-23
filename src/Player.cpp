@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Bullet.h"
 
 Player::Player(){
     stats.hp=10;
@@ -65,7 +66,5 @@ bool Player::takeDamageBullet(Bullet &bullets){
             distMin=dist.length();
         }
     }
-    bullets.setSpeed((position-tabE[idMin].position)*stats.bulletSpeed);
-    bullets.setPos(position);
-    bullets.fromPlayer=true;
+    bullets=Bullet(position,(position-tabE[idMin].position)*stats.bulletSpeed,stats.attackDamage,true);
  }
