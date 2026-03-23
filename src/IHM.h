@@ -30,6 +30,10 @@ private:
     sf::Texture mapTypes[9];//one level uses one map
     sf::Sprite *mapSprites[9];//one level uses one map
 
+
+    sf::Texture bulletTypes[9];//one level uses one map
+    sf::Sprite *bulletSprites[9];//one level uses one map
+
     sf::Texture itemTypes[20];
     sf::Texture collectibles;
     sf::Texture buttons[10];

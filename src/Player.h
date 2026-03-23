@@ -19,6 +19,7 @@ private:
     //float speed;//stats
     //float bulletSpeed;//stats
 public:
+    int cooldown;
     unsigned int height,width;
     unsigned int sprites;
     //unsigned int gold;//stats

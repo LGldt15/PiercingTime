@@ -3,19 +3,18 @@
 
 Bullet::Bullet(){
     next=nullptr;
-    pos.posX=pos.posY=0;
+    pos.posX=pos.posY=50;
     speed.posX=speed.posY=0;
     damage=0;
     fromPlayer=true;
+    sprite=0;
 }
 
-Bullet::Bullet(Bullet &n,Position p,float sX,float sY,unsigned int d,bool fP){
-    next=&n;
+Bullet::Bullet(Bullet *n,Position p,Position S,unsigned int d,bool fP){
+    next=n;
     sprite=0;
-    pos.posX=p.posX;
-    pos.posY=p.posY;
-    speed.posX=sX;
-    speed.posY=sY;
+    pos=p;
+    speed=S;
     damage=d;
     fromPlayer=fP;
 }
@@ -27,7 +26,6 @@ Bullet::Bullet(Position p,Position S,unsigned int d,bool fP){
     speed=S;
     damage=d;
     fromPlayer=fP;
-    next=nullptr;
 }
 
 Bullet::~Bullet(){}   
@@ -45,4 +43,9 @@ unsigned int Bullet::hitOrMiss(Position min,Position max){//renvoie les degat fa
 
 void Bullet::move(){
     pos=pos+speed;
+}
+
+
+int Bullet::getSprite(){
+    return sprite;
 }
