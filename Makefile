@@ -1,7 +1,7 @@
 # --- Configuration de l'OS ---
 UNAME := $(shell uname)
 CXX := g++
-CXXFLAGS := -Wall -O2 -std=c++17
+CXXFLAGS := -Wall -O2 -std=c++17 
 
 # Dossiers
 SRC_DIR := ./src
@@ -9,7 +9,6 @@ OBJ_DIR := ./obj
 BIN_DIR := ./bin
 
 # --- Détection des OS et des Flags ---
-
 ifeq ($(UNAME), Linux)
     # Linux garde le lien statique comme prévu par tes amis
     CXXFLAGS += -DSFML_STATIC
@@ -32,11 +31,13 @@ ifeq ($(UNAME), Darwin)
 endif
 
 ifeq ($(OS), Windows_NT)
+    CXX=x86_64-w64-mingw32-g++
     CXXFLAGS += -DSFML_STATIC
+    CPPFLAGS += -I./include
     LIBS = ./lib/win/libsfml-graphics-s.a \
            ./lib/win/libsfml-window-s.a \
            ./lib/win/libsfml-system-s.a \
-           -lopengl32 -lgdi32 -lwinmm -lfreetype
+           -lopengl32 -lgdi32 -lwinmm -static
 endif
 
 # --- Cibles ---
