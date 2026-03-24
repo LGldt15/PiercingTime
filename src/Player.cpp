@@ -5,11 +5,11 @@
 Player::Player(){
     stats.hp=10;
     stats.attackDamage=10;
-    //stats.experience;
-    //stats.gold;
-    stats.playerSpeed=0.1;
+    stats.playerSpeed=0.1;// à changer de nom ??
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
+    experience=0;
+    gold=0;
     sprites=0;
     cooldown=100;
 

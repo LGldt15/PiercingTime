@@ -13,16 +13,12 @@
 class Player{
 private:
     Stats stats;
-    //unsigned int hp;//stats
-    //unsigned int attack;//stats
-   // unsigned int experience;//stats
-    //float speed;//stats
-    //float bulletSpeed;//stats
+    unsigned int experience;
 public:
     int cooldown;
     unsigned int height,width;
     unsigned int sprites;
-    //unsigned int gold;//stats
+    unsigned int gold;
     Position position;
     Player();
     ~Player();
