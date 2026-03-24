@@ -29,13 +29,15 @@ void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight
     if(c.left) dx-= stats.playerSpeed;
     if(dx*dy!=0){dx*=0.70710678118; dy*=0.70710678118;} //normalisation à playerSpeed (multiplication par sqrt(2)/2) si cas diagonal
    
+
     position.posX+=dx; //ajout à la position courante
     position.posY+=dy;
-
     if (position.posX < 0) position.posX = 0;
-    if (position.posX > winWidth) position.posX = winWidth;
+    if (position.posX +60> winWidth) position.posX = winWidth-60;
     if (position.posY < 0) position.posY = 0;
-    if (position.posY > winHeight) position.posY = winHeight;
+    if (position.posY +100> winHeight) position.posY = winHeight-101;
+
+ 
 
      
    
