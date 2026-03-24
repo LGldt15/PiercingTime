@@ -142,6 +142,7 @@ void IHM::playerSelect() {
 
 void IHM::app(){
     int s=-1;
+    window.setFramerateLimit(30);
     while (window.isOpen()){
         // Process events
         while (const std::optional event = window.pollEvent())

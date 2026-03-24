@@ -25,8 +25,8 @@ Map::Map(int idS,Player &p,int nbP){
     players[0]=&p;
     nbPlayers=nbP;
     nbEnemies=2;
-    enemies[0]=Enemy(1,0,true,0.05,0);
-    enemies[1]=Enemy(1,0,true,0.05,0);
+    enemies[0]=Enemy(1,0,true,2,0);
+    enemies[1]=Enemy(1,0,true,1,0);
     nbBullets=0;
     for (int i=0;i<499;i++){
         bullets[i].next=&bullets[i+1];
@@ -39,13 +39,13 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
         players[i]->move(c,winWidth, winHeight);
 
 
-        for (int j=0;j<nbEnemies;j++){
-            enemies[j].move(players[i]->position);
+        for (int j=0;j<50;j++){
+            if(enemies[j].isAlive)enemies[j].move(players[i]->position);
 
         }
     }    
-    for (int i=0;i<nbBullets;i++){
-        bullets[i].move();
+    for (int i=0;i<500;i++){
+        if(bullets[i].damage!=0)bullets[i].move();
     }
 
 }
@@ -78,8 +78,6 @@ void Map::damageP(int player){
     for(int i=0;i<iter;i++){
         if(bullets[i].damage!=0){
             if(players[player]->takeDamageBullet(bullets[i])){
-                bullets[i].next=bullets[0].next;
-                bullets[0].next=&bullets[i];
                 return;
             } 
         }
@@ -104,29 +102,32 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
 
             players[i]->shoot(bullets[0], nbEnemies, enemies);
             nbBullets++;
-            players[i]->cooldown=1000;
+            players[i]->cooldown=10;
 
         }
         else if (nbBullets<500 && players[i]->cooldown<=0 && bullets[0].next!=nullptr){
 
             int k=0;
+            bool kischanged=false;
+            nbBullets=0;
             for(int j=0;j<500;j++){
-                if (bullets[k].pos.posX<0 || bullets[k].pos.posX>800 || bullets[k].pos.posY<0 || bullets[k].pos.posY>800){
-                    bullets[k].damage=0;
-                    bullets[k].pos={0,0};
-                    bullets[k].speed={0,0};
-                    k--;
-                    nbBullets--;
+                if (bullets[j].pos.posX<0 || bullets[j].pos.posX>800 || bullets[j].pos.posY<0 || bullets[j].pos.posY>800){
+                    bullets[j].damage=0;
+                    bullets[j].pos={0,0};
+                    bullets[j].speed={0,0};
                 }
-                if (bullets[k].damage!=0){
-                    k++;
+                if (!kischanged && bullets[j].damage==0){
+                    k=j;
+                    kischanged=true;
+                }
+                if(bullets[j].damage!=0){
+                    nbBullets++;
                 }
             }
-            players[i]->shoot(bullets[k], nbEnemies, enemies);
-            nbBullets++;
-            players[i]->cooldown=1000;
-            for (int i=0;i<nbBullets;i++){
-
+            if(bullets[k].damage!=0){
+                players[i]->shoot(bullets[k], nbEnemies, enemies);
+                nbBullets++;
+                players[i]->cooldown=10;
             }
         }
     }
