@@ -5,11 +5,11 @@
 Player::Player(){
     stats.hp=10;
     stats.attackDamage=10;
-    stats.playerSpeed=0.1;// à changer de nom ??
+    //stats.experience;
+    //stats.gold;
+    stats.playerSpeed=0.1;
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
-    experience=0;
-    gold=0;
     sprites=0;
     cooldown=100;
 
@@ -58,20 +58,24 @@ bool Player::takeDamageBullet(Bullet &bullets){
  }
 
  void Player::shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const{
-    if(nbE==0){bullets.damage=0;return;}
+    //if(nbE==0){bullets.damage=0;return;}
     Position dist=tabE[0].position-position;
     float distMin=dist.length();
     unsigned int idMin=0;
-    for(unsigned int i=1; i<nbE;i++){
+    bool canshoot=false;
+    for(unsigned int i=0; i<50;i++){
         dist=tabE[i].position-position;
-        if(distMin>dist.length()){
+        if(distMin>=dist.length() && tabE[i].isAlive){
             idMin=i;
             distMin=dist.length();
+            canshoot=true;
         }
     }
-    Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
-    bullets.pos=position;
-    bullets.speed=speed*stats.bulletSpeed;
-    bullets.damage=stats.attackDamage;
-    bullets.fromPlayer=true;
+    if(canshoot){
+        Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
+        bullets.pos=position;
+        bullets.speed=speed*stats.bulletSpeed;
+        bullets.damage=stats.attackDamage;
+        bullets.fromPlayer=true;
+    }
 }
