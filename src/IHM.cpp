@@ -12,7 +12,9 @@
 
 
 IHM::IHM(){
-    sf::Vector2<unsigned int> size={800,800};
+    winWidth=800;
+    winHeight=800;
+    sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
 
     mapTypes[0].loadFromMemory(Background_png,Background_png_len);
@@ -105,7 +107,7 @@ void IHM::gameLoop(){
                 window.close();
         }
         getInputs();
-        game.update(inputs);
+        game.update(inputs, winWidth, winHeight);
         renderMap();
     }
 }

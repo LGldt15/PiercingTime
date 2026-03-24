@@ -19,17 +19,29 @@ Player::~Player(){}
 
 Stats& Player::getStats(){return stats;}
 
-void Player::move(const Controls &c){
+void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight){
     float dx=0.0f; // variation de position en largeur
     float dy=0.0f; // variation de position en hauteur
+
     if(c.up) dy-= stats.playerSpeed;
     if(c.down) dy+= stats.playerSpeed;
     if(c.right) dx+= stats.playerSpeed;
     if(c.left) dx-= stats.playerSpeed;
     if(dx*dy!=0){dx*=0.70710678118; dy*=0.70710678118;} //normalisation à playerSpeed (multiplication par sqrt(2)/2) si cas diagonal
+   
     position.posX+=dx; //ajout à la position courante
     position.posY+=dy;
+
+    if (position.posX < 0) position.posX = 0;
+    if (position.posX > winWidth) position.posX = winWidth;
+    if (position.posY < 0) position.posY = 0;
+    if (position.posY > winHeight) position.posY = winHeight;
+
+     
+   
+
     cooldown--;
+
 }
 
 bool Player::takeDamage(const Enemy &enemy){

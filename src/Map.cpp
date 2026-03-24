@@ -34,11 +34,14 @@ Map::Map(int idS,Player &p,int nbP){
 }
 
 
-void Map::move(Controls &c){
+void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
     for (int i=0;i<nbPlayers;i++){
-        players[i]->move(c);
+        players[i]->move(c,winWidth, winHeight);
+         std::cout<<players[i]->position.posX<<std::endl;
+         std::cout<<players[i]->position.posY<<std::endl;
         for (int j=0;j<nbEnemies;j++){
             enemies[j].move(players[i]->position);
+
         }
     }    
     for (int i=0;i<nbBullets;i++){
@@ -95,19 +98,19 @@ void Map::damageAll(){
     damageE();
 }
 
-void Map::update(Controls& c){
-    move(c);
+void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
+    move(c, winWidth, winHeight);
     damageAll();
     for(int i=0;i<nbPlayers;i++){
         if(bullets[0].damage==0 && players[i]->cooldown<=0){
-            std::cout<<"modified bullet 0\n";
+
             players[i]->shoot(bullets[0], nbEnemies, enemies);
             nbBullets++;
             players[i]->cooldown=1000;
-            std::cout<<"finished byullet 0\n";
+
         }
         else if (nbBullets<500 && players[i]->cooldown<=0 && bullets[0].next!=nullptr){
-            std::cout<<"modified bullet not 0\n";
+
             int k=0;
             for(int j=0;j<500;j++){
                 if (bullets[k].pos.posX<0 || bullets[k].pos.posX>800 || bullets[k].pos.posY<0 || bullets[k].pos.posY>800){
@@ -125,7 +128,7 @@ void Map::update(Controls& c){
             nbBullets++;
             players[i]->cooldown=1000;
             for (int i=0;i<nbBullets;i++){
-                std::cout<<bullets[i].pos.posX<<' '<<bullets[i].pos.posY<<' '<<i<<std::endl;
+
             }
         }
     }

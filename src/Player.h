@@ -30,7 +30,7 @@ public:
     void shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const;
     bool takeDamageBullet(Bullet &bullets);
     bool takeDamage(const Enemy &enemy);
-    void move(const Controls &c);
+    void move(const Controls &c,unsigned int winWidth,unsigned int winHeight);
     void levcelUP();
     //Position getPos();
     Stats& getStats();

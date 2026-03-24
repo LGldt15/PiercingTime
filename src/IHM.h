@@ -17,6 +17,8 @@ private:
     Game game;
     MainMenu mainMenu;
     Controls inputs;
+    unsigned int winWidth;
+    unsigned int winHeight;
 
     
     sf::RenderWindow window;

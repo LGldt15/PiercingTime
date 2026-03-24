@@ -26,8 +26,9 @@ void Game::setNbPlayers (int i){
 
 
 
-void Game::update(Controls c){
-    level.update(c);
+void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
+    level.update(c, winWidth, winHeight);
+
 }
 
 

@@ -32,7 +32,7 @@ public:
     ///menu stuff (before game starts)
     void setNbPlayers(int i);
     ///in game stuff
-    void update(Controls c);
+    void update(Controls c, unsigned int winWidth, unsigned int winHeight);
     //get stuff for rendering
     int getMapId();
     Enemy* getEnemies();

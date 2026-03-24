@@ -19,12 +19,12 @@ public:
     Map();
     Map(int idS,Player &p,int nbP);
 
-    void move(Controls &c);
+    void move(Controls &c, unsigned int winWidth,unsigned int winHeight);
     void damageE();
     void damageP(int player);
     void damageAll();
 
-    void update(Controls &c);
+    void update(Controls &c,  unsigned int winWidth, unsigned int winHeight);
     //utilities to get stuff vacj up to the renderer
     int getMapId();
 
