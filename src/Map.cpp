@@ -53,7 +53,6 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
 
     
 void Map::damageE(){
-    std::cout<<"pre\n";
     for(int i=0;i<50;i++){
         if(enemies[i].isAlive){
             for(int j=0;j<500;j++){
@@ -63,7 +62,6 @@ void Map::damageE(){
             }
         }
     }
-    std::cout<<"post\n";
 }
 
 void Map::damageP(int player){
