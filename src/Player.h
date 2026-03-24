@@ -1,8 +1,6 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-//eventuellement initialiser les stats 
-
 //nos include
 #include "Bullet.h"
 #include "Enemy.h"
@@ -15,23 +13,31 @@ private:
     Stats stats;
 
 public:
-    unsigned int experience;
+    Position position;// !!! à utiliser avec le get
+    unsigned int height,width;// !!! à utiliser avec le get
+    unsigned int sprites;// !!! à utiliser avec le get
+    unsigned int experience;// !!! à utiliser avec le get
+    unsigned int gold;// !!! à utiliser avec le get et set
     int cooldown;
-    unsigned int height,width;
-    unsigned int sprites;
-    unsigned int gold;
-    Position position;
+    bool dead;
+
     Player();
     ~Player();
-    bool dead;
+
     void shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const;
     bool takeDamageBullet(Bullet &bullets);
     bool takeDamage(const Enemy &enemy);
     void move(const Controls &c,unsigned int winWidth,unsigned int winHeight);
     void levcelUP();
-    //Position getPos();
-    Stats& getStats();
 
+    Stats& getStats();
+    Position getPosition();
+    unsigned int getHeight();
+    unsigned int getWidth();
+    unsigned int getSprites();
+    unsigned int getExperience();
+    unsigned int getGold();
+    void setGold(unsigned int g);
 };
 
 

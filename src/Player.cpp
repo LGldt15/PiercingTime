@@ -15,18 +15,19 @@ Player::Player(){
 
 }
 
-Player::~Player(){}
+Player::~Player(){}  unsigned int gold;
 
 Stats& Player::getStats(){return stats;}
 
-/*
-Position getPos(){return position;}
-unsigned int getGold(){return gold;}
-void setGold(unsigned int g){gold=g;}
-unsigned int getExperience(){return experience;}
-unsigned int getHeight(){return height;}
-unsigned int getWidth(){return width;}
-*/
+Position Player::getPosition(){return position;}
+unsigned int Player::getHeight(){return height;}
+unsigned int Player::getWidth(){return width;}
+unsigned int Player::getSprites(){return sprites;}
+unsigned int Player::getExperience(){return experience;}
+unsigned int Player::getGold(){return gold;}
+void Player::setGold(unsigned int g){gold=g;}
+
+
 
 void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight){
     float dx=0.0f; // variation de position en largeur
