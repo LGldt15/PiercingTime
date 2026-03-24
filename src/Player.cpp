@@ -55,7 +55,8 @@ void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight
 
 bool Player::takeDamage(const Enemy &enemy){
     float radius = 1; // rayon de la hitbox (à remplacer par le rayon de l'ennemy?)
-    unsigned int dmg = 1;// valeur des dégats (à remplacer par la puissance de l'ennemy?)
+    const Stats& statsEnemy=enemy.getStats();
+    unsigned int dmg = statsEnemy.attackDamage;// valeur des dégats
     Position distance=enemy.position-position;
     if(distance.length()<=radius){
         if (stats.hp<=dmg){stats.hp=0;dead=true;} 

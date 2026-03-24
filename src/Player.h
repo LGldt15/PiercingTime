@@ -4,10 +4,12 @@
 //nos include
 #include "Bullet.h"
 #include "Enemy.h"
-#include "Inventory.h"
 
 
-
+/*
+ *@class Player
+ *@brief gère le(s) joueur(s) humain(s)
+*/
 class Player{
 private:
     Stats stats;
