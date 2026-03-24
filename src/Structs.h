@@ -9,7 +9,7 @@ unsigned int attackDamage, hp, experience, gold;
 
 struct Item {
     std::string name;
-    int price;
+    unsigned int price;
     Stats effect;
     bool isSelected;
     int button;
