@@ -50,21 +50,17 @@ void Map::move(Controls &c){
 
     
 void Map::damageE(){
-    int iter=nbEnemies;
-    for(int i=0;i<iter;i++){
+    std::cout<<"pre\n";
+    for(int i=0;i<50;i++){
         if(enemies[i].isAlive){
-            int iterBullet=nbBullets;
-            for(int j=0;j<iterBullet;j++){
-                if (bullets[j].damage==0) iterBullet++;
-                enemies[i].takeDamageBullet(bullets[j]);
-                if(!enemies[i].isAlive){
-                    enemies[i].next=enemies[0].next;
-                    enemies[0].next=&enemies[i];
+            for(int j=0;j<500;j++){
+                if (bullets[j].damage!=0) {
+                    enemies[i].takeDamageBullet(bullets[j]);
                 }
             }
         }
-        else iter++;
     }
+    std::cout<<"post\n";
 }
 
 void Map::damageP(int player){
@@ -89,47 +85,49 @@ void Map::damageP(int player){
 }
 
 void Map::damageAll(){
+    std::cout<<"dasn damage PLayer\n";
     for(int i=0;i<nbPlayers;i++){
         damageP(i);
     }
+    std::cout<<"dasn damageE\n";
     damageE();
 }
 
 void Map::update(Controls& c){
+    std::cout<<"avant move\n";
     move(c);
+    std::cout<<"avant damage\n";
     damageAll();
+    std::cout<<"avant bullets\n";
     for(int i=0;i<nbPlayers;i++){
-        if(bullets[0].damage==0 && players[i]->cooldown<=0){
-            std::cout<<"modified bullet 0\n";
-            players[i]->shoot(bullets[0], nbEnemies, enemies);
-            nbBullets++;
-            players[i]->cooldown=1000;
-            std::cout<<"finished byullet 0\n";
-        }
-        else if (nbBullets<500 && players[i]->cooldown<=0 && bullets[0].next!=nullptr){
-            std::cout<<"modified bullet not 0\n";
+        if (nbBullets<500 && players[i]->cooldown<=0){
+            std::cout<<"pas dasn tir 0\n";
             int k=0;
             for(int j=0;j<500;j++){
-                if (bullets[k].pos.posX<0 || bullets[k].pos.posX>800 || bullets[k].pos.posY<0 || bullets[k].pos.posY>800){
-                    bullets[k].damage=0;
-                    bullets[k].pos={0,0};
-                    bullets[k].speed={0,0};
-                    k--;
+                std::cout<<"dasn els tests\n";
+                if (bullets[j].pos.posX<0 || bullets[j].pos.posX>800 || bullets[j].pos.posY<0 || bullets[j].pos.posY>800){
+                    bullets[j].damage=0;
+                    bullets[j].pos={0,0};
+                    bullets[j].speed={0,0};
                     nbBullets--;
                 }
-                if (bullets[k].damage!=0){
-                    k++;
+                if (bullets[k].damage!=0 && bullets[j].damage==0){
+                    k=j;
                 }
             }
-            players[i]->shoot(bullets[k], nbEnemies, enemies);
-            nbBullets++;
-            players[i]->cooldown=1000;
-            for (int i=0;i<nbBullets;i++){
-                std::cout<<bullets[i].pos.posX<<' '<<bullets[i].pos.posY<<' '<<i<<std::endl;
+            std::cout<<"dasn le tir\n";
+            if(bullets[k].damage==0){
+                std::cout<<"avant le tir"<<nbEnemies<<std::endl;
+                players[i]->shoot(bullets[k], nbEnemies, enemies);
+                std::cout<<"apres tir (avant nbbullets++)\n";
+                nbBullets++;
+                std::cout<<"avant modif cooldown\n";
+                players[i]->cooldown=1000;
             }
+            std::cout<<"apres tire pas 0\n";
         }
     }
-
+    std::cout<<"apres bullets\n";
 }
 
 int Map::getMapId(){

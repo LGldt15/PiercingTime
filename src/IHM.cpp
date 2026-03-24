@@ -71,16 +71,18 @@ void IHM::renderMap(){
         window.draw(*playerSprites[0]);
     }
     Enemy* enemyzero=game.getEnemies();
-    for(int i=0;i<game.getNbEnemys();i++){
-        sf::Vector2u s=enemyTypes[enemyzero[i].sprite].getSize();
-        sf::Vector2f si={100.0f/s.x,60.0f/s.y};
-        //std::cout<<"here and si is :"<<si.x<<' '<<si.y<<std::endl;
-        enemySprites[0]->setScale(si);
-        sf::Vector2f pos;
-        pos.x=enemyzero[i].position.posX;
-        pos.y=enemyzero[i].position.posY;
-        enemySprites[0]->setPosition(pos);
-        window.draw(*enemySprites[0]);
+    for(int i=0;i<50;i++){
+        if(enemyzero[i].isAlive){
+            sf::Vector2u s=enemyTypes[enemyzero[i].sprite].getSize();
+            sf::Vector2f si={100.0f/s.x,60.0f/s.y};
+            //std::cout<<"here and si is :"<<si.x<<' '<<si.y<<std::endl;
+            enemySprites[0]->setScale(si);
+            sf::Vector2f pos;
+            pos.x=enemyzero[i].position.posX;
+            pos.y=enemyzero[i].position.posY;
+            enemySprites[0]->setPosition(pos);
+            window.draw(*enemySprites[0]);
+        }
     }
     Bullet* bulletzero=game.getBullets();
     for(int i=0;i<game.getNbBullets();i++){
