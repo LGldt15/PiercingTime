@@ -13,8 +13,9 @@
 class Player{
 private:
     Stats stats;
-    unsigned int experience;
+
 public:
+    unsigned int experience;
     int cooldown;
     unsigned int height,width;
     unsigned int sprites;
@@ -30,6 +31,7 @@ public:
     void levcelUP();
     //Position getPos();
     Stats& getStats();
+
 };
 
 
