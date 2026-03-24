@@ -5,6 +5,7 @@ Enemy::Enemy(int health,int damage,bool a,float s,int idS){
     hp=health; attack=damage; isAlive=a; speed=s; sprite=idS ;
     position.posX=rand()%800;
     position.posY=rand()%800;
+    height=width=100;
     next=nullptr;
 }
 
@@ -19,11 +20,11 @@ void Enemy::move(Position& player){
 }
 
 bool Enemy::takeDamageBullet(Bullet &bullets){
-    if(!bullets.fromPlayer)return false;
+    //if(!bullets.fromPlayer)return false;
     unsigned int dmg;
     Position hitbox;
-    hitbox.posX=height;
-    hitbox.posY=width;
+    hitbox.posX=position.posX+height;
+    hitbox.posY=position.posY+width;
     dmg=bullets.hitOrMiss(position,hitbox);
     if(dmg==0)return false;
     if (hp<=dmg){hp=0;isAlive=false;} 

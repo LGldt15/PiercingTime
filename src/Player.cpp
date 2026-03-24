@@ -70,20 +70,24 @@ bool Player::takeDamageBullet(Bullet &bullets){
  }
 
  void Player::shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const{
-    if(nbE==0){bullets.damage=0;return;}
+    //if(nbE==0){bullets.damage=0;return;}
     Position dist=tabE[0].position-position;
     float distMin=dist.length();
     unsigned int idMin=0;
-    for(unsigned int i=1; i<nbE;i++){
+    bool canshoot=false;
+    for(unsigned int i=0; i<50;i++){
         dist=tabE[i].position-position;
-        if(distMin>dist.length()){
+        if(distMin>=dist.length() && tabE[i].isAlive){
             idMin=i;
             distMin=dist.length();
+            canshoot=true;
         }
     }
-    Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
-    bullets.pos=position;
-    bullets.speed=speed*stats.bulletSpeed;
-    bullets.damage=stats.attackDamage;
-    bullets.fromPlayer=true;
+    if(canshoot){
+        Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
+        bullets.pos=position;
+        bullets.speed=speed*stats.bulletSpeed;
+        bullets.damage=stats.attackDamage;
+        bullets.fromPlayer=true;
+    }
 }

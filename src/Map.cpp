@@ -53,21 +53,17 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
 
     
 void Map::damageE(){
-    int iter=nbEnemies;
-    for(int i=0;i<iter;i++){
+    std::cout<<"pre\n";
+    for(int i=0;i<50;i++){
         if(enemies[i].isAlive){
-            int iterBullet=nbBullets;
-            for(int j=0;j<iterBullet;j++){
-                if (bullets[j].damage==0) iterBullet++;
-                enemies[i].takeDamageBullet(bullets[j]);
-                if(!enemies[i].isAlive){
-                    enemies[i].next=enemies[0].next;
-                    enemies[0].next=&enemies[i];
+            for(int j=0;j<500;j++){
+                if (bullets[j].damage!=0) {
+                    enemies[i].takeDamageBullet(bullets[j]);
                 }
             }
         }
-        else iter++;
     }
+    std::cout<<"post\n";
 }
 
 void Map::damageP(int player){
@@ -92,9 +88,11 @@ void Map::damageP(int player){
 }
 
 void Map::damageAll(){
+    std::cout<<"dasn damage PLayer\n";
     for(int i=0;i<nbPlayers;i++){
         damageP(i);
     }
+    std::cout<<"dasn damageE\n";
     damageE();
 }
 
@@ -134,6 +132,7 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
     }
 
 }
+
 
 int Map::getMapId(){
     return idMap;
