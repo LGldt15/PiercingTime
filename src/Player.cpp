@@ -5,11 +5,11 @@
 Player::Player(){
     stats.hp=10;
     stats.attackDamage=10;
-    //stats.experience;
-    //stats.gold;
-    stats.playerSpeed=0.1;
+    stats.playerSpeed=0.1;// à changer de nom ??
     stats.bulletSpeed=0.05;
     position.posX=position.posY=0;
+    experience=0;
+    gold=0;
     sprites=0;
     cooldown=100;
 
@@ -18,6 +18,15 @@ Player::Player(){
 Player::~Player(){}
 
 Stats& Player::getStats(){return stats;}
+
+/*
+Position getPos(){return position;}
+unsigned int getGold(){return gold;}
+void setGold(unsigned int g){gold=g;}
+unsigned int getExperience(){return experience;}
+unsigned int getHeight(){return height;}
+unsigned int getWidth(){return width;}
+*/
 
 void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight){
     float dx=0.0f; // variation de position en largeur
