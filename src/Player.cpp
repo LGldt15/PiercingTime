@@ -11,7 +11,7 @@ Player::Player(){
     experience=0;
     gold=0;
     sprites=0;
-    cooldown=60;
+    cooldown=10;
 
 }
 
@@ -81,8 +81,8 @@ bool Player::takeDamageBullet(Bullet &bullets){
  void Player::shoot(Bullet &bullets, unsigned int nbE, Enemy* tabE)const{
     //if(nbE==0){bullets.damage=0;return;}
     Position dist=tabE[0].position-position;
-    float distMin=dist.length();
-    unsigned int idMin=0;
+    float distMin=800;
+    unsigned int idMin=-1;
     bool canshoot=false;
     for(unsigned int i=0; i<50;i++){
         dist=tabE[i].position-position;

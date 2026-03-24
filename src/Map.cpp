@@ -98,15 +98,7 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
     move(c, winWidth, winHeight);
     damageAll();
     for(int i=0;i<nbPlayers;i++){
-        if(bullets[0].damage==0 && players[i]->cooldown<=0){
-
-            players[i]->shoot(bullets[0], nbEnemies, enemies);
-            nbBullets++;
-            players[i]->cooldown=10;
-
-        }
-        else if (nbBullets<500 && players[i]->cooldown<=0 && bullets[0].next!=nullptr){
-
+        if (nbBullets<500 && players[i]->cooldown<=0){
             int k=0;
             bool kischanged=false;
             nbBullets=0;
@@ -124,8 +116,8 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
                     nbBullets++;
                 }
             }
-            if(bullets[k].damage!=0){
-                players[i]->shoot(bullets[k], nbEnemies, enemies);
+            if(bullets[k].damage==0){
+                players[i]->shoot(bullets[k], 50, enemies);
                 nbBullets++;
                 players[i]->cooldown=10;
             }
