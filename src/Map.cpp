@@ -37,8 +37,8 @@ Map::Map(int idS,Player &p,int nbP){
 void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
     for (int i=0;i<nbPlayers;i++){
         players[i]->move(c,winWidth, winHeight);
-         std::cout<<players[i]->position.posX<<std::endl;
-         std::cout<<players[i]->position.posY<<std::endl;
+
+
         for (int j=0;j<nbEnemies;j++){
             enemies[j].move(players[i]->position);
 
@@ -88,11 +88,11 @@ void Map::damageP(int player){
 }
 
 void Map::damageAll(){
-    std::cout<<"dasn damage PLayer\n";
+
     for(int i=0;i<nbPlayers;i++){
         damageP(i);
     }
-    std::cout<<"dasn damageE\n";
+
     damageE();
 }
 
