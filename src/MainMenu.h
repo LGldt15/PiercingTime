@@ -11,9 +11,9 @@ private:
     int spriteNotSelected[3];
     int spriteSelected[3];
     int idSelected;
-    bool isSelectedLocal;//id=1
-    bool isSelectedOnline;//id=2
-    bool isSelectedSettings;//id=3
+   // bool isSelectedLocal;//id=1
+   // bool isSelectedOnline;//id=2
+   // bool isSelectedSettings;//id=3
 public:
     MainMenu();
     MainMenu(int sNS[3],int sS[3]);
