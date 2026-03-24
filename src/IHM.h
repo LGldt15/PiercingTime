@@ -38,7 +38,10 @@ private:
 
     sf::Texture itemTypes[20];
     sf::Texture collectibles;
+
     sf::Texture buttons[10];
+    sf::Sprite *buttonSprites[10];
+
     sf::Texture ui[10];
 public:
     IHM();

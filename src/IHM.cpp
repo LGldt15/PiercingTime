@@ -7,6 +7,7 @@
 #include "../assets/gromgroi.h"
 #include "../assets/player.h"
 #include "../assets/caillou.h"
+#include "../assets/play.h"
 
 #include "iostream"
 
@@ -17,21 +18,29 @@ IHM::IHM(){
     sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
 
-    mapTypes[0].loadFromMemory(Background_png,Background_png_len);
-    mapSprites[0]=new sf::Sprite(mapTypes[0]);
+    if(mapTypes[0].loadFromMemory(Background_png,Background_png_len)){
+        mapSprites[0]=new sf::Sprite(mapTypes[0]);
+    }
 
     sf::Vector2f sizeM={800.0f/1200,800.0f/1200};
     mapSprites[0]->setScale(sizeM);
 
-    playerTypes[0].loadFromMemory(player_png,player_png_len);
-    playerSprites[0]=new sf::Sprite(playerTypes[0]);
+    if(playerTypes[0].loadFromMemory(player_png,player_png_len)){
+        playerSprites[0]=new sf::Sprite(playerTypes[0]);
+    }
 
-    enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len);
-    enemySprites[0]=new sf::Sprite(enemyTypes[0]);
+    if (enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len)){
+        enemySprites[0]=new sf::Sprite(enemyTypes[0]);
+    }
 
-    bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len);
-    bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
+    if(bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len)){
+        bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
+    }
 
+    if(buttons[0].loadFromMemory(play_jpg,play_jpg_len)){
+        buttonSprites[0]=new sf::Sprite(buttons[0]);
+    }
+    buttonSprites[0]->setPosition({100.0f,300.0f});
     
 }
 
@@ -114,10 +123,40 @@ void IHM::gameLoop(){
     }
 }
 
-void IHM::renderMenu() {
 
+void IHM::renderMenu() {
+    window.clear(sf::Color::Black);
+    window.draw(*mapSprites[0]);
+    switch(mainMenu.getSelected()){
+        case 0:{
+            window.draw(*buttonSprites[0]);
+            break;
+        }
+    }
+    window.display(); 
 }
 
 void IHM::playerSelect() {
 
+}
+
+void IHM::app(){
+    int s=-1;
+    while (window.isOpen()){
+        // Process events
+        while (const std::optional event = window.pollEvent())
+        {
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
+        getInputs();
+        if (inputs.select){
+            s=mainMenu.getSelected();
+        }
+        renderMenu();
+        if(s==0){
+            gameLoop();
+        }
+    }
 }

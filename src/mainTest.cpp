@@ -6,7 +6,7 @@
 int main(){
     srand(time(NULL));
     IHM game;
-    game.gameLoop();
+    game.app();
 
 
     return 0;

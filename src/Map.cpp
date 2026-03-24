@@ -53,6 +53,7 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
 
     
 void Map::damageE(){
+    nbEnemies=0;
     for(int i=0;i<50;i++){
         if(enemies[i].isAlive){
             for(int j=0;j<500;j++){
@@ -60,6 +61,7 @@ void Map::damageE(){
                     enemies[i].takeDamageBullet(bullets[j]);
                 }
             }
+            nbEnemies++;
         }
     }
 }

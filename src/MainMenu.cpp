@@ -4,8 +4,8 @@ MainMenu::MainMenu(){
         for (int i=0;i<3;i++){
         spriteNotSelected[i]=0;
         spriteSelected[i]=0;
-
     }
+    idSelected=0;
 }
 MainMenu::MainMenu(int sNS[3],int sS[3]){
     for (int i=0;i<3;i++){
@@ -16,7 +16,7 @@ MainMenu::MainMenu(int sNS[3],int sS[3]){
 }
 
 int MainMenu::getSelected(){
-    return  idSelected;
+    return  0;
 }
 
 void MainMenu::modifSelected(Controls c){
