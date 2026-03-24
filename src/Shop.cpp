@@ -110,7 +110,7 @@ void Shop::selectValidation(Controls& c, Player& p) {
         Item& target = item[currentCursor];
         target.isSelected=true;//donc a appeler avant refresh
 
-        if (target.name != "None" && p.getStats().gold >= target.price) {
+        if (target.name != "None" && p.getGold() >= target.price) {
             
 
             //ici mettre la fonction qui applique les effets de l item et eneleve les gold au joueur
@@ -126,20 +126,19 @@ void Shop::selectValidation(Controls& c, Player& p) {
 
 
 //modification des stats de player dont le gold
+void Shop::effectOnPlayer(Player &p, Item i) {
 
-void Shop::effectOnPlayer(Player &p, Item i){
     Stats& s = p.getStats();
-    s.gold-=i.price;
-    s.attackDamage+=i.effect.attackDamage;
-    s.playerSpeed+=i.effect.playerSpeed;
-    s.bulletSpeed+=i.effect.bulletSpeed;
-    s.hp+=i.effect.hp;
-
-    
 
 
+    int newGold = p.getGold() - i.price; //pr pas modifier une copie
+    p.setGold(newGold);
 
+
+    s.attackDamage+= i.effect.attackDamage;
+    s.playerSpeed+= i.effect.playerSpeed;
+    s.bulletSpeed+= i.effect.bulletSpeed;
+    s.hp+= i.effect.hp;
 
 
 }
-

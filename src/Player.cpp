@@ -46,9 +46,6 @@ void Player::move(const Controls &c,unsigned int winWidth,unsigned int winHeight
     if (position.posX +60> winWidth) position.posX = winWidth-60;
     if (position.posY < 0) position.posY = 0;
     if (position.posY +100> winHeight) position.posY = winHeight-101;
-
- 
-
      
    
 

@@ -4,7 +4,7 @@
 
 struct Stats{
 float playerSpeed, bulletSpeed;
-unsigned int attackDamage, hp, experience, gold;
+unsigned int attackDamage, hp;
 };
 
 struct Item {
