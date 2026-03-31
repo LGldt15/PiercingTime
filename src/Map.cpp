@@ -157,7 +157,7 @@ void Map::update(Player* players,int nbPlayers){
             if(bullets[k].damage==0){
                 players[i].shoot(bullets[k], 50, enemies);
                 nbBullets++;
-                players[i].cooldown=1000;
+                players[i].cooldown=10;
             }
         }
     }

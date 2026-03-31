@@ -1,7 +1,6 @@
 #include "IHMServeur.h"
 #include "Game.h"
 #include "Player.h"
-#include <cstddef>
 #include <cstring>
 #include <iostream>
 
@@ -48,7 +47,7 @@ void IHMServeur::run(){
             // 2. Check all existing clients for data
             else {
                 for (auto it = clients.begin(); it != clients.end(); ) {
-                    std::cout<<"sending data\n";
+                    //std::cout<<"sending data\n";
                     sf::TcpSocket& client = **it;
                     if (selector.isReady(client)) {
                         Player* currentPlayer=game.getPlayers();
@@ -65,7 +64,15 @@ void IHMServeur::run(){
                             // 4. Copy the Player (Starts after the ID)
                             // We add sizeof(int) to the pointer to move past the ID we just read
                             std::memcpy(&game.getPlayers()[id-1], rawData + sizeof(int), sizeof(Player));
-                            std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl;
+                            //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl;
+                            
+
+                            sf::Packet responsePacket;
+                            responsePacket.append(&game, sizeof(Game));
+                            client.send(responsePacket);
+
+
+
                             it++; 
                         } else {
                             // Client disconnected
@@ -74,16 +81,12 @@ void IHMServeur::run(){
                             delete *it;
                             it = clients.erase(it); // Remove from list
                         }
-                    sf::Packet responsePacket;
-                    responsePacket.append(&game, sizeof(Game));
-                    client.send(responsePacket);
                     } else {
                         it++;
                     }
                 }
-            }
-            
-        }
-        
+                game.update();
+            }   
+        }  
     }
 }
