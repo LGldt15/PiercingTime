@@ -77,7 +77,8 @@ Item Shop::itemRandSelect(){
     }
   return (selectedItem);
 
-
+//EVENTUELLEMENT UTILISER UNE MAP POUR REMPLIR
+//ajouter le nom du fichier de l image de chacun csv
 }
 
 
@@ -95,7 +96,7 @@ void Shop::refreshShop() {
 
 
 Item Shop::getItems(){
-    return item[4];
+    return item[3];
 }
 
 
@@ -142,3 +143,17 @@ void Shop::effectOnPlayer(Player &p, Item i) {
 
 
 }
+
+
+/*                 SHOP VERSION TEXTE                                             */
+Item Shop::getItemAt(int index){
+if (index >= 0 && index < 4) return item[index];
+return Item();
+}
+
+
+int  Shop::getCurrentCursor(){return currentCursor;}
+
+void Shop::moveLeft(){if(currentCursor<4 && currentCursor>=0)currentCursor-=1;}
+void Shop::moveRight(){if(currentCursor!=0)currentCursor+=1;}
+

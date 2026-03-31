@@ -129,6 +129,9 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
         }
     }
 
+        updateShop(shop, *players[0]);
+
+
 }
 
 
@@ -148,4 +151,46 @@ int Map::getNbBullet(){
 }
 Bullet* Map::getBullets(){
     return &bullets[0];
+}
+
+void Map::updateShop(Shop& shop, Player& player) {
+    bool inShop = true;
+    shop.refreshShop(); // On remplit le shop avec de nouveaux items
+
+    while (inShop) {
+        std::cout << "\n=== BIENVENUE AU SHOP (Fin de Niveau) ===" << std::endl;
+        std::cout << "Votre Or : " << player.getGold() << " GP" << std::endl;
+        std::cout << "------------------------------------------" << std::endl;
+
+        for (int i = 0; i < 4; i++) {
+            Item current = shop.getItemAt(i); // Utilise une fonction getter (voir plus bas)
+            std::cout << i + 1 << ". ";
+            if (current.name == "None") {
+                std::cout << "[VENDU]";
+            } else {
+                std::cout << current.name << " - Prix : " << current.price << " GP";
+            }
+            if (i == shop.getCurrentCursor()) std::cout << " <---"; // Curseur visuel
+            std::cout << std::endl;
+        }
+
+        std::cout << "------------------------------------------" << std::endl;
+        std::cout << " Gauche |  Droite | Acheter | quitter" << std::endl;
+
+        char input;
+        std::cin >> input;
+        input = toupper(input);
+
+        Controls c = {false}; 
+        if (input == 'l') { shop.moveLeft(); } 
+        if (input == 'r') { shop.moveRight(); }
+        if (input == 'e') {
+            c.select = true;
+            shop.selectValidation(c, player);
+        }
+        if (input == 'q') {
+            inShop = false;
+        }
+    }
+    std::cout << "NEXT lvl" << std::endl;
 }

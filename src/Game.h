@@ -21,7 +21,7 @@ private:
 
     Map level;
     unsigned int difficulty;
-    Shop shop;
+
 public:
     bool inConfig;//pour savoir si on affiche l ajou de joueur ou le jeu
     Game();
@@ -40,6 +40,7 @@ public:
     int getPlayerId(int i);
     int getNbBullets();
     Bullet* getBullets();
+//shop et waves
 };
 
 #endif

@@ -21,8 +21,11 @@ void effectOnPlayer(Player& p, Item i);
 Item itemRandSelect();
 //getter items
 Item getItems();
-
-
+Item getItemAt(int index);
+int getCurrentCursor();
+void moveLeft();
+void moveRight();
+void consoleShop();
 };
 
 

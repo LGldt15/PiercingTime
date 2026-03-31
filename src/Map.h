@@ -4,10 +4,11 @@
 #include "Bullet.h"
 #include "Enemy.h"
 #include "Player.h"
-
+#include "Shop.h"
 
 class Map{
 private:
+    Shop shop;
     int idMap;
     Player* players[4];
     int nbPlayers;
@@ -34,6 +35,9 @@ public:
 
     int getNbBullet();
     Bullet* getBullets();
+
+
+    void updateShop(Shop& shop, Player& player);
 
 };
 
