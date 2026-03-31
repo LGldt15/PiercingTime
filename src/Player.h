@@ -13,7 +13,7 @@
 class Player{
 private:
     Stats stats;
-
+    bool op;
 public:
     Position position;// !!! à utiliser avec le get
     unsigned int height,width;// !!! à utiliser avec le get
