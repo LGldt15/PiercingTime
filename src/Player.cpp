@@ -101,3 +101,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
         bullets.fromPlayer=true;
     }
 }
+
+int Player::getIdMulti(){
+    return idMulti;
+}

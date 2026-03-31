@@ -2,7 +2,7 @@
 #include "Player.h"
 
 Game::Game(){
-    nbJoueur=1;
+    nbJoueur=0;
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
@@ -27,8 +27,14 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-    level.update(c, winWidth, winHeight);
+    for(int i=0;i<nbJoueur;i++){
+        players[i].move(c, winWidth, winHeight);
+    }
+    level.update(winWidth, winHeight,players,nbJoueur);
+}
 
+void Game::update(){
+    level.update(players,nbJoueur);
 }
 
 

@@ -13,7 +13,7 @@
 class Player{
 private:
     Stats stats;
-    bool op;
+    int idMulti;
 public:
     Position position;// !!! à utiliser avec le get
     unsigned int height,width;// !!! à utiliser avec le get
@@ -22,6 +22,8 @@ public:
     unsigned int gold;// !!! à utiliser avec le get et set
     int cooldown;
     bool dead;
+
+
 
     Player();
     ~Player();
@@ -34,12 +36,18 @@ public:
 
     Stats& getStats();
     Position getPosition();
+
+
     unsigned int getHeight();
     unsigned int getWidth();
     unsigned int getSprites();
     unsigned int getExperience();
     unsigned int getGold();
     void setGold(unsigned int g);
+
+
+    //server managment
+    int getIdMulti();
 };
 
 

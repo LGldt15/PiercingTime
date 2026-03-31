@@ -27,7 +27,6 @@ int main() {
             
             // 1. Check if the listener has a new connection
             if (selector.isReady(listener)) {
-                                #include <cstdlib>
                 sf::TcpSocket* client = new sf::TcpSocket;
                 if (listener.accept(*client) == sf::Socket::Status::Done) {
                     clients.push_back(client);
@@ -53,7 +52,7 @@ int main() {
                             if (message == "new") {
                                 std::string port=std::to_string(nextPort);
                                 // 1. Combine the command and the variable into one string
-                                std::string command = "kitty ./server " + port+'&';
+                                std::string command = "kitty ./bin/PiercingServ " + port+'&';
 
                                 // 2. Pass it to system() using .c_str()
                                 std::system(command.c_str());
@@ -83,7 +82,13 @@ int main() {
                                 std::string mess='0'+message;
                                 responsePacket << mess;
                                 client.send(responsePacket);
-                            }                  
+                            }  
+                            else{
+                                std::string reply = "Message received!";
+                                sf::Packet responsePacket;
+                                responsePacket <<reply;
+                                client.send(responsePacket);
+                            }                
                             it++; 
                         } else {
                             // Client disconnected

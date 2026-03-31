@@ -1,14 +1,17 @@
 #include "IHM.h"
+#include <SFML/Network.hpp>
 #include "Bullet.h"
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
+#include <cstring>
 #include "../assets/Background.h"
 #include "../assets/gromgroi.h"
 #include "../assets/player.h"
 #include "../assets/caillou.h"
 #include "../assets/play.h"
 
+#include "Player.h"
 #include "iostream"
 
 
@@ -123,6 +126,79 @@ void IHM::gameLoop(){
     }
 }
 
+void IHM::gameLoopMulti(){
+    int id=-1;
+    sf::TcpSocket socket;
+    sf::IpAddress ip(127,0,0,1);
+    int gamePort=0;
+    sf::Socket::Status status = socket.connect(ip, 53000);
+
+    if (status != sf::Socket::Status::Done) {
+        std::cout << "Error: Could not connect to server." << std::endl;
+        return;
+    }
+    std::cout << "Connected to server!" << std::endl;
+    //connect to dispatcher and get rooms
+    while (window.isOpen()) {
+        std::cout << "Select : ";
+        std::string message;
+        std::getline(std::cin, message);
+
+        // Pack and Send
+        sf::Packet packet;
+        packet << message;
+        socket.send(packet);
+
+        // Wait for server response
+        sf::Packet receivePacket;
+        if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
+            std::string serverMsg;
+            receivePacket >> serverMsg;
+            std::cout << "Dispatcher says: " << serverMsg << std::endl;
+            if(serverMsg[0]=='0'){
+                gamePort=std::stoi(serverMsg);
+                break;
+            }
+        }
+    }
+    std::cout<<gamePort<<std::endl;
+    status=socket.connect(ip, gamePort);
+    while(status!=sf::Socket::Status::Done){
+        status=socket.connect(ip, gamePort);
+    }
+    std::cout<<"connected\n";
+    while (window.isOpen()) {
+        while (const std::optional event = window.pollEvent())
+        {
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
+        // Pack and Send
+
+        // Wait for server response
+        sf::Packet receivePacket;
+        if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
+            std::cout<<"recived message\n";
+    
+            // Skip the 4-byte header
+            std::memcpy(&game,receivePacket.getData(),sizeof(Game));
+            if(id==-1){
+                id=game.getNbJoueur();
+                std::cout<<"id : "<<id<<std::endl;
+            }
+        }
+        if(id!=-1){
+            getInputs();
+            game.getPlayers()[id-1].move(inputs, 800, 800);
+            sf::Packet packet;
+            packet.append(&id, sizeof(int));
+            packet.append(&game.getPlayers()[id-1], sizeof(Player));
+            socket.send(packet);
+        }
+        renderMap();
+    }
+}
 
 void IHM::renderMenu() {
     window.clear(sf::Color::Black);
@@ -141,6 +217,7 @@ void IHM::playerSelect() {
 }
 
 void IHM::app(){
+    bool selected=true;
     int s=-1;
     window.setFramerateLimit(30);
     while (window.isOpen()){
@@ -154,10 +231,11 @@ void IHM::app(){
         getInputs();
         if (inputs.select){
             s=mainMenu.getSelected();
+            selected=false;
         }
-        renderMenu();
+        if(selected)renderMenu();
         if(s==0){
-            gameLoop();
+            gameLoopMulti();
         }
     }
 }

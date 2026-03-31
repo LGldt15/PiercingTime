@@ -54,6 +54,7 @@ public:
     void getInputs();
     //loop
     void gameLoop();
+    void gameLoopMulti();
     //tout
     void app();
 
