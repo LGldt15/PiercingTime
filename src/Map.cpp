@@ -129,7 +129,7 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
         }
     }
 
-        updateShop(shop, *players[0]);
+       // updateShop(shop, *players[0]);
 
 
 }
