@@ -1,13 +1,18 @@
 #include "Enemy.h"
+#include "Player.h"
 #include <cmath>
+#include <string>
 
-Enemy::Enemy(int health,int damage,bool a,float s,int idS){
-    stats.hp=health; stats.attackDamage=damage; isAlive=a; stats.playerSpeed=s; sprite=idS ;
+Enemy::Enemy(int health,int damage,bool a,float s,int idS,std::string t){
+    stats.hp=health; stats.attackDamage=damage; stats.playerSpeed=s; stats.bulletSpeed=0;
+    isAlive=a;
     position.posX=rand()%800;
     position.posY=rand()%800;
+    sprite=idS;
     height=width=100;
     next=nullptr;
-    stats.bulletSpeed=0;
+    type=t;
+    
 }
 
 Enemy::~Enemy(){
@@ -17,9 +22,10 @@ Stats& Enemy::getStats(){return stats;}
 const Stats& Enemy::getStats()const{return stats;}
 
 void Enemy::move(Position& player){
+    bool shooter= (type=="Archer")||(type=="Spearman");//...
     if(position.posX<0){position.posX=0.f;}else if(position.posX>800){position.posX=800.f;} //prévient la sortie de case
     if(position.posY<0){position.posY=0.f;}else if(position.posY>800){position.posY=800.f;} 
-    if(stats.bulletSpeed!=0){moveShooter(player);return;}
+    if(shooter){moveShooter(player);return;}
     moveAgro(player);
 }
 
@@ -47,8 +53,36 @@ void Enemy::moveShooter(Position &player){
 }
 
 
+ void Enemy::shoot(Bullet &bullets, unsigned int nbP, Player* tabP)const{//à update dans player.cpp!!!!!
+    //if(nbP==0){bullets.damage=0;return;}
+    Position dist=tabP[0].getPosition()-position;
+    float distMin=800;
+    unsigned int idMin=-1;
+    bool canshoot=false;
+    for(unsigned int i=0; i<2;i++){
+        dist=tabP[i].getPosition()-position;
+        if(distMin>=dist.length() && !tabP[i].dead){
+            idMin=i;
+            distMin=dist.length();
+            canshoot=true;
+        }
+    }
+    if(canshoot){
+        Position from=position;// l'origine de la bullet est le centre de l'enemy 
+        from.posX+=width/2.f;
+        from.posY-=height/2.f;
+        Position speed=(tabP[idMin].getPosition()-from)/(from-tabP[idMin].getPosition()).length();
+        speed.posX+=tabP[idMin].width/2.f;// la cible de la bullet est le centre du Player
+        speed.posY-=tabP[idMin].height/2.f;
+        bullets.pos=from;
+        bullets.speed=speed*stats.bulletSpeed;
+        bullets.damage=stats.attackDamage;
+        bullets.fromPlayer=false;
+    }
+}
+
 bool Enemy::takeDamageBullet(Bullet &bullets){
-    //if(!bullets.fromPlayer)return false;
+    if(!bullets.fromPlayer)return false;
     unsigned int dmg;
     Position hitbox;
     hitbox.posX=position.posX+height;

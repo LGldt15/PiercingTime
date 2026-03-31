@@ -5,6 +5,7 @@
 class Bullet{
 private: // composantes en x et y du vecteur vitesse
     unsigned int sprite;
+    // width et height !!!!!!!!!!!!!!!
 public:
     Position speed;
     Position pos;

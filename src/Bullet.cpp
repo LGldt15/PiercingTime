@@ -32,7 +32,10 @@ Bullet::~Bullet(){}
 
 
 unsigned int Bullet::hitOrMiss(Position min,Position max){//renvoie les degat fait un une entite en foncione de la hitbpx de celle ci(xMin et yMin sont ses coordonner xMax,yMax sont les hauteur et la largeur de la "hitbox")
-    if(pos.posX<=max.posX && pos.posX>=min.posX && pos.posY<=max.posY && pos.posY>=min.posY) {
+    float width=10;// a mettre en donnée membre !!!!!
+    float height=10;
+    if((pos.posX<=max.posX && pos.posX>=min.posX && pos.posY<=max.posY && pos.posY>=min.posY)
+        ||(pos.posX+width<=max.posX && pos.posX+width>=min.posX && pos.posY-height<=max.posY && pos.posY-height>=min.posY) ) {
         unsigned int temp=damage; // on récupère les dégats
         damage=0; // on met damage à 0 pour détruire facilement l'objet
         return temp;
