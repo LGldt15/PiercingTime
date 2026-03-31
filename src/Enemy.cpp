@@ -17,10 +17,35 @@ Stats& Enemy::getStats(){return stats;}
 const Stats& Enemy::getStats()const{return stats;}
 
 void Enemy::move(Position& player){
+    if(position.posX<0){position.posX=0.f;}else if(position.posX>800){position.posX=800.f;} //prévient la sortie de case
+    if(position.posY<0){position.posY=0.f;}else if(position.posY>800){position.posY=800.f;} 
+    if(stats.bulletSpeed!=0){moveShooter(player);return;}
+    moveAgro(player);
+}
+
+void Enemy::moveAgro(Position &player){
     Position dir = player - position; //direction
-    float dist = sqrt(dir.posX * dir.posX + dir.posY * dir.posY); //norme du vecteur 
+    float dist = dir.length(); //norme du vecteur 
     if (dist > 0) position =position+ dir / dist * stats.playerSpeed; //normalisation puis * vitesse
 }
+
+void Enemy::moveShooter(Position &player){
+    float maxDist=200; // taille de l'écart entre joueur et l'ennemy
+    Position dir = player - position; //direction vers le joueur
+    bool q =(reinterpret_cast<std::uintptr_t>(this) >> 4) & 1;//vaut 1 ou 0, pour le sens de l'ennemy, constant et identifié par son adresse
+    float x=-1*(q*2-1)*dir.posY; // on ajoute +ou- 90 deg au vecteur direction
+    dir.posY=(q*2-1)*dir.posX;
+    dir.posX=x;
+    //remarque: on ne change pas la norme du vecteur donc on peut encore savoir si on est trop proche 
+    if(dir.length()<=maxDist){//on ajoute un angle pi/4 pour s'éloigner
+        x=(dir.posX-(q*2-1)*dir.posY)*0.70710678118;
+        dir.posY=(dir.posX+(q*2-1)*dir.posY)*0.70710678118;
+        dir.posX=x;
+    }
+    float dist = dir.length(); //norme du vecteur 
+    if (dist > 0) position =position+ dir / dist * stats.playerSpeed; //normalisation puis * vitesse
+}
+
 
 bool Enemy::takeDamageBullet(Bullet &bullets){
     //if(!bullets.fromPlayer)return false;

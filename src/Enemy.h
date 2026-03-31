@@ -16,12 +16,14 @@ public:
     bool isAlive;
     Enemy* next;
 
-    Enemy(int health=1,int damage=1,bool a=false,float s=0.05,int idS=0);
+    Enemy(int health=1,int damage=1,bool a=true,float s=0.05,int idS=0);
     ~Enemy();
     
     void shoot(Bullet &bullets);
     bool takeDamageBullet(Bullet &bullets);
     void move(Position &player);
+    void moveAgro(Position &player);
+    void moveShooter(Position &player);
 
     unsigned int getSprite();
     Position getPosition();
