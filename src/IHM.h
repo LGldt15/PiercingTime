@@ -40,6 +40,8 @@ private:
     sf::Texture collectibles;
     sf::Texture buttons[10];
     sf::Texture ui[10];
+
+    sf::Font font;
 public:
     IHM();
     ~IHM();
@@ -53,6 +55,9 @@ public:
     void gameLoop();
     //tout
     void app();
+
+    // PARTIE POUR LE SHOP
+    void handleShopInput();
 
 };
 

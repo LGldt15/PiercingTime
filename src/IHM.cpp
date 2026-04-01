@@ -8,7 +8,9 @@
 #include "../assets/player.h"
 #include "../assets/caillou.h"
 
-#include "iostream"
+#include <optional>
+#include <SFML/Window/Event.hpp> // Pour être sûr d'avoir les définitions d'events
+#include <iostream>
 
 
 IHM::IHM(){
@@ -32,6 +34,11 @@ IHM::IHM(){
     bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len);
     bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
 
+
+    //load font
+    if(!font.openFromFile("./assets/font.ttf")) {
+        std::cout << "Erreur avec le font" << std::endl;
+    }
     
 }
 
@@ -57,9 +64,6 @@ IHM::~IHM(){
     }
 }
 
-void IHM::renderShop() {
-
-}
 
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
@@ -127,4 +131,76 @@ void IHM::renderMenu() {
 
 void IHM::playerSelect() {
 
+}
+
+
+void IHM::handleShopInput() { //tq le joueur 1 joue avec fleche et entree et le 2 joue avec zqsd et espace
+    std::optional<sf::Event> event;
+    
+    while (event = window.pollEvent()) {
+        if (event->is<sf::Event::Closed>()) window.close();
+
+        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            
+            // JOUEUR 1 
+            bool L1 = (keyPressed->code == sf::Keyboard::Key::Left);
+            bool R1 = (keyPressed->code == sf::Keyboard::Key::Right);
+            bool S1 = (keyPressed->code == sf::Keyboard::Key::Enter);
+            game.getShop(0).selectValidation(L1, R1, S1, game.getPlayers()[0]);
+
+            // JOUEUR 2 
+            if (game.getNbJoueur() > 1) {
+                bool L2 = (keyPressed->code == sf::Keyboard::Key::Q);
+                bool R2 = (keyPressed->code == sf::Keyboard::Key::D);
+                bool S2 = (keyPressed->code == sf::Keyboard::Key::Space);
+                game.getShop(1).selectValidation(L2, R2, S2, game.getPlayers()[1]);
+            }
+
+            // Touche pour quitter le shop E
+            if (keyPressed->code == sf::Keyboard::Key::E) {
+                game.setShopActive(false); 
+            }
+        }
+    }
+}
+
+void IHM::renderShop() {
+    window.clear(sf::Color(20, 20, 30)); 
+
+    for (int pIdx = 0; pIdx < game.getNbJoueur(); pIdx++) {
+        Shop& currentShop = game.getShop(pIdx);
+        Player& currentPlayer = game.getPlayers()[pIdx];
+
+        // On définit un décalage vertical pour chaque joueur
+        float offsetY = pIdx * 350.f; 
+
+        // Affichage Gold du Joueur P
+        sf::Text goldText(font);
+        goldText.setString("P" + std::to_string(pIdx+1) + " Gold: " + std::to_string(currentPlayer.getGold()));
+        goldText.setPosition({50.f, 50.f + offsetY});
+        window.draw(goldText);
+
+        // Boucle sur les items du shop du joueur P
+        for (int i = 0; i < 4; i++) {
+            Item item = currentShop.getItemAt(i);
+            sf::Vector2f pos = {100.f + i * 170.f, 120.f + offsetY};
+
+            sf::RectangleShape box({150.f, 200.f});
+            box.setPosition(pos);
+            
+            // Curseur spécifique à ce joueur
+            if (currentShop.getCurrentCursor() == i) {
+                box.setOutlineColor(sf::Color::Yellow);
+                box.setOutlineThickness(4.f);
+            } else {
+                box.setOutlineColor(sf::Color::White);
+            }
+            
+            box.setFillColor(sf::Color(40, 40, 60));
+            window.draw(box);
+
+            // ... Dessiner le nom et prix de l'item ici ...
+        }
+    }
+    window.display();
 }

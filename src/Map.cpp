@@ -153,7 +153,8 @@ Bullet* Map::getBullets(){
     return &bullets[0];
 }
 
-void Map::updateShop(Shop& shop, Player& player) {
+
+  /*void Map::updateShop(Shop& shop, Player& player) {
     bool inShop = true;
     shop.refreshShop(); // On remplit le shop avec de nouveaux items
 
@@ -194,3 +195,4 @@ void Map::updateShop(Shop& shop, Player& player) {
     }
     std::cout << "NEXT lvl" << std::endl;
 }
+*/

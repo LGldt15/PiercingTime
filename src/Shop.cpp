@@ -102,24 +102,24 @@ Item Shop::getItems(){
 
 
 
-void Shop::selectValidation(Controls& c, Player& p) {
+// Shop.cpp
+void Shop::selectValidation(bool moveLeft, bool moveRight, bool attemptSelect, Player& p) {
+    
+    if (moveRight && currentCursor < 3) {
+        currentCursor++;
+    }
+    if (moveLeft && currentCursor > 0) {
+        currentCursor--;
+    }
 
-    if (c.right && currentCursor < 3) currentCursor++;
-    if (c.left && currentCursor > 0) currentCursor--;
-
-    if (c.select) {
+    if (attemptSelect) {
         Item& target = item[currentCursor];
-        target.isSelected=true;//donc a appeler avant refresh
-
+        
         if (target.name != "None" && p.getGold() >= target.price) {
-            
-
-            //ici mettre la fonction qui applique les effets de l item et eneleve les gold au joueur
             effectOnPlayer(p, target);
-
-            // on vide le slot du shop
             target.name = "None";
             target.price = 0;
+            target.isSelected = true; 
         }
     }
 }

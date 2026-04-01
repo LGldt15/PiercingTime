@@ -15,7 +15,7 @@ int currentCursor;
 public:
 Shop();
 ~Shop();
-void selectValidation(Controls& c,Player& p );
+void selectValidation(bool moveLeft, bool moveRight, bool attemptSelect, Player& p);
 void refreshShop();
 void effectOnPlayer(Player& p, Item i);
 Item itemRandSelect();

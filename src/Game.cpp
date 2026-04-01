@@ -7,6 +7,8 @@ Game::Game(){
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
+    isShopActive =false;
+    level = Map(0, players[0], nbJoueur);
 }
 
 Game::~Game(){
