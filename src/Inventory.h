@@ -4,7 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <vector>
-#include "Structs.h"
+#include "Controls.h"
+#include "Item.h"
+#include "Stats.h"
 
 struct Weapon{
     unsigned int baseDamage;

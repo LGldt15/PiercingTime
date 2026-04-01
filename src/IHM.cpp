@@ -105,9 +105,16 @@ void IHM::gameLoop(){
         while (const std::optional event = window.pollEvent())
         {
             // Close window: exit
-            if (event->is<sf::Event::Closed>())
+            if (event->is<sf::Event::Closed>() )
+                  window.close();
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
                 window.close();
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+                window.close();
+            //remplacer par le menu de pause
         }
+            
+
         getInputs();
         game.update(inputs, winWidth, winHeight);
         renderMap();
