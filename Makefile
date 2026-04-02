@@ -49,7 +49,6 @@ COMMON_OBJ = $(OBJ_DIR)/IHM.o $(OBJ_DIR)/IHMServeur.o $(OBJ_DIR)/Game.o \
 # Cibles finales
 TARGET1 = $(BIN_DIR)/PiercingTime 
 TARGET2 = $(BIN_DIR)/PiercingDis 
-TARGET3 = $(BIN_DIR)/PiercingServ
 
 # --- Règles ---
 
@@ -65,10 +64,7 @@ $(TARGET2): $(COMMON_OBJ) $(OBJ_DIR)/mainDispatcher.o
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(LIBS)
 
-# Compilation de PiercingServ (utilise mainServer.cpp)
-$(TARGET3): $(COMMON_OBJ) $(OBJ_DIR)/mainServer.o
-	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(LIBS)
+# Compilation de PiercingServ (utilise mainServer.cpp)DFLAGS) $^ -o $@ $(LIBS)
 
 # Règle générique pour tous les fichiers .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp

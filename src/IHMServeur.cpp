@@ -1,92 +1,119 @@
 #include "IHMServeur.h"
 #include "Game.h"
 #include "Player.h"
+#include <SFML/Network/Packet.hpp>
 #include <cstring>
 #include <iostream>
+#include <string>
 
-
-IHMServeur::IHMServeur(int p){
-    port=p;
+IHMServeur::IHMServeur(int i){
+    id = i;
+    running=true;
 }
 
-void IHMServeur::run(){
-    sf::TcpListener listener;
-    if(listener.listen(port)==sf::Socket::Status::Done){
-        std::cout<<"all good\n";
-    }
-    // This manages the list of all sockets
-    sf::SocketSelector selector;
-    selector.add(listener);
-    if(selector.isReady(listener)){
-        std::cout<<"huh?\n";
-    }
-    // Keep a list to store our active clients
-    std::list<sf::TcpSocket*> clients;
-
-    std::cout << "MultiPlayer Server running on port " <<port<< std::endl;
+void IHMServeur::executionLoop() {
+    std::cout<<"started loop\n";
     while (true) {
-        // Wait until any socket has an event
+        // Use a timeout so the thread doesn't freeze if no one is sending data
         if (selector.wait()) {
-            int nbUpdate=0;
-            // 1. Check if the listener has a new connection
-            if (selector.isReady(listener)) {
-                sf::TcpSocket* client = new sf::TcpSocket;
-                if (listener.accept(*client) == sf::Socket::Status::Done) {
-                    clients.push_back(client);
-                    selector.add(*client); // Add new client to the selector
-                    std::cout << "New client joined! Total: " << clients.size() << std::endl;
-                    game.setNbPlayers(game.getNbJoueur()+1);
-                    sf::Packet responsePacket;
-                    responsePacket.append(&game, sizeof(Game));
-                    client->send(responsePacket);
-                } else {
-                    delete client;
-                }
-            } 
             
-            // 2. Check all existing clients for data
-            else {
-                for (auto it = clients.begin(); it != clients.end(); ) {
-                    //std::cout<<"sending data\n";
-                    sf::TcpSocket& client = **it;
-                    if (selector.isReady(client)) {
+            for (auto it = clients.begin(); it != clients.end(); ) {
+                sf::TcpSocket& client = **it;
+                std::cout<<"loop\n";
+                if (selector.isReady(client)) {
+                    sf::Packet packet;
+                    sf::Socket::Status status = client.receive(packet);
+
+                    if (status == sf::Socket::Status::Done) {
+                        std::cout<<"client ready\n"; 
+
                         Player* currentPlayer=game.getPlayers();
-                        sf::Packet packet;
-                        if (client.receive(packet) == sf::Socket::Status::Done) {
-                            nbUpdate++;
-                            // Move the pointer forward by 4 bytes to skip the size header
-                            const char* rawData = static_cast<const char*>(packet.getData());
+                        
+                        
+                        
+                        // Move the pointer forward by 4 bytes to skip the size header
+                        
+                        const char* rawData = static_cast<const char*>(packet.getData());
+                        
+                        
+                        // 3. Copy the ID (First part of the message)
+                        
+                        int id;
+                        
+                        std::memcpy(&id, rawData, sizeof(int));
+                        std::cout<<id<<std::endl;
+                        
+                        // 4. Copy the Player (Starts after the ID)
+                        
+                        // We add sizeof(int) to the pointer to move past the ID we just read
+                        
+                        std::memcpy(&game.getPlayers()[id], rawData + sizeof(int), sizeof(Player));
+                        
+                        //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl; 
 
-                            // 3. Copy the ID (First part of the message)
-                            int id;
-                            std::memcpy(&id, rawData, sizeof(int));
+                        it++;
+                        std::cout<<"copied player\nsending response";
+                        sf::Packet response;
+                        response.append(&game, sizeof(Game)); 
+                        client.send(response);
+                        std::cout<<"response sent\n";
 
-                            // 4. Copy the Player (Starts after the ID)
-                            // We add sizeof(int) to the pointer to move past the ID we just read
-                            std::memcpy(&game.getPlayers()[id-1], rawData + sizeof(int), sizeof(Player));
-                            //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl;
-                            
-
-                            sf::Packet responsePacket;
-                            responsePacket.append(&game, sizeof(Game));
-                            client.send(responsePacket);
-
-
-
-                            it++; 
-                        } else {
-                            // Client disconnected
-                            std::cout << "Client disconnected." << std::endl;
-                            selector.remove(client);
-                            delete *it;
-                            it = clients.erase(it); // Remove from list
-                        }
+                    } else if (status == sf::Socket::Status::Disconnected) {
+                        selector.remove(client);
+                        delete *it;
+                        it = clients.erase(it);
                     } else {
                         it++;
                     }
+                } else {
+                    it++;
                 }
-                game.update();
-            }   
-        }  
+            }
+        }
+
+        // Update physics/game logic if the game has started
+        if (game.getPlayers()[0].start) {
+            game.update();
+        }
+        
+        // If all players left, stop the room
+        if (clients.empty()) running = false;
     }
+    std::cout<<"end of loop\n";
+    delete this; // Clean up the room object memory when the thread finishes
+}
+void IHMServeur::startWithClient(sf::TcpSocket* creator) {
+    clients.push_back(creator);
+    selector.add(*creator);
+    
+    // Increment player count in your logic
+    game.setNbPlayers(1); 
+
+    // Launch the thread. 'this' allows the thread to access class members.
+    roomThread = std::thread(&IHMServeur::executionLoop, this);
+    roomThread.detach(); 
+    sf::Packet responsePacket;
+    std::string mess="r"+std::to_string(id);
+    responsePacket<<mess;
+    creator->send(responsePacket);
+
+    sf::Packet response;
+    response.append(&game, sizeof(Game)); 
+    creator->send(response);
+}
+
+void IHMServeur::addPlayer(sf::TcpSocket* player){
+    clients.push_back(player);
+    selector.add(*player);
+    
+    // Increment player count in your logic
+    game.setNbPlayers(game.getNbJoueur()+1); 
+    sf::Packet responsePacket;
+    std::string mess="r"+std::to_string(id);
+    responsePacket<<mess;
+    player->send(responsePacket);
+
+    sf::Packet response;
+    response.append(&game, sizeof(Game)); 
+    player->send(response);
 }

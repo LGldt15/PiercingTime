@@ -5,7 +5,10 @@
 #include <list>
 #include <cstdlib>
 #include <string>
+#include "IHMServeur.h"
 
+std::vector<IHMServeur*> activeRooms;
+int nbRooms=0;
 int main() {
     sf::TcpListener listener;
     listener.listen(53000);
@@ -50,19 +53,28 @@ int main() {
                             std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<" : " << message << std::endl;
                             
                             if (message == "new") {
-                                std::string port=std::to_string(nextPort);
-                                // 1. Combine the command and the variable into one string
-                                std::string command = "./bin/PiercingServ " + port+'&';
-
-                                // 2. Pass it to system() using .c_str()
-                                std::system(command.c_str());
-                                sf::Packet responsePacket;
-                                std::string mess='0'+std::to_string(nextPort);
-                                responsePacket << mess;
-                                client.send(responsePacket);
-
-                                nextPort+=2;
-                            }
+                                sf::TcpSocket* clientPtr = *it;
+                                                        
+                                // 1. STOP the dispatcher from watching this socket
+                                selector.remove(*clientPtr);
+                                                        
+                                // 2. Remove from the dispatcher's local list so it isn't deleted here
+                                it = clients.erase(it);
+                                                        
+                                // 3. Create the room object (on the Heap)
+                                IHMServeur* newRoom = new IHMServeur(nbRooms); 
+                                nbRooms++;
+                                                        
+                                // 4. Store it so others can join later
+                                activeRooms.push_back(newRoom);
+                                                        
+                                // 5. Hand the socket over and let it start its own thread
+                                newRoom->startWithClient(clientPtr);
+                                                        
+                                std::cout << "Created Room #" << activeRooms.size() << " and handed off player." << std::endl;
+                                                        
+                                continue; // Skip the it++ because we already erased 'it'
+                            }                              
                             else if (message=="info") {
                                 sf::Packet responsePacket;
                                 std::string mess;
@@ -70,18 +82,25 @@ int main() {
                                 if(true){
                                     mess+="    no rooms to create a room send 'new'\n";
                                 }
-                                for(int i=53001;i<nextPort;i+=2){
+                                for(int i=0;i<activeRooms.size();i+=2){
                                     mess+="    "+ std::to_string(i)+"\n";
                                 }
                                 responsePacket<<mess;
                                 client.send(responsePacket);
                             }
-                            else if (std::stoi(message)>53000 && std::stoi(message)<nextPort) {
-                                std::string reply = "Message received!";
-                                sf::Packet responsePacket;
-                                std::string mess='0'+message;
-                                responsePacket << mess;
-                                client.send(responsePacket);
+                            else if (std::stoi(message)>=0 && std::stoi(message)<activeRooms.size()) {
+                                int roomIndex=std::stoi(message)<activeRooms.size();
+                                sf::TcpSocket* clientPtr = *it;
+
+                                // Hand-off logic again
+                                selector.remove(*clientPtr);
+                                it = clients.erase(it);
+
+                                // Call a new method in IHMServeur to add a player to an existing loop
+                                activeRooms[roomIndex]->addPlayer(clientPtr);
+
+                                std::cout << "Player joined existing Room #" << roomIndex << std::endl;
+                                continue;
                             }  
                             else{
                                 std::string reply = "Message received!";
@@ -104,4 +123,5 @@ int main() {
             }
         }
     }
+    return 0;
 }

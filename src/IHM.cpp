@@ -5,12 +5,14 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <cstring>
+#include <string>
 #include "../assets/Background.h"
 #include "../assets/gromgroi.h"
 #include "../assets/player.h"
 #include "../assets/caillou.h"
 #include "../assets/play.h"
 
+#include "Inventory.h"
 #include "Player.h"
 #include "iostream"
 
@@ -48,12 +50,12 @@ IHM::IHM(){
 }
 
 void IHM::getInputs(){
-    inputs.up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
-    inputs.down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
-    inputs.right=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
-    inputs.left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
-    inputs.pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
-    inputs.select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
+    inputs[idMulti].up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
+    inputs[idMulti].down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
+    inputs[idMulti].right=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
+    inputs[idMulti].left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
+    inputs[idMulti].pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
+    inputs[idMulti].select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
 }
 
 IHM::~IHM(){
@@ -121,80 +123,79 @@ void IHM::gameLoop(){
                 window.close();
         }
         getInputs();
-        game.update(inputs, winWidth, winHeight);
+        game.update(inputs[0], winWidth, winHeight);
         renderMap();
     }
 }
 
-void IHM::gameLoopMulti(){
-    int id=-1;
+void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
     sf::IpAddress ip(127,0,0,1);
-    int gamePort=0;
-    sf::Socket::Status status = socket.connect(ip, 53000);
-
-    if (status != sf::Socket::Status::Done) {
-        std::cout << "Error: Could not connect to server." << std::endl;
+    int room;
+    // 1. Initial Connection to Dispatcher
+    if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
         return;
     }
-    std::cout << "Connected to server!" << std::endl;
-    //connect to dispatcher and get rooms
-    while (window.isOpen()) {
-        std::cout << "Select : ";
-        std::string message;
-        std::getline(std::cin, message);
 
-        // Pack and Send
-        sf::Packet packet;
-        packet << message;
-        socket.send(packet);
+    // --- PHASE 1: MENU (Dispatcher) ---
+    bool inMenu = true;
+    while (inMenu && window.isOpen()) {
+        // Get input (e.g., "new")
+        std::cout<<"select:";
+        std::string choice ; 
+        std::getline(std::cin, choice);
+        sf::Packet p;
+        p << choice;
+        socket.send(p);
 
-        // Wait for server response
-        sf::Packet receivePacket;
-        if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
+        // The server won't send back a Port anymore. 
+        // It will just start sending Game Data or a "Success" packet.
+        sf::Packet response;
+        if (socket.receive(response) == sf::Socket::Status::Done) {
             std::string serverMsg;
-            receivePacket >> serverMsg;
-            std::cout << "Dispatcher says: " << serverMsg << std::endl;
-            if(serverMsg[0]=='0'){
-                gamePort=std::stoi(serverMsg);
-                break;
-            }
-        }
-    }
-    std::cout<<gamePort<<std::endl;
-    status=socket.connect(ip, gamePort);
-    while(status!=sf::Socket::Status::Done){
-        status=socket.connect(ip, gamePort);
-    }
-    std::cout<<"connected\n";
-    while (window.isOpen()) {
-        while (const std::optional event = window.pollEvent())
-        {
-            // Close window: exit
-            if (event->is<sf::Event::Closed>())
-                window.close();
-        }
-        // Pack and Send
 
-        // Wait for server response
-        sf::Packet receivePacket;
-        if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
-            std::cout<<"recived message\n";
-    
-            // Skip the 4-byte header
-            std::memcpy(&game,receivePacket.getData(),sizeof(Game));
-            if(id==-1){
-                id=game.getNbJoueur();
-                std::cout<<"id : "<<id<<std::endl;
+            response >> serverMsg;
+
+            std::cout << "Dispatcher says: " << serverMsg << std::endl; 
+
+            if(serverMsg[0]=='r') {
+                inMenu = false; // We received our first game state or confirmation
+                std::string roomId;
+                roomId=serverMsg[1];//+serverMsg[2]+serverMsg[3]
+                std::cout<<roomId;
+                room=std::stoi(roomId);
             }
         }
-        if(id!=-1){
+    }
+
+    // --- PHASE 2: GAME (Room Thread) ---
+    // Notice: NO NEW CONNECTION HERE. Use the same 'socket'.
+    std::cout<<"out of menu\n";
+    int id = -1;
+    while (window.isOpen()) {
+        // ... standard game loop events ...
+
+        sf::Packet receivePacket;
+        // The Room Thread is now the one sending this data
+        if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
+            // Use your memcpy logic or packet extraction
+            std::memcpy(&game, receivePacket.getData(), sizeof(Game));
+            
+            if (id == -1) {
+                id = game.getNbJoueur()-1;
+                std::cout<<id<<'\n';
+            }
+        }
+
+        // Send your inputs back to the Room Thread
+        if (id != -1) {
             getInputs();
-            game.getPlayers()[id-1].move(inputs, 800, 800);
-            sf::Packet packet;
-            packet.append(&id, sizeof(int));
-            packet.append(&game.getPlayers()[id-1], sizeof(Player));
-            socket.send(packet);
+            game.getPlayers()[id].move(inputs[id],800, 800);
+            game.getPlayers()[id].doWeStart(inputs[0]);
+            sf::Packet sendPacket;
+            sendPacket.append(&id, sizeof(int));
+            sendPacket.append(&game.getPlayers()[id], sizeof(Player));
+            socket.send(sendPacket);
         }
         renderMap();
     }
@@ -229,7 +230,7 @@ void IHM::app(){
                 window.close();
         }
         getInputs();
-        if (inputs.select){
+        if (inputs[0].select){
             s=mainMenu.getSelected();
             selected=false;
         }

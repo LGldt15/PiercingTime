@@ -4,6 +4,7 @@
 //nos include
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Inventory.h"
 
 
 /*
@@ -22,7 +23,7 @@ public:
     unsigned int gold;// !!! à utiliser avec le get et set
     int cooldown;
     bool dead;
-
+    bool start;
 
 
     Player();
@@ -48,6 +49,7 @@ public:
 
     //server managment
     int getIdMulti();
+    void doWeStart(Controls c);
 };
 
 

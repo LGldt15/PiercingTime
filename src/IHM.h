@@ -16,7 +16,7 @@ class IHM{
 private:
     Game game;
     MainMenu mainMenu;
-    Controls inputs;
+    Controls inputs[4];
     unsigned int winWidth;
     unsigned int winHeight;
 
@@ -43,6 +43,8 @@ private:
     sf::Sprite *buttonSprites[10];
 
     sf::Texture ui[10];
+
+    int idMulti=0;
 public:
     IHM();
     ~IHM();

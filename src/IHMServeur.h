@@ -4,20 +4,23 @@
 #include <list>
 #include "Game.h"
 #include <SFML/Network.hpp>
+#include <thread>
+
 class IHMServeur{
 private:
     Game game;
-
-    int port;
-    sf::TcpListener listener;
+    Controls inputs[4];
+    bool running=true;
+    int id;
     sf::SocketSelector selector;
     std::list<sf::TcpSocket*> clients;
 
-
+    std::thread roomThread;
 public:
-    IHMServeur(int p);
-    void gameLoop();
-    void run();
+    IHMServeur(int i=0);
+    void executionLoop();
+    void startWithClient(sf::TcpSocket* creator);
+    void addPlayer(sf::TcpSocket* player);
 };
 
 #endif
