@@ -17,7 +17,15 @@ IHM::IHM(){
     winHeight=800;
     sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+// Y avait une segfault psk c t mal initialise les tableaux et du coup le destructeur
+//il comprennait pas quoi supp 
+    for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
+    for (int i = 0; i < 4; i++)  enemySprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  mapSprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  bulletSprites[i] = nullptr;
+    for (int i = 0; i < 10; i++) buttonSprites[i] = nullptr;
 
+    mapSprites[0]=nullptr;
     if(mapTypes[0].loadFromMemory(Background_png,Background_png_len)){
         mapSprites[0]=new sf::Sprite(mapTypes[0]);
     }
