@@ -4,7 +4,8 @@
 
 Game::Game(){
     nbJoueur=1;
-    inConfig=true;
+    players[0].gold= 200;
+    inConfig=true;  
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
     isShopActive =false;
@@ -38,23 +39,18 @@ void Game::setNbPlayers (int i){
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
     if (!isShopActive) {
-
         level.update(c, winWidth, winHeight);
 
 
-        if (level.getNbEnemies() == 0) {
-            isShopActive = true;
+         std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
 
-            for (int i = 0; i < nbJoueur; i++) {
-                playerShop[i].refreshShop();
-            }
+        if (level.getNbEnemies() == 0) {
+            std::cout << "SHOP" << std::endl; 
+            isShopActive = true;
+            playerShop[0].refreshShop();
         }
     } else {
-        //pour le joueur 1 uniquement pour le moment
-
-         playerShop[0].handleInput(c, players[0]);
-
-//faire la fonction pour passer a la prochaine WAve
+        playerShop[0].handleInput(c, players[0]);
     }
 }
 

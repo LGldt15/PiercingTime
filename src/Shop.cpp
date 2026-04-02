@@ -94,24 +94,27 @@ void Shop::refreshShop() {
 }
 
 void Shop::handleInput(Controls& c, Player& p) {
-    // Navigation (Bornée entre 0 et 3)
+    // 1. Navigation (Inchangée)
     if (c.right && currentCursor < 3) currentCursor++;
     if (c.left && currentCursor > 0) currentCursor--;
 
-    // Achat
+    // 2. Achat avec remplacement immédiat
     if (c.select) {
-        Item& target = item[currentCursor];
+        Item& target = item[currentCursor]; // On prend une RÉFÉRENCE pour modifier l'item du tableau
         
-        // Vérification : slot non vide et assez d'argent
         if (target.name != "None" && p.getGold() >= target.price) {
+            // Appliquer l'effet et retirer l'or
             effectOnPlayer(p, target);
             
-            // Marquer comme vendu
-            target.name = "None"; 
-            target.price = 0;
-            std::cout << "Item acheté !" << std::endl;
+            std::cout << "bought " << target.name << std::endl;
+
+            // AU LIEU DE "None", ON REMPLACE DIRECTEMENT :
+            target = itemRandSelect(); 
+            target.button = currentCursor + 1; // On garde l'ID du bouton cohérent
+            target.isSelected = false;
+            
         } else {
-            std::cout << "Achat impossible (Pas assez d'or ou slot vide)" << std::endl;
+            std::cout << "not enough gold!!! " << target.name << std::endl;
         }
     }
 }

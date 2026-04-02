@@ -22,6 +22,7 @@ private:
 
     
     sf::RenderWindow window;
+    sf::Font font;
 
     sf::Texture playerTypes[2];
     sf::Sprite *playerSprites[2];
@@ -41,7 +42,7 @@ private:
     sf::Texture buttons[10];
     sf::Texture ui[10];
 
-    sf::Font font;
+
 public:
     IHM();
     ~IHM();
@@ -54,7 +55,7 @@ public:
     //loop
     void gameLoop();
     //tout
-    void app();
+    //void app();
 
     // PARTIE POUR LE SHOP
     void handleShopInput();
