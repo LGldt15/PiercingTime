@@ -130,9 +130,17 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
 int Map::getMapId(){
     return idMap;
 }
-int Map::getNbEnemies(){
-    return nbEnemies;
+
+int Map::getNbEnemies() {
+    int alive = 0;
+    for (int i = 0; i < 50; i++) { // 50 est la taille de ton tableau d'ennemis
+        if (enemies[i].isAlive) {
+            alive++;
+        }
+    }
+    return alive;
 }
+
 Enemy* Map::getEnemies(){
     return &enemies[0];
 }
