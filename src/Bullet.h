@@ -3,9 +3,9 @@
 #include "Position.h"
 
 class Bullet{
-private: // composantes en x et y du vecteur vitesse
+private: 
     unsigned int sprite;
-    // width et height !!!!!!!!!!!!!!!
+    unsigned int height,width;
 public:
     Position speed;
     Position pos;
@@ -16,7 +16,7 @@ public:
     Bullet(Bullet *n, Position p={0,0}, Position S={0,0}, unsigned int d=0, bool fP=true);
     Bullet(Position p,Position S,unsigned int d,bool fP);
     ~Bullet();
-    unsigned int hitOrMiss(Position min,Position max);//renvoie les degat fait un une entite en foncion de la hitbpx de celle ci(xMin et yMin)
+    unsigned int hitOrMiss(Position & posE,unsigned int heightE, unsigned int widthE);//renvoie les degat fait un une entite en foncione de la sa position
     void move();
     int getSprite();
 };

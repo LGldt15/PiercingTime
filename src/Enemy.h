@@ -11,10 +11,10 @@ class Player;
 
 class Enemy{
 private:
-    unsigned int height,width;
     Stats stats;
     unsigned int experience;
 public:
+    unsigned int height,width;
     unsigned int sprite;
     Position position;
     bool isAlive;
