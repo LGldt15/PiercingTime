@@ -84,47 +84,37 @@ Item Shop::itemRandSelect(){
 
 void Shop::refreshShop() {
     for (int i = 0; i < 4; i++) {
+        // On ne remplace que les items achetés ou vides
         if (item[i].name == "None") {
-            item[i] = itemRandSelect(); 
-            item[i].button = i + 1;     
+            item[i] = itemRandSelect();
+            item[i].button = i + 1;
             item[i].isSelected = false;
         }
-     
     }
-    
 }
 
+void Shop::handleInput(Controls& c, Player& p) {
+    // Navigation (Bornée entre 0 et 3)
+    if (c.right && currentCursor < 3) currentCursor++;
+    if (c.left && currentCursor > 0) currentCursor--;
 
-Item Shop::getItems(){
-    return item[3];
-}
-
-
-
-
-// Shop.cpp
-void Shop::selectValidation(bool moveLeft, bool moveRight, bool attemptSelect, Player& p) {
-    
-    if (moveRight && currentCursor < 3) {
-        currentCursor++;
-    }
-    if (moveLeft && currentCursor > 0) {
-        currentCursor--;
-    }
-
-    if (attemptSelect) {
+    // Achat
+    if (c.select) {
         Item& target = item[currentCursor];
         
+        // Vérification : slot non vide et assez d'argent
         if (target.name != "None" && p.getGold() >= target.price) {
             effectOnPlayer(p, target);
-            target.name = "None";
+            
+            // Marquer comme vendu
+            target.name = "None"; 
             target.price = 0;
-            target.isSelected = true; 
+            std::cout << "Item acheté !" << std::endl;
+        } else {
+            std::cout << "Achat impossible (Pas assez d'or ou slot vide)" << std::endl;
         }
     }
 }
-
-
 
 //modification des stats de player dont le gold
 void Shop::effectOnPlayer(Player &p, Item i) {

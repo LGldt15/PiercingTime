@@ -135,3 +135,111 @@ void IHM::playerSelect() {
 
 
 //PARTIE shop
+
+void IHM::handleShopInput() {
+    // SFML 3 : pollEvent retourne un std::optional
+    while (const std::optional event = window.pollEvent()) {
+        
+        // Fermeture classique
+        if (event->is<sf::Event::Closed>()) {
+            window.close();
+        }
+
+        // Détection d'une touche pressée
+        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            
+            // On prépare un objet Controls temporaire pour le Shop
+            Controls shopControls;
+            shopControls.left   = (keyPressed->code == sf::Keyboard::Key::Left);
+            shopControls.right  = (keyPressed->code == sf::Keyboard::Key::Right);
+            shopControls.select = (keyPressed->code == sf::Keyboard::Key::Enter);
+            
+            // On envoie ces inputs au shop du Joueur 0
+            // handleInput va gérer le déplacement du curseur et l'achat
+            game.getShop(0).handleInput(shopControls, game.getPlayers()[0]);
+
+            // Touche pour quitter le shop (E ou Escape)
+            if (keyPressed->code == sf::Keyboard::Key::E || 
+                keyPressed->code == sf::Keyboard::Key::Escape) {
+                game.setShopActive(false); 
+                // Optionnel : game.nextWave(); si tu as créé la fonction
+            }
+        }
+    }
+}
+
+void IHM::renderShop() {
+    window.clear(sf::Color(25, 25, 35)); // Fond sombre
+
+    Shop& shop = game.getShop(0);
+    Player& player = game.getPlayers()[0];
+
+    // 1. Affichage de l'Or en haut au centre
+    sf::Text uiText(font);
+    uiText.setCharacterSize(24);
+    uiText.setFillColor(sf::Color::Yellow);
+    uiText.setString("GOLD: " + std::to_string(player.getGold()));
+    
+    // Centrage du texte Gold
+    sf::FloatRect bounds = uiText.getGlobalBounds();
+    uiText.setPosition({400.f - bounds.size.x / 2.f, 50.f});
+    window.draw(uiText);
+
+    // 2. Dessin des 4 slots d'items
+    float slotW = 160.f;
+    float slotH = 220.f;
+    float gap = 20.f;
+    float totalW = (4 * slotW) + (3 * gap);
+    float startX = 400.f - (totalW / 2.f);
+
+    for (int i = 0; i < 4; i++) {
+        Item item = shop.getItemAt(i);
+        sf::Vector2f pos = {startX + i * (slotW + gap), 250.f};
+
+        // Fond du slot
+        sf::RectangleShape rect({slotW, slotH});
+        rect.setPosition(pos);
+        rect.setFillColor(sf::Color(50, 50, 70));
+
+        // Bordure de sélection (Curseur)
+        if (shop.getCurrentCursor() == i) {
+            rect.setOutlineColor(sf::Color::Yellow);
+            rect.setOutlineThickness(4.f);
+        } else {
+            rect.setOutlineColor(sf::Color(100, 100, 100));
+            rect.setOutlineThickness(1.f);
+        }
+        window.draw(rect);
+
+        // Contenu du slot
+        if (item.name != "None") {
+            // Nom de l'item
+            uiText.setString(item.name);
+            uiText.setCharacterSize(14);
+            uiText.setFillColor(sf::Color::White);
+            uiText.setPosition({pos.x + 10.f, pos.y + 15.f});
+            window.draw(uiText);
+
+            // Prix de l'item
+            uiText.setString(std::to_string(item.price) + " G");
+            uiText.setFillColor(sf::Color::Yellow);
+            uiText.setPosition({pos.x + slotW / 2.f - 20.f, pos.y + slotH - 40.f});
+            window.draw(uiText);
+        } else {
+            // Affichage Sold Out
+            uiText.setString("VENDU");
+            uiText.setFillColor(sf::Color(150, 50, 50));
+            uiText.setPosition({pos.x + 40.f, pos.y + 100.f});
+            window.draw(uiText);
+        }
+    }
+
+    // Petit rappel des touches en bas
+    uiText.setString("Fleches pour choisir - ENTREE pour acheter - E pour quitter");
+    uiText.setCharacterSize(16);
+    uiText.setFillColor(sf::Color(180, 180, 180));
+    uiText.setPosition({400.f - uiText.getGlobalBounds().size.x / 2.f, 600.f});
+    window.draw(uiText);
+
+    window.display();
+}
