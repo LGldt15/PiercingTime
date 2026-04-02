@@ -17,7 +17,7 @@ IHM::IHM(){
     winWidth=800;
     winHeight=800;
     sf::Vector2<unsigned int> size={winWidth,winHeight};
-    window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+    window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
 
     mapTypes[0].loadFromMemory(Background_png,Background_png_len);
     for(int i=0; i<9; i++) mapSprites[i] = nullptr;
@@ -111,6 +111,8 @@ void IHM::renderMap(){
 
 void IHM::gameLoop(){
     while (window.isOpen()){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+                window.close();
         // Process events
         if (game.isInShop()) {
             handleShopInput(); 
@@ -121,10 +123,8 @@ void IHM::gameLoop(){
 
             if (event->is<sf::Event::Closed>() )
                   window.close();
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-                window.close();
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
-                window.close();
+            
+        
             //remplacer par le menu de pause
         }
             
