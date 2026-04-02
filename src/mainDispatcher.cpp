@@ -89,7 +89,7 @@ int main() {
                                 client.send(responsePacket);
                             }
                             else if (std::stoi(message)>=0 && std::stoi(message)<activeRooms.size()) {
-                                int roomIndex=std::stoi(message)<activeRooms.size();
+                                int roomIndex=std::stoi(message);
                                 sf::TcpSocket* clientPtr = *it;
 
                                 // Hand-off logic again

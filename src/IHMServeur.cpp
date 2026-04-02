@@ -15,17 +15,16 @@ void IHMServeur::executionLoop() {
     std::cout<<"started loop\n";
     while (true) {
         // Use a timeout so the thread doesn't freeze if no one is sending data
+        roomMutex.lock();
         if (selector.wait()) {
             
             for (auto it = clients.begin(); it != clients.end(); ) {
                 sf::TcpSocket& client = **it;
-                std::cout<<"loop\n";
                 if (selector.isReady(client)) {
                     sf::Packet packet;
                     sf::Socket::Status status = client.receive(packet);
 
                     if (status == sf::Socket::Status::Done) {
-                        std::cout<<"client ready\n"; 
 
                         Player* currentPlayer=game.getPlayers();
                         
@@ -52,11 +51,9 @@ void IHMServeur::executionLoop() {
                         //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl; 
 
                         it++;
-                        std::cout<<"copied player\nsending response";
                         sf::Packet response;
                         response.append(&game, sizeof(Game)); 
                         client.send(response);
-                        std::cout<<"response sent\n";
 
                     } else if (status == sf::Socket::Status::Disconnected) {
                         selector.remove(client);
@@ -70,6 +67,7 @@ void IHMServeur::executionLoop() {
                 }
             }
         }
+        roomMutex.unlock();
 
         // Update physics/game logic if the game has started
         if (game.getPlayers()[0].start) {
@@ -79,7 +77,6 @@ void IHMServeur::executionLoop() {
         // If all players left, stop the room
         if (clients.empty()) running = false;
     }
-    std::cout<<"end of loop\n";
     delete this; // Clean up the room object memory when the thread finishes
 }
 void IHMServeur::startWithClient(sf::TcpSocket* creator) {
@@ -103,6 +100,8 @@ void IHMServeur::startWithClient(sf::TcpSocket* creator) {
 }
 
 void IHMServeur::addPlayer(sf::TcpSocket* player){
+    std::lock_guard<std::mutex> lock(roomMutex);
+
     clients.push_back(player);
     selector.add(*player);
     

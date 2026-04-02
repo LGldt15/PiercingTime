@@ -5,6 +5,7 @@
 #include "Game.h"
 #include <SFML/Network.hpp>
 #include <thread>
+#include <mutex>
 
 class IHMServeur{
 private:
@@ -16,6 +17,7 @@ private:
     std::list<sf::TcpSocket*> clients;
 
     std::thread roomThread;
+    std::mutex roomMutex;
 public:
     IHMServeur(int i=0);
     void executionLoop();

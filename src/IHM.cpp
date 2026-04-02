@@ -171,30 +171,28 @@ void IHM::gameLoopMulti() {
     // --- PHASE 2: GAME (Room Thread) ---
     // Notice: NO NEW CONNECTION HERE. Use the same 'socket'.
     std::cout<<"out of menu\n";
-    int id = -1;
+    idMulti = -1;
     while (window.isOpen()) {
         // ... standard game loop events ...
-
         sf::Packet receivePacket;
         // The Room Thread is now the one sending this data
         if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
             // Use your memcpy logic or packet extraction
             std::memcpy(&game, receivePacket.getData(), sizeof(Game));
             
-            if (id == -1) {
-                id = game.getNbJoueur()-1;
-                std::cout<<id<<'\n';
+            if (idMulti == -1) {
+                idMulti = game.getNbJoueur()-1;
             }
         }
 
         // Send your inputs back to the Room Thread
-        if (id != -1) {
+        if (idMulti != -1) {
             getInputs();
-            game.getPlayers()[id].move(inputs[id],800, 800);
-            game.getPlayers()[id].doWeStart(inputs[0]);
+            game.getPlayers()[idMulti].move(inputs[idMulti],800, 800);
+            game.getPlayers()[idMulti].doWeStart(inputs[0]);
             sf::Packet sendPacket;
-            sendPacket.append(&id, sizeof(int));
-            sendPacket.append(&game.getPlayers()[id], sizeof(Player));
+            sendPacket.append(&idMulti, sizeof(int));
+            sendPacket.append(&game.getPlayers()[idMulti], sizeof(Player));
             socket.send(sendPacket);
         }
         renderMap();
