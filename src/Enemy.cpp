@@ -68,13 +68,8 @@ void Enemy::moveShooter(Position &player){
         }
     }
     if(canshoot){
-        Position from=position;// l'origine de la bullet est le centre de l'enemy 
-        from.posX+=width/2.f;
-        from.posY-=height/2.f;
-        Position speed=(tabP[idMin].getPosition()-from)/(from-tabP[idMin].getPosition()).length();
-        speed.posX+=tabP[idMin].width/2.f;// la cible de la bullet est le centre du Player
-        speed.posY-=tabP[idMin].height/2.f;
-        bullets.pos=from;
+        Position speed=(tabP[idMin].getPosition()-position)/(tabP[idMin].getPosition()-position).length();
+        bullets.pos=position;
         bullets.speed=speed*stats.bulletSpeed;
         bullets.damage=stats.attackDamage;
         bullets.fromPlayer=false;
@@ -84,10 +79,7 @@ void Enemy::moveShooter(Position &player){
 bool Enemy::takeDamageBullet(Bullet &bullets){
     if(!bullets.fromPlayer)return false;
     unsigned int dmg;
-    Position hitbox;
-    hitbox.posX=position.posX+height;
-    hitbox.posY=position.posY+width;
-    dmg=bullets.hitOrMiss(position,hitbox);
+    dmg=bullets.hitOrMiss(position,height,width);
     if(dmg==0)return false;
     if (stats.hp<=dmg){stats.hp=0;isAlive=false;} 
     else stats.hp-=dmg;

@@ -12,6 +12,8 @@ Player::Player(){
     gold=0;
     sprites=0;
     cooldown=10;
+    width=30;
+    height=100;
 
 }
 
@@ -69,10 +71,7 @@ bool Player::takeDamage(const Enemy &enemy){
 bool Player::takeDamageBullet(Bullet &bullets){
     if(bullets.fromPlayer)return false;
     unsigned int dmg;
-    Position hitbox;
-    hitbox.posX=height;
-    hitbox.posY=width;
-    dmg=bullets.hitOrMiss(position,hitbox);
+    dmg=bullets.hitOrMiss(position, height, width);
     if(dmg==0)return false;
     if (stats.hp<=dmg){stats.hp=0;dead=true;} 
     else stats.hp-=dmg;
@@ -83,7 +82,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
     //if(nbE==0){bullets.damage=0;return;}
     Position dist=tabE[0].position-position;
     float distMin=800;
-    unsigned int idMin=-1;
+    unsigned int idMin=0;
     bool canshoot=false;
     for(unsigned int i=0; i<50;i++){
         dist=tabE[i].position-position;
@@ -94,7 +93,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
         }
     }
     if(canshoot){
-        Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
+        Position speed=(tabE[idMin].position-position)/(tabE[idMin].position-position).length();
         bullets.pos=position;
         bullets.speed=speed*stats.bulletSpeed;
         bullets.damage=stats.attackDamage;
