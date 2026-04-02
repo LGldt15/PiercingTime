@@ -23,7 +23,7 @@ private:
 
     //PARTIE shop 
     Player players[4];
-    Shop shops[4]; // un shop pour chaque joueur
+    Shop playerShop[4]; // un shop pour chaque joueur
     bool isShopActive;
 
 public:
@@ -49,7 +49,7 @@ public:
     void setShopActive(bool active) { isShopActive = active; }
 
     //recup l idex du shop du joueur
-    Shop& getShop(int playerIndex) { return shops[playerIndex]; }
+    Shop& getShop(int playerIndex) { return playerShop[playerIndex]; }
 };
 
 #endif

@@ -9,6 +9,13 @@ Game::Game(){
     level=Map(0,players[0],nbJoueur);
     isShopActive =false;
     level = Map(0, players[0], nbJoueur);
+
+
+    for (int i = 0; i < 4; i++)
+    {
+        playerShop[i]= Shop();
+    }
+    
 }
 
 Game::~Game(){
@@ -30,10 +37,27 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-    level.update(c, winWidth, winHeight);
+    if (!isShopActive) {
+
+        level.update(c, winWidth, winHeight);
 
 
+        if (level.getNbEnemies() == 0) {
+            isShopActive = true;
+
+            for (int i = 0; i < nbJoueur; i++) {
+                playerShop[i].refreshShop();
+            }
+        }
+    } else {
+        //pour le joueur 1 uniquement pour le moment
+
+         playerShop[0].handleInput(c, players[0]);
+
+//faire la fonction pour passer a la prochaine WAve
+    }
 }
+
 
 
 
