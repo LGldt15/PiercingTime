@@ -50,7 +50,7 @@ int main() {
                         if (client.receive(packet) == sf::Socket::Status::Done) {
                             std::string message;
                             packet >> message;
-                            std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<" : " << message << std::endl;
+                            std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"::"<<client.getRemotePort()<<" : " << message << std::endl;
                             
                             if (message == "new") {
                                 sf::TcpSocket* clientPtr = *it;

@@ -130,7 +130,7 @@ void IHM::gameLoop(){
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(127,0,0,1);
+    sf::IpAddress ip(88,184,64,49);
     int room;
     // 1. Initial Connection to Dispatcher
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
@@ -140,6 +140,12 @@ void IHM::gameLoopMulti() {
     // --- PHASE 1: MENU (Dispatcher) ---
     bool inMenu = true;
     while (inMenu && window.isOpen()) {
+        while (const std::optional event = window.pollEvent())
+        {
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
         // Get input (e.g., "new")
         std::cout<<"select:";
         std::string choice ; 
@@ -173,6 +179,12 @@ void IHM::gameLoopMulti() {
     std::cout<<"out of menu\n";
     idMulti = -1;
     while (window.isOpen()) {
+        while (const std::optional event = window.pollEvent())
+        {
+            // Close window: exit
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
         // ... standard game loop events ...
         sf::Packet receivePacket;
         // The Room Thread is now the one sending this data

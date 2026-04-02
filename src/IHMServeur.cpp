@@ -40,7 +40,6 @@ void IHMServeur::executionLoop() {
                         int id;
                         
                         std::memcpy(&id, rawData, sizeof(int));
-                        std::cout<<id<<std::endl;
                         
                         // 4. Copy the Player (Starts after the ID)
                         
@@ -48,8 +47,7 @@ void IHMServeur::executionLoop() {
                         
                         std::memcpy(&game.getPlayers()[id], rawData + sizeof(int), sizeof(Player));
                         
-                        //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"on server "<<port <<" : " << id<< std::endl; 
-
+                        //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<client.getRemotePort()<<std::endl;
                         it++;
                         sf::Packet response;
                         response.append(&game, sizeof(Game)); 
