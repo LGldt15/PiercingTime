@@ -19,9 +19,13 @@ private:
     Controls inputs;
     unsigned int winWidth;
     unsigned int winHeight;
+    
+    sf::Font font;
+
 
     
     sf::RenderWindow window;
+
 
     sf::Texture playerTypes[2];
     sf::Sprite *playerSprites[2];
@@ -56,6 +60,8 @@ public:
     void gameLoop();
     //tout
     void app();
+
+    void handleShopInput();
 
 };
 

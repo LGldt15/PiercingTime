@@ -8,6 +8,7 @@
 #include "../assets/player.h"
 #include "../assets/caillou.h"
 #include "../assets/play.h"
+#include "../assets/Icon.h"
 #include "iostream"
 
 
@@ -15,7 +16,7 @@ IHM::IHM(){
     winWidth=800;
     winHeight=800;
     sf::Vector2<unsigned int> size={winWidth,winHeight};
-    window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+    window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
 // Y avait une segfault psk c t mal initialise les tableaux et du coup le destructeur
 //il comprennait pas quoi supp 
     for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
@@ -23,6 +24,13 @@ IHM::IHM(){
     for (int i = 0; i < 9; i++)  mapSprites[i] = nullptr;
     for (int i = 0; i < 9; i++)  bulletSprites[i] = nullptr;
     for (int i = 0; i < 10; i++) buttonSprites[i] = nullptr;
+
+    //Icon de l'app
+    sf::Image Icon;
+    if (Icon.loadFromMemory(Icon_png, Icon_png_len)) {
+        window.setIcon({Icon.getSize().x, Icon.getSize().y}, Icon.getPixelsPtr());
+    }
+    
 
     mapSprites[0]=nullptr;
     if(mapTypes[0].loadFromMemory(Background_png,Background_png_len)){
@@ -48,6 +56,11 @@ IHM::IHM(){
         buttonSprites[0]=new sf::Sprite(buttons[0]);
     }
     buttonSprites[0]->setPosition({100.0f,300.0f});
+
+
+    if(!font.openFromFile("./assets/font.ttf")) {
+        std::cout << "Erreur avec le font" << std::endl;
+    }
     
 }
 
@@ -73,9 +86,6 @@ IHM::~IHM(){
     }
 }
 
-void IHM::renderShop() {
-
-}
 
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
@@ -117,21 +127,34 @@ void IHM::renderMap(){
 
 void IHM::gameLoop(){
     while (window.isOpen()){
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+                window.close();
         // Process events
+        if (game.isInShop()) {
+            handleShopInput(); 
+            renderShop();      
+        }else{
         while (const std::optional event = window.pollEvent())
         {
-            // Close window: exit
-            if (event->is<sf::Event::Closed>())
-                window.close();
+
+
+            if (event->is<sf::Event::Closed>() )
+                  window.close();
+            
+        
+            //remplacer par le menu de pause
         }
+            
+
         getInputs();
         game.update(inputs, winWidth, winHeight);
         renderMap();
-    }
+    }}
 }
 
 
 void IHM::renderMenu() {
+    //(lina) jvais bientot modifier cette truc
     window.clear(sf::Color::Black);
     window.draw(*mapSprites[0]);
     switch(mainMenu.getSelected()){
@@ -167,4 +190,113 @@ void IHM::app(){
             gameLoop();
         }
     }
+}
+
+
+//PARTIE shop
+
+void IHM::handleShopInput() {
+
+    while (const std::optional event = window.pollEvent()) {
+        
+
+        if (event->is<sf::Event::Closed>()) {
+            window.close();
+        }
+
+
+        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            
+
+            Controls shopControls;
+            shopControls.left   = (keyPressed->code == sf::Keyboard::Key::Left);
+            shopControls.right  = (keyPressed->code == sf::Keyboard::Key::Right);
+            shopControls.select = (keyPressed->code == sf::Keyboard::Key::Enter);
+            
+
+
+            game.getShop(0).handleInput(shopControls, game.getPlayers()[0]);
+
+
+            if (keyPressed->code == sf::Keyboard::Key::E) {
+                game.setShopActive(false); 
+            }
+        }
+    }
+}
+
+void IHM::renderShop() {
+    window.clear(sf::Color(25, 25, 45)); 
+
+    Shop& shop = game.getShop(0);
+    Player& player = game.getPlayers()[0];
+
+
+    sf::Text uiText(font);
+    uiText.setCharacterSize(24);
+    uiText.setFillColor(sf::Color::Yellow);
+    uiText.setString("GOLD: " + std::to_string(player.getGold()));
+    
+
+    sf::FloatRect bounds = uiText.getGlobalBounds();
+    uiText.setPosition({400.f - bounds.size.x / 2.f, 50.f});
+    window.draw(uiText);
+
+
+    float slotW = 160.f;
+    float slotH = 220.f;
+    float gap = 20.f;
+    float totalW = (4 * slotW) + (3 * gap);
+    float startX = 400.f - (totalW / 2.f);
+
+    for (int i = 0; i < 4; i++) {
+        Item item = shop.getItemAt(i);
+        sf::Vector2f pos = {startX + i * (slotW + gap), 250.f};
+
+        // Fond du slot
+        sf::RectangleShape rect({slotW, slotH});
+        rect.setPosition(pos);
+        rect.setFillColor(sf::Color(50, 50, 70));
+
+        // Bordure de sélection (Curseur)
+        if (shop.getCurrentCursor() == i) {
+            rect.setOutlineColor(sf::Color::Yellow);
+            rect.setOutlineThickness(4.f);
+        } else {
+            rect.setOutlineColor(sf::Color(100, 100, 100));
+            rect.setOutlineThickness(1.f);
+        }
+        window.draw(rect);
+
+
+        if (item.name != "None") {
+
+            uiText.setString(item.name);
+            uiText.setCharacterSize(14);
+            uiText.setFillColor(sf::Color::White);
+            uiText.setPosition({pos.x + 10.f, pos.y + 15.f});
+            window.draw(uiText);
+
+
+            uiText.setString(std::to_string(item.price) + " G");
+            uiText.setFillColor(sf::Color::Yellow);
+            uiText.setPosition({pos.x + slotW / 2.f - 20.f, pos.y + slotH - 40.f});
+            window.draw(uiText);
+        } else {
+
+            uiText.setString("Sold");
+            uiText.setFillColor(sf::Color(150, 50, 50));
+            uiText.setPosition({pos.x + 40.f, pos.y + 100.f});
+            window.draw(uiText);
+        }
+    }
+
+
+    uiText.setString("Select your Item");
+    uiText.setCharacterSize(16);
+    uiText.setFillColor(sf::Color(180, 180, 180));
+    uiText.setPosition({400.f - uiText.getGlobalBounds().size.x / 2.f, 600.f});
+    window.draw(uiText);
+
+    window.display();
 }

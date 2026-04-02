@@ -14,14 +14,19 @@
 
 class Game{
 private:
-    Player players[4];
-    Inventory inventory[4];
+   Inventory inventory[4];
     unsigned int nbJoueur;
 
 
     Map level;
     unsigned int difficulty;
-    Shop shop;
+
+    //PARTIE shop 
+    Player players[4];
+    Shop playerShop[4]; // un shop pour chaque joueur
+    bool isShopActive;
+
+
 public:
     bool inConfig;//pour savoir si on affiche l ajou de joueur ou le jeu
     Game();
@@ -40,6 +45,12 @@ public:
     int getPlayerId(int i);
     int getNbBullets();
     Bullet* getBullets();
+
+     bool isInShop() const { return isShopActive; }
+    void setShopActive(bool active) { isShopActive = active; }
+
+    //recup l idex du shop du joueur
+    Shop& getShop(int playerIndex) { return playerShop[playerIndex]; }
 };
 
 #endif

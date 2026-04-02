@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include <iostream>
 
 Game::Game(){
     nbJoueur=1;
@@ -27,8 +28,20 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-    level.update(c, winWidth, winHeight);
+    if (!isShopActive) {
+        level.update(c, winWidth, winHeight);
 
+        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+
+
+        if (level.getNbEnemies() == 0) {
+            std::cout << "SHOP" << std::endl; 
+            isShopActive = true;
+            playerShop[0].refreshShop();
+        }
+    } else {
+        playerShop[0].handleInput(c, players[0]);
+    }
 }
 
 
