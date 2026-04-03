@@ -3,6 +3,7 @@
 
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Inventory.h"
 #include "Player.h"
 
 
@@ -36,5 +37,7 @@ public:
     Bullet* getBullets();
 
 };
+
+
 
 #endif
