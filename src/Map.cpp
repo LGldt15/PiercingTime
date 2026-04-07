@@ -24,7 +24,7 @@ Map::Map(int idS,Player &p,int nbP){
     idMap=idS;
     players[0]=&p;
     nbPlayers=nbP;
-    nbEnemies=2;
+    nbEnemies=0;
     enemies[0]=Enemy(1,0,true,2,0);
     enemies[1]=Enemy(1,0,true,1,0);
     nbBullets=0;

@@ -3,11 +3,11 @@
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
-#include "../assets/Background.h"
-#include "../assets/gromgroi.h"
-#include "../assets/player.h"
-#include "../assets/caillou.h"
-#include "../assets/play.h"
+#include "../assets/Background/Background.h"
+#include "../assets/Enemy/gromgroi.h"
+#include "../assets/Player/player.h"
+#include "../assets/Bullet/caillou.h"
+//#include "../assets/play.h"
 #include "../assets/Icon.h"
 #include "iostream"
 
@@ -52,13 +52,14 @@ IHM::IHM(){
         bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
     }
 
-    if(buttons[0].loadFromMemory(play_jpg,play_jpg_len)){
-        buttonSprites[0]=new sf::Sprite(buttons[0]);
-    }
-    buttonSprites[0]->setPosition({100.0f,300.0f});
+    //LE BOUTON DE JEU N EST PLUS UN PNG MAIS UN RECT SFML
+    //if(buttons[0].loadFromMemory(Play_jpg,Play_jpg_len)){
+    //    buttonSprites[0]=new sf::Sprite(buttons[0]);
+    //}
+    //buttonSprites[0]->setPosition({100.0f,300.0f});
 
 
-    if(!font.openFromFile("./assets/font.ttf")) {
+    if(!font.openFromFile("./assets/fonts/font.ttf")) {
         std::cout << "Erreur avec le font" << std::endl;
     }
     
@@ -153,17 +154,70 @@ void IHM::gameLoop(){
 }
 
 
+
+
+
 void IHM::renderMenu() {
-    //(lina) jvais bientot modifier cette truc
-    window.clear(sf::Color::Black);
-    window.draw(*mapSprites[0]);
-    switch(mainMenu.getSelected()){
-        case 0:{
-            window.draw(*buttonSprites[0]);
-            break;
+    window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
+
+    // --- 1. TITRE DU JEU ---
+    sf::Text title(font); // SFML 3 : On passe la font au constructeur
+    title.setString("PIERCING TIME");
+    title.setCharacterSize(60);
+    title.setFillColor(sf::Color::Yellow);
+    title.setStyle(sf::Text::Bold);
+    
+    // Centrage automatique du titre
+    sf::FloatRect titleBounds = title.getGlobalBounds();
+    title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
+    window.draw(title);
+
+    // --- 2. OPTIONS DU MENU ---
+    std::string options[] = {"JOUER", "QUITTER"};
+    
+    for (int i = 0; i < 2; i++) {
+        float yPos = 400.f + (i * 100.f);
+        
+        // Fond du bouton (Rectangle)
+        sf::RectangleShape buttonBox({250.f, 60.f});
+        buttonBox.setPosition({400.f - 125.f, yPos});
+        
+        // Texte du bouton (SFML 3 style)
+        sf::Text optText(font);
+        optText.setString(options[i]);
+        optText.setCharacterSize(30);
+        
+        // Interaction visuelle selon la sélection
+        if (mainMenu.getSelected() == i) {
+            buttonBox.setFillColor(sf::Color(80, 80, 120)); // Surbrillance
+            buttonBox.setOutlineColor(sf::Color::Cyan);
+            buttonBox.setOutlineThickness(3.f);
+            optText.setFillColor(sf::Color::Cyan);
+        } else {
+            buttonBox.setFillColor(sf::Color(40, 40, 60));
+            buttonBox.setOutlineColor(sf::Color::White);
+            buttonBox.setOutlineThickness(1.f);
+            optText.setFillColor(sf::Color::White);
         }
+
+        window.draw(buttonBox);
+        
+        // Centrage du texte dans son rectangle
+        sf::FloatRect textBounds = optText.getGlobalBounds();
+        optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
+        window.draw(optText);
     }
-    window.display(); 
+
+    // --- 3. TEXTE D'AIDE ---
+    sf::Text help(font);
+    help.setString("Utilisez les FLECHES pour choisir et ESPACE pour valider");
+    help.setCharacterSize(16);
+    help.setFillColor(sf::Color(150, 150, 150));
+    sf::FloatRect helpBounds = help.getGlobalBounds();
+    help.setPosition({400.f - helpBounds.size.x / 2.f, 700.f});
+    window.draw(help);
+
+    window.display();
 }
 
 void IHM::playerSelect() {
@@ -181,11 +235,12 @@ void IHM::app(){
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
+        renderMenu();
         getInputs();
         if (inputs.select){
             s=mainMenu.getSelected();
         }
-        renderMenu();
+        
         if(s==0){
             gameLoop();
         }

@@ -21,7 +21,7 @@ public:
     Enemy* next;
     std::string type;
 
-    Enemy(int health=1,int damage=1,bool a=true,float s=0.1,int idS=0,std::string t="Caveman");
+    Enemy(int health=1,int damage=1,bool a=false, float s=0.1,int idS=0,std::string t="Caveman");
     ~Enemy();
     
     void move(Position &player);
