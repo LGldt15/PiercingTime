@@ -225,28 +225,33 @@ void IHM::playerSelect() {
 }
 
 void IHM::app(){
-    int s=-1;
-    window.setFramerateLimit(30);
+    window.setFramerateLimit(60);
+    
     while (window.isOpen()){
-        // Process events
         while (const std::optional event = window.pollEvent())
         {
-            // Close window: exit
             if (event->is<sf::Event::Closed>())
                 window.close();
-        }
-        renderMenu();
-        getInputs();
-        if (inputs.select){
-            s=mainMenu.getSelected();
+
+
+            if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+                if (keyPressed->code == sf::Keyboard::Key::Up) {
+                    mainMenu.up(); 
+                }
+                if (keyPressed->code == sf::Keyboard::Key::Down) {
+                    mainMenu.down();
+                }
+                if (keyPressed->code == sf::Keyboard::Key::Enter || keyPressed->code == sf::Keyboard::Key::Space) {
+                    int choice = mainMenu.getSelected();
+                    if (choice == 0) gameLoop();   
+                    if (choice == 1) window.close();
+                }
+            }
         }
         
-        if(s==0){
-            gameLoop();
-        }
+        renderMenu();
     }
 }
-
 
 //PARTIE shop
 
@@ -353,5 +358,21 @@ void IHM::renderShop() {
     uiText.setPosition({400.f - uiText.getGlobalBounds().size.x / 2.f, 600.f});
     window.draw(uiText);
 
+
+    float goldErrorTimer = 0.0f; 
+        // À la fin de renderShop(), juste avant window.display()
+    if (player.getGold() < shop.getItemAt(shop.getCurrentCursor()).price && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
+       goldErrorTimer = 3.0f; // Affiche le message pendant 2 secondes
+    }
+
+    if (goldErrorTimer > 0) {
+        uiText.setString("PAS ASSEZ D'OR !");
+        uiText.setFillColor(sf::Color::Red);
+        uiText.setCharacterSize(20);
+        // On le place au dessus des slots
+        uiText.setPosition({400.f - uiText.getGlobalBounds().size.x / 2.f, 200.f});
+        window.draw(uiText);
+        goldErrorTimer -= 0.016f; // On décrémente (environ 1/60ème de seconde)
+    }
     window.display();
 }
