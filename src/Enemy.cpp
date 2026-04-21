@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 
+
 Enemy::Enemy(int health,int damage,bool a,float s,int idS,std::string t){
     stats.hp=health; stats.attackDamage=damage; stats.playerSpeed=s; stats.bulletSpeed=0;
     isAlive=a;

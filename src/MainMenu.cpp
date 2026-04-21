@@ -17,9 +17,13 @@ int MainMenu::getSelected(){
 }
 
 void MainMenu::up(){
-    cursor=0;
+    if (cursor!=0)
+    cursor--;
 }
 
 void MainMenu::down(){
-    cursor=1;
+    if(cursor<2 && cursor>=0)
+    cursor++;
 }
+
+

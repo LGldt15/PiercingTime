@@ -8,6 +8,7 @@ class Player;
 #include "Bullet.h"
 #include "Inventory.h"
 #include <string>
+#include "Stats.h"
 
 class Enemy{
 private:

@@ -1,15 +1,19 @@
 #include "IHM.h"
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Inventory.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "../assets/Background/Background.h"
 #include "../assets/Enemy/gromgroi.h"
 #include "../assets/Player/player.h"
 #include "../assets/Bullet/caillou.h"
+#include "../assets/Items/dino_essence.h"
 //#include "../assets/play.h"
 #include "../assets/Icon.h"
 #include "iostream"
+#include "Item.h"
+
 
 
 IHM::IHM(){
@@ -63,6 +67,9 @@ IHM::IHM(){
         std::cout << "Erreur avec le font" << std::endl;
     }
     
+    if (itemTextures[0].loadFromMemory(dino_essence_png, dino_essence_png_len)) {
+    // OK
+}
 }
 
 void IHM::getInputs(){
@@ -94,8 +101,8 @@ void IHM::renderMap(){
     Player* p=game.getPlayers();
     for(int i=0;i<game.getNbJoueur();i++){
         sf::Vector2f pos;
-        pos.x=p[i].position.posX;
-        pos.y=p[i].position.posY;
+        pos.x=p[i].getPosition().posX;
+        pos.y=p[i].getPosition().posY;
         playerSprites[0]->setPosition(pos);
         window.draw(*playerSprites[0]);
     }
@@ -129,7 +136,8 @@ void IHM::renderMap(){
 void IHM::gameLoop(){
     while (window.isOpen()){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-                window.close();
+            app();
+                
         // Process events
         if (game.isInShop()) {
             handleShopInput(); 
@@ -173,9 +181,9 @@ void IHM::renderMenu() {
     window.draw(title);
 
     // --- 2. OPTIONS DU MENU ---
-    std::string options[] = {"JOUER", "QUITTER"};
+    std::string options[] = {"PLAY", "ONLINE", "LEAVE"};
     
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 3; i++) {
         float yPos = 400.f + (i * 100.f);
         
         // Fond du bouton (Rectangle)
@@ -214,7 +222,7 @@ void IHM::renderMenu() {
     help.setCharacterSize(16);
     help.setFillColor(sf::Color(150, 150, 150));
     sf::FloatRect helpBounds = help.getGlobalBounds();
-    help.setPosition({400.f - helpBounds.size.x / 2.f, 700.f});
+    help.setPosition({399.f - helpBounds.size.x / 2.f, 699.f});
     window.draw(help);
 
     window.display();
@@ -244,7 +252,9 @@ void IHM::app(){
                 if (keyPressed->code == sf::Keyboard::Key::Enter || keyPressed->code == sf::Keyboard::Key::Space) {
                     int choice = mainMenu.getSelected();
                     if (choice == 0) gameLoop();   
-                    if (choice == 1) window.close();
+                    if (choice == 1) { std::cout<<"not yet..."<<std::endl;};
+                    if (choice == 2) window.close();
+
                 }
             }
         }
@@ -375,4 +385,42 @@ void IHM::renderShop() {
         goldErrorTimer -= 0.016f; // On décrémente (environ 1/60ème de seconde)
     }
     window.display();
+}
+
+
+
+
+//_________inventaire_________
+
+void IHM::drawInventoryOverlay(float startX, float startY) {
+    float slotSize = 45.f;
+    float padding = 10.f;
+
+    // On récupère l'inventaire du joueur local (joueur 0)
+    Player& player = game.getPlayers()[0];
+    const auto& items = player.getInventory().getItems();
+
+    for (int i = 0; i < 5; i++) {
+        // 1. Le slot (fond)
+        sf::RectangleShape slot({slotSize, slotSize});
+        slot.setPosition({startX + (i * (slotSize + padding)), startY});
+        slot.setFillColor(sf::Color(30, 30, 50, 200)); // Bleu sombre transparent
+        slot.setOutlineThickness(2.f);
+        slot.setOutlineColor(sf::Color(150, 150, 150));
+        window.draw(slot);
+
+        // 2. L'item (si présent à cet index)
+        if (i < (int)items.size()) {
+            // On utilise l'ID de l'item pour choisir la texture dans ton tableau IHM
+            int texID = items[i].textureID; 
+            sf::Sprite icon(itemTextures[texID]);
+            
+            // Ajustement de la taille du sprite à la case
+            sf::FloatRect b = icon.getLocalBounds();
+            icon.setScale({slotSize / b.size.x, slotSize / b.size.y});
+            icon.setPosition(slot.getPosition());
+            
+            window.draw(icon);
+        }
+    }
 }

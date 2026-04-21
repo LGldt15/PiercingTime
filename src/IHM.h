@@ -9,6 +9,7 @@
 #include "Game.h"
 #include "MainMenu.h"
 #include "Player.h"
+#include "Controls.h"
 
 
 
@@ -47,6 +48,8 @@ private:
     sf::Sprite *buttonSprites[10];
 
     sf::Texture ui[10];
+
+    sf::Texture itemTextures[10]; 
 public:
     IHM();
     ~IHM();
@@ -62,6 +65,9 @@ public:
     void app();
 
     void handleShopInput();
+
+    //inventory 
+    void drawInventoryOverlay(float startX, float startY);
 
 };
 

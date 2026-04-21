@@ -2,19 +2,19 @@
 #include "Bullet.h"
 #include <iostream>
 
-Player::Player(){
-    stats.hp=10;
-    stats.attackDamage=10;
-    stats.playerSpeed=3;// à changer de nom ??
-    stats.bulletSpeed=10;
-    position.posX=position.posY=0;
-    experience=0;
-    gold=0;
-    sprites=0;
-    cooldown=10;
-    width=30;
-    height=100;
-
+Player::Player() : inventory(0) {
+    stats.hp = 10;
+    stats.attackDamage = 10;
+    stats.playerSpeed = 3;
+    stats.bulletSpeed = 10;
+    position.posX = position.posY = 0;
+    experience = 0;
+    gold = 0;
+    sprites = 0;
+    cooldown = 10;
+    width = 30;
+    height = 100;
+    dead = false;
 }
 
 Player::~Player(){}  unsigned int gold;
@@ -99,4 +99,14 @@ bool Player::takeDamageBullet(Bullet &bullets){
         bullets.damage=stats.attackDamage;
         bullets.fromPlayer=true;
     }
+}
+
+//FONCTION POUR LE SHOP ET L INVENTAIRE
+
+Inventory& Player::getInventory() {
+    return inventory;
+}
+
+unsigned int Player::getAttackWithBonus() const {
+    return inventory.getTotalDamage();
 }

@@ -7,6 +7,7 @@ Game::Game(){
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
+    players[0].setGold(200);
 }
 
 Game::~Game(){
@@ -58,7 +59,7 @@ int Game::getMapId(){
 }
 
 int Game::getPlayerId(int i){
-    return players[i].sprites;
+    return players[i].getSprites(); 
 }
 
 Bullet* Game::getBullets(){
