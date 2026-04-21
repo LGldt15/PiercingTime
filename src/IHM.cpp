@@ -22,7 +22,7 @@ IHM::IHM(){
     sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
 // Y avait une segfault psk c t mal initialise les tableaux et du coup le destructeur
-//il comprennait pas quoi supp 
+// il comprennait pas quoi supp 
     for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
     for (int i = 0; i < 4; i++)  enemySprites[i] = nullptr;
     for (int i = 0; i < 9; i++)  mapSprites[i] = nullptr;
@@ -67,9 +67,7 @@ IHM::IHM(){
         std::cout << "Erreur avec le font" << std::endl;
     }
     
-    if (itemTextures[0].loadFromMemory(dino_essence_png, dino_essence_png_len)) {
-    // OK
-}
+   
 }
 
 void IHM::getInputs(){
