@@ -17,7 +17,7 @@ Player::Player() : inventory(0) {
     dead = false;
 }
 
-Player::~Player(){}  unsigned int gold;
+Player::~Player(){}
 
 Stats& Player::getStats(){return stats;}
 
