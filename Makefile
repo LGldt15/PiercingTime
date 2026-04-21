@@ -36,7 +36,7 @@ ifeq ($(PLATFORM), Linux)
             ./lib/linux/libsfml-window-s.a \
             ./lib/linux/libsfml-system-s.a \
             ./lib/linux/libsfml-network-s.a \
-            -lGL -lX11 -lXrandr -lXcursor -lXi -ludev -lpthread -lfreetype -static
+            -lGL -lX11 -lXrandr -lXcursor -lXi -ludev -lpthread -lfreetype
     
     # Linux specific objects and targets
     LINUX_ONLY_OBJ := $(OBJ_DIR)/IHMServeur.o
