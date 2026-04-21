@@ -12,6 +12,13 @@ IHMServeur::IHMServeur(int i){
     running=true;
 }
 
+
+void IHMServeur::handleShopInput() {
+    for(int i=0;i<game.getNbJoueur();i++){
+        game.getShop(i).handleInput(inputs[i],game.getPlayers()[i] );
+    }
+}
+
 void IHMServeur::executionLoop() {
     std::cout<<"started loop\n";
     while (true) {
@@ -70,7 +77,13 @@ void IHMServeur::executionLoop() {
         }
         roomMutex.unlock();
         // Update physics/game logic if the game has started
-        game.update(inputs);
+        if(!game.isInShop()){
+            game.update(inputs);
+        }else{
+            for(int i=0;i<game.getNbJoueur();i++)
+                game.getShop(i).refreshShop();
+            handleShopInput();
+        }
         
         
         // If all players left, stop the room

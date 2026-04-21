@@ -13,6 +13,7 @@ Player::Player(){
     sprites=0;
     cooldown=10;
     start=false;
+    idMulti=0;
 }
 
 Player::~Player(){}  unsigned int gold;

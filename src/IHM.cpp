@@ -11,6 +11,7 @@
 #include "../assets/player.h"
 #include "../assets/caillou.h"
 #include "../assets/play.h"
+#include "../assets/font.h"
 
 #include "Inventory.h"
 #include "Player.h"
@@ -20,6 +21,7 @@
 IHM::IHM(){
     winWidth=800;
     winHeight=800;
+    idMulti=0;
     sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
 
@@ -48,8 +50,11 @@ IHM::IHM(){
     }
     buttonSprites[0]->setPosition({100.0f,300.0f});
     
-    if(!font.openFromFile("./assets/font.ttf")) {
+    if(!font.openFromMemory(font_ttf, font_ttf_len)) {
         std::cout << "Erreur avec le font" << std::endl;
+    }
+    for(int i=0;i<4;i++){
+        game.getShop(i).refreshShop();
     }
 }
 
@@ -77,8 +82,8 @@ IHM::~IHM(){
 void IHM::renderShop() {
     window.clear(sf::Color(25, 25, 45)); 
 
-    Shop& shop = game.getShop(0);
-    Player& player = game.getPlayers()[0];
+    Shop& shop = game.getShop(idMulti);
+    Player& player = game.getPlayers()[idMulti];
 
 
     sf::Text uiText(font);
@@ -205,46 +210,17 @@ void IHM::renderMap(){
 }
 
 void IHM::handleShopInput() {
-
-    while (const std::optional event = window.pollEvent()) {
-        
-
-        if (event->is<sf::Event::Closed>()) {
-            window.close();
-        }
-
-
-        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-            
-
-            Controls shopControls;
-            shopControls.left   = (keyPressed->code == sf::Keyboard::Key::Left);
-            shopControls.right  = (keyPressed->code == sf::Keyboard::Key::Right);
-            shopControls.select = (keyPressed->code == sf::Keyboard::Key::Enter);
-            
-
-
-            game.getShop(0).handleInput(shopControls, game.getPlayers()[0]);
-
-
-            if (keyPressed->code == sf::Keyboard::Key::E) {
-                game.setShopActive(false); 
-            }
-        }
+    getInputs();
+    game.getShop(idMulti).handleInput(inputs[idMulti], game.getPlayers()[idMulti]);
+    if (inputs[idMulti].pause) {
+        game.setShopActive(false);
     }
 }
+
+
 void IHM::gameLoop(){
-    while (window.isOpen()){
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-            app();
-                
-        // Process events
-        if (game.isInShop()) {
-            handleShopInput(); 
-            renderShop();      
-        }else{
-        while (const std::optional event = window.pollEvent())
-        {
+    while (window.isOpen()){        
+        while (const std::optional event = window.pollEvent()){
 
 
             if (event->is<sf::Event::Closed>() )
@@ -253,12 +229,19 @@ void IHM::gameLoop(){
         
             //remplacer par le menu de pause
         }
-            
-
-        getInputs();
-        game.update(inputs[0], winWidth, winHeight);
-        renderMap();
-    }}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+            app();
+                
+        // Process events
+        if (game.isInShop()) {
+            handleShopInput(); 
+            renderShop();      
+        }else{
+            getInputs();
+            game.update(inputs[0], winWidth, winHeight);
+            renderMap();
+        }
+    }
 }
 
 void IHM::gameLoopMulti() {
@@ -339,7 +322,12 @@ void IHM::gameLoopMulti() {
             sendPacket.append(&inputs, sizeof(Controls));
             socket.send(sendPacket);
         }
-        renderMap();
+        if (game.isInShop()) {
+            std::cout<<"SHOP";
+            renderShop();      
+        }else{
+            renderMap();
+        }
     }
 }
 

@@ -23,6 +23,7 @@ public:
     void executionLoop();
     void startWithClient(sf::TcpSocket* creator);
     void addPlayer(sf::TcpSocket* player);
+    void handleShopInput();
 };
 
 #endif

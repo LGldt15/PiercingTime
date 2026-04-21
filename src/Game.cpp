@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include <iostream>
+#include <string>
 
 Game::Game(){
     nbJoueur=1;
@@ -28,26 +29,50 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-        for(int i=0;i<nbJoueur;i++){
-            players[i].move(c, winWidth, winHeight);
-        }
+    if (!isShopActive) {
+
+
+        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+
+
         if (level.getNbEnemies() == 0) {
             std::cout << "SHOP" << std::endl; 
             isShopActive = true;
-            playerShop[0].refreshShop();
+            for(int i=0;i<nbJoueur;i++){
+                playerShop[i].refreshShop();
+            }
         }
-        level.update(winWidth, winHeight,players,nbJoueur);
+        for(int i=0;i<nbJoueur;i++){
+            players[0].move(c, 800, 800);
+        }
+        level.update(800,800,players,nbJoueur);
+    } else {
+        playerShop[0].handleInput(c, players[0]);
+    }
 }
 
 void Game::update(Controls *c){
-    players[0].doWeStart(c[0]);
-    if(players[0].start){
+    if (!isShopActive) {
+
+        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+
         for(int i=0;i<nbJoueur;i++){
-            players[i].move(c[i], 800,800);
+            players[i].move(c[i], 800, 800);
         }
         level.update(800,800,players,nbJoueur);
+        if (level.getNbEnemies() == 0) {
+            std::cout << "SHOP" << std::endl; 
+            isShopActive = true;
+            for(int i=0;i<nbJoueur;i++){
+                playerShop[i].refreshShop();
+            }
+        }
+        
+    } else {
+        for(int i=0;i<nbJoueur;i++){
+            playerShop[i].handleInput(c[i], players[i]);
+        }
     }
-
 }
 
 
