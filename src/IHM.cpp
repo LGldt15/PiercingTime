@@ -6,12 +6,12 @@
 #include <SFML/System/Vector2.hpp>
 #include <cstring>
 #include <string>
-#include "../assets/Background.h"
-#include "../assets/gromgroi.h"
-#include "../assets/player.h"
-#include "../assets/caillou.h"
-#include "../assets/play.h"
-#include "../assets/font.h"
+#include "../assets/Background/Background.h"
+#include "../assets/Enemy/gromgroi.h"
+#include "../assets/Player/player.h"
+#include "../assets/Bullet/caillou.h"
+//#include "../assets/play.h"
+#include "../assets/fonts/font.h"
 
 #include "Inventory.h"
 #include "Player.h"
@@ -25,6 +25,10 @@ IHM::IHM(){
     sf::Vector2<unsigned int> size={winWidth,winHeight};
     window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
 
+    for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
+    for (int i = 0; i < 4; i++)  enemySprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  mapSprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  bulletSprites[i] = nullptr;
 
     if(mapTypes[0].loadFromMemory(Background_png,Background_png_len)){
         mapSprites[0]=new sf::Sprite(mapTypes[0]);
@@ -44,11 +48,6 @@ IHM::IHM(){
     if(bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len)){
         bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
     }
-
-    if(buttons[0].loadFromMemory(play_jpg,play_jpg_len)){
-        buttonSprites[0]=new sf::Sprite(buttons[0]);
-    }
-    buttonSprites[0]->setPosition({100.0f,300.0f});
     
     if(!font.openFromMemory(font_ttf, font_ttf_len)) {
         std::cout << "Erreur avec le font" << std::endl;
