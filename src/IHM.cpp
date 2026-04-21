@@ -130,7 +130,7 @@ void IHM::gameLoop(){
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(88,184,64,49);
+    sf::IpAddress ip(10,42,147,46);
     int room;
     // 1. Initial Connection to Dispatcher
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
@@ -190,6 +190,7 @@ void IHM::gameLoopMulti() {
         // The Room Thread is now the one sending this data
         if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
             // Use your memcpy logic or packet extraction
+            
             std::memcpy(&game, receivePacket.getData(), sizeof(Game));
             
             if (idMulti == -1) {

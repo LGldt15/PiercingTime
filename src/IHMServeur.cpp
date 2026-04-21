@@ -49,10 +49,11 @@ void IHMServeur::executionLoop() {
                         
                         //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<client.getRemotePort()<<std::endl;
                         it++;
+
                         sf::Packet response;
                         response.append(&game, sizeof(Game)); 
                         client.send(response);
-
+                        
                     } else if (status == sf::Socket::Status::Disconnected) {
                         selector.remove(client);
                         delete *it;
@@ -64,12 +65,15 @@ void IHMServeur::executionLoop() {
                     it++;
                 }
             }
+            
         }
         roomMutex.unlock();
-
         // Update physics/game logic if the game has started
         if (game.getPlayers()[0].start) {
             game.update();
+            for (auto it = clients.begin(); it != clients.end(); ) {
+                sf::TcpSocket& client = **it;
+            }
         }
         
         // If all players left, stop the room
@@ -77,6 +81,8 @@ void IHMServeur::executionLoop() {
     }
     delete this; // Clean up the room object memory when the thread finishes
 }
+
+
 void IHMServeur::startWithClient(sf::TcpSocket* creator) {
     clients.push_back(creator);
     selector.add(*creator);
