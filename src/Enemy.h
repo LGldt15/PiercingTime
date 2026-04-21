@@ -8,7 +8,6 @@ class Player;
 #include "Bullet.h"
 #include "Inventory.h"
 #include <string>
-#include "Stats.h"
 
 class Enemy{
 private:
@@ -20,9 +19,9 @@ public:
     Position position;
     bool isAlive;
     Enemy* next;
-    std::string type;
+    //std::string type;
 
-    Enemy(int health=1,int damage=1,bool a=false, float s=0.1,int idS=0,std::string t="Caveman");
+    Enemy(int health=1,int damage=1,bool a=false, float s=0.1,int idS=0);
     ~Enemy();
     
     void move(Position &player);

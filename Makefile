@@ -1,63 +1,84 @@
-# --- Configuration de l'OS ---
-UNAME := $(shell uname)
-CXX := g++
-CXXFLAGS := -Wall -O2 -std=c++17 
-
-# Dossiers
-SRC_DIR := ./src
-OBJ_DIR := ./obj
-BIN_DIR := ./bin
-
-# --- Détection des OS et des Flags ---
-ifeq ($(UNAME), Linux)
-    # Linux garde le lien statique comme prévu par tes amis
-    CXXFLAGS += -DSFML_STATIC
-    CPPFLAGS += -I/usr/include
-    LIBS = ./lib/linux/libsfml-graphics-s.a \
-           ./lib/linux/libsfml-window-s.a \
-           ./lib/linux/libsfml-system-s.a \
-           -lGL -lX11 -lXrandr -lXcursor -lXi -ludev -lpthread -lfreetype
+# --- OS Detection ---
+ifeq ($(OS),Windows_NT)
+    PLATFORM := Windows
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        PLATFORM := Linux
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        PLATFORM := Darwin
+    endif
 endif
 
-ifeq ($(UNAME), Darwin)
-    # Mac utilise Homebrew et le lien DYNAMIQUE (plus stable sur macOS)
-    BREW_PREFIX := $(shell brew --prefix)
-    CPPFLAGS += -I$(BREW_PREFIX)/include
-    LDFLAGS += -L$(BREW_PREFIX)/lib
-    # On NE met PAS -DSFML_STATIC ici
-    LIBS = -lsfml-graphics -lsfml-window -lsfml-system -lfreetype \
-           -framework OpenGL -framework Cocoa -framework IOKit \
-           -framework CoreVideo -framework Carbon
-endif
+#PLATFORM=Windows
+# --- Global Settings ---
+CXXFLAGS := -Wall -O2 -std=c++17
+CPPFLAGS := 
+LDFLAGS  := 
+OBJ_DIR  := ./obj
+BIN_DIR  := ./bin
+SRC_DIR  := ./src
 
-ifeq ($(OS), Windows_NT)
-    CXX=x86_64-w64-mingw32-g++
+# --- Objects common to ALL platforms ---
+# (Removed IHMServeur.o from here)
+CORE_OBJ := $(OBJ_DIR)/IHM.o $(OBJ_DIR)/Game.o $(OBJ_DIR)/Player.o \
+            $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/Shop.o $(OBJ_DIR)/Inventory.o \
+            $(OBJ_DIR)/Bullet.o $(OBJ_DIR)/Position.o $(OBJ_DIR)/MainMenu.o \
+            $(OBJ_DIR)/Map.o
+
+# --- Platform Specific Configuration ---
+ifeq ($(PLATFORM), Linux)
+    CXX := g++
     CXXFLAGS += -DSFML_STATIC
     CPPFLAGS += -I./include
-    LIBS = ./lib/win/libsfml-graphics-s.a \
-           ./lib/win/libsfml-window-s.a \
-           ./lib/win/libsfml-system-s.a \
-           -lopengl32 -lgdi32 -lwinmm -static
+    LIBS := ./lib/linux/libsfml-graphics-s.a \
+            ./lib/linux/libsfml-window-s.a \
+            ./lib/linux/libsfml-system-s.a \
+            ./lib/linux/libsfml-network-s.a \
+            -lGL -lX11 -lXrandr -lXcursor -lXi -ludev -lpthread -lfreetype
+    
+    # Linux specific objects and targets
+    LINUX_ONLY_OBJ := $(OBJ_DIR)/IHMServeur.o
+    TARGETS := $(BIN_DIR)/PiercingTime $(BIN_DIR)/PiercingDis
 endif
 
-# --- Cibles ---
+ifeq ($(PLATFORM), Windows)
+    CXX := x86_64-w64-mingw32-g++
+    CXXFLAGS += -DSFML_STATIC
+    CPPFLAGS += -I./include -I/usr/x86_64-w64-mingw32/include
+    
+    # Added -lws2_32 at the end of the list
+    LIBS := ./lib/win/libsfml-graphics-s.a \
+            ./lib/win/libsfml-window-s.a \
+            ./lib/win/libsfml-system-s.a \
+            ./lib/win/libsfml-network-s.a \
+            -lopengl32 -lgdi32 -lwinmm -lws2_32 -static-libgcc -static-libstdc++ -static
+            
+    LINUX_ONLY_OBJ := 
+    TARGETS := $(BIN_DIR)/PiercingTime
+endif
 
-OBJ = $(OBJ_DIR)/mainTest.o $(OBJ_DIR)/IHM.o $(OBJ_DIR)/Game.o \
-      $(OBJ_DIR)/Player.o $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/Shop.o $(OBJ_DIR)/Inventory.o \
-      $(OBJ_DIR)/Bullet.o $(OBJ_DIR)/Position.o $(OBJ_DIR)/MainMenu.o $(OBJ_DIR)/Map.o
+# --- Rules ---
 
-TARGET = $(BIN_DIR)/PiercingTime
+all: $(TARGETS)
 
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
+# PiercingTime: Uses core objects + the main test file
+$(BIN_DIR)/PiercingTime: $(CORE_OBJ) $(OBJ_DIR)/mainTest.o
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(LIBS)
 
-# Règle générique pour éviter la répétition
+# PiercingDis: Uses core objects + Linux-only objects + dispatcher main
+$(BIN_DIR)/PiercingDis: $(CORE_OBJ) $(LINUX_ONLY_OBJ) $(OBJ_DIR)/mainDispatcher.o
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(LIBS)
+
+# Generic compilation rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(TARGET)
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
+
+.PHONY: all clean

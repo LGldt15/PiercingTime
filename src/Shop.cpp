@@ -1,4 +1,5 @@
 #include "Shop.h"
+#include <charconv>
 #include<iostream>
 
 Shop::Shop(){
@@ -6,9 +7,9 @@ Shop::Shop(){
     currentCursor=0; //selector dans le shop ≠ boutton d item
     for (int i=0; i<4; i++){
         item[i].price=0;
-        item[i].name="None";
         item[i].button=0;
         item[i].isSelected=false;
+        item[i].name[0]='N';
         //on touchera pas au gold, a l exp ou autres
     }
     std::cout<<"shop initialisé"<<std::endl;
@@ -26,7 +27,9 @@ Item Shop::itemRandSelect(){
     {
         case 1:
 
-            selectedItem.name="Dino essence";
+            selectedItem.name[0]='D';
+            selectedItem.name[1]='E';
+            selectedItem.name[2]='\0';
             selectedItem.price=40;
             selectedItem.effect.attackDamage=10.0f;
             selectedItem.effect.bulletSpeed=0.5f;
@@ -36,7 +39,9 @@ Item Shop::itemRandSelect(){
             break;
         case 2:
 
-            selectedItem.name="Rubber Elastic";
+            selectedItem.name[0]='R';
+            selectedItem.name[1]='E';
+            selectedItem.name[2]='\0';
             selectedItem.price=10;
             selectedItem.effect.attackDamage=0;
             selectedItem.effect.bulletSpeed=1.5f;
@@ -45,7 +50,9 @@ Item Shop::itemRandSelect(){
             break;
         case 3:
 
-            selectedItem.name="Armadillo Shell";
+            selectedItem.name[0]='A';
+            selectedItem.name[1]='S';
+            selectedItem.name[2]='\0';
             selectedItem.price=35;
             selectedItem.effect.attackDamage=10.0f;
             selectedItem.effect.bulletSpeed=-0.5;
@@ -54,7 +61,10 @@ Item Shop::itemRandSelect(){
             break;
         case 4:
 
-            selectedItem.name="Weird Black Liquid";//petrol
+            selectedItem.name[0]='W';
+            selectedItem.name[1]='B';
+            selectedItem.name[2]='L';
+            selectedItem.name[3]='\0';
             selectedItem.price=75;
             selectedItem.effect.attackDamage=20.0f;
             selectedItem.effect.bulletSpeed=8.0f;
@@ -64,7 +74,9 @@ Item Shop::itemRandSelect(){
             break;
         case 5:
 
-            selectedItem.name="Bone Broth";
+            selectedItem.name[0]='B';
+            selectedItem.name[1]='B';
+            selectedItem.name[2]='\0';
             selectedItem.price=15;
             selectedItem.effect.attackDamage=5.0f;
             selectedItem.effect.bulletSpeed=2.0f;
@@ -85,7 +97,7 @@ Item Shop::itemRandSelect(){
 void Shop::refreshShop() {
     for (int i = 0; i < 4; i++) {
         // On ne remplace que les items achetés ou vides
-        if (item[i].name == "None") {
+        if (item[i].name[0] == 'N') {
             item[i] = itemRandSelect();
             item[i].button = i + 1;
             item[i].isSelected = false;
@@ -102,7 +114,7 @@ void Shop::handleInput(Controls& c, Player& p) {
     if (c.select) {
         Item& target = item[currentCursor]; // On prend une RÉFÉRENCE pour modifier l'item du tableau
         
-        if (target.name != "None" && p.getGold() >= target.price) {
+        if (target.name[0] != 'N' && p.getGold() >= target.price) {
             // Appliquer l'effet et retirer l'or
             effectOnPlayer(p, target);
             

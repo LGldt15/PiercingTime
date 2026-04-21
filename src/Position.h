@@ -1,7 +1,3 @@
-#pragma once
-
-
-
 struct Position{
     float posX,posY;
     float length();

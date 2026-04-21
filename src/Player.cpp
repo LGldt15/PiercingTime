@@ -2,19 +2,18 @@
 #include "Bullet.h"
 #include <iostream>
 
-Player::Player() : inventory(0) {
-    stats.hp = 10;
-    stats.attackDamage = 10;
-    stats.playerSpeed = 3;
-    stats.bulletSpeed = 10;
-    position.posX = position.posY = 0;
-    experience = 0;
-    gold = 0;
-    sprites = 0;
-    cooldown = 10;
-    width = 30;
-    height = 100;
-    dead = false;
+Player::Player(){
+    stats.hp=10;
+    stats.attackDamage=10;
+    stats.playerSpeed=3;// à changer de nom ??
+    stats.bulletSpeed=10;
+    position.posX=position.posY=0;
+    experience=0;
+    gold=0;
+    sprites=0;
+    cooldown=10;
+    start=false;
+    idMulti=0;
 }
 
 Player::~Player(){}  unsigned int gold;
@@ -71,7 +70,10 @@ bool Player::takeDamage(const Enemy &enemy){
 bool Player::takeDamageBullet(Bullet &bullets){
     if(bullets.fromPlayer)return false;
     unsigned int dmg;
-    dmg=bullets.hitOrMiss(position, height, width);
+    Position hitbox;
+    hitbox.posX=height;
+    hitbox.posY=width;
+    dmg=bullets.hitOrMiss(position,hitbox);
     if(dmg==0)return false;
     if (stats.hp<=dmg){stats.hp=0;dead=true;} 
     else stats.hp-=dmg;
@@ -82,7 +84,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
     //if(nbE==0){bullets.damage=0;return;}
     Position dist=tabE[0].position-position;
     float distMin=800;
-    unsigned int idMin=0;
+    unsigned int idMin=-1;
     bool canshoot=false;
     for(unsigned int i=0; i<50;i++){
         dist=tabE[i].position-position;
@@ -93,7 +95,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
         }
     }
     if(canshoot){
-        Position speed=(tabE[idMin].position-position)/(tabE[idMin].position-position).length();
+        Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
         bullets.pos=position;
         bullets.speed=speed*stats.bulletSpeed;
         bullets.damage=stats.attackDamage;
@@ -101,12 +103,10 @@ bool Player::takeDamageBullet(Bullet &bullets){
     }
 }
 
-//FONCTION POUR LE SHOP ET L INVENTAIRE
-
-Inventory& Player::getInventory() {
-    return inventory;
+int Player::getIdMulti(){
+    return idMulti;
 }
 
-unsigned int Player::getAttackWithBonus() const {
-    return inventory.getTotalDamage();
+void Player::doWeStart(Controls c){
+    if (c.select)start=true;
 }

@@ -8,7 +8,6 @@ Bullet::Bullet(){
     damage=0;
     fromPlayer=true;
     sprite=0;
-    
 }
 
 Bullet::Bullet(Bullet *n,Position p,Position S,unsigned int d,bool fP){
@@ -18,7 +17,6 @@ Bullet::Bullet(Bullet *n,Position p,Position S,unsigned int d,bool fP){
     speed=S;
     damage=d;
     fromPlayer=fP;
-    
 }
 
 Bullet::Bullet(Position p,Position S,unsigned int d,bool fP){
@@ -28,17 +26,13 @@ Bullet::Bullet(Position p,Position S,unsigned int d,bool fP){
     speed=S;
     damage=d;
     fromPlayer=fP;
-    
 }
 
 Bullet::~Bullet(){}   
 
 
-unsigned int Bullet::hitOrMiss(Position & posE,unsigned int heightE, unsigned int widthE){//renvoie les degat fait un une entite en foncione de la sa position, de sa hauteur et de sa largeur
-    height=width=10;
-    bool hit=(pos.posX < posE.posX + widthE && pos.posX + width > posE.posX &&
-        pos.posY < posE.posY + heightE && pos.posY + height > posE.posY);
-    if(hit){
+unsigned int Bullet::hitOrMiss(Position min,Position max){//renvoie les degat fait un une entite en foncione de la hitbpx de celle ci(xMin et yMin sont ses coordonner xMax,yMax sont les hauteur et la largeur de la "hitbox")
+    if(pos.posX<=max.posX && pos.posX>=min.posX && pos.posY<=max.posY && pos.posY>=min.posY) {
         unsigned int temp=damage; // on récupère les dégats
         damage=0; // on met damage à 0 pour détruire facilement l'objet
         return temp;

@@ -3,14 +3,13 @@
 
 #include "Bullet.h"
 #include "Enemy.h"
+#include "Inventory.h"
 #include "Player.h"
 
 
 class Map{
 private:
     int idMap;
-    Player* players[4];
-    int nbPlayers;
     Enemy enemies[50];
     int nbEnemies;
     Bullet bullets[500];
@@ -19,12 +18,14 @@ public:
     Map();
     Map(int idS,Player &p,int nbP);
 
-    void move(Controls &c, unsigned int winWidth,unsigned int winHeight);
+    void move( unsigned int winWidth,unsigned int winHeight,Player* players,int nbPlayers);//local
+    void move(Player* players,int nbPlayers);//serveur
     void damageE();
-    void damageP(int player);
-    void damageAll();
+    void damageP(Player* players,int nbPlayers , int player);
+    void damageAll(Player* players,int nbPlayers);
 
-    void update(Controls &c,  unsigned int winWidth, unsigned int winHeight);
+    void update(  unsigned int winWidth, unsigned int winHeight,Player* players,int nbPlayers);
+    void update(Player* players,int nbPlayers);
     //utilities to get stuff vacj up to the renderer
     int getMapId();
 
@@ -36,5 +37,7 @@ public:
     Bullet* getBullets();
 
 };
+
+
 
 #endif

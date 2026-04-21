@@ -1,10 +1,11 @@
 #include "Enemy.h"
+#include "Bullet.h"
 #include "Player.h"
 #include <cmath>
 #include <string>
 
 
-Enemy::Enemy(int health,int damage,bool a,float s,int idS,std::string t){
+Enemy::Enemy(int health,int damage,bool a,float s,int idS){
     stats.hp=health; stats.attackDamage=damage; stats.playerSpeed=s; stats.bulletSpeed=0;
     isAlive=a;
     position.posX=rand()%800;
@@ -12,7 +13,6 @@ Enemy::Enemy(int health,int damage,bool a,float s,int idS,std::string t){
     sprite=idS;
     height=width=100;
     next=nullptr;
-    type=t;
     
 }
 
@@ -23,10 +23,10 @@ Stats& Enemy::getStats(){return stats;}
 const Stats& Enemy::getStats()const{return stats;}
 
 void Enemy::move(Position& player){
-    bool shooter= (type=="Archer")||(type=="Spearman");//...
+    //bool shooter= (type=="Archer")||(type=="Spearman");//...
     if(position.posX<0){position.posX=0.f;}else if(position.posX>800){position.posX=800.f;} //prévient la sortie de case
     if(position.posY<0){position.posY=0.f;}else if(position.posY>800){position.posY=800.f;} 
-    if(shooter){moveShooter(player);return;}
+    //if(shooter){moveShooter(player);return;}
     moveAgro(player);
 }
 
@@ -80,7 +80,7 @@ void Enemy::moveShooter(Position &player){
 bool Enemy::takeDamageBullet(Bullet &bullets){
     if(!bullets.fromPlayer)return false;
     unsigned int dmg;
-    dmg=bullets.hitOrMiss(position,height,width);
+    dmg=bullets.hitOrMiss(position,{position.posX+50,position.posY+100});
     if(dmg==0)return false;
     if (stats.hp<=dmg){stats.hp=0;isAlive=false;} 
     else stats.hp-=dmg;

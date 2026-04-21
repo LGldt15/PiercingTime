@@ -9,7 +9,7 @@
 
 
 struct Item {
-    std::string name;
+    char name[20]="N";
     unsigned int price;
     Stats effect;
     bool isSelected;

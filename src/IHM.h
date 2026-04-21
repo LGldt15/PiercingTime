@@ -1,6 +1,7 @@
 #ifndef _IHM_H
 #define _IHM_H
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -9,7 +10,6 @@
 #include "Game.h"
 #include "MainMenu.h"
 #include "Player.h"
-#include "Controls.h"
 
 
 
@@ -17,16 +17,12 @@ class IHM{
 private:
     Game game;
     MainMenu mainMenu;
-    Controls inputs;
+    Controls inputs[4];
     unsigned int winWidth;
     unsigned int winHeight;
-    
+
     sf::Font font;
-
-
-    
     sf::RenderWindow window;
-
 
     sf::Texture playerTypes[2];
     sf::Sprite *playerSprites[2];
@@ -49,7 +45,7 @@ private:
 
     sf::Texture ui[10];
 
-    sf::Texture itemTextures[10]; 
+    int idMulti=0;
 public:
     IHM();
     ~IHM();
@@ -61,13 +57,10 @@ public:
     void getInputs();
     //loop
     void gameLoop();
+    void gameLoopMulti();
+    void handleShopInput();
     //tout
     void app();
-
-    void handleShopInput();
-
-    //inventory 
-    void drawInventoryOverlay(float startX, float startY);
 
 };
 
