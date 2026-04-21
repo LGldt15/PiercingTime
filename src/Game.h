@@ -33,7 +33,7 @@ public:
     void setNbPlayers(int i);
     ///in game stuff
     void update(Controls c, unsigned int winWidth, unsigned int winHeight);
-    void update();
+    void update(Controls *c);
     //get stuff for rendering
     int getMapId();
     Enemy* getEnemies();

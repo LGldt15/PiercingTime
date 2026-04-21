@@ -27,14 +27,24 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-    for(int i=0;i<nbJoueur;i++){
-        players[i].move(c, winWidth, winHeight);
+    players[0].doWeStart(c);
+    if(players[0].start){
+        for(int i=0;i<nbJoueur;i++){
+            players[i].move(c, winWidth, winHeight);
+        }
+        level.update(winWidth, winHeight,players,nbJoueur);
     }
-    level.update(winWidth, winHeight,players,nbJoueur);
 }
 
-void Game::update(){
-    level.update(players,nbJoueur);
+void Game::update(Controls *c){
+    players[0].doWeStart(c[0]);
+    if(players[0].start){
+        for(int i=0;i<nbJoueur;i++){
+            players[i].move(c[i], 800,800);
+        }
+        level.update(800,800,players,nbJoueur);
+    }
+
 }
 
 

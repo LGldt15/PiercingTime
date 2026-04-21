@@ -1,5 +1,6 @@
 #include "IHMServeur.h"
 #include "Game.h"
+#include "Inventory.h"
 #include "Player.h"
 #include <SFML/Network/Packet.hpp>
 #include <cstring>
@@ -45,7 +46,7 @@ void IHMServeur::executionLoop() {
                         
                         // We add sizeof(int) to the pointer to move past the ID we just read
                         
-                        std::memcpy(&game.getPlayers()[id], rawData + sizeof(int), sizeof(Player));
+                        std::memcpy(&inputs[id], rawData + sizeof(int), sizeof(Controls));
                         
                         //std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<client.getRemotePort()<<std::endl;
                         it++;
@@ -69,12 +70,8 @@ void IHMServeur::executionLoop() {
         }
         roomMutex.unlock();
         // Update physics/game logic if the game has started
-        if (game.getPlayers()[0].start) {
-            game.update();
-            for (auto it = clients.begin(); it != clients.end(); ) {
-                sf::TcpSocket& client = **it;
-            }
-        }
+        game.update(inputs);
+        
         
         // If all players left, stop the room
         if (clients.empty()) running = false;

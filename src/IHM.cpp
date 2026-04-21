@@ -190,7 +190,7 @@ void IHM::gameLoopMulti() {
         // The Room Thread is now the one sending this data
         if (socket.receive(receivePacket) == sf::Socket::Status::Done) {
             // Use your memcpy logic or packet extraction
-            
+
             std::memcpy(&game, receivePacket.getData(), sizeof(Game));
             
             if (idMulti == -1) {
@@ -201,11 +201,9 @@ void IHM::gameLoopMulti() {
         // Send your inputs back to the Room Thread
         if (idMulti != -1) {
             getInputs();
-            game.getPlayers()[idMulti].move(inputs[idMulti],800, 800);
-            game.getPlayers()[idMulti].doWeStart(inputs[0]);
             sf::Packet sendPacket;
             sendPacket.append(&idMulti, sizeof(int));
-            sendPacket.append(&game.getPlayers()[idMulti], sizeof(Player));
+            sendPacket.append(&inputs, sizeof(Controls));
             socket.send(sendPacket);
         }
         renderMap();
