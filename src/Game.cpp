@@ -1,8 +1,9 @@
 #include "Game.h"
 #include "Player.h"
+#include <iostream>
 
 Game::Game(){
-    nbJoueur=0;
+    nbJoueur=1;
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
@@ -27,13 +28,15 @@ void Game::setNbPlayers (int i){
 
 
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
-    players[0].doWeStart(c);
-    if(players[0].start){
         for(int i=0;i<nbJoueur;i++){
             players[i].move(c, winWidth, winHeight);
         }
+        if (level.getNbEnemies() == 0) {
+            std::cout << "SHOP" << std::endl; 
+            isShopActive = true;
+            playerShop[0].refreshShop();
+        }
         level.update(winWidth, winHeight,players,nbJoueur);
-    }
 }
 
 void Game::update(Controls *c){

@@ -1,6 +1,7 @@
 #ifndef _IHM_H
 #define _IHM_H
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -20,7 +21,7 @@ private:
     unsigned int winWidth;
     unsigned int winHeight;
 
-    
+    sf::Font font;
     sf::RenderWindow window;
 
     sf::Texture playerTypes[2];
@@ -57,6 +58,7 @@ public:
     //loop
     void gameLoop();
     void gameLoopMulti();
+    void handleShopInput();
     //tout
     void app();
 

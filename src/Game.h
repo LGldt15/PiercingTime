@@ -21,7 +21,8 @@ private:
 
     Map level;
     unsigned int difficulty;
-    Shop shop;
+    Shop playerShop[4];
+    bool isShopActive=false;
 public:
     bool inConfig;//pour savoir si on affiche l ajou de joueur ou le jeu
     Game();
@@ -41,6 +42,10 @@ public:
     int getPlayerId(int i);
     int getNbBullets();
     Bullet* getBullets();
+
+    bool isInShop() const { return isShopActive; }
+    void setShopActive(bool active) { isShopActive = active; }
+    Shop& getShop(int playerIndex) { return playerShop[playerIndex]; }
 };
 
 #endif

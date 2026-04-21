@@ -77,53 +77,47 @@ Item Shop::itemRandSelect(){
     }
   return (selectedItem);
 
-
+//EVENTUELLEMENT UTILISER UNE MAP POUR REMPLIR
+//ajouter le nom du fichier de l image de chacun csv
 }
 
 
 void Shop::refreshShop() {
     for (int i = 0; i < 4; i++) {
+        // On ne remplace que les items achetés ou vides
         if (item[i].name == "None") {
-            item[i] = itemRandSelect(); 
-            item[i].button = i + 1;     
+            item[i] = itemRandSelect();
+            item[i].button = i + 1;
             item[i].isSelected = false;
         }
-     
     }
-    
 }
 
-
-Item Shop::getItems(){
-    return item[4];
-}
-
-
-
-
-void Shop::selectValidation(Controls& c, Player& p) {
-
+void Shop::handleInput(Controls& c, Player& p) {
+    // 1. Navigation (Inchangée)
     if (c.right && currentCursor < 3) currentCursor++;
     if (c.left && currentCursor > 0) currentCursor--;
 
+    // 2. Achat avec remplacement immédiat
     if (c.select) {
-        Item& target = item[currentCursor];
-        target.isSelected=true;//donc a appeler avant refresh
-
+        Item& target = item[currentCursor]; // On prend une RÉFÉRENCE pour modifier l'item du tableau
+        
         if (target.name != "None" && p.getGold() >= target.price) {
-            
-
-            //ici mettre la fonction qui applique les effets de l item et eneleve les gold au joueur
+            // Appliquer l'effet et retirer l'or
             effectOnPlayer(p, target);
+            
+            std::cout << "bought " << target.name << std::endl;
 
-            // on vide le slot du shop
-            target.name = "None";
-            target.price = 0;
+            // AU LIEU DE "None", ON REMPLACE DIRECTEMENT :
+            target = itemRandSelect(); 
+            target.button = currentCursor + 1; // On garde l'ID du bouton cohérent
+            target.isSelected = false;
+            
+        } else {
+            std::cout << "not enough gold!!! " << target.name << std::endl;
         }
     }
 }
-
-
 
 //modification des stats de player dont le gold
 void Shop::effectOnPlayer(Player &p, Item i) {
@@ -142,3 +136,17 @@ void Shop::effectOnPlayer(Player &p, Item i) {
 
 
 }
+
+
+/*                 SHOP VERSION TEXTE                                             */
+Item Shop::getItemAt(int index){
+if (index >= 0 && index < 4) return item[index];
+return Item();
+}
+
+
+int  Shop::getCurrentCursor(){return currentCursor;}
+
+void Shop::moveLeft(){if(currentCursor<4 && currentCursor>=0)currentCursor-=1;}
+void Shop::moveRight(){if(currentCursor!=0)currentCursor+=1;}
+

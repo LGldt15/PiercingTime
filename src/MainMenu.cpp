@@ -1,25 +1,29 @@
 #include "MainMenu.h"
 
-MainMenu::MainMenu(){
-        for (int i=0;i<3;i++){
-        spriteNotSelected[i]=0;
-        spriteSelected[i]=0;
-    }
-    idSelected=0;
-}
-MainMenu::MainMenu(int sNS[3],int sS[3]){
-    for (int i=0;i<3;i++){
-        spriteNotSelected[i]=sNS[i];
-        spriteSelected[i]=sS[i];
+//pour le moment on gere que 2 boutons
 
-    }
+MainMenu::MainMenu(){   
+    cursor=0; 
 }
+
+MainMenu::~MainMenu(){
+
+
+}
+
 
 int MainMenu::getSelected(){
-    return  0;
+    return cursor;
 }
 
-void MainMenu::modifSelected(Controls c){
-    if (c.up)idSelected=((idSelected+1)%3)+1;
-    if (c.down)idSelected=((idSelected-1)%3)+1;
+void MainMenu::up(){
+    if (cursor!=0)
+    cursor--;
 }
+
+void MainMenu::down(){
+    if(cursor<2 && cursor>=0)
+    cursor++;
+}
+
+
