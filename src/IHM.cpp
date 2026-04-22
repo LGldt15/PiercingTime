@@ -248,31 +248,90 @@ void IHM::gameLoopMulti() {
     sf::IpAddress ip(127,0,0,1);
     int room;
     // 1. Initial Connection to Dispatcher
+    std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
+        std::cout<<"falled to connect\n";
         return;
     }
-
+    std::cout<<"connected";
     // --- PHASE 1: MENU (Dispatcher) ---
+    bool releasedSelect=false;
+    if (!releasedSelect && !inputs[idMulti].select){
+        releasedSelect=true;
+    }
     bool inMenu = true;
-    while (inMenu && window.isOpen()) {
+    int selected=0;
+    while (inMenu && window.isOpen()){
         while (const std::optional event = window.pollEvent())
         {
             // Close window: exit
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
-        // Get input (e.g., "new")
-        std::cout<<"select:";
-        std::string choice ; 
-        std::getline(std::cin, choice);
-        sf::Packet p;
-        p << choice;
-        socket.send(p);
+        window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
+        sf::Text title(font); // SFML 3 : On passe la font au constructeur
+        title.setString("Online Play");
+        title.setCharacterSize(60);
+        title.setFillColor(sf::Color::Yellow);
+        title.setStyle(sf::Text::Bold);
+        sf::FloatRect titleBounds = title.getGlobalBounds();
+        title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
+        window.draw(title);
+        std::string options[] = {"Create Room", "Join Room"};
 
-        // The server won't send back a Port anymore. 
-        // It will just start sending Game Data or a "Success" packet.
+
+        getInputs();
+        if (!releasedSelect && !inputs[idMulti].select){
+            releasedSelect=true;
+        }
+        if (inputs[idMulti].up || inputs[idMulti].down){
+            selected=(selected+1)%2;
+        }
+        if(releasedSelect && inputs[idMulti].select){
+            inMenu=false;
+        }
+        for (int i = 0; i < 2; i++) {
+            float yPos = 400.f + (i * 100.f);
+
+            // Fond du bouton (Rectangle)
+            sf::RectangleShape buttonBox({250.f, 60.f});
+            buttonBox.setPosition({400.f - 125.f, yPos});
+
+            // Texte du bouton (SFML 3 style)
+            sf::Text optText(font);
+            optText.setString(options[i]);
+            optText.setCharacterSize(30);
+
+            // Interaction visuelle selon la sélection
+            if (selected == i) {
+                buttonBox.setFillColor(sf::Color(80, 80, 120)); // Surbrillance
+                buttonBox.setOutlineColor(sf::Color::Cyan);
+                buttonBox.setOutlineThickness(3.f);
+                optText.setFillColor(sf::Color::Cyan);
+            } else {
+                buttonBox.setFillColor(sf::Color(40, 40, 60));
+                buttonBox.setOutlineColor(sf::Color::White);
+                buttonBox.setOutlineThickness(1.f);
+                optText.setFillColor(sf::Color::White);
+            }
+
+            window.draw(buttonBox);
+
+            // Centrage du texte dans son rectangle
+            sf::FloatRect textBounds = optText.getGlobalBounds();
+            optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
+            window.draw(optText);
+        }
+        window.display();
+    }
+
+    if(selected==0){
+        sf::Packet p;
+        p << "new";
+        socket.send(p);
         sf::Packet response;
         if (socket.receive(response) == sf::Socket::Status::Done) {
+            
             std::string serverMsg;
 
             response >> serverMsg;
@@ -288,6 +347,129 @@ void IHM::gameLoopMulti() {
             }
         }
     }
+    else{
+        inMenu=true;
+        releasedSelect=false;
+        int rooms[11]={0,0,0,0,0,0,0,0,0,0};
+        sf::Packet p;
+        p << "info";
+        socket.send(p);
+        sf::Packet response;
+        std::cout<<"packet sent waitong for response\n";
+        if (socket.receive(response) == sf::Socket::Status::Done) {
+            std::cout<<"sent 'info' awaiting response\n";
+
+                        
+                        
+            // 3. Copy the ID (First part of the message
+            
+            // 4. Copy the Player (Starts after the ID)
+            
+            // We add sizeof(int) to the pointer to move past the ID we just read
+            
+            std::memcpy(&rooms, response.getData(), sizeof(int[11]));
+            std::cout << "\nDispatcher says: " << rooms[0] << std::endl; 
+            //ON SELECT LA ROOM
+            while (inMenu && window.isOpen()) {
+                while (const std::optional event = window.pollEvent())
+                {
+                    // Close window: exit
+                    if (event->is<sf::Event::Closed>())
+                        window.close();
+                }
+                // Get input (e.g., "new")
+            
+                //AFFICHAGE
+            
+                window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
+                sf::Text title(font); // SFML 3 : On passe la font au constructeur
+                title.setString("ROOMS");
+                title.setCharacterSize(60);
+                title.setFillColor(sf::Color::Yellow);
+                title.setStyle(sf::Text::Bold);
+                sf::FloatRect titleBounds = title.getGlobalBounds();
+                title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
+                window.draw(title);
+                    
+                    
+                getInputs();
+                if (!releasedSelect && !inputs[idMulti].select){
+                    releasedSelect=true;
+                }
+                if (inputs[idMulti].up || inputs[idMulti].down){
+                    selected=(selected+1)%rooms[0];
+                }
+                if(releasedSelect && inputs[idMulti].select){
+                    inMenu=false;
+                }
+                for (int i = 0; i < rooms[0]; i++) {
+                    float yPos = 400.f + (i * 100.f);
+                
+                    // Fond du bouton (Rectangle)
+                    sf::RectangleShape buttonBox({250.f, 60.f});
+                    buttonBox.setPosition({400.f - 125.f, yPos});
+                
+                    // Texte du bouton (SFML 3 style)
+                    sf::Text optText(font);
+                    optText.setString(std::to_string(rooms[i+1]));
+                    optText.setCharacterSize(30);
+                
+                    // Interaction visuelle selon la sélection
+                    if (selected == i) {
+                        buttonBox.setFillColor(sf::Color(80, 80, 120)); // Surbrillance
+                        buttonBox.setOutlineColor(sf::Color::Cyan);
+                        buttonBox.setOutlineThickness(3.f);
+                        optText.setFillColor(sf::Color::Cyan);
+                    } else {
+                        buttonBox.setFillColor(sf::Color(40, 40, 60));
+                        buttonBox.setOutlineColor(sf::Color::White);
+                        buttonBox.setOutlineThickness(1.f);
+                        optText.setFillColor(sf::Color::White);
+                    }
+                
+                    window.draw(buttonBox);
+                
+                    // Centrage du texte dans son rectangle
+                    sf::FloatRect textBounds = optText.getGlobalBounds();
+                    optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
+                    window.draw(optText);
+                }
+                window.display();
+            }
+            sf::Packet roomM;
+            std::cout<<selected<<std::endl;
+            roomM<<std::to_string(selected);
+            socket.send(roomM);
+
+
+            sf::Packet roomC;
+            std::cout<<"packet sent waitong for response\n";
+            if (socket.receive(roomC) == sf::Socket::Status::Done) {
+                std::string serverMsg;
+                response >> serverMsg;
+                if(serverMsg[0]=='r') {
+            
+                    inMenu = false; // We received our first game state or confirmation
+                    std::string roomId;
+                    roomId=serverMsg[1];//+serverMsg[2]+serverMsg[3]
+                    std::cout<<roomId;
+                    room=std::stoi(roomId);
+                }
+            }
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
 
     // --- PHASE 2: GAME (Room Thread) ---
     // Notice: NO NEW CONNECTION HERE. Use the same 'socket'.
@@ -310,6 +492,7 @@ void IHM::gameLoopMulti() {
             
             if (idMulti == -1) {
                 idMulti = game.getNbJoueur()-1;
+                std::cout<<idMulti<<std::endl;
             }
         }
 
@@ -322,7 +505,6 @@ void IHM::gameLoopMulti() {
             socket.send(sendPacket);
         }
         if (game.isInShop()) {
-            std::cout<<"SHOP";
             renderShop();      
         }else{
             renderMap();

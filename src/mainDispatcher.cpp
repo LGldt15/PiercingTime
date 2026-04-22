@@ -1,6 +1,7 @@
 #include <SFML/Network.hpp>
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
+#include <cstring>
 #include <iostream>
 #include <list>
 #include <cstdlib>
@@ -50,9 +51,10 @@ int main() {
                         if (client.receive(packet) == sf::Socket::Status::Done) {
                             std::string message;
                             packet >> message;
-                            std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"::"<<client.getRemotePort()<<" : " << message << std::endl;
-                            
+                            std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"::"<<client.getRemotePort()<<" : " << message[0] << std::endl;
+                        
                             if (message == "new") {
+                                std::cout<<"here?";
                                 sf::TcpSocket* clientPtr = *it;
                                                         
                                 // 1. STOP the dispatcher from watching this socket
@@ -76,19 +78,23 @@ int main() {
                                 continue; // Skip the it++ because we already erased 'it'
                             }                              
                             else if (message=="info") {
+                                std::cout<<"here?";
+                                int rooms[11]={-1,0,0,0,0,0,0,0,0,0,0};
+                                
+                                std::cout<<"here?";
                                 sf::Packet responsePacket;
-                                std::string mess;
-                                mess+="available servers :\n";
-                                if(true){
-                                    mess+="    no rooms to create a room send 'new'\n";
+                                std::cout<<"here?";
+                                for(int i=0;i<activeRooms.size() && i<10;i++){
+                                    rooms[i+1]=i;
                                 }
-                                for(int i=0;i<activeRooms.size();i+=2){
-                                    mess+="    "+ std::to_string(i)+"\n";
-                                }
-                                responsePacket<<mess;
+                                rooms[0]=activeRooms.size();
+                                std::cout<<rooms[0];
+                                responsePacket.append(rooms,sizeof(int[11]));
                                 client.send(responsePacket);
                             }
                             else if (std::stoi(message)>=0 && std::stoi(message)<activeRooms.size()) {
+                                
+                                std::cout<<"here?";
                                 int roomIndex=std::stoi(message);
                                 sf::TcpSocket* clientPtr = *it;
 
@@ -110,6 +116,7 @@ int main() {
                             }                
                             it++; 
                         } else {
+                                std::cout<<"here?";
                             // Client disconnected
                             std::cout << "Client disconnected." << std::endl;
                             selector.remove(client);
