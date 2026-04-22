@@ -27,6 +27,7 @@ private:
     bool isShopActive;
 
 
+
 public:
     bool inConfig;//pour savoir si on affiche l ajou de joueur ou le jeu
     Game();
@@ -51,6 +52,11 @@ public:
 
     //recup l idex du shop du joueur
     Shop& getShop(int playerIndex) { return playerShop[playerIndex]; }
+    bool isOver(){return level.isDead();};
+    bool isTimeUp();     
+    bool isPlayerDead();
+    void resetTimer();
+    void restart(); //reconstruit
 };
 
 #endif

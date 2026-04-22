@@ -5,20 +5,24 @@
 #include "Enemy.h"
 #include "Player.h"
 
-static const int MAX_ENEMIES = 75;
-static const int MAX_BULLETS = 500;
+const int MAX_ENEMY = 75;
+const int MAX_BULLETS = 500;
 
 class Map{
 private:
     int idMap;
     Player* players[4];
     int nbPlayers;
-    
 
-    Enemy enemies[MAX_ENEMIES]; 
+    Enemy enemies[MAX_ENEMY]; 
     int nbEnemies;
     Bullet bullets[MAX_BULLETS];
     int nbBullets;
+
+    //gestion de waves
+    int waveID;
+    float timer;
+    bool dead;
 
 public:
     Map();
@@ -39,6 +43,15 @@ public:
     int getNbBullet();
     Bullet* getBullets();
 
+
+
+    //WAVES
+    void startWave();
+    bool isDead();
+    bool isTimeUp() { return (timer >= 150.0f); }
+    void resetTimer() { timer = 0.0f; } 
+
+    void restart();
 };
 
 #endif

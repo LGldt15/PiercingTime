@@ -4,8 +4,7 @@
   
 #include <iostream>
 
-const int MAX_ENEMY=75;
-const int MAX_BULLETS=500;
+
 
   //int idMap;
   //  Player* players;
@@ -29,6 +28,16 @@ Map::Map(int idS,Player &p,int nbP){
     players[0]=&p;
     nbPlayers=nbP;
     nbEnemies=0;
+
+
+    timer = 0.0f;
+    waveID = 1;
+    dead = false;
+
+    for(int i = 0; i < MAX_ENEMY; i++){
+        enemies[i].isAlive = false;
+    }
+
     enemies[0]=Enemy(1,0,true,2,0);
     enemies[1]=Enemy(1,0,true,1,0);
     enemies[2]=Enemy(1,0,true,1,0);
@@ -36,12 +45,36 @@ Map::Map(int idS,Player &p,int nbP){
     enemies[4]=Enemy(1,0,true,1,0);
     enemies[5]=Enemy(1,0,true,1,0);
     nbBullets=0;
-    for (int i=0;i<499;i++){
+    for (int i=0;i<MAX_BULLETS-1;i++){
         bullets[i].next=&bullets[i+1];
     }
+
+
+    startWave();
+
+}
+
+void Map::startWave(){
+    int count = 5 + (waveID * 2); 
+    if (count > MAX_ENEMY) count = MAX_ENEMY;
+
+
+    for(int i = 0; i < count; i++) {
+
+        int type = (waveID % 2 == 0) ? 1 : 0; 
+        enemies[i] = Enemy(type, 0, true, 2, 0); 
+    }
+
+    std::cout << "wave" << waveID << std::endl;
+    
+
+    waveID++;
 }
 
 
+
+
+    
 void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
     for (int i=0;i<nbPlayers;i++){
         players[i]->move(c,winWidth, winHeight);
@@ -101,6 +134,22 @@ void Map::damageAll(){
 }
 
 void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
+    if (dead) return;
+    
+    //pour 2min30 de game
+    timer += 0.016f; // (environ 1/60s par frame)
+    if (timer >= 150.0f) {
+        dead = true;
+        std::cout << "Time over" << std::endl;
+        return;
+    }
+    //compteur a afficher apres avec l ihm
+
+    if (getNbEnemies() == 0) {
+        startWave();
+    }
+
+
     move(c, winWidth, winHeight);
     damageAll();
     for(int i=0;i<nbPlayers;i++){
@@ -157,4 +206,15 @@ int Map::getNbBullet(){
 }
 Bullet* Map::getBullets(){
     return &bullets[0];
+}
+
+
+bool Map::isDead() { return dead; }
+
+void Map::restart() {
+    timer = 0.0f;
+    waveID = 1;
+    dead = false;
+    for(int i = 0; i < MAX_ENEMY; i++) enemies[i].isAlive = false;
+    startWave();
 }

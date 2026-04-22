@@ -14,6 +14,8 @@
 #include "iostream"
 #include "Item.h"
 
+//constante pour les inputs souris
+const sf::FloatRect nextBtnRect({650.f, 700.f}, {120.f, 50.f});
 
 
 IHM::IHM(){
@@ -98,86 +100,112 @@ IHM::~IHM(){
 
 void IHM::renderMap(){
     window.clear(sf::Color::Black);
-    window.draw(*mapSprites[0]);
-    Player* p=game.getPlayers();
-    for(int i=0;i<game.getNbJoueur();i++){
-        sf::Vector2f pos;
-        pos.x=p[i].getPosition().posX;
-        pos.y=p[i].getPosition().posY;
-        playerSprites[0]->setPosition(pos);
-        window.draw(*playerSprites[0]);
-    }
-    Enemy* enemyzero=game.getEnemies();
-    for(int i=0;i<50;i++){
-        if(enemyzero[i].isAlive){
-            sf::Vector2u s=enemyTypes[enemyzero[i].sprite].getSize();
-            sf::Vector2f si={100.0f/s.x,60.0f/s.y};
-            //std::cout<<"here and si is :"<<si.x<<' '<<si.y<<std::endl;
-            enemySprites[0]->setScale(si);
-            sf::Vector2f pos;
-            pos.x=enemyzero[i].position.posX;
-            pos.y=enemyzero[i].position.posY;
-            enemySprites[0]->setPosition(pos);
-            window.draw(*enemySprites[0]);
+
+ 
+    if (!game.isOver()) {
+        window.draw(*mapSprites[0]);
+        
+        // Dessiner les joueurs
+        Player* p = game.getPlayers();
+        for(int i = 0; i < game.getNbJoueur(); i++){
+            sf::Vector2f pos = {p[i].getPosition().posX, p[i].getPosition().posY};
+            playerSprites[0]->setPosition(pos);
+            window.draw(*playerSprites[0]);
+        }
+
+        Enemy* enemyzero = game.getEnemies();
+        for(int i = 0; i < MAX_ENEMY; i++){ 
+            if(enemyzero[i].isAlive){
+                sf::Vector2u s = enemyTypes[enemyzero[i].sprite].getSize();
+                sf::Vector2f si = {100.0f/s.x, 60.0f/s.y};
+                enemySprites[0]->setScale(si);
+                sf::Vector2f pos = {enemyzero[i].position.posX, enemyzero[i].position.posY};
+                enemySprites[0]->setPosition(pos);
+                window.draw(*enemySprites[0]);
+            }
+        }
+
+
+        Bullet* bulletzero = game.getBullets();
+        for(int i = 0; i < game.getNbBullets(); i++){
+            if (bulletzero[i].damage != 0){
+                sf::Vector2f pos = {bulletzero[i].pos.posX, bulletzero[i].pos.posY};
+                bulletSprites[bulletzero[i].getSprite()]->setPosition(pos);
+                window.draw(*bulletSprites[0]);
+            }
+        }
+
+
+        if (showInventory) {
+            sf::RectangleShape overlayBG({300.f, 70.f});
+            overlayBG.setFillColor(sf::Color(0, 0, 0, 200)); 
+            overlayBG.setPosition({150.f, 350.f}); 
+            window.draw(overlayBG);
+            drawInventoryOverlay(160.f, 360.f);
         }
     }
-    Bullet* bulletzero=game.getBullets();
-    for(int i=0;i<game.getNbBullets();i++){
-        if (bulletzero[i].damage!=0){
-            sf::Vector2f pos;
-            pos.x=bulletzero[i].pos.posX;
-            pos.y=bulletzero[i].pos.posY;
-            bulletSprites[bulletzero[i].getSprite()]->setPosition(pos);
-            window.draw(*bulletSprites[0]);
-        }
-    }
-    if (showInventory) {
-        sf::RectangleShape overlayBG({300.f, 70.f}); // Taille approximative pour 5 slots
-        overlayBG.setFillColor(sf::Color(0, 0, 0, 200)); // Noir transparent
-        overlayBG.setPosition({150.f, 350.f}); 
-        window.draw(overlayBG);
+    else {
+        sf::Text gameOverText(font);
+        gameOverText.setString("GAME OVER\nAppuie sur ESPACE pour recommencer");
+        gameOverText.setCharacterSize(50);
+        gameOverText.setFillColor(sf::Color::Red);
+        gameOverText.setStyle(sf::Text::Bold);
+        
 
-        drawInventoryOverlay(160.f, 360.f);
+        sf::FloatRect bounds = gameOverText.getGlobalBounds();
+        gameOverText.setPosition({400.f - bounds.size.x / 2.f, 350.f});
+        
+        window.draw(gameOverText);
     }
 
-    //inventaire
     window.display(); 
 }
 
-void IHM::gameLoop(){
-    while (window.isOpen()){
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-            app();
-                
-        // Process events
-        if (game.isInShop()) {
-            handleShopInput(); 
-            renderShop();      
-        }else{
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>() )
-                  window.close();
 
-            if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+void IHM::gameLoop() {
+    while (window.isOpen()) {
+        
+        if (game.isPlayerDead()) {
+            
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+                game.restart();
+            }
+            renderMap(); 
+        }
+        
+        else if (game.isInShop()) {
+            handleShopInput();
+            renderShop();
+        }
+        
+        else {
+           
+            if (game.isTimeUp()) {
+                game.setShopActive(true);
+                game.resetTimer(); 
+            }
+
+            // Gestion des événements
+            while (const std::optional event = window.pollEvent()) {
+                if (event->is<sf::Event::Closed>()) window.close();
+                
+                // Toggle Inventaire
+                if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
                     if (keyPressed->code == sf::Keyboard::Key::Tab) {
-                        showInventory = !showInventory; 
+                        showInventory = !showInventory;
                     }
                 }
-        
-            //remplacer par le menu de pause
-        }
+            }
+
+            getInputs();
+            if (!showInventory) {
+                game.update(inputs, winWidth, winHeight);
+            }
             
-
-        getInputs();
-        if (!showInventory) {
-            game.update(inputs, winWidth, winHeight);
+            renderMap();
         }
-
-        renderMap();
-    }}
+    }
 }
-
 
 
 
@@ -283,12 +311,28 @@ void IHM::app(){
 //PARTIE shop
 
 void IHM::handleShopInput() {
-
     while (const std::optional event = window.pollEvent()) {
         
 
         if (event->is<sf::Event::Closed>()) {
             window.close();
+        }
+
+
+        if (const auto* mouseEvent = event->getIf<sf::Event::MouseButtonPressed>()) {
+            if (mouseEvent->button == sf::Mouse::Button::Left) {
+
+
+            sf::Vector2f mousePos = window.mapPixelToCoords(mouseEvent->position);
+
+
+                sf::FloatRect nextBtnRect({650.f, 700.f}, {120.f, 50.f});
+
+                if (nextBtnRect.contains(mousePos)) {
+                    game.setShopActive(false); 
+                    game.resetTimer();         
+                }
+            }
         }
 
 
@@ -298,21 +342,23 @@ void IHM::handleShopInput() {
             Controls shopControls;
             shopControls.left   = (keyPressed->code == sf::Keyboard::Key::Left);
             shopControls.right  = (keyPressed->code == sf::Keyboard::Key::Right);
-            shopControls.select = (keyPressed->code == sf::Keyboard::Key::Enter);
+            shopControls.select = (keyPressed->code == sf::Keyboard::Key::Enter || keyPressed->code == sf::Keyboard::Key::Space);
             
-
 
             game.getShop(0).handleInput(shopControls, game.getPlayers()[0]);
 
 
-            if (keyPressed->code == sf::Keyboard::Key::E) {
+            if (keyPressed->code == sf::Keyboard::Key::N || keyPressed->code == sf::Keyboard::Key::E) {
                 game.setShopActive(false); 
+                game.resetTimer();
             }
         }
     }
 }
 
 void IHM::renderShop() {
+
+
     window.clear(sf::Color(25, 25, 45)); 
 
     Shop& shop = game.getShop(0);
@@ -340,12 +386,12 @@ void IHM::renderShop() {
         Item item = shop.getItemAt(i);
         sf::Vector2f pos = {startX + i * (slotW + gap), 250.f};
 
-        // Fond du slot
+
         sf::RectangleShape rect({slotW, slotH});
         rect.setPosition(pos);
         rect.setFillColor(sf::Color(50, 50, 70));
 
-        // Bordure de sélection (Curseur)
+
         if (shop.getCurrentCursor() == i) {
             rect.setOutlineColor(sf::Color::Yellow);
             rect.setOutlineThickness(4.f);
@@ -401,6 +447,20 @@ void IHM::renderShop() {
         window.draw(uiText);
         goldErrorTimer -= 0.016f; // On décrémente (environ 1/60ème de seconde)
     }
+
+    sf::RectangleShape nextBtn({120.f, 50.f});
+    nextBtn.setPosition({650.f, 700.f});
+    nextBtn.setFillColor(sf::Color(70, 70, 200)); // Couleur bleue pour changer
+    nextBtn.setOutlineThickness(2.f);
+    nextBtn.setOutlineColor(sf::Color::White);
+    window.draw(nextBtn);
+
+    sf::Text nextText(font);
+    nextText.setString("NEXT (N)"); // Indique au joueur quelle touche presser
+    nextText.setCharacterSize(20);
+    nextText.setFillColor(sf::Color::White);
+    nextText.setPosition({670.f, 715.f});
+    window.draw(nextText);
     window.display();
 }
 
@@ -418,7 +478,7 @@ void IHM::drawInventoryOverlay(float startX, float startY) {
     int nbItems = inv.getNbItems();
 
     for (int i = 0; i < 5; i++) {
-        // 1. Le slot (fond)
+
         sf::RectangleShape slot({slotSize, slotSize});
         slot.setPosition({startX + (i * (slotSize + padding)), startY});
         slot.setFillColor(sf::Color(30, 30, 50, 200));
@@ -426,14 +486,14 @@ void IHM::drawInventoryOverlay(float startX, float startY) {
         slot.setOutlineColor(sf::Color(150, 150, 150));
         window.draw(slot);
 
-        // 2. L'item (Si on en a un, on dessine un rectangle jaune en attendant les textures)
+
         if (i < nbItems) {
-            // Un petit carré jaune au centre de la case
+
             float itemMargin = 10.f;
             sf::RectangleShape itemIcon({slotSize - (itemMargin * 2), slotSize - (itemMargin * 2)});
             itemIcon.setFillColor(sf::Color::Yellow);
             
-            // Position : position du slot + marge
+
             itemIcon.setPosition({
                 slot.getPosition().x + itemMargin, 
                 slot.getPosition().y + itemMargin
