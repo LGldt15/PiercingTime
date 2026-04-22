@@ -5,20 +5,24 @@
 #include "Enemy.h"
 #include "Player.h"
 
+static const int MAX_ENEMIES = 75;
+static const int MAX_BULLETS = 500;
 
 class Map{
 private:
     int idMap;
     Player* players[4];
     int nbPlayers;
-    Enemy enemies[50];
+    
+
+    Enemy enemies[MAX_ENEMIES]; 
     int nbEnemies;
-    Bullet bullets[500];
+    Bullet bullets[MAX_BULLETS];
     int nbBullets;
+
 public:
     Map();
-    Map(int idS,Player &p,int nbP);
-
+    Map(int idS, Player &p, int nbP);
     void move(Controls &c, unsigned int winWidth,unsigned int winHeight);
     void damageE();
     void damageP(int player);

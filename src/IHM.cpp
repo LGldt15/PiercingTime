@@ -186,7 +186,7 @@ void IHM::renderMenu() {
     window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
 
     // --- 1. TITRE DU JEU ---
-    sf::Text title(font); // SFML 3 : On passe la font au constructeur
+    sf::Text title(font); 
     title.setString("PIERCING TIME");
     title.setCharacterSize(60);
     title.setFillColor(sf::Color::Yellow);

@@ -3,6 +3,10 @@
 #include "Player.h"
   
 #include <iostream>
+
+const int MAX_ENEMY=75;
+const int MAX_BULLETS=500;
+
   //int idMap;
   //  Player* players;
   //  int nbPlayers;
@@ -43,12 +47,12 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
         players[i]->move(c,winWidth, winHeight);
 
 
-        for (int j=0;j<50;j++){
+        for (int j=0;j<MAX_ENEMY;j++){
             if(enemies[j].isAlive)enemies[j].move(players[i]->position);
 
         }
     }    
-    for (int i=0;i<500;i++){
+    for (int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].damage!=0)bullets[i].move();
     }
 
@@ -58,9 +62,9 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
     
 void Map::damageE(){
     nbEnemies = 0; 
-    for(int i = 0; i < 50; i++){
+    for(int i = 0; i < MAX_ENEMY; i++){
         if(enemies[i].isAlive){
-            for(int j = 0; j < 500; j++){
+            for(int j = 0; j < MAX_BULLETS; j++){
                 if (bullets[j].damage != 0) {
                     enemies[i].takeDamageBullet(bullets[j]);
                 }
@@ -71,14 +75,14 @@ void Map::damageE(){
 }
 
 void Map::damageP(int player){
-    for(int i = 0; i < 50; i++){ 
+    for(int i = 0; i < MAX_ENEMY; i++){ 
         if(enemies[i].isAlive){
             // Si le joueur touche, on retourne immédiatement
             if(players[player]->takeDamage(enemies[i])) return;
         }
     }
     
-    for(int i = 0; i < 500; i++){
+    for(int i = 0; i <MAX_BULLETS; i++){
         if(bullets[i].damage != 0){
             if(players[player]->takeDamageBullet(bullets[i])){
                 return;
@@ -100,11 +104,11 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
     move(c, winWidth, winHeight);
     damageAll();
     for(int i=0;i<nbPlayers;i++){
-        if (nbBullets<500 && players[i]->cooldown<=0){
+        if (nbBullets<MAX_BULLETS && players[i]->cooldown<=0){
             int k=0;
             bool kischanged=false;
             nbBullets=0;
-            for(int j=0;j<500;j++){
+            for(int j=0;j<MAX_BULLETS;j++){
                 if (bullets[j].pos.posX<0 || bullets[j].pos.posX>800 || bullets[j].pos.posY<0 || bullets[j].pos.posY>800){
                     bullets[j].damage=0;
                     bullets[j].pos={0,0};
@@ -135,7 +139,7 @@ int Map::getMapId(){
 
 int Map::getNbEnemies() {
     int alive = 0;
-    for (int i = 0; i < 50; i++) { // 50 est la taille de ton tableau d'ennemis
+    for (int i = 0; i < MAX_ENEMY; i++) { // 50 est la taille de ton tableau d'ennemis
         if (enemies[i].isAlive) {
             alive++;
         }
