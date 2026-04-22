@@ -7,6 +7,7 @@ struct Controls{
     bool left;//4
     bool pause;//5
     bool select;//6
+    bool tab;//7
 };
 
 

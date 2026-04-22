@@ -67,7 +67,7 @@ IHM::IHM(){
         std::cout << "Erreur avec le font" << std::endl;
     }
     
-   
+    showInventory=false;
 }
 
 void IHM::getInputs(){
@@ -77,6 +77,9 @@ void IHM::getInputs(){
     inputs.left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
     inputs.pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
     inputs.select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
+    inputs.tab=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Tab);
+
+
 }
 
 IHM::~IHM(){
@@ -128,6 +131,16 @@ void IHM::renderMap(){
             window.draw(*bulletSprites[0]);
         }
     }
+    if (showInventory) {
+        sf::RectangleShape overlayBG({300.f, 70.f}); // Taille approximative pour 5 slots
+        overlayBG.setFillColor(sf::Color(0, 0, 0, 200)); // Noir transparent
+        overlayBG.setPosition({150.f, 350.f}); 
+        window.draw(overlayBG);
+
+        drawInventoryOverlay(160.f, 360.f);
+    }
+
+    //inventaire
     window.display(); 
 }
 
@@ -143,18 +156,24 @@ void IHM::gameLoop(){
         }else{
         while (const std::optional event = window.pollEvent())
         {
-
-
             if (event->is<sf::Event::Closed>() )
                   window.close();
-            
+
+            if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+                    if (keyPressed->code == sf::Keyboard::Key::Tab) {
+                        showInventory = !showInventory; 
+                    }
+                }
         
             //remplacer par le menu de pause
         }
             
 
         getInputs();
-        game.update(inputs, winWidth, winHeight);
+        if (!showInventory) {
+            game.update(inputs, winWidth, winHeight);
+        }
+
         renderMap();
     }}
 }
@@ -394,31 +413,33 @@ void IHM::drawInventoryOverlay(float startX, float startY) {
     float slotSize = 45.f;
     float padding = 10.f;
 
-    // On récupère l'inventaire du joueur local (joueur 0)
     Player& player = game.getPlayers()[0];
-    const auto& items = player.getInventory().getItems();
+    const Inventory& inv = player.getInventory();
+    int nbItems = inv.getNbItems();
 
     for (int i = 0; i < 5; i++) {
         // 1. Le slot (fond)
         sf::RectangleShape slot({slotSize, slotSize});
         slot.setPosition({startX + (i * (slotSize + padding)), startY});
-        slot.setFillColor(sf::Color(30, 30, 50, 200)); // Bleu sombre transparent
+        slot.setFillColor(sf::Color(30, 30, 50, 200));
         slot.setOutlineThickness(2.f);
         slot.setOutlineColor(sf::Color(150, 150, 150));
         window.draw(slot);
 
-        // 2. L'item (si présent à cet index)
-        if (i < (int)items.size()) {
-            // On utilise l'ID de l'item pour choisir la texture dans ton tableau IHM
-            int texID = items[i].textureID; 
-            sf::Sprite icon(itemTextures[texID]);
+        // 2. L'item (Si on en a un, on dessine un rectangle jaune en attendant les textures)
+        if (i < nbItems) {
+            // Un petit carré jaune au centre de la case
+            float itemMargin = 10.f;
+            sf::RectangleShape itemIcon({slotSize - (itemMargin * 2), slotSize - (itemMargin * 2)});
+            itemIcon.setFillColor(sf::Color::Yellow);
             
-            // Ajustement de la taille du sprite à la case
-            sf::FloatRect b = icon.getLocalBounds();
-            icon.setScale({slotSize / b.size.x, slotSize / b.size.y});
-            icon.setPosition(slot.getPosition());
+            // Position : position du slot + marge
+            itemIcon.setPosition({
+                slot.getPosition().x + itemMargin, 
+                slot.getPosition().y + itemMargin
+            });
             
-            window.draw(icon);
+            window.draw(itemIcon);
         }
     }
 }

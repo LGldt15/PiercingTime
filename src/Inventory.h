@@ -1,32 +1,30 @@
-#ifndef _INVENTORY_H
-#define _INVENTORY_H
+#pragma once
+#define MAX_ITEMS 10
 
-#include <vector>
 #include "Item.h"
 
 struct Weapon {
     unsigned int baseDamage;
     int type;
 
-    Weapon();
+
     Weapon(unsigned int damage, int t);
 };
 
+
 class Inventory {
 private:
-    std::vector<Item> items;
-    Weapon weapon;
+    Item items[MAX_ITEMS]; 
+    int nbItems;  
+    Weapon weapon;        
 
 public:
     Inventory(int round = 0);
-    ~Inventory();
-
-    void addItem(Item i);
     
+    
+    void addItem(const Item &i);
     int getNbItems() const;
-    const std::vector<Item>& getItems() const;
+    const Item* getItems() const; 
     unsigned int getTotalDamage() const;
     Weapon& getWeapon();
 };
-
-#endif

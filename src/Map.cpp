@@ -27,6 +27,10 @@ Map::Map(int idS,Player &p,int nbP){
     nbEnemies=0;
     enemies[0]=Enemy(1,0,true,2,0);
     enemies[1]=Enemy(1,0,true,1,0);
+    enemies[2]=Enemy(1,0,true,1,0);
+    enemies[3]=Enemy(1,0,true,1,0);
+    enemies[4]=Enemy(1,0,true,1,0);
+    enemies[5]=Enemy(1,0,true,1,0);
     nbBullets=0;
     for (int i=0;i<499;i++){
         bullets[i].next=&bullets[i+1];
@@ -53,35 +57,33 @@ void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
 
     
 void Map::damageE(){
-    nbEnemies=0;
-    for(int i=0;i<50;i++){
+    nbEnemies = 0; 
+    for(int i = 0; i < 50; i++){
         if(enemies[i].isAlive){
-            for(int j=0;j<500;j++){
-                if (bullets[j].damage!=0) {
+            for(int j = 0; j < 500; j++){
+                if (bullets[j].damage != 0) {
                     enemies[i].takeDamageBullet(bullets[j]);
                 }
             }
-            nbEnemies++;
+            nbEnemies++; 
         }
     }
 }
 
 void Map::damageP(int player){
-    int iter=nbEnemies;
-    for(int i=0;i<iter;i++){
+    for(int i = 0; i < 50; i++){ 
         if(enemies[i].isAlive){
+            // Si le joueur touche, on retourne immédiatement
             if(players[player]->takeDamage(enemies[i])) return;
         }
-        else iter++;
     }
-    iter=nbBullets;
-    for(int i=0;i<iter;i++){
-        if(bullets[i].damage!=0){
+    
+    for(int i = 0; i < 500; i++){
+        if(bullets[i].damage != 0){
             if(players[player]->takeDamageBullet(bullets[i])){
                 return;
             } 
         }
-        else iter++;
     }
 }
 

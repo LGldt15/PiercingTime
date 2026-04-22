@@ -1,36 +1,37 @@
 #include "Inventory.h"
 #include <iostream>
 
-Weapon::Weapon() : baseDamage(10), type(0) {}
 
 Weapon::Weapon(unsigned int damage, int t) : baseDamage(damage), type(t) {}
 
-Inventory::Inventory(int round) {
-    items.clear();
-    weapon = Weapon(10, 0); 
+Inventory::Inventory(int round) : nbItems(0), weapon(10, 0) {
+    for(int i = 0; i < MAX_ITEMS; i++) {
+        items[i].name = "None";
+    }
 }
 
-Inventory::~Inventory() {
-    items.clear();
-}
-
-void Inventory::addItem(Item i) {
-    items.push_back(i);
-    std::cout << "[Inventory] Item ajoute : " << i.name << " | Bonus : +" << i.effect.attackDamage << " ATK" << std::endl;
+void Inventory::addItem(const Item &i) {
+    if (nbItems < MAX_ITEMS) {
+        items[nbItems] = i; // Copie simple dans la case libre
+        nbItems++;
+        std::cout << "[Inventory] Item ajoute : " << i.name << " | Bonus : +" << i.effect.attackDamage << " ATK" << std::endl;
+    } else {
+        std::cout << "[Inventory] Inventaire plein !" << std::endl;
+    }
 }
 
 int Inventory::getNbItems() const {
-    return static_cast<int>(items.size());
+    return nbItems;
 }
 
-const std::vector<Item>& Inventory::getItems() const {
-    return items;
+const Item* Inventory::getItems() const {
+    return items; 
 }
 
 unsigned int Inventory::getTotalDamage() const {
     unsigned int totalBonus = 0;
-    for (const auto& item : items) {
-        totalBonus += item.effect.attackDamage;
+    for (int i = 0; i < nbItems; i++) {
+        totalBonus += items[i].effect.attackDamage;
     }
     return weapon.baseDamage + totalBonus;
 }

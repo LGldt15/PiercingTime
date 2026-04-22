@@ -20,6 +20,10 @@ private:
     Controls inputs;
     unsigned int winWidth;
     unsigned int winHeight;
+
+
+    //inventaire
+    bool showInventory;
     
     sf::Font font;
 

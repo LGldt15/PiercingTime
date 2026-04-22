@@ -1,5 +1,6 @@
 #include "Shop.h"
 #include<iostream>
+#include<assert.h>
 
 Shop::Shop(){
 //init des prix
@@ -20,7 +21,7 @@ Shop::~Shop(){
 }
 
 Item Shop::itemRandSelect(){
-    Item selectedItem;
+    Item selectedItem= {};
     int randInt = (rand() % 5) + 1; 
     switch(randInt)
     {
@@ -28,7 +29,7 @@ Item Shop::itemRandSelect(){
 
             selectedItem.name="Dino essence";
             selectedItem.price=40;
-            selectedItem.effect.attackDamage=10.0f;
+            selectedItem.effect.attackDamage=10;
             selectedItem.effect.bulletSpeed=0.5f;
             selectedItem.effect.playerSpeed=0.5f;
             selectedItem.effect.hp=20.0f;
@@ -47,7 +48,7 @@ Item Shop::itemRandSelect(){
 
             selectedItem.name="Armadillo Shell";
             selectedItem.price=35;
-            selectedItem.effect.attackDamage=10.0f;
+            selectedItem.effect.attackDamage=10.0;
             selectedItem.effect.bulletSpeed=-0.5;
             selectedItem.effect.playerSpeed=-0.5f;
             selectedItem.effect.hp=50.0f;
@@ -56,9 +57,9 @@ Item Shop::itemRandSelect(){
 
             selectedItem.name="Weird Black Liquid";//petrol
             selectedItem.price=75;
-            selectedItem.effect.attackDamage=20.0f;
-            selectedItem.effect.bulletSpeed=8.0f;
-            selectedItem.effect.playerSpeed=2.5f;
+            selectedItem.effect.attackDamage=20;
+            selectedItem.effect.bulletSpeed=8.0;
+            selectedItem.effect.playerSpeed=2.5;
             selectedItem.effect.hp=-10;
 
             break;
@@ -66,7 +67,7 @@ Item Shop::itemRandSelect(){
 
             selectedItem.name="Bone Broth";
             selectedItem.price=15;
-            selectedItem.effect.attackDamage=5.0f;
+            selectedItem.effect.attackDamage=5;
             selectedItem.effect.bulletSpeed=2.0f;
             selectedItem.effect.playerSpeed=0.5f;
             selectedItem.effect.hp=25.0f;
@@ -94,47 +95,55 @@ void Shop::refreshShop() {
 }
 
 void Shop::handleInput(Controls& c, Player& p) {
-    // 1. Navigation (Inchangée)
-    if (c.right && currentCursor < 3) currentCursor++;
-    if (c.left && currentCursor > 0) currentCursor--;
+    // 1. NAVIGATION : Déplacement du curseur
+    // On vérifie les bornes pour ne pas sortir du tableau
+   
 
-    // 2. Achat avec remplacement immédiat
+    if (c.right && currentCursor < 3) {
+        currentCursor++;
+    }
+    if (c.left && currentCursor > 0) {
+        currentCursor--;
+    }
+
+
     if (c.select) {
-        Item& target = item[currentCursor]; // On prend une RÉFÉRENCE pour modifier l'item du tableau
+    assert(currentCursor >= 0 && currentCursor < 4);
+        Item& target = item[currentCursor]; 
         
-        if (target.name != "None" && p.getGold() >= target.price) {
-            // Appliquer l'effet et retirer l'or
-            effectOnPlayer(p, target);
-            
-            std::cout << "bought " << target.name << std::endl;
 
-            // AU LIEU DE "None", ON REMPLACE DIRECTEMENT :
-            target = itemRandSelect(); 
-            target.button = currentCursor + 1; // On garde l'ID du bouton cohérent
-            target.isSelected = false;
-            
-        } else {
-            std::cout << "not enough gold!!! " << target.name << std::endl;
+        if (target.name != "None") {
+            if (p.getGold() >= target.price) {
+                
+
+                p.setGold(p.getGold() - target.price);
+                
+
+                p.getInventory().addItem(target); 
+                effectOnPlayer(p, target);     
+                
+              //std::cout << "[SHOP] bought: " << target.name << std::endl;
+                std::cout<<"new player dmg :"<< p.getInventory().getTotalDamage()<<std::endl;
+
+                target = itemRandSelect(); 
+                target.button = currentCursor + 1; 
+                target.isSelected = false;
+                
+            } else {
+                std::cout << "[SHOP]not enough gold" << std::endl;
+            }
         }
     }
 }
 
-//modification des stats de player dont le gold
-void Shop::effectOnPlayer(Player &p, Item i) {
 
+void Shop::effectOnPlayer(Player &p, Item i) {
     Stats& s = p.getStats();
 
-
-    int newGold = p.getGold() - i.price; //pr pas modifier une copie
-    p.setGold(newGold);
-
-
-    s.attackDamage+= i.effect.attackDamage;
-    s.playerSpeed+= i.effect.playerSpeed;
-    s.bulletSpeed+= i.effect.bulletSpeed;
-    s.hp+= i.effect.hp;
-
-
+ 
+    s.playerSpeed += i.effect.playerSpeed;
+    s.bulletSpeed += i.effect.bulletSpeed;
+    s.hp += i.effect.hp;
 }
 
 
