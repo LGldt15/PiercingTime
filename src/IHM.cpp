@@ -56,7 +56,6 @@ IHM::IHM(){
         game.getShop(i).refreshShop();
     }
 }
-
 void IHM::getInputs(){
     inputs[idMulti].up=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
     inputs[idMulti].down=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
@@ -64,6 +63,11 @@ void IHM::getInputs(){
     inputs[idMulti].left=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
     inputs[idMulti].pause=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
     inputs[idMulti].select=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
+    inputs[idMulti].tab=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Tab);
+    inputs[idMulti].back=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
+    inputs[idMulti].next=sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N);
+
+
 }
 
 IHM::~IHM(){
@@ -79,10 +83,12 @@ IHM::~IHM(){
 }
 
 void IHM::renderShop() {
+
+
     window.clear(sf::Color(25, 25, 45)); 
 
-    Shop& shop = game.getShop(idMulti);
-    Player& player = game.getPlayers()[idMulti];
+    Shop& shop = game.getShop(0);
+    Player& player = game.getPlayers()[0];
 
 
     sf::Text uiText(font);
@@ -106,12 +112,12 @@ void IHM::renderShop() {
         Item item = shop.getItemAt(i);
         sf::Vector2f pos = {startX + i * (slotW + gap), 250.f};
 
-        // Fond du slot
+
         sf::RectangleShape rect({slotW, slotH});
         rect.setPosition(pos);
         rect.setFillColor(sf::Color(50, 50, 70));
 
-        // Bordure de sélection (Curseur)
+
         if (shop.getCurrentCursor() == i) {
             rect.setOutlineColor(sf::Color::Yellow);
             rect.setOutlineThickness(4.f);
@@ -167,6 +173,20 @@ void IHM::renderShop() {
         window.draw(uiText);
         goldErrorTimer -= 0.016f; // On décrémente (environ 1/60ème de seconde)
     }
+
+    sf::RectangleShape nextBtn({120.f, 50.f});
+    nextBtn.setPosition({650.f, 700.f});
+    nextBtn.setFillColor(sf::Color(70, 70, 200)); // Couleur bleue pour changer
+    nextBtn.setOutlineThickness(2.f);
+    nextBtn.setOutlineColor(sf::Color::White);
+    window.draw(nextBtn);
+
+    sf::Text nextText(font);
+    nextText.setString("NEXT (Nx2)"); // Indique au joueur quelle touche presser
+    nextText.setCharacterSize(20);
+    nextText.setFillColor(sf::Color::White);
+    nextText.setPosition({670.f, 715.f});
+    window.draw(nextText);
     window.display();
 }
 
@@ -205,39 +225,156 @@ void IHM::renderMap(){
             window.draw(*bulletSprites[0]);
         }
     }
+    if(showInventory){
+        drawInventoryOverlay(100, 100);
+    }
     window.display(); 
 }
+void IHM::renderMenu() {
+    window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
 
-void IHM::handleShopInput() {
-    getInputs();
-    game.getShop(idMulti).handleInput(inputs[idMulti], game.getPlayers()[idMulti]);
-    if (inputs[idMulti].pause) {
-        game.setShopActive(false);
+    // --- 1. TITRE DU JEU ---
+    sf::Text title(font); // SFML 3 : On passe la font au constructeur
+    title.setString("PIERCING TIME");
+    title.setCharacterSize(60);
+    title.setFillColor(sf::Color::Yellow);
+    title.setStyle(sf::Text::Bold);
+    
+    // Centrage automatique du titre
+    sf::FloatRect titleBounds = title.getGlobalBounds();
+    title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
+    window.draw(title);
+
+    // --- 2. OPTIONS DU MENU ---
+    std::string options[] = {"PLAY", "ONLINE", "LEAVE"};
+    
+    for (int i = 0; i < 3; i++) {
+        float yPos = 400.f + (i * 100.f);
+        
+        // Fond du bouton (Rectangle)
+        sf::RectangleShape buttonBox({250.f, 60.f});
+        buttonBox.setPosition({400.f - 125.f, yPos});
+        
+        // Texte du bouton (SFML 3 style)
+        sf::Text optText(font);
+        optText.setString(options[i]);
+        optText.setCharacterSize(30);
+        
+        // Interaction visuelle selon la sélection
+        if (mainMenu.getSelected() == i) {
+            buttonBox.setFillColor(sf::Color(80, 80, 120)); // Surbrillance
+            buttonBox.setOutlineColor(sf::Color::Cyan);
+            buttonBox.setOutlineThickness(3.f);
+            optText.setFillColor(sf::Color::Cyan);
+        } else {
+            buttonBox.setFillColor(sf::Color(40, 40, 60));
+            buttonBox.setOutlineColor(sf::Color::White);
+            buttonBox.setOutlineThickness(1.f);
+            optText.setFillColor(sf::Color::White);
+        }
+
+        window.draw(buttonBox);
+        
+        // Centrage du texte dans son rectangle
+        sf::FloatRect textBounds = optText.getGlobalBounds();
+        optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
+        window.draw(optText);
+    }
+
+    // --- 3. TEXTE D'AIDE ---
+    sf::Text help(font);
+    help.setString("Utilisez les FLECHES pour choisir et ESPACE pour valider");
+    help.setCharacterSize(16);
+    help.setFillColor(sf::Color(150, 150, 150));
+    sf::FloatRect helpBounds = help.getGlobalBounds();
+    help.setPosition({399.f - helpBounds.size.x / 2.f, 699.f});
+    window.draw(help);
+
+    window.display();
+}
+
+void IHM::drawInventoryOverlay(float startX, float startY) {
+    float slotSize = 45.f;
+    float padding = 10.f;
+
+    Player& player = game.getPlayers()[0];
+    const Inventory& inv = player.getInventory();
+    int nbItems = inv.getNbItems();
+
+    for (int i = 0; i < 5; i++) {
+
+        sf::RectangleShape slot({slotSize, slotSize});
+        slot.setPosition({startX + (i * (slotSize + padding)), startY});
+        slot.setFillColor(sf::Color(30, 30, 50, 200));
+        slot.setOutlineThickness(2.f);
+        slot.setOutlineColor(sf::Color(150, 150, 150));
+        window.draw(slot);
+
+
+        if (i < nbItems) {
+
+            float itemMargin = 10.f;
+            sf::RectangleShape itemIcon({slotSize - (itemMargin * 2), slotSize - (itemMargin * 2)});
+            itemIcon.setFillColor(sf::Color::Yellow);
+            
+
+            itemIcon.setPosition({
+                slot.getPosition().x + itemMargin, 
+                slot.getPosition().y + itemMargin
+            });
+            
+            window.draw(itemIcon);
+        }
     }
 }
 
 
+void IHM::handleShopInput() {
+    game.getShop(idMulti).handleInput(inputs[idMulti], game.getPlayers()[idMulti]);
+}
+
+
 void IHM::gameLoop(){
-    while (window.isOpen()){        
-        while (const std::optional event = window.pollEvent()){
-
-
-            if (event->is<sf::Event::Closed>() )
-                  window.close();
-            
+    while (window.isOpen()) {
         
-            //remplacer par le menu de pause
+        getInputs();
+        if (game.isPlayerDead()) {
+            
+            if (inputs[idMulti].next) {
+                game.restart();
+            }
+            renderMap(); 
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-            app();
-                
-        // Process events
-        if (game.isInShop()) {
-            handleShopInput(); 
-            renderShop();      
-        }else{
-            getInputs();
-            game.update(inputs[0], winWidth, winHeight);
+        
+        else if (game.isInShop()) {
+            std::cout<<"here2\n";
+            handleShopInput();
+            renderShop();           
+            if (inputs[idMulti].next) {
+                game.resetTimer(); 
+                game.restart();
+            }
+        }
+        
+        else {
+           
+            if (game.isTimeUp()) {
+                std::cout<<"here\n";
+                game.setShopActive(true);
+                game.resetTimer(); 
+            }
+
+            // Gestion des événements
+            while (const std::optional event = window.pollEvent()) {
+                if (event->is<sf::Event::Closed>()) window.close();
+            }
+            showInventory=false;
+            if(inputs[idMulti].tab){
+                showInventory=true;
+            }
+            if (!showInventory) {
+                game.update(inputs[idMulti],800,800);
+            }
             renderMap();
         }
     }
@@ -513,68 +650,7 @@ void IHM::gameLoopMulti() {
 }
 
 
-void IHM::renderMenu() {
-    window.clear(sf::Color(20, 20, 30)); // Fond bleu nuit sombre
 
-    // --- 1. TITRE DU JEU ---
-    sf::Text title(font); // SFML 3 : On passe la font au constructeur
-    title.setString("PIERCING TIME");
-    title.setCharacterSize(60);
-    title.setFillColor(sf::Color::Yellow);
-    title.setStyle(sf::Text::Bold);
-    
-    // Centrage automatique du titre
-    sf::FloatRect titleBounds = title.getGlobalBounds();
-    title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
-    window.draw(title);
-
-    // --- 2. OPTIONS DU MENU ---
-    std::string options[] = {"PLAY", "ONLINE", "LEAVE"};
-    
-    for (int i = 0; i < 3; i++) {
-        float yPos = 400.f + (i * 100.f);
-        
-        // Fond du bouton (Rectangle)
-        sf::RectangleShape buttonBox({250.f, 60.f});
-        buttonBox.setPosition({400.f - 125.f, yPos});
-        
-        // Texte du bouton (SFML 3 style)
-        sf::Text optText(font);
-        optText.setString(options[i]);
-        optText.setCharacterSize(30);
-        
-        // Interaction visuelle selon la sélection
-        if (mainMenu.getSelected() == i) {
-            buttonBox.setFillColor(sf::Color(80, 80, 120)); // Surbrillance
-            buttonBox.setOutlineColor(sf::Color::Cyan);
-            buttonBox.setOutlineThickness(3.f);
-            optText.setFillColor(sf::Color::Cyan);
-        } else {
-            buttonBox.setFillColor(sf::Color(40, 40, 60));
-            buttonBox.setOutlineColor(sf::Color::White);
-            buttonBox.setOutlineThickness(1.f);
-            optText.setFillColor(sf::Color::White);
-        }
-
-        window.draw(buttonBox);
-        
-        // Centrage du texte dans son rectangle
-        sf::FloatRect textBounds = optText.getGlobalBounds();
-        optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
-        window.draw(optText);
-    }
-
-    // --- 3. TEXTE D'AIDE ---
-    sf::Text help(font);
-    help.setString("Utilisez les FLECHES pour choisir et ESPACE pour valider");
-    help.setCharacterSize(16);
-    help.setFillColor(sf::Color(150, 150, 150));
-    sf::FloatRect helpBounds = help.getGlobalBounds();
-    help.setPosition({399.f - helpBounds.size.x / 2.f, 699.f});
-    window.draw(help);
-
-    window.display();
-}
 
 void IHM::playerSelect() {
 
@@ -605,3 +681,4 @@ void IHM::app(){
         renderMenu();
     }
 }
+

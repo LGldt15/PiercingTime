@@ -13,7 +13,6 @@ Player::Player(){
     sprites=0;
     cooldown=10;
     start=false;
-    idMulti=0;
 }
 
 Player::~Player(){}  unsigned int gold;
@@ -103,10 +102,11 @@ bool Player::takeDamageBullet(Bullet &bullets){
     }
 }
 
-int Player::getIdMulti(){
-    return idMulti;
-}
 
 void Player::doWeStart(Controls c){
     if (c.select)start=true;
+}
+
+Inventory& Player::getInventory() {
+    return inventory;
 }

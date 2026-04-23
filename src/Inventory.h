@@ -1,27 +1,30 @@
-#ifndef _INVENTORY_H
-#define _INVENTORY_H
+#pragma once
+#define MAX_ITEMS 10
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <vector>
 #include "Item.h"
 
-struct Weapon{
+struct Weapon {
     unsigned int baseDamage;
-    sf::Sprite* sprite;
-    Weapon();
-    Weapon(sf::Texture &t,int damage=0);
+    int type;
+
+
+    Weapon(unsigned int damage, int t);
 };
 
-class Inventory{
+
+class Inventory {
 private:
-    std::vector<Item> items;
-    Weapon weapon;
-public:
-    Inventory(int round=0);
-    ~Inventory();
-    void addItem(Item i);
-    void renderInMenu(sf::RenderWindow &window);
-};
+    Item items[MAX_ITEMS]; 
+    int nbItems;  
+    Weapon weapon;        
 
-#endif
+public:
+    Inventory(int round = 0);
+    
+    
+    void addItem(const Item &i);
+    int getNbItems() const;
+    const Item* getItems() const; 
+    unsigned int getTotalDamage() const;
+    Weapon& getWeapon();
+};

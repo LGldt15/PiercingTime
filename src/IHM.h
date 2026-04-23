@@ -21,6 +21,9 @@ private:
     unsigned int winWidth;
     unsigned int winHeight;
 
+    //inventaire
+    bool showInventory;
+    
     sf::Font font;
     sf::RenderWindow window;
 
@@ -56,6 +59,7 @@ public:
     void gameLoop();
     void gameLoopMulti();
     void handleShopInput();
+    void drawInventoryOverlay(float startX, float startY);
     //tout
     void app();
 

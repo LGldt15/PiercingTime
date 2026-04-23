@@ -32,7 +32,7 @@ void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
     if (!isShopActive) {
 
 
-        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+        //std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
 
 
         if (level.getNbEnemies() == 0) {
@@ -97,4 +97,24 @@ Bullet* Game::getBullets(){
 }
 int Game::getNbBullets(){
     return level.getNbBullet();
+}
+
+bool Game::isTimeUp() {
+
+    return level.isTimeUp(); 
+}
+
+bool Game::isPlayerDead() {
+
+
+    return players[0].getStats().hp <= 0; 
+}
+
+void Game::resetTimer() {
+    level.resetTimer();
+}
+
+void Game::restart(){
+    isShopActive=false;
+    level.restart();
 }

@@ -45,7 +45,14 @@ public:
 
     bool isInShop() const { return isShopActive; }
     void setShopActive(bool active) { isShopActive = active; }
+
+    //recup l idex du shop du joueur
     Shop& getShop(int playerIndex) { return playerShop[playerIndex]; }
+    bool isOver(){return level.isDead();};
+    bool isTimeUp();     
+    bool isPlayerDead();
+    void resetTimer();
+    void restart(); //reconstruit
 };
 
 #endif

@@ -181,3 +181,30 @@ int Map::getNbBullet(){
 Bullet* Map::getBullets(){
     return &bullets[0];
 }
+
+bool Map::isDead() { return dead; }
+
+void Map::restart() {
+    timer = 0.0f;
+    waveID = 1;
+    dead = false;
+    for(int i = 0; i < 50; i++) enemies[i].isAlive = false;
+    startWave();
+}
+
+void Map::startWave(){
+    int count = 5 + (waveID * 2); 
+    if (count > 50) count = 50;
+
+
+    for(int i = 0; i < count; i++) {
+
+        int type = (waveID % 2 == 0) ? 1 : 0; 
+        enemies[i] = Enemy(type, 0, true, 2, 0); 
+    }
+
+    std::cout << "wave " << waveID << std::endl;
+    
+
+    waveID++;
+}

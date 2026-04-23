@@ -15,7 +15,7 @@
 class Player{
 private:
     Stats stats;
-    int idMulti;
+    Inventory inventory;
 public:
     Position position;// !!! à utiliser avec le get
     unsigned int height,width;// !!! à utiliser avec le get
@@ -45,6 +45,7 @@ public:
     unsigned int getSprites();
     unsigned int getExperience();
     unsigned int getGold();
+    Inventory& getInventory();
     void setGold(unsigned int g);
 
 

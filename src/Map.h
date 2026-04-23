@@ -14,6 +14,12 @@ private:
     int nbEnemies;
     Bullet bullets[500];
     int nbBullets;
+
+    //gestion de waves
+    int waveID;
+    float timer;
+    bool dead;
+
 public:
     Map();
     Map(int idS,Player &p,int nbP);
@@ -35,6 +41,14 @@ public:
 
     int getNbBullet();
     Bullet* getBullets();
+
+
+    void startWave();
+    bool isDead();
+    bool isTimeUp() { return (timer >= 150.0f); }
+    void resetTimer() { timer = 0.0f; } 
+
+    void restart();
 
 };
 
