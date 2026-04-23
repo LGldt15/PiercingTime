@@ -21,6 +21,7 @@ void IHMServeur::handleShopInput() {
 
 void IHMServeur::executionLoop() {
     std::cout<<"started loop\n";
+    bool ready[4]={false,false,false,false};
     while (true) {
         // Use a timeout so the thread doesn't freeze if no one is sending data
         roomMutex.lock();
@@ -83,6 +84,23 @@ void IHMServeur::executionLoop() {
             for(int i=0;i<game.getNbJoueur();i++)
                 game.getShop(i).refreshShop();
             handleShopInput();
+            game.setShopActive(false);
+            for(int i=0;i<game.getNbJoueur();i++){
+                if (inputs[i].next){
+                    ready[i]=true;
+                }
+                if(!ready[i]){
+                    game.setShopActive(true);
+                }
+            }
+            if(!game.isInShop()){
+                game.resetTimer();
+                game.restart();
+                for (int i=0;i<4;i++){
+                    ready[i]=false;
+                }
+            }
+
         }
         
         

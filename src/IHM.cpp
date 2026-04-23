@@ -87,8 +87,8 @@ void IHM::renderShop() {
 
     window.clear(sf::Color(25, 25, 45)); 
 
-    Shop& shop = game.getShop(0);
-    Player& player = game.getPlayers()[0];
+    Shop& shop = game.getShop(idMulti);
+    Player& player = game.getPlayers()[idMulti];
 
 
     sf::Text uiText(font);
@@ -128,7 +128,7 @@ void IHM::renderShop() {
         window.draw(rect);
 
 
-        if (item.name != "None") {
+        if (item.name[0] != 'N') {
 
             uiText.setString(item.name);
             uiText.setCharacterSize(14);
