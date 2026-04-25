@@ -166,7 +166,7 @@ void IHM::renderShop() {
     window.draw(nextBtn);
 
     sf::Text nextText(font);
-    nextText.setString("NEXT (Nx2)");
+    nextText.setString("NEXT (N)");
     nextText.setCharacterSize(20);
     nextText.setFillColor(sf::Color::White);
     nextText.setPosition({670.f, 715.f});

@@ -29,24 +29,55 @@ void Game::setNbPlayers (int i){
 
 
 
+
+
 void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
     if (!isShopActive) {
-        level.update(c, winWidth, winHeight);
 
-        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+
+        //std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
 
 
         if (level.getNbEnemies() == 0) {
             std::cout << "SHOP" << std::endl; 
             isShopActive = true;
-            playerShop[0].refreshShop();
+            for(int i=0;i<nbJoueur;i++){
+                playerShop[i].refreshShop();
+            }
         }
+        for(int i=0;i<nbJoueur;i++){
+            players[0].move(c, 800, 800);
+        }
+        level.update(800,800,players,nbJoueur);
     } else {
         playerShop[0].handleInput(c, players[0]);
     }
 }
 
 
+void Game::update(Controls *c){
+    if (!isShopActive) {
+
+        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+
+        for(int i=0;i<nbJoueur;i++){
+            players[i].move(c[i], 800, 800);
+        }
+        level.update(800,800,players,nbJoueur);
+        if (level.getNbEnemies() == 0) {
+            std::cout << "SHOP" << std::endl; 
+            isShopActive = true;
+            for(int i=0;i<nbJoueur;i++){
+                playerShop[i].refreshShop();
+            }
+        }
+        
+    } else {
+        for(int i=0;i<nbJoueur;i++){
+            playerShop[i].handleInput(c[i], players[i]);
+        }
+    }
+}
 
 Enemy* Game::getEnemies(){
     return level.getEnemies();

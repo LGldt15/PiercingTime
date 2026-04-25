@@ -75,17 +75,27 @@ void Map::startWave(){
 
 
     
-void Map::move(Controls &c,unsigned int winWidth, unsigned int winHeight){
+void Map::move(Player* players,int nbPlayers){
     for (int i=0;i<nbPlayers;i++){
-        players[i]->move(c,winWidth, winHeight);
-
-
-        for (int j=0;j<MAX_ENEMY;j++){
-            if(enemies[j].isAlive)enemies[j].move(players[i]->position);
+        for (int j=0;j<50;j++){
+            if(enemies[j].isAlive)enemies[j].move(players[i].position);
 
         }
     }    
-    for (int i=0;i<MAX_BULLETS;i++){
+    for (int i=0;i<500;i++){
+        if(bullets[i].damage!=0)bullets[i].move();
+    }
+
+}
+
+void Map::move(unsigned int winWidth, unsigned int winHeight,Player* players,int nbPlayers){
+    for (int i=0;i<nbPlayers;i++){
+        for (int j=0;j<50;j++){
+            if(enemies[j].isAlive)enemies[j].move(players[i].position);
+
+        }
+    }    
+    for (int i=0;i<500;i++){
         if(bullets[i].damage!=0)bullets[i].move();
     }
 
@@ -107,57 +117,43 @@ void Map::damageE(){
     }
 }
 
-void Map::damageP(int player){
-    for(int i = 0; i < MAX_ENEMY; i++){ 
+void Map::damageP(Player* players,int nbPlayers , int player){
+    int iter=nbEnemies;
+    for(int i=0;i<iter;i++){
         if(enemies[i].isAlive){
-            // Si le joueur touche, on retourne immédiatement
-            if(players[player]->takeDamage(enemies[i])) return;
+            if(players[player].takeDamage(enemies[i])) return;
         }
+        else iter++;
     }
-    
-    for(int i = 0; i <MAX_BULLETS; i++){
-        if(bullets[i].damage != 0){
-            if(players[player]->takeDamageBullet(bullets[i])){
+    iter=nbBullets;
+    for(int i=0;i<iter;i++){
+        if(bullets[i].damage!=0){
+            if(players[player].takeDamageBullet(bullets[i])){
                 return;
             } 
         }
+        else iter++;
     }
 }
 
-void Map::damageAll(){
+void Map::damageAll(Player* players,int nbPlayers){
 
     for(int i=0;i<nbPlayers;i++){
-        damageP(i);
+        damageP(players,nbPlayers,i);
     }
 
     damageE();
 }
 
-void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
-    if (dead) return;
-    
-    //pour 2min30 de game
-    timer += 0.016f; // (environ 1/60s par frame)
-    if (timer >= 150.0f) {
-        dead = true;
-        std::cout << "Time over" << std::endl;
-        return;
-    }
-    //compteur a afficher apres avec l ihm
-
-    if (getNbEnemies() == 0) {
-        startWave();
-    }
-
-
-    move(c, winWidth, winHeight);
-    damageAll();
+void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,int nbPlayers){
+    move(winWidth, winHeight,players,nbPlayers);
+    damageAll(players,nbPlayers);
     for(int i=0;i<nbPlayers;i++){
-        if (nbBullets<MAX_BULLETS && players[i]->cooldown<=0){
+        if (nbBullets<500 && players[i].cooldown<=0){
             int k=0;
             bool kischanged=false;
             nbBullets=0;
-            for(int j=0;j<MAX_BULLETS;j++){
+            for(int j=0;j<500;j++){
                 if (bullets[j].pos.posX<0 || bullets[j].pos.posX>800 || bullets[j].pos.posY<0 || bullets[j].pos.posY>800){
                     bullets[j].damage=0;
                     bullets[j].pos={0,0};
@@ -172,13 +168,12 @@ void Map::update(Controls& c, unsigned  int winWidth, unsigned int winHeight){
                 }
             }
             if(bullets[k].damage==0){
-                players[i]->shoot(bullets[k], 50, enemies);
+                players[i].shoot(bullets[k], 50, enemies);
                 nbBullets++;
-                players[i]->cooldown=10;
+                players[i].cooldown=10;
             }
         }
     }
-
 }
 
 
