@@ -11,7 +11,7 @@
 #include "../assets/Player/player.h"
 #include "../assets/Bullet/caillou.h"
 #include "../assets/fonts/font.h"
-#include "../assets/icon.h"
+#include "../assets/Icon.h"
 #include "Inventory.h"
 #include "Player.h"
 #include <iostream>
@@ -415,7 +415,7 @@ void IHM::gameLoop() {
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(127,0,0,1);
+    sf::IpAddress ip(192,168,1,120);
     int room;
     std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
@@ -546,7 +546,7 @@ void IHM::gameLoopMulti() {
                     sf::Text optText(font);
                     optText.setString(std::to_string(rooms[i+1]));
                     optText.setCharacterSize(30);
-                    if (selected == i) {
+                    if (selected == i+1) {
                         buttonBox.setFillColor(sf::Color(80, 80, 120));
                         buttonBox.setOutlineColor(sf::Color::Cyan);
                         buttonBox.setOutlineThickness(3.f);
