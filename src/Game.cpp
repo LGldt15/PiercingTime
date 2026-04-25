@@ -58,7 +58,7 @@ void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
 void Game::update(Controls *c){
     if (!isShopActive) {
 
-        std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
+        //std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
 
         for(int i=0;i<nbJoueur;i++){
             players[i].move(c[i], 800, 800);

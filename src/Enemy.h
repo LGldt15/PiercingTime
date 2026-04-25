@@ -20,7 +20,7 @@ public:
     Position position;
     bool isAlive;
     Enemy* next;
-    std::string type;
+    char type[20];
 
     Enemy(int health=1,int damage=1,bool a=false,float s=0.1,int idS=0,std::string t="Caveman");
     ~Enemy();
