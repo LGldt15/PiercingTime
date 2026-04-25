@@ -514,6 +514,7 @@ void IHM::gameLoopMulti() {
             std::cout<<"sent 'info' awaiting response\n";
             std::memcpy(&rooms, response.getData(), sizeof(int[11]));
             std::cout << "\nDispatcher says: " << rooms[0] << std::endl; 
+            selected=0;
             while (inMenu && window.isOpen()) {
                 while (const std::optional event = window.pollEvent())
                 {
@@ -546,7 +547,7 @@ void IHM::gameLoopMulti() {
                     sf::Text optText(font);
                     optText.setString(std::to_string(rooms[i+1]));
                     optText.setCharacterSize(30);
-                    if (selected == i+1) {
+                    if (selected == i) {
                         buttonBox.setFillColor(sf::Color(80, 80, 120));
                         buttonBox.setOutlineColor(sf::Color::Cyan);
                         buttonBox.setOutlineThickness(3.f);
