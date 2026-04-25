@@ -22,6 +22,9 @@ private:
     unsigned int winHeight;
     //COOLDOWN PR LE SHOP 
     sf::Clock shopClock;
+    //COOLDOWN pour le main menu
+    private:
+    sf::Clock menuClock;
 
     //inventaire
     bool showInventory;

@@ -326,29 +326,45 @@ void IHM::handleShopInput() {
 void IHM::gameLoop() {
     while (window.isOpen()) {
         getInputs();
+
+        if (inputs[idMulti].pause) {
+            return; 
+        }
+
+
         if (game.isPlayerDead()) {
             if (inputs[idMulti].next) {
                 game.restart();
             }
             renderMap();
-        } else if (game.isInShop()) {
+        } 
+        else if (game.isInShop()) {
             handleShopInput();
             renderShop();
             if (inputs[idMulti].next) {
                 game.resetTimer();
                 game.restart();
             }
-        } else {
+        } 
+
+        else {
             if (game.isTimeUp()) {
                 game.setShopActive(true);
                 game.resetTimer();
             }
+
             while (const std::optional event = window.pollEvent()) {
                 if (event->is<sf::Event::Closed>()) window.close();
             }
+            
             showInventory = false;
-            if (inputs[idMulti].tab) showInventory = true;
-            if (!showInventory) game.update(inputs[idMulti], 800, 800);
+            if (inputs[idMulti].tab) {
+                showInventory = true;
+            }
+            
+            if (!showInventory) {
+                game.update(inputs[idMulti], 800, 800);
+            }
             renderMap();
         }
     }
@@ -559,28 +575,42 @@ void IHM::gameLoopMulti() {
 
 void IHM::playerSelect() {}
 
-void IHM::app(){
+void IHM::app() {
     window.setFramerateLimit(60);
-    bool selected=true;
-    while (window.isOpen()){
-        while (const std::optional event = window.pollEvent()){
-            if (event->is<sf::Event::Closed>()){
+    
+    // On initialise l'horloge au lancement de l'app
+    menuClock.restart();
+
+    while (window.isOpen()) {
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
         }
+        
         getInputs();
-        if (inputs[idMulti].up) {
-            mainMenu.up(); 
+
+
+        bool canMoveMenu = menuClock.getElapsedTime().asSeconds() > 0.2f;
+
+        if (canMoveMenu) {
+            if (inputs[idMulti].up) {
+                mainMenu.up();
+                menuClock.restart();
+            }
+            if (inputs[idMulti].down) {
+                mainMenu.down();
+                menuClock.restart(); 
+            }
         }
-        if (inputs[idMulti].down) {
-            mainMenu.down();
-        }
+
         if (inputs[idMulti].select) {
             int choice = mainMenu.getSelected();
             if (choice == 0) gameLoop();   
             if (choice == 1) gameLoopMulti();
             if (choice == 2) window.close();
         }
+        
         renderMenu();
     }
 }
