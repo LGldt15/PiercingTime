@@ -20,6 +20,8 @@ private:
     Controls inputs[4];
     unsigned int winWidth;
     unsigned int winHeight;
+    //COOLDOWN PR LE SHOP 
+    sf::Clock shopClock;
 
     //inventaire
     bool showInventory;
