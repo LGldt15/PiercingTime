@@ -11,51 +11,68 @@
 #include "../assets/Player/player.h"
 #include "../assets/Bullet/caillou.h"
 #include "../assets/fonts/font.h"
+#include "../assets/icon.h"
 #include "Inventory.h"
 #include "Player.h"
 #include <iostream>
 
 
+
 static const sf::FloatRect nextBtnRect({650.f, 700.f}, {120.f, 50.f});
 
-IHM::IHM() {
-    winWidth = 800;
-    winHeight = 800;
-    idMulti = 0;
-    sf::Vector2<unsigned int> size = {winWidth, winHeight};
-    window = sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+IHM::IHM(){
+    winWidth=800;
+    winHeight=800;
+    sf::Vector2<unsigned int> size={winWidth,winHeight};
+    window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
+// Y avait une segfault psk c t mal initialise les tableaux et du coup le destructeur
+// il comprennait pas quoi supp 
+    for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
+    for (int i = 0; i < 4; i++)  enemySprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  mapSprites[i] = nullptr;
+    for (int i = 0; i < 9; i++)  bulletSprites[i] = nullptr;
 
-    for (int i = 0; i < 2; i++) playerSprites[i] = nullptr;
-    for (int i = 0; i < 4; i++) enemySprites[i] = nullptr;
-    for (int i = 0; i < 9; i++) mapSprites[i] = nullptr;
-    for (int i = 0; i < 9; i++) bulletSprites[i] = nullptr;
+    //Icon de l'app
+    sf::Image Icon;
+    if (Icon.loadFromMemory(Icon_png, Icon_png_len)) {
+        window.setIcon({Icon.getSize().x, Icon.getSize().y}, Icon.getPixelsPtr());
+    }
+    
 
-    if (mapTypes[0].loadFromMemory(Background_png, Background_png_len)) {
-        mapSprites[0] = new sf::Sprite(mapTypes[0]);
+    mapSprites[0]=nullptr;
+    if(mapTypes[0].loadFromMemory(Background_png,Background_png_len)){
+        mapSprites[0]=new sf::Sprite(mapTypes[0]);
     }
 
-    sf::Vector2f sizeM = {800.0f / 1200, 800.0f / 1200};
+    sf::Vector2f sizeM={800.0f/1200,800.0f/1200};
     mapSprites[0]->setScale(sizeM);
 
-    if (playerTypes[0].loadFromMemory(player_png, player_png_len)) {
-        playerSprites[0] = new sf::Sprite(playerTypes[0]);
+    if(playerTypes[0].loadFromMemory(player_png,player_png_len)){
+        playerSprites[0]=new sf::Sprite(playerTypes[0]);
     }
 
-    if (enemyTypes[0].loadFromMemory(gromgroi_png, gromgroi_png_len)) {
-        enemySprites[0] = new sf::Sprite(enemyTypes[0]);
+    if (enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len)){
+        enemySprites[0]=new sf::Sprite(enemyTypes[0]);
     }
 
-    if (bulletTypes[0].loadFromMemory(caillou_png, caillou_png_len)) {
-        bulletSprites[0] = new sf::Sprite(bulletTypes[0]);
+    if(bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len)){
+        bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
     }
 
-    if (!font.openFromMemory(font_ttf, font_ttf_len)) {
+    //LE BOUTON DE JEU N EST PLUS UN PNG MAIS UN RECT SFML
+    //if(buttons[0].loadFromMemory(Play_jpg,Play_jpg_len)){
+    //    buttonSprites[0]=new sf::Sprite(buttons[0]);
+    //}
+    //buttonSprites[0]->setPosition({100.0f,300.0f});
+
+
+    if(!font.openFromFile("./assets/fonts/font.ttf")) {
         std::cout << "Erreur avec le font" << std::endl;
     }
-    for (int i = 0; i < 4; i++) {
-        game.getShop(i).refreshShop();
-    }
+    
+    showInventory=false;
 }
+
 
 void IHM::getInputs() {
     inputs[idMulti].up = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
@@ -214,50 +231,76 @@ void IHM::renderMap() {
     window.display();
 }
 
+
+
 void IHM::renderMenu() {
     window.clear(sf::Color(20, 20, 30));
+
+
     sf::Text title(font);
     title.setString("PIERCING TIME");
     title.setCharacterSize(60);
     title.setFillColor(sf::Color::Yellow);
     title.setStyle(sf::Text::Bold);
-    
     sf::FloatRect titleBounds = title.getGlobalBounds();
     title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
     window.draw(title);
 
-    std::string options[] = {"PLAY", "ONLINE", "LEAVE"};
+
+    std::string options[] = {"New Game", "Online", "Exit"};
+    
+    sf::Vector2i mousePosWindow = sf::Mouse::getPosition(window);
+    sf::Vector2f mousePos = window.mapPixelToCoords(mousePosWindow);
+
     for (int i = 0; i < 3; i++) {
         float yPos = 400.f + (i * 100.f);
+        
+
+        sf::FloatRect buttonRect({275.f, yPos}, {250.f, 60.f});
+        
+
+        bool isMouseOver = buttonRect.contains(mousePos);
+
+
         sf::RectangleShape buttonBox({250.f, 60.f});
         buttonBox.setPosition({400.f - 125.f, yPos});
+
+
         sf::Text optText(font);
         optText.setString(options[i]);
         optText.setCharacterSize(30);
-        
-        if (mainMenu.getSelected() == i) {
-            buttonBox.setFillColor(sf::Color(80, 80, 120));
+
+
+        if (isMouseOver) {
+
+            buttonBox.setFillColor(sf::Color(100, 100, 150)); 
             buttonBox.setOutlineColor(sf::Color::Cyan);
-            buttonBox.setOutlineThickness(3.f);
+            buttonBox.setOutlineThickness(4.f);
             optText.setFillColor(sf::Color::Cyan);
-        } else {
+        }
+        else if (mainMenu.getSelected() == i) {
+
+            buttonBox.setFillColor(sf::Color(80, 80, 120)); 
+            buttonBox.setOutlineColor(sf::Color::Cyan);
+            buttonBox.setOutlineThickness(2.f);
+            optText.setFillColor(sf::Color::White);
+        } 
+        else {
+
             buttonBox.setFillColor(sf::Color(40, 40, 60));
             buttonBox.setOutlineColor(sf::Color::White);
             buttonBox.setOutlineThickness(1.f);
-            optText.setFillColor(sf::Color::White);
+            optText.setFillColor(sf::Color(150, 150, 150));
         }
+
         window.draw(buttonBox);
+
+
         sf::FloatRect textBounds = optText.getGlobalBounds();
         optText.setPosition({400.f - textBounds.size.x / 2.f, yPos + 10.f});
         window.draw(optText);
     }
-    sf::Text help(font);
-    help.setString("Utilisez les FLECHES pour choisir et ESPACE pour valider");
-    help.setCharacterSize(16);
-    help.setFillColor(sf::Color(150, 150, 150));
-    sf::FloatRect helpBounds = help.getGlobalBounds();
-    help.setPosition({399.f - helpBounds.size.x / 2.f, 699.f});
-    window.draw(help);
+
     window.display();
 }
 
@@ -577,38 +620,49 @@ void IHM::playerSelect() {}
 
 void IHM::app() {
     window.setFramerateLimit(60);
-    
-    // On initialise l'horloge au lancement de l'app
-    menuClock.restart();
+    sf::Clock menuClock;
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
-        }
-        
-        getInputs();
-
-
-        bool canMoveMenu = menuClock.getElapsedTime().asSeconds() > 0.2f;
-
-        if (canMoveMenu) {
-            if (inputs[idMulti].up) {
-                mainMenu.up();
-                menuClock.restart();
+            if (const auto* mouseEvent = event->getIf<sf::Event::MouseButtonPressed>()) {
+                if (mouseEvent->button == sf::Mouse::Button::Left) {
+                    sf::Vector2f mousePos = window.mapPixelToCoords(mouseEvent->position);
+                    
+                    for (int i = 0; i < 3; i++) {
+                        sf::FloatRect buttonRect({275.f, 400.f + (i * 100.f)}, {250.f, 60.f});
+                        
+                        if (buttonRect.contains(mousePos)) {
+                            
+                            if (i == 0) gameLoop();
+                            if (i == 1) gameLoopMulti();
+                            if (i == 2) window.close();
+                        }
+                    }
+                }
             }
-            if (inputs[idMulti].down) {
-                mainMenu.down();
-                menuClock.restart(); 
-            }
-        }
 
-        if (inputs[idMulti].select) {
-            int choice = mainMenu.getSelected();
-            if (choice == 0) gameLoop();   
-            if (choice == 1) gameLoopMulti();
-            if (choice == 2) window.close();
+            if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+                if (menuClock.getElapsedTime().asSeconds() < 0.15f) continue;
+
+                if (keyPressed->code == sf::Keyboard::Key::Up) {
+                    mainMenu.up();
+                    menuClock.restart();
+                }
+                if (keyPressed->code == sf::Keyboard::Key::Down) {
+                    mainMenu.down();
+                    menuClock.restart();
+                }
+                
+                if (keyPressed->code == sf::Keyboard::Key::Enter || keyPressed->code == sf::Keyboard::Key::Space) {
+                    int choice = mainMenu.getSelected();
+                    if (choice == 0) gameLoop();
+                    if (choice == 1) gameLoopMulti();
+                    if (choice == 2) window.close();
+                }
+            }
         }
         
         renderMenu();
