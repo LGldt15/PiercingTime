@@ -48,7 +48,9 @@ void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
         for(int i=0;i<nbJoueur;i++){
             players[0].move(c, 800, 800);
         }
+        std::cout<<"BEFORE LEVEL UPDATE\n";
         level.update(800,800,players,nbJoueur);
+        std::cout<<"AFTER LEVEL UPDATE\n";
     } else {
         playerShop[0].handleInput(c, players[0]);
     }

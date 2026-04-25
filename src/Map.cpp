@@ -27,7 +27,7 @@ Map::Map(int idS,Player &p,int nbP){
     idMap=idS;
     players[0]=&p;
     nbPlayers=nbP;
-    nbEnemies=0;
+    nbEnemies=6;
 
 
     timer = 0.0f;
@@ -118,21 +118,17 @@ void Map::damageE(){
 }
 
 void Map::damageP(Player* players,int nbPlayers , int player){
-    int iter=nbEnemies;
-    for(int i=0;i<iter;i++){
+    for(int i=0;i<MAX_ENEMY;i++){
         if(enemies[i].isAlive){
             if(players[player].takeDamage(enemies[i])) return;
         }
-        else iter++;
     }
-    iter=nbBullets;
-    for(int i=0;i<iter;i++){
+    for(int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].damage!=0){
             if(players[player].takeDamageBullet(bullets[i])){
                 return;
             } 
         }
-        else iter++;
     }
 }
 

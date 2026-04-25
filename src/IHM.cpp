@@ -14,6 +14,7 @@
 #include "../assets/Icon.h"
 #include "Inventory.h"
 #include "Player.h"
+#include "Shop.h"
 #include <iostream>
 
 
@@ -333,41 +334,19 @@ void IHM::handleShopInput() {
 
     while (const std::optional event = window.pollEvent()) {
         if (event->is<sf::Event::Closed>()) window.close();
-
-        if (const auto* mouseEvent = event->getIf<sf::Event::MouseButtonPressed>()) {
-            if (mouseEvent->button == sf::Mouse::Button::Left) {
-                sf::Vector2f mousePos = window.mapPixelToCoords(mouseEvent->position);
-                if (nextBtnRect.contains(mousePos)) {
-                    game.setShopActive(false);
-                    game.resetTimer();
-                }
-            }
-        }
-
-        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-            if (canMove && (keyPressed->code == sf::Keyboard::Key::Left || keyPressed->code == sf::Keyboard::Key::Right)) {
-                Controls shopControls;
-                shopControls.left = (keyPressed->code == sf::Keyboard::Key::Left);
-                shopControls.right = (keyPressed->code == sf::Keyboard::Key::Right);
-                shopControls.select = false;
-                game.getShop(idMulti).handleInput(shopControls, game.getPlayers()[idMulti]);
-                shopClock.restart();
-            }
-            if (keyPressed->code == sf::Keyboard::Key::Enter || keyPressed->code == sf::Keyboard::Key::Space) {
-                Controls shopControls;
-                shopControls.select = true;
-                game.getShop(idMulti).handleInput(shopControls, game.getPlayers()[idMulti]);
-            }
-            if (keyPressed->code == sf::Keyboard::Key::N || keyPressed->code == sf::Keyboard::Key::E) {
-                game.setShopActive(false);
-                game.resetTimer();
-            }
-        }
+                
+    }
+    if(canMove && (inputs[idMulti].select || inputs[idMulti].left || inputs[idMulti].right)){
+        game.getShop(idMulti).handleInput(inputs[idMulti], game.getPlayers()[idMulti]);
+        shopClock.restart();
     }
 }
 
 void IHM::gameLoop() {
     while (window.isOpen()) {
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) window.close();
+        }
         getInputs();
 
         if (inputs[idMulti].pause) {
@@ -386,6 +365,7 @@ void IHM::gameLoop() {
             renderShop();
             if (inputs[idMulti].next) {
                 game.resetTimer();
+                game.setShopActive(false);
                 game.restart();
             }
         } 
@@ -396,12 +376,11 @@ void IHM::gameLoop() {
                 game.resetTimer();
             }
 
-            while (const std::optional event = window.pollEvent()) {
-                if (event->is<sf::Event::Closed>()) window.close();
-            }
+
             
             showInventory = false;
             if (inputs[idMulti].tab) {
+
                 showInventory = true;
             }
             
