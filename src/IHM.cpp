@@ -23,7 +23,7 @@ IHM::IHM(){
     winHeight=800;
     idMulti=0;
     sf::Vector2<unsigned int> size={winWidth,winHeight};
-    window=sf::RenderWindow(sf::VideoMode(size), "My SFML Window");
+    window=sf::RenderWindow(sf::VideoMode(size), "PiercingTime");
 
     for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
     for (int i = 0; i < 4; i++)  enemySprites[i] = nullptr;
@@ -347,7 +347,7 @@ void IHM::gameLoop(){
         }
         
         else if (game.isInShop()) {
-            std::cout<<"here2\n";
+            std::cout<<"inshop\n";
             handleShopInput();
             renderShop();           
             if (inputs[idMulti].next) {
@@ -657,7 +657,7 @@ void IHM::playerSelect() {
 }
 
 void IHM::app(){
-    window.setFramerateLimit(30);
+    window.setFramerateLimit(60);
     bool selected=true;
     while (window.isOpen()){
         while (const std::optional event = window.pollEvent()){

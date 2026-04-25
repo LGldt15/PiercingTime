@@ -59,6 +59,21 @@ ifeq ($(PLATFORM), Windows)
     TARGETS := $(BIN_DIR)/PiercingTime
 endif
 
+
+ifeq ($(PLATFORM), Darwin)
+    CXX := g++
+    # Utilisation des chemins Homebrew pour macOS ARM64
+    CPPFLAGS += -I/opt/homebrew/include
+    LDFLAGS += -L/opt/homebrew/lib
+    
+    # AJOUTE -lsfml-network ICI
+    LIBS := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network -lfreetype \
+            -framework OpenGL -framework Cocoa -framework IOKit \
+            -framework CoreVideo -framework Carbon
+    
+    TARGETS := $(BIN_DIR)/PiercingTime
+endif
+
 # --- Rules ---
 
 all: $(TARGETS)

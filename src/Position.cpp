@@ -1,5 +1,6 @@
 #include "Position.h"
 #include <cmath>
+#include <algorithm>
 
 float  Position::length(){
     return sqrt(posX*posX+posY*posY);
