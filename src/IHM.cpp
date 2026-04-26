@@ -439,7 +439,7 @@ void IHM::gameLoop() {
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(127,0,0,1);
+    sf::IpAddress ip(88,184,64,49);
     int room;
     std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
@@ -642,7 +642,12 @@ void IHM::gameLoopMulti() {
         if (game.isInShop()) {
             renderShop();      
         }else{
+            if(inputs[idMulti].tab){
+                showInventory=true;
+            }
             renderMap();
+            showInventory=false;
+            
         }
     }
 }
