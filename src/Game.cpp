@@ -7,7 +7,7 @@ Game::Game(){
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
-    players[0].setGold(500);
+    players[0].setGold(0);
     isShopActive=false;
     level.loadWaves("assets/config/waves.json");
 }

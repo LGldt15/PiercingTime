@@ -27,7 +27,7 @@ Map::Map(){
 
     
 
-
+//test
     std::ifstream file("../assets/config/waves.json"); 
         if (file.is_open()) {
     std::cout << "Fichier JSON trouvé avec succès !" << std::endl;
@@ -48,6 +48,7 @@ Map::Map(int idS,Player &p,int nbP){
     waveID = 1;
     dead = false;
 
+    //ca devrait plus servir 
     for(int i = 0; i < MAX_ENEMY; i++){
         enemies[i].isAlive = false;
     }
@@ -104,12 +105,12 @@ void Map::move(Player* players,int nbPlayers){
 
 void Map::move(unsigned int winWidth, unsigned int winHeight,Player* players,int nbPlayers){
     for (int i=0;i<nbPlayers;i++){
-        for (int j=0;j<50;j++){
+        for (int j=0;j<MAX_ENEMY;j++){
             if(enemies[j].isAlive)enemies[j].move(players[i].position);
 
         }
     }    
-    for (int i=0;i<500;i++){
+    for (int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].damage!=0)bullets[i].move();
     }
 
@@ -124,7 +125,9 @@ int Map::damageE(){
         if(enemies[i].isAlive){
             for(int j = 0; j < MAX_BULLETS; j++){
                 if (bullets[j].damage != 0) {
+
                     enemies[i].takeDamageBullet(bullets[j]);
+
                 }
 
             }
@@ -209,13 +212,12 @@ void Map::loadWaves(const char* filename) {
                 }
             }
             
-            // C'EST CETTE LIGNE QUI MANQUAIT ! 
-            // Sans elle, ton jeu pense qu'il n'y a aucune vague.
+        
             nbWaves++; 
         }
     }
     
-    std::cout << "DEBUG : " << nbWaves << " vagues chargées avec succès." << std::endl;
+
 }
 
 void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,int nbPlayers,float time ){
@@ -313,7 +315,7 @@ void Map::restart() {
         enemies[i].isAlive = false;
     }
     
-    std::cout << "DEBUG : Reset effectué. Timer = 0. Vagues réarmées." << std::endl;
+
 }
 
 
@@ -322,7 +324,7 @@ void Map::resetWaves() {
     for (int i = 0; i < nbWaves; i++) {
         waves[i].triggered = false; 
     }
-    std::cout << "DEBUG : Vagues réarmées pour la nouvelle manche." << std::endl;
+
 }
 
 bool Map::allWavesFinished(int nbEnemies) const {

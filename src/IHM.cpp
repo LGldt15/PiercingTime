@@ -251,6 +251,18 @@ window.clear(sf::Color::Black);
     if (showInventory) {
         drawInventoryOverlay(100, 100);
     }
+    //affichage des golds recuperes 
+    Player& player = game.getPlayers()[0];
+
+    sf::Text goldText(font);
+    goldText.setString("Gold : " + std::to_string(player.getGold())); 
+    goldText.setCharacterSize(24);
+    goldText.setFillColor(sf::Color::Yellow);
+    goldText.setPosition({10.f, 10.f}); 
+    
+
+    window.draw(goldText);
+
     window.display();
 }
 
