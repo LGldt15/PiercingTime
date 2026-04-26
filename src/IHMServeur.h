@@ -23,6 +23,7 @@ private:
     sf::SocketSelector selector;
     std::list<sf::TcpSocket*> clients;
     sf::Clock gameClock;
+    sf::Clock shopClock;
 
     std::thread roomThread;
     std::mutex roomMutex;

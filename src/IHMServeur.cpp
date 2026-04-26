@@ -14,8 +14,12 @@ IHMServeur::IHMServeur(int i){
 
 
 void IHMServeur::handleShopInput() {
+    bool canMove = shopClock.getElapsedTime().asSeconds() > 0.2f;
     for(int i=0;i<game.getNbJoueur();i++){
-        game.getShop(i).handleInput(inputs[i],game.getPlayers()[i] );
+        if(canMove && (inputs[i].select || inputs[i].left || inputs[i].right)){
+            game.getShop(i).handleInput(inputs[i], game.getPlayers()[i]);
+            shopClock.restart();
+        }
     }
 }
 
