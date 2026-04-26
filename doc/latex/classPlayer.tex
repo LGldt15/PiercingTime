@@ -1,0 +1,89 @@
+\doxysection{Player Class Reference}
+\hypertarget{classPlayer}{}\label{classPlayer}\index{Player@{Player}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPlayer_ad796e676307bf77b077d458ee8a88fb8}\label{classPlayer_ad796e676307bf77b077d458ee8a88fb8} 
+void {\bfseries shoot} (\doxymbox{\hyperlink{classBullet}{Bullet}} \&bullets, unsigned int nbE, \doxymbox{\hyperlink{classEnemy}{Enemy}} \texorpdfstring{$\ast$}{*}tabE) const
+\item 
+\Hypertarget{classPlayer_afda9548aa5ed2b73a72d852eea821ead}\label{classPlayer_afda9548aa5ed2b73a72d852eea821ead} 
+bool {\bfseries take\+Damage\+Bullet} (\doxymbox{\hyperlink{classBullet}{Bullet}} \&bullets)
+\item 
+\Hypertarget{classPlayer_ae68cc6edf6c14a7f35e546a040a4cbf2}\label{classPlayer_ae68cc6edf6c14a7f35e546a040a4cbf2} 
+bool {\bfseries take\+Damage} (const \doxymbox{\hyperlink{classEnemy}{Enemy}} \&enemy)
+\item 
+\Hypertarget{classPlayer_a1f32a07654e129bd14a61cd97f032283}\label{classPlayer_a1f32a07654e129bd14a61cd97f032283} 
+void {\bfseries move} (const \doxymbox{\hyperlink{structControls}{Controls}} \&c, unsigned int win\+Width, unsigned int win\+Height)
+\item 
+\Hypertarget{classPlayer_a2866a0eda4478bb9a8f763274631c4b3}\label{classPlayer_a2866a0eda4478bb9a8f763274631c4b3} 
+void {\bfseries levcel\+UP} ()
+\item 
+\Hypertarget{classPlayer_aa91d24036ad0ca4815fc33b5ba053a9e}\label{classPlayer_aa91d24036ad0ca4815fc33b5ba053a9e} 
+\doxymbox{\hyperlink{structStats}{Stats}} \& {\bfseries get\+Stats} ()
+\item 
+\Hypertarget{classPlayer_a63c0295759c02eb6751c9217e5edce45}\label{classPlayer_a63c0295759c02eb6751c9217e5edce45} 
+\doxymbox{\hyperlink{structPosition}{Position}} {\bfseries get\+Position} ()
+\item 
+\Hypertarget{classPlayer_ab3c9826598f403d6a3c20281d4f3c13e}\label{classPlayer_ab3c9826598f403d6a3c20281d4f3c13e} 
+unsigned int {\bfseries get\+Height} ()
+\item 
+\Hypertarget{classPlayer_a19455eaf5d3c267ff4261b5561f833ad}\label{classPlayer_a19455eaf5d3c267ff4261b5561f833ad} 
+unsigned int {\bfseries get\+Width} ()
+\item 
+\Hypertarget{classPlayer_a5c632ebae76f38d83ef839903e070fe3}\label{classPlayer_a5c632ebae76f38d83ef839903e070fe3} 
+unsigned int {\bfseries get\+Sprites} ()
+\item 
+\Hypertarget{classPlayer_a39bd5161a6411de590875de1ca729479}\label{classPlayer_a39bd5161a6411de590875de1ca729479} 
+unsigned int {\bfseries get\+Experience} ()
+\item 
+\Hypertarget{classPlayer_aa9f9db55724b7b26e9d4513e8826f6a7}\label{classPlayer_aa9f9db55724b7b26e9d4513e8826f6a7} 
+unsigned int {\bfseries get\+Gold} ()
+\item 
+\Hypertarget{classPlayer_a49b27ca90a7ea2924de7dda7ec6f1d8f}\label{classPlayer_a49b27ca90a7ea2924de7dda7ec6f1d8f} 
+\doxymbox{\hyperlink{classInventory}{Inventory}} \& {\bfseries get\+Inventory} ()
+\item 
+\Hypertarget{classPlayer_a7beb289effc459abcd41779129193b40}\label{classPlayer_a7beb289effc459abcd41779129193b40} 
+void {\bfseries set\+Gold} (unsigned int g)
+\item 
+\Hypertarget{classPlayer_a5f5d740ea5f089b1981902808702ac59}\label{classPlayer_a5f5d740ea5f089b1981902808702ac59} 
+int {\bfseries get\+Id\+Multi} ()
+\item 
+\Hypertarget{classPlayer_aebc5e698d23dd79e695d49c08859f42c}\label{classPlayer_aebc5e698d23dd79e695d49c08859f42c} 
+void {\bfseries do\+We\+Start} (\doxymbox{\hyperlink{structControls}{Controls}} c)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPlayer_af3e20453950b389dbf9ce9486c3a39a7}\label{classPlayer_af3e20453950b389dbf9ce9486c3a39a7} 
+\doxymbox{\hyperlink{structPosition}{Position}} {\bfseries position}
+\item 
+\Hypertarget{classPlayer_abfde98c4bd141e7fe8a3e97b3dd08912}\label{classPlayer_abfde98c4bd141e7fe8a3e97b3dd08912} 
+unsigned int {\bfseries height}
+\item 
+\Hypertarget{classPlayer_a13f7f0bb61f83a9e3287a29c750f4019}\label{classPlayer_a13f7f0bb61f83a9e3287a29c750f4019} 
+unsigned int {\bfseries width}
+\item 
+\Hypertarget{classPlayer_a521a5e7d804edfd7e3652b18e5abca9d}\label{classPlayer_a521a5e7d804edfd7e3652b18e5abca9d} 
+unsigned int {\bfseries sprites}
+\item 
+\Hypertarget{classPlayer_a132a357e3d7812509ea6b5df57126533}\label{classPlayer_a132a357e3d7812509ea6b5df57126533} 
+unsigned int {\bfseries experience}
+\item 
+\Hypertarget{classPlayer_a0ad72b232d7b3e6dc9cdbc3c4dfb8aae}\label{classPlayer_a0ad72b232d7b3e6dc9cdbc3c4dfb8aae} 
+unsigned int {\bfseries gold}
+\item 
+\Hypertarget{classPlayer_aaf71d6ab5bcb01d7439e13b64d892e1d}\label{classPlayer_aaf71d6ab5bcb01d7439e13b64d892e1d} 
+int {\bfseries cooldown}
+\item 
+\Hypertarget{classPlayer_a8092377fdcc462194dce820e867d904a}\label{classPlayer_a8092377fdcc462194dce820e867d904a} 
+bool {\bfseries dead}
+\item 
+\Hypertarget{classPlayer_ac145958465a8c6c876b0a50e558acae3}\label{classPlayer_ac145958465a8c6c876b0a50e558acae3} 
+bool {\bfseries start}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+Player.\+h\item 
+src/\+Player.\+cpp\end{DoxyCompactItemize}

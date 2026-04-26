@@ -45,9 +45,9 @@ Map::Map(int idS,Player &p,int nbP){
     enemies[4]=Enemy(1,0,true,1,0);
     enemies[5]=Enemy(1,0,true,1,0);
     nbBullets=0;
-    for (int i=0;i<MAX_BULLETS-1;i++){
-        bullets[i].next=&bullets[i+1];
-    }
+    //for (int i=0;i<MAX_BULLETS-1;i++){
+    //    bullets[i].next=&bullets[i+1];
+    //}
 
 
     startWave();

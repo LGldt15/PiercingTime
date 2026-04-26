@@ -2,7 +2,7 @@
 #include "cmath"
 
 Bullet::Bullet(){
-    next=nullptr;
+    //next=nullptr;
     pos.posX=pos.posY=50;
     speed.posX=speed.posY=0;
     damage=0;
@@ -10,17 +10,17 @@ Bullet::Bullet(){
     sprite=0;
 }
 
-Bullet::Bullet(Bullet *n,Position p,Position S,unsigned int d,bool fP){
-    next=n;
-    sprite=0;
-    pos=p;
-    speed=S;
-    damage=d;
-    fromPlayer=fP;
-}
+//Bullet::Bullet(Bullet *n,Position p,Position S,unsigned int d,bool fP){
+//    //next=n;
+//    sprite=0;
+//    pos=p;
+//    speed=S;
+//    damage=d;
+//    fromPlayer=fP;
+//}
 
 Bullet::Bullet(Position p,Position S,unsigned int d,bool fP){
-    next=nullptr;
+    //next=nullptr;
     sprite=0;
     pos=p;
     speed=S;

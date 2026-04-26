@@ -1,0 +1,68 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{classEnemy}{}\label{classEnemy}\index{Enemy@{Enemy}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}\label{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113} 
+{\bfseries Enemy} (int health=1, int damage=1, bool a=false, float s=0.\+1, int idS=0, std::\+string t="{}Caveman"{})
+\item 
+\Hypertarget{classEnemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}\label{classEnemy_a94ab3653b980c9ea7ad3f592ddf5c1ae} 
+void {\bfseries move} (\doxymbox{\hyperlink{structPosition}{Position}} \&player)
+\item 
+\Hypertarget{classEnemy_afe7fc321801bbfdc444d6535a0bf54a4}\label{classEnemy_afe7fc321801bbfdc444d6535a0bf54a4} 
+void {\bfseries move\+Agro} (\doxymbox{\hyperlink{structPosition}{Position}} \&player)
+\item 
+\Hypertarget{classEnemy_ac5ef5322af0a0d1986d17599f7e145f1}\label{classEnemy_ac5ef5322af0a0d1986d17599f7e145f1} 
+void {\bfseries move\+Shooter} (\doxymbox{\hyperlink{structPosition}{Position}} \&player)
+\item 
+\Hypertarget{classEnemy_a70d360d8f69d1a83886b7ee110e536ef}\label{classEnemy_a70d360d8f69d1a83886b7ee110e536ef} 
+void {\bfseries move\+Deserter} (\doxymbox{\hyperlink{structPosition}{Position}} \&player)
+\item 
+\Hypertarget{classEnemy_a16993ad901ad1193c2761402e13ace56}\label{classEnemy_a16993ad901ad1193c2761402e13ace56} 
+void {\bfseries shoot} (\doxymbox{\hyperlink{classBullet}{Bullet}} \&bullets, unsigned int nbP, \doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}tabP) const
+\item 
+\Hypertarget{classEnemy_ac65e2e6810573f572c50293bc97221ad}\label{classEnemy_ac65e2e6810573f572c50293bc97221ad} 
+bool {\bfseries take\+Damage\+Bullet} (\doxymbox{\hyperlink{classBullet}{Bullet}} \&bullets)
+\item 
+\Hypertarget{classEnemy_a47b8fff3ca45789cf20ec7e3f8502412}\label{classEnemy_a47b8fff3ca45789cf20ec7e3f8502412} 
+unsigned int {\bfseries get\+Sprite} ()
+\item 
+\Hypertarget{classEnemy_a5df26de21a1adb3386feb1c0e22a8135}\label{classEnemy_a5df26de21a1adb3386feb1c0e22a8135} 
+\doxymbox{\hyperlink{structPosition}{Position}} {\bfseries get\+Position} ()
+\item 
+\Hypertarget{classEnemy_a434a8fdb11753cefd1df9fa117675205}\label{classEnemy_a434a8fdb11753cefd1df9fa117675205} 
+\doxymbox{\hyperlink{structStats}{Stats}} \& {\bfseries get\+Stats} ()
+\item 
+\Hypertarget{classEnemy_aca4aab05e93a0a1b788311c3abd5ae59}\label{classEnemy_aca4aab05e93a0a1b788311c3abd5ae59} 
+const \doxymbox{\hyperlink{structStats}{Stats}} \& {\bfseries get\+Stats} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEnemy_acef13c516f7963719bbf40f51d814ff5}\label{classEnemy_acef13c516f7963719bbf40f51d814ff5} 
+unsigned int {\bfseries height}
+\item 
+\Hypertarget{classEnemy_a249e3de06231d346d456a44b6723a8fb}\label{classEnemy_a249e3de06231d346d456a44b6723a8fb} 
+unsigned int {\bfseries width}
+\item 
+\Hypertarget{classEnemy_a710f3121d11390b6b70f29dca3753b0d}\label{classEnemy_a710f3121d11390b6b70f29dca3753b0d} 
+unsigned int {\bfseries sprite}
+\item 
+\Hypertarget{classEnemy_af208804217fd225c2ff8824e81cc2e64}\label{classEnemy_af208804217fd225c2ff8824e81cc2e64} 
+\doxymbox{\hyperlink{structPosition}{Position}} {\bfseries position}
+\item 
+\Hypertarget{classEnemy_ab5248aa58a25099463dbb164a3b84ac7}\label{classEnemy_ab5248aa58a25099463dbb164a3b84ac7} 
+bool {\bfseries is\+Alive}
+\item 
+\Hypertarget{classEnemy_a4b927559cc5a7ca4e4febf7c62e9ae13}\label{classEnemy_a4b927559cc5a7ca4e4febf7c62e9ae13} 
+\doxymbox{\hyperlink{classEnemy}{Enemy}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\item 
+\Hypertarget{classEnemy_a32c80eb915722432caa1d53809e0c439}\label{classEnemy_a32c80eb915722432caa1d53809e0c439} 
+char {\bfseries type} \+[20]\+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+Enemy.\+h\item 
+src/\+Enemy.\+cpp\end{DoxyCompactItemize}

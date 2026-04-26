@@ -78,7 +78,7 @@ endif
 
 # --- Rules ---
 
-all: $(TARGETS)
+all: $(TARGETS) doxygen
 
 # PiercingTime: Uses core objects + the main test file
 $(BIN_DIR)/PiercingTime: $(CORE_OBJ) $(OBJ_DIR)/mainTest.o
@@ -97,5 +97,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR)
+
+doxygen:
+	doxygen ./doc/doxyfile
 
 .PHONY: all clean

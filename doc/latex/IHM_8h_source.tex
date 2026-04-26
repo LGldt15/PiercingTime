@@ -1,0 +1,81 @@
+\doxysection{IHM.\+h}
+\hypertarget{IHM_8h_source}{}\label{IHM_8h_source}\index{src/IHM.h@{src/IHM.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_IHM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_IHM\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Font.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Sprite.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/RenderTarget.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//nos\ include}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Game.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}MainMenu.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }IHM\{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{classGame}{Game}}\ game;}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{classMainMenu}{MainMenu}}\ mainMenu;}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{structControls}{Controls}}\ inputs[4];}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//COOLDOWN\ PR\ LE\ SHOP\ }}
+\DoxyCodeLine{00024\ \ \ \ \ sf::Clock\ shopClock;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//COOLDOWN\ pour\ le\ main\ menu}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ sf::Clock\ menuClock;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//inventaire}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ showInventory;}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00033\ \ \ \ \ sf::RenderWindow\ window;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ sf::Texture\ playerTypes[2];}
+\DoxyCodeLine{00036\ \ \ \ \ sf::Sprite\ *playerSprites[2];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ sf::Texture\ enemyTypes[4];}
+\DoxyCodeLine{00039\ \ \ \ \ sf::Sprite\ *enemySprites[4];}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ sf::Texture\ mapTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00042\ \ \ \ \ sf::Sprite\ *mapSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ sf::Texture\ bulletTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00046\ \ \ \ \ sf::Sprite\ *bulletSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ sf::Texture\ itemTypes[20];}
+\DoxyCodeLine{00049\ \ \ \ \ sf::Texture\ collectibles;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ sf::Texture\ ui[10];}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ idMulti=0;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ IHM();}
+\DoxyCodeLine{00056\ \ \ \ \ \string~IHM();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ renderShop();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ renderMap();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ renderMenu();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ playerSelect();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//utilitaire}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ getInputs();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//loop}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ gameLoop();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ gameLoopMulti();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ handleShopInput();}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ drawInventoryOverlay(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ startY);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//tout}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ app();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

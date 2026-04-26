@@ -1,0 +1,26 @@
+\doxysection{Position.\+h}
+\hypertarget{Position_8h_source}{}\label{Position_8h_source}\index{src/Position.h@{src/Position.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structPosition}{Position}}\{}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{keywordtype}{float}\ posX,posY;}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{float}\ length();}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{float}\ angle(\doxymbox{\hyperlink{structPosition}{Position}}\ \&p2);}
+\DoxyCodeLine{00006\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ rotate(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&phi);}
+\DoxyCodeLine{00007\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ rotate(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&c,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&s);}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ operator\ +(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structPosition}{Position}}\ \&p2)\textcolor{keyword}{const};}
+\DoxyCodeLine{00010\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ operator\ -\/(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structPosition}{Position}}\ \&p2)\textcolor{keyword}{const};}
+\DoxyCodeLine{00011\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ operator\ -\/()\ \textcolor{keyword}{const};\ \ \ \ \ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ operator\ *(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structPosition}{Position}}\ \&p2)\textcolor{keyword}{const};\textcolor{comment}{//\ dot\ product}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ operator\ \string^(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structPosition}{Position}}\ \&p2)\textcolor{keyword}{const};\textcolor{comment}{//\ cross\ product}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ operator\ *(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&q)\textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ operator\ /(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \&q)\textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ squareIntersection(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structPosition}{Position}}\ \&origin,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ minX,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ minY,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ maxX,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ maxY);\textcolor{comment}{//ray\ tracing\ en\ gros}}
+\DoxyCodeLine{00020\ \};}
+
+\end{DoxyCode}
