@@ -33,6 +33,9 @@ private:
     private:
     sf::Clock menuClock;
 
+    //clock pour les waves
+    sf::Clock gameClock;
+
     //inventaire
     bool showInventory;
     
@@ -69,10 +72,7 @@ public:
     * 
     */
     ~IHM();
-    /**
-    * @brief Fonction pour afficher le Shop a la fin de chaque round
-    * 
-    */
+    void init();
     void renderShop();
     /**
     * @brief Fonction pour afficherLa caret durant les round

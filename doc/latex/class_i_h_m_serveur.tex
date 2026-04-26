@@ -1,0 +1,92 @@
+\doxysection{IHMServeur Class Reference}
+\hypertarget{class_i_h_m_serveur}{}\label{class_i_h_m_serveur}\index{IHMServeur@{IHMServeur}}
+
+
+Gestion du protovole de communication entre le serveur(plus precisement une seul partie) et ses client.  
+
+
+
+
+{\ttfamily \+\#include $<$IHMServeur.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_i_h_m_serveur_a4ca7baa2439f5088ea8162e4c99d23dd}{IHMServeur}} (int i=0)
+\begin{DoxyCompactList}\small\item\em cconstructeur par defaut \end{DoxyCompactList}\item 
+\Hypertarget{class_i_h_m_serveur_ad18dcd8c96a7f36057a71dc7156fbdc9}\label{class_i_h_m_serveur_ad18dcd8c96a7f36057a71dc7156fbdc9} 
+void {\bfseries execution\+Loop} ()
+\begin{DoxyCompactList}\small\item\em game loop gerer par le serveur \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_h_m_serveur_a77ccc8a1d0a4f63df153b3c276f3e181}{start\+With\+Client}} (sf::\+\+Tcp\+Socket \texorpdfstring{$\ast$}{*}creator)
+\begin{DoxyCompactList}\small\item\em ajout du 1 er joueur joueur de la room et donc le createur de celle ci \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_i_h_m_serveur_a3016b395fffec491eb4d3c13d1ece40e}{add\+Player}} (sf::\+\+Tcp\+Socket \texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em fonction pour gerer la jout d un joueur \end{DoxyCompactList}\item 
+\Hypertarget{class_i_h_m_serveur_a25750ba01b3d358f2c65afa1f522cafe}\label{class_i_h_m_serveur_a25750ba01b3d358f2c65afa1f522cafe} 
+void {\bfseries handle\+Shop\+Input} ()
+\begin{DoxyCompactList}\small\item\em fonction pour gererla phase de \doxylink{class_shop}{Shop} dans une partie \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestion du protovole de communication entre le serveur(plus precisement une seul partie) et ses client. 
+
+Une classe pour illustrer l\textquotesingle{}utilisation de Doxygen pour générer de la documentation. 
+
+\label{doc-constructors}
+\Hypertarget{class_i_h_m_serveur_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_h_m_serveur_a4ca7baa2439f5088ea8162e4c99d23dd}\index{IHMServeur@{IHMServeur}!IHMServeur@{IHMServeur}}
+\index{IHMServeur@{IHMServeur}!IHMServeur@{IHMServeur}}
+\doxysubsubsection{\texorpdfstring{IHMServeur()}{IHMServeur()}}
+{\footnotesize\ttfamily \label{class_i_h_m_serveur_a4ca7baa2439f5088ea8162e4c99d23dd} 
+IHMServeur::\+\+IHMServeur (\begin{DoxyParamCaption}\item[{int}]{i}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+cconstructeur par defaut 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & id de la partie \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_i_h_m_serveur_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_h_m_serveur_a3016b395fffec491eb4d3c13d1ece40e}\index{IHMServeur@{IHMServeur}!addPlayer@{addPlayer}}
+\index{addPlayer@{addPlayer}!IHMServeur@{IHMServeur}}
+\doxysubsubsection{\texorpdfstring{addPlayer()}{addPlayer()}}
+{\footnotesize\ttfamily \label{class_i_h_m_serveur_a3016b395fffec491eb4d3c13d1ece40e} 
+void IHMServeur::\+add\+Player (\begin{DoxyParamCaption}\item[{sf::\+\+Tcp\+Socket \texorpdfstring{$\ast$}{*}}]{player}{}\end{DoxyParamCaption})}
+
+
+
+fonction pour gerer la jout d un joueur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & socket a laquelle le nouveau joueur est connecter \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_i_h_m_serveur_a77ccc8a1d0a4f63df153b3c276f3e181}\index{IHMServeur@{IHMServeur}!startWithClient@{startWithClient}}
+\index{startWithClient@{startWithClient}!IHMServeur@{IHMServeur}}
+\doxysubsubsection{\texorpdfstring{startWithClient()}{startWithClient()}}
+{\footnotesize\ttfamily \label{class_i_h_m_serveur_a77ccc8a1d0a4f63df153b3c276f3e181} 
+void IHMServeur::\+start\+With\+Client (\begin{DoxyParamCaption}\item[{sf::\+\+Tcp\+Socket \texorpdfstring{$\ast$}{*}}]{creator}{}\end{DoxyParamCaption})}
+
+
+
+ajout du 1 er joueur joueur de la room et donc le createur de celle ci 
+
+
+\begin{DoxyParams}{Parameters}
+{\em creator} & socket a laquelle le createur est connecter \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+IHMServeur.\+h\item 
+src/\+IHMServeur.\+cpp\end{DoxyCompactItemize}

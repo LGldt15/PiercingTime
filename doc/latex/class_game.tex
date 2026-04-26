@@ -1,0 +1,86 @@
+\doxysection{Game Class Reference}
+\hypertarget{class_game}{}\label{class_game}\index{Game@{Game}}
+
+
+lib  
+
+
+
+
+{\ttfamily \+\#include $<$Game.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a3f062f38ab7815d97e57c875083ea2d3}\label{class_game_a3f062f38ab7815d97e57c875083ea2d3} 
+int {\bfseries get\+Nb\+Joueur} ()
+\item 
+\Hypertarget{class_game_a3021f28b5aacdf25658e3e72c5b5699c}\label{class_game_a3021f28b5aacdf25658e3e72c5b5699c} 
+\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\Hypertarget{class_game_aabcbbfa79f67ed7ea1c96839f5775de4}\label{class_game_aabcbbfa79f67ed7ea1c96839f5775de4} 
+void {\bfseries set\+Nb\+Players} (int i)
+\begin{DoxyCompactList}\small\item\em menu stuff (before game starts) \end{DoxyCompactList}\item 
+\Hypertarget{class_game_a26b3975b282d4e550bb4556bb4277573}\label{class_game_a26b3975b282d4e550bb4556bb4277573} 
+void {\bfseries update} (\doxymbox{\hyperlink{struct_controls}{Controls}} c, unsigned int win\+Width, unsigned int win\+Height, float time)
+\begin{DoxyCompactList}\small\item\em in game stuff \end{DoxyCompactList}\item 
+\Hypertarget{class_game_a4a70280ac329367ca8583c1f250b0cef}\label{class_game_a4a70280ac329367ca8583c1f250b0cef} 
+void {\bfseries update} (\doxymbox{\hyperlink{struct_controls}{Controls}} \texorpdfstring{$\ast$}{*}c, float time)
+\item 
+\Hypertarget{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2}\label{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2} 
+int {\bfseries get\+Map\+Id} ()
+\item 
+\Hypertarget{class_game_a94d462983970e8d7c392da3f8b406408}\label{class_game_a94d462983970e8d7c392da3f8b406408} 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Enemies} ()
+\item 
+\Hypertarget{class_game_ac956ade04d022213ae6d5e83040b93aa}\label{class_game_ac956ade04d022213ae6d5e83040b93aa} 
+int {\bfseries get\+Nb\+Enemys} ()
+\item 
+\Hypertarget{class_game_a870a968cd70843d1461a2610068a57b9}\label{class_game_a870a968cd70843d1461a2610068a57b9} 
+int {\bfseries get\+Player\+Id} (int i)
+\item 
+\Hypertarget{class_game_aa12c2e609ffb6ff58f917c81df34ea7c}\label{class_game_aa12c2e609ffb6ff58f917c81df34ea7c} 
+int {\bfseries get\+Nb\+Bullets} ()
+\item 
+\Hypertarget{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9}\label{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9} 
+\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Bullets} ()
+\item 
+\Hypertarget{class_game_a7089c16c563eb25838ed93330f3cb8c6}\label{class_game_a7089c16c563eb25838ed93330f3cb8c6} 
+bool {\bfseries is\+In\+Shop} () const
+\item 
+\Hypertarget{class_game_a562e48334b67285d613bdf2e94d07b4b}\label{class_game_a562e48334b67285d613bdf2e94d07b4b} 
+void {\bfseries set\+Shop\+Active} (bool active)
+\item 
+\Hypertarget{class_game_a1afefa784deda981ab150892c0d47898}\label{class_game_a1afefa784deda981ab150892c0d47898} 
+\doxymbox{\hyperlink{class_shop}{Shop}} \& {\bfseries get\+Shop} (int player\+Index)
+\item 
+\Hypertarget{class_game_ab8536df425c768f3524c87de99aa9cd9}\label{class_game_ab8536df425c768f3524c87de99aa9cd9} 
+bool {\bfseries is\+Over} ()
+\item 
+\Hypertarget{class_game_ad618d5ebfb638715c4aebefa3270df65}\label{class_game_ad618d5ebfb638715c4aebefa3270df65} 
+bool {\bfseries is\+Time\+Up} ()
+\item 
+\Hypertarget{class_game_abecae2ed3526358ba4cd1ba38e38e898}\label{class_game_abecae2ed3526358ba4cd1ba38e38e898} 
+bool {\bfseries is\+Player\+Dead} ()
+\item 
+\Hypertarget{class_game_a175c19ef3c4807d8547ccd211d318aed}\label{class_game_a175c19ef3c4807d8547ccd211d318aed} 
+void {\bfseries reset\+Timer} ()
+\item 
+\Hypertarget{class_game_aeb468737e1495cfcfbf512cfdc751117}\label{class_game_aeb468737e1495cfcfbf512cfdc751117} 
+void {\bfseries restart} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_a035502bca6da8151a32380337e87bb63}\label{class_game_a035502bca6da8151a32380337e87bb63} 
+bool {\bfseries in\+Config}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lib 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+Game.\+h\item 
+src/\+Game.\+cpp\end{DoxyCompactItemize}

@@ -1,8 +1,11 @@
 #include "Map.h"
 #include "Bullet.h"
 #include "Player.h"
-  
+#include <fstream>
 #include <iostream>
+#include <vector>
+#include <cstring>
+#include "json.hpp"
 
 
 
@@ -16,10 +19,21 @@
     
 Map::Map(){
 
+    
     idMap=0;
     nbPlayers=0;
     nbEnemies=0;
     nbBullets=0;
+
+    
+
+
+    std::ifstream file("../assets/config/waves.json"); 
+        if (file.is_open()) {
+    std::cout << "Fichier JSON trouvé avec succès !" << std::endl;
+        } else {
+    std::cerr << "Erreur : Impossible de trouver le fichier JSON !" << std::endl;
+    }
 }
 
 
@@ -50,7 +64,7 @@ Map::Map(int idS,Player &p,int nbP){
     //}
 
 
-    startWave();
+   // startWave();
 
 }
 
@@ -148,7 +162,86 @@ void Map::damageAll(Player* players,int nbPlayers){
 
 }
 
-void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,int nbPlayers){
+
+//systeme waves
+
+void Map::loadWaves(const char* filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "ERREUR : Impossible d'ouvrir " << filename << std::endl;
+        return;
+    }
+
+    nlohmann::json j;
+    try {
+        file >> j;
+    } catch (const nlohmann::json::parse_error& e) {
+        std::cerr << "ERREUR JSON : " << e.what() << std::endl;
+        return;
+    }
+
+    nbWaves = 0; // Réinitialisation propre
+    if (j.contains("waves")) {
+        for (auto& w : j["waves"]) {
+            if (nbWaves >= MAX_WAVES) break;
+
+            waves[nbWaves].triggerTime = w.value("time", 0.0f);
+            waves[nbWaves].triggered = false;
+            waves[nbWaves].nbTypes = 0;
+
+            if (w.contains("enemies")) {
+                for (auto& e : w["enemies"]) {
+                    if (waves[nbWaves].nbTypes >= MAX_TYPES_PER_WAVE) break;
+
+                    EnemySpawnData& data = waves[nbWaves].enemyTypes[waves[nbWaves].nbTypes];
+                    
+                    std::string typeStr = e.value("type", "Rabbit");
+                    strncpy(data.type, typeStr.c_str(), 31);
+                    data.type[31] = '\0'; 
+
+                    data.count = e.value("count", 1);
+                    data.hp = e.value("hp", 10);
+                    data.dmg = e.value("dmg", 5);
+                    data.speed = e.value("speed", 2.0f);
+                    data.spriteId = e.value("sprite", 0);
+
+                    waves[nbWaves].nbTypes++;
+                }
+            }
+            
+            // C'EST CETTE LIGNE QUI MANQUAIT ! 
+            // Sans elle, ton jeu pense qu'il n'y a aucune vague.
+            nbWaves++; 
+        }
+    }
+    
+    std::cout << "DEBUG : " << nbWaves << " vagues chargées avec succès." << std::endl;
+}
+
+void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,int nbPlayers,float time ){
+    timer += time;
+
+
+    for (int i = 0; i < nbWaves; i++) {
+        if (!waves[i].triggered && timer >= waves[i].triggerTime) {
+            
+
+            for (int t = 0; t < waves[i].nbTypes; t++) {
+                EnemySpawnData& e = waves[i].enemyTypes[t];
+                
+                for (int c = 0; c < e.count; c++) {
+                    for (int slot = 0; slot < MAX_ENEMY; slot++) {
+                        if (!enemies[slot].isAlive) {
+                            enemies[slot] = Enemy(e.hp, e.dmg, true, e.speed, e.spriteId, e.type);
+                            break; 
+                        }
+                    }
+                }
+            }
+            waves[i].triggered = true;
+        }
+    }
+
     move(winWidth, winHeight,players,nbPlayers);
     damageAll(players,nbPlayers);
     for(int i=0;i<nbPlayers;i++){
@@ -210,9 +303,35 @@ Bullet* Map::getBullets(){
 bool Map::isDead() { return dead; }
 
 void Map::restart() {
+    timer = 0.0f; // Reset horloge
+    
+    for(int i = 0; i < nbWaves; i++) {
+        waves[i].triggered = false;
+    }
+    
+    for(int i = 0; i < MAX_ENEMY; i++) {
+        enemies[i].isAlive = false;
+    }
+    
+    std::cout << "DEBUG : Reset effectué. Timer = 0. Vagues réarmées." << std::endl;
+}
+
+
+void Map::resetWaves() {
     timer = 0.0f;
-    waveID = 1;
-    dead = false;
-    for(int i = 0; i < MAX_ENEMY; i++) enemies[i].isAlive = false;
-    startWave();
+    for (int i = 0; i < nbWaves; i++) {
+        waves[i].triggered = false; 
+    }
+    std::cout << "DEBUG : Vagues réarmées pour la nouvelle manche." << std::endl;
+}
+
+bool Map::allWavesFinished(int nbEnemies) const {
+    for (int i = 0; i < nbWaves; i++) {
+        if (!waves[i].triggered) return false; 
+    }
+    
+
+    if (nbEnemies > 0) return false;
+
+    return true;
 }

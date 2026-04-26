@@ -1,0 +1,119 @@
+\doxysection{Bullet Class Reference}
+\hypertarget{class_bullet}{}\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+une classe pour gerer les balles tirer par enemies et joueur  
+
+
+
+
+{\ttfamily \+\#include $<$Bullet.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb}\label{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb} 
+{\bfseries Bullet} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bullet_a16815ef1be0b445cbbc5674c2daa1899}{Bullet}} (\doxymbox{\hyperlink{struct_position}{Position}} p, \doxymbox{\hyperlink{struct_position}{Position}} S, unsigned int d, bool fP)
+\begin{DoxyCompactList}\small\item\em Constructeur avec parametre de bullet. \end{DoxyCompactList}\item 
+unsigned int \doxymbox{\hyperlink{class_bullet_a628b645e5a2bf8daabcdf6dfbcd728c8}{hit\+Or\+Miss}} (\doxymbox{\hyperlink{struct_position}{Position}} min, \doxymbox{\hyperlink{struct_position}{Position}} max)
+\begin{DoxyCompactList}\small\item\em regarde si une balle touche un enemy en fonction de sa position et de sa taille \end{DoxyCompactList}\item 
+\Hypertarget{class_bullet_a6140db968c42c05e829e142f74f20b16}\label{class_bullet_a6140db968c42c05e829e142f74f20b16} 
+void {\bfseries move} ()
+\begin{DoxyCompactList}\small\item\em deplace la balle grave a ca vitesse \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_bullet_a9d9ed6dfbf2c7665d771e3743b7a3ed7}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em revoie l identifiant du sprite de la balle (permet de la remonter jusqua l\textquotesingle{}ihm pour l affichage) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_bullet_a8ec36acf4c4c4423e6c60f0690bfeeeb}\label{class_bullet_a8ec36acf4c4c4423e6c60f0690bfeeeb} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries speed}
+\item 
+\Hypertarget{class_bullet_ab4ffbe554dac2f9e22e205baabe32d26}\label{class_bullet_ab4ffbe554dac2f9e22e205baabe32d26} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries pos}
+\item 
+\Hypertarget{class_bullet_aafccf1f2e265e77156e97fbd4a60ac31}\label{class_bullet_aafccf1f2e265e77156e97fbd4a60ac31} 
+bool {\bfseries from\+Player}
+\item 
+\Hypertarget{class_bullet_aef192c505cc0e719e24406fee9656738}\label{class_bullet_aef192c505cc0e719e24406fee9656738} 
+unsigned int {\bfseries damage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+une classe pour gerer les balles tirer par enemies et joueur 
+
+Une classe pour illustrer l\textquotesingle{}utilisation de Doxygen pour générer de la documentation. 
+
+\label{doc-constructors}
+\Hypertarget{class_bullet_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bullet_a16815ef1be0b445cbbc5674c2daa1899}\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily \label{class_bullet_a16815ef1be0b445cbbc5674c2daa1899} 
+Bullet::\+\+Bullet (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}}}]{p}{, }\item[{\doxymbox{\hyperlink{struct_position}{Position}}}]{S}{, }\item[{unsigned int}]{d}{, }\item[{bool}]{fP}{}\end{DoxyParamCaption})}
+
+
+
+Constructeur avec parametre de bullet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & position de la bullet a t=0 \\
+\hline
+{\em s} & vitesse de la balle \\
+\hline
+{\em d} & degat fait par la balle \\
+\hline
+{\em fP} & boolein pour savoir si la balle fait des degat au joueur ou au enemy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Description de la valeur de retour. 
+\end{DoxyReturn}
+
+
+\label{doc-func-members}
+\Hypertarget{class_bullet_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bullet_a9d9ed6dfbf2c7665d771e3743b7a3ed7}\index{Bullet@{Bullet}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily \label{class_bullet_a9d9ed6dfbf2c7665d771e3743b7a3ed7} 
+int Bullet::\+get\+Sprite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+revoie l identifiant du sprite de la balle (permet de la remonter jusqua l\textquotesingle{}ihm pour l affichage) 
+
+\begin{DoxyReturn}{Returns}
+renvoie l id de son sprite 
+\end{DoxyReturn}
+\Hypertarget{class_bullet_a628b645e5a2bf8daabcdf6dfbcd728c8}\index{Bullet@{Bullet}!hitOrMiss@{hitOrMiss}}
+\index{hitOrMiss@{hitOrMiss}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{hitOrMiss()}{hitOrMiss()}}
+{\footnotesize\ttfamily \label{class_bullet_a628b645e5a2bf8daabcdf6dfbcd728c8} 
+unsigned int Bullet::\+hit\+Or\+Miss (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}}}]{min}{, }\item[{\doxymbox{\hyperlink{struct_position}{Position}}}]{max}{}\end{DoxyParamCaption})}
+
+
+
+regarde si une balle touche un enemy en fonction de sa position et de sa taille 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & position minimal de la cible \\
+\hline
+{\em max} & position maximale de la cible \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie les degat fait 0 sinon 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+Bullet.\+h\item 
+src/\+Bullet.\+cpp\end{DoxyCompactItemize}
