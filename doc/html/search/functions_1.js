@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsprite_0',['getSprite',['../classBullet.html#a9d9ed6dfbf2c7665d771e3743b7a3ed7',1,'Bullet']]]
+  ['bullet_0',['Bullet',['../classBullet.html#acd7befc0bc18907cc1d871d37bbdddeb',1,'Bullet::Bullet()'],['../classBullet.html#a16815ef1be0b445cbbc5674c2daa1899',1,'Bullet::Bullet(Position p, Position S, unsigned int d, bool fP)']]]
 ];

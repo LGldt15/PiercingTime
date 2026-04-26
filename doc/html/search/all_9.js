@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_0',['update',['../classGame.html#a241d6071847fdfacfbb89cdca17f473e',1,'Game']]]
+  ['player_0',['Player',['../classPlayer.html',1,'']]],
+  ['position_1',['Position',['../structPosition.html',1,'']]]
 ];

@@ -91,20 +91,107 @@ $(function(){initNavTree('classIHMServeur.html','','classIHMServeur-members'); }
   <div class="headertitle"><div class="title">IHMServeur Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gestion du protovole de communication entre le serveur(plus precisement une seul partie) et ses client.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="IHMServeur_8h_source.html">IHMServeur.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ca7baa2439f5088ea8162e4c99d23dd" id="r_a4ca7baa2439f5088ea8162e4c99d23dd"><td class="memItemLeft"><a id="a4ca7baa2439f5088ea8162e4c99d23dd" name="a4ca7baa2439f5088ea8162e4c99d23dd"></a>
-&#160;</td><td class="memItemRight"><b>IHMServeur</b> (int i=0)</td></tr>
+<tr class="memitem:a4ca7baa2439f5088ea8162e4c99d23dd" id="r_a4ca7baa2439f5088ea8162e4c99d23dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4ca7baa2439f5088ea8162e4c99d23dd">IHMServeur</a> (int i=0)</td></tr>
+<tr class="memdesc:a4ca7baa2439f5088ea8162e4c99d23dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">cconstructeur par defaut  <br /></td></tr>
 <tr class="memitem:ad18dcd8c96a7f36057a71dc7156fbdc9" id="r_ad18dcd8c96a7f36057a71dc7156fbdc9"><td class="memItemLeft"><a id="ad18dcd8c96a7f36057a71dc7156fbdc9" name="ad18dcd8c96a7f36057a71dc7156fbdc9"></a>
 void&#160;</td><td class="memItemRight"><b>executionLoop</b> ()</td></tr>
-<tr class="memitem:a77ccc8a1d0a4f63df153b3c276f3e181" id="r_a77ccc8a1d0a4f63df153b3c276f3e181"><td class="memItemLeft"><a id="a77ccc8a1d0a4f63df153b3c276f3e181" name="a77ccc8a1d0a4f63df153b3c276f3e181"></a>
-void&#160;</td><td class="memItemRight"><b>startWithClient</b> (sf::TcpSocket *creator)</td></tr>
-<tr class="memitem:a3016b395fffec491eb4d3c13d1ece40e" id="r_a3016b395fffec491eb4d3c13d1ece40e"><td class="memItemLeft"><a id="a3016b395fffec491eb4d3c13d1ece40e" name="a3016b395fffec491eb4d3c13d1ece40e"></a>
-void&#160;</td><td class="memItemRight"><b>addPlayer</b> (sf::TcpSocket *player)</td></tr>
+<tr class="memdesc:ad18dcd8c96a7f36057a71dc7156fbdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">game loop gerer par le serveur <br /></td></tr>
+<tr class="memitem:a77ccc8a1d0a4f63df153b3c276f3e181" id="r_a77ccc8a1d0a4f63df153b3c276f3e181"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a77ccc8a1d0a4f63df153b3c276f3e181">startWithClient</a> (sf::TcpSocket *creator)</td></tr>
+<tr class="memdesc:a77ccc8a1d0a4f63df153b3c276f3e181"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajout du 1 er joueur joueur de la room et donc le createur de celle ci  <br /></td></tr>
+<tr class="memitem:a3016b395fffec491eb4d3c13d1ece40e" id="r_a3016b395fffec491eb4d3c13d1ece40e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3016b395fffec491eb4d3c13d1ece40e">addPlayer</a> (sf::TcpSocket *player)</td></tr>
+<tr class="memdesc:a3016b395fffec491eb4d3c13d1ece40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction pour gerer la jout d un joueur  <br /></td></tr>
 <tr class="memitem:a25750ba01b3d358f2c65afa1f522cafe" id="r_a25750ba01b3d358f2c65afa1f522cafe"><td class="memItemLeft"><a id="a25750ba01b3d358f2c65afa1f522cafe" name="a25750ba01b3d358f2c65afa1f522cafe"></a>
 void&#160;</td><td class="memItemRight"><b>handleShopInput</b> ()</td></tr>
+<tr class="memdesc:a25750ba01b3d358f2c65afa1f522cafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction pour gererla phase de <a class="el" href="classShop.html">Shop</a> dans une partie <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Gestion du protovole de communication entre le serveur(plus precisement une seul partie) et ses client. </p>
+<p>Une classe pour illustrer l'utilisation de Doxygen pour générer de la documentation. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4ca7baa2439f5088ea8162e4c99d23dd" name="a4ca7baa2439f5088ea8162e4c99d23dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca7baa2439f5088ea8162e4c99d23dd">&#9670;&#160;</a></span>IHMServeur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IHMServeur::IHMServeur </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>cconstructeur par defaut </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>id de la partie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3016b395fffec491eb4d3c13d1ece40e" name="a3016b395fffec491eb4d3c13d1ece40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3016b395fffec491eb4d3c13d1ece40e">&#9670;&#160;</a></span>addPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IHMServeur::addPlayer </td>
+          <td>(</td>
+          <td class="paramtype">sf::TcpSocket *</td>          <td class="paramname"><span class="paramname"><em>player</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction pour gerer la jout d un joueur </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>socket a laquelle le nouveau joueur est connecter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77ccc8a1d0a4f63df153b3c276f3e181" name="a77ccc8a1d0a4f63df153b3c276f3e181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ccc8a1d0a4f63df153b3c276f3e181">&#9670;&#160;</a></span>startWithClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IHMServeur::startWithClient </td>
+          <td>(</td>
+          <td class="paramtype">sf::TcpSocket *</td>          <td class="paramname"><span class="paramname"><em>creator</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ajout du 1 er joueur joueur de la room et donc le createur de celle ci </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">creator</td><td>socket a laquelle le createur est connecter </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="IHMServeur_8h_source.html">IHMServeur.h</a></li>
 <li>src/<b>IHMServeur.cpp</b></li>

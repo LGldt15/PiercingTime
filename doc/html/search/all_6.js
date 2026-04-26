@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mainmenu_0',['MainMenu',['../classMainMenu.html',1,'']]],
-  ['map_1',['Map',['../classMap.html',1,'']]],
-  ['move_2',['move',['../classBullet.html#a6140db968c42c05e829e142f74f20b16',1,'Bullet']]]
+  ['handleshopinput_0',['handleShopInput',['../classIHM.html#a48ee9a70c02c42810c0c4387b487fc4c',1,'IHM::handleShopInput()'],['../classIHMServeur.html#a25750ba01b3d358f2c65afa1f522cafe',1,'IHMServeur::handleShopInput()']]],
+  ['hitormiss_1',['hitOrMiss',['../classBullet.html#a628b645e5a2bf8daabcdf6dfbcd728c8',1,'Bullet']]]
 ];

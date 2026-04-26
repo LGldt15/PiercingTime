@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['controls_0',['Controls',['../structControls.html',1,'']]]
+  ['bullet_0',['Bullet',['../classBullet.html',1,'Bullet'],['../classBullet.html#acd7befc0bc18907cc1d871d37bbdddeb',1,'Bullet::Bullet()'],['../classBullet.html#a16815ef1be0b445cbbc5674c2daa1899',1,'Bullet::Bullet(Position p, Position S, unsigned int d, bool fP)']]]
 ];

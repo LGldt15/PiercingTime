@@ -10,26 +10,27 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Network.hpp>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <thread>}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <mutex>}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }IHMServeur\{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ \ \ \ \ \doxymbox{\hyperlink{classGame}{Game}}\ game;}
-\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{structControls}{Controls}}\ inputs[4];}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ running=\textcolor{keyword}{true};}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
-\DoxyCodeLine{00016\ \ \ \ \ sf::SocketSelector\ selector;}
-\DoxyCodeLine{00017\ \ \ \ \ std::list<sf::TcpSocket*>\ clients;}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ std::thread\ roomThread;}
-\DoxyCodeLine{00020\ \ \ \ \ std::mutex\ roomMutex;}
-\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ IHMServeur(\textcolor{keywordtype}{int}\ i=0);}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ executionLoop();}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ startWithClient(sf::TcpSocket*\ creator);}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ addPlayer(sf::TcpSocket*\ player);}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ handleShopInput();}
-\DoxyCodeLine{00027\ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classIHMServeur_a4ca7baa2439f5088ea8162e4c99d23dd}{IHMServeur}}\{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{classGame}{Game}}\ game;}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{structControls}{Controls}}\ inputs[4];}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ running=\textcolor{keyword}{true};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00023\ \ \ \ \ sf::SocketSelector\ selector;}
+\DoxyCodeLine{00024\ \ \ \ \ std::list<sf::TcpSocket*>\ clients;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::thread\ roomThread;}
+\DoxyCodeLine{00027\ \ \ \ \ std::mutex\ roomMutex;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{classIHMServeur_a4ca7baa2439f5088ea8162e4c99d23dd}{IHMServeur}}(\textcolor{keywordtype}{int}\ i=0);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHMServeur_ad18dcd8c96a7f36057a71dc7156fbdc9}{executionLoop}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHMServeur_a77ccc8a1d0a4f63df153b3c276f3e181}{startWithClient}}(sf::TcpSocket*\ creator);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHMServeur_a3016b395fffec491eb4d3c13d1ece40e}{addPlayer}}(sf::TcpSocket*\ player);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHMServeur_a25750ba01b3d358f2c65afa1f522cafe}{handleShopInput}}();}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

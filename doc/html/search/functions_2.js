@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hitormiss_0',['hitOrMiss',['../classBullet.html#a628b645e5a2bf8daabcdf6dfbcd728c8',1,'Bullet']]]
+  ['drawinventoryoverlay_0',['drawInventoryOverlay',['../classIHM.html#a07d312882d900c41699d745006fe5eec',1,'IHM']]]
 ];
