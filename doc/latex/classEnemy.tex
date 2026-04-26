@@ -12,7 +12,7 @@ Classe expriamnt un enemy quelconque de la carte.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}} (int health=1, int damage=1, bool a=false, float s=0.\+1, int idS=0, std::\+string t="{}Caveman"{})
+\doxymbox{\hyperlink{classEnemy_a027f1e080b8a67ab005cb3865e31c4e4}{Enemy}} (int health=1, int damage=1, bool a=false, int g=10, float s=0.\+1, int idS=0, std::\+string t="{}Caveman"{})
 \begin{DoxyCompactList}\small\item\em constructeur par defaut de \doxylink{classEnemy}{Enemy} \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{classEnemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}{move}} (\doxymbox{\hyperlink{structPosition}{Position}} \&player)
 \begin{DoxyCompactList}\small\item\em permet de se deplacer vers le jouieur \end{DoxyCompactList}\item 
@@ -30,6 +30,8 @@ unsigned int \doxymbox{\hyperlink{classEnemy_a47b8fff3ca45789cf20ec7e3f8502412}{
 \begin{DoxyCompactList}\small\item\em Renvoi le sprite associer a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{structPosition}{Position}} \doxymbox{\hyperlink{classEnemy_a5df26de21a1adb3386feb1c0e22a8135}{get\+Position}} ()
 \begin{DoxyCompactList}\small\item\em Renvoi la position associer a un ennemy. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classEnemy_a3a80641df04b3f60a892b77a9ff5e820}{get\+Gold}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi les l or associer a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{structStats}{Stats}} \& \doxymbox{\hyperlink{classEnemy_a434a8fdb11753cefd1df9fa117675205}{get\+Stats}} ()
 \begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\item 
 const \doxymbox{\hyperlink{structStats}{Stats}} \& \doxymbox{\hyperlink{classEnemy_aca4aab05e93a0a1b788311c3abd5ae59}{get\+Stats}} () const
@@ -66,11 +68,11 @@ Classe expriamnt un enemy quelconque de la carte.
 \label{doc-constructors}
 \Hypertarget{classEnemy_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\Hypertarget{classEnemy_a027f1e080b8a67ab005cb3865e31c4e4}\index{Enemy@{Enemy}!Enemy@{Enemy}}
 \index{Enemy@{Enemy}!Enemy@{Enemy}}
 \doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}}
-{\footnotesize\ttfamily \label{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113} 
-Enemy::\+\+Enemy (\begin{DoxyParamCaption}\item[{int}]{health}{ = {\ttfamily 1}, }\item[{int}]{damage}{ = {\ttfamily 1}, }\item[{bool}]{a}{ = {\ttfamily false}, }\item[{float}]{s}{ = {\ttfamily 0.1}, }\item[{int}]{idS}{ = {\ttfamily 0}, }\item[{std::\+string}]{t}{ = {\ttfamily "{}Caveman"{}}}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classEnemy_a027f1e080b8a67ab005cb3865e31c4e4} 
+Enemy::\+\+Enemy (\begin{DoxyParamCaption}\item[{int}]{health}{ = {\ttfamily 1}, }\item[{int}]{damage}{ = {\ttfamily 1}, }\item[{bool}]{a}{ = {\ttfamily false}, }\item[{int}]{g}{ = {\ttfamily 10}, }\item[{float}]{s}{ = {\ttfamily 0.1}, }\item[{int}]{idS}{ = {\ttfamily 0}, }\item[{std::\+string}]{t}{ = {\ttfamily "{}Caveman"{}}}\end{DoxyParamCaption})}
 
 
 
@@ -84,6 +86,8 @@ constructeur par defaut de \doxylink{classEnemy}{Enemy}
 \hline
 {\em a} & si l ennemy est vivant ou pas. \\
 \hline
+{\em g} & le gold que vaux l ennemy \\
+\hline
 {\em s} & la vitese de l enemy. \\
 \hline
 {\em idS} & identifiant du sprite de l ennemy. \\
@@ -96,6 +100,19 @@ constructeur par defaut de \doxylink{classEnemy}{Enemy}
 \label{doc-func-members}
 \Hypertarget{classEnemy_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classEnemy_a3a80641df04b3f60a892b77a9ff5e820}\index{Enemy@{Enemy}!getGold@{getGold}}
+\index{getGold@{getGold}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getGold()}{getGold()}}
+{\footnotesize\ttfamily \label{classEnemy_a3a80641df04b3f60a892b77a9ff5e820} 
+int Enemy::\+get\+Gold (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoi les l or associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie les l or de l ennemy 
+\end{DoxyReturn}
 \Hypertarget{classEnemy_a5df26de21a1adb3386feb1c0e22a8135}\index{Enemy@{Enemy}!getPosition@{getPosition}}
 \index{getPosition@{getPosition}!Enemy@{Enemy}}
 \doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}

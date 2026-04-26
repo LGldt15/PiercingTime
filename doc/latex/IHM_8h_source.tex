@@ -30,35 +30,39 @@
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00034\ \ \ \ \ sf::Clock\ menuClock;}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//inventaire}}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ showInventory;}
-\DoxyCodeLine{00038\ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ sf::Font\ font;}
-\DoxyCodeLine{00040\ \ \ \ \ sf::RenderWindow\ window;}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ sf::Texture\ playerTypes[2];}
-\DoxyCodeLine{00043\ \ \ \ \ sf::Sprite\ *playerSprites[2];}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//clock\ pour\ les\ waves}}
+\DoxyCodeLine{00037\ \ \ \ \ sf::Clock\ gameClock;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//inventaire}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ showInventory;}
+\DoxyCodeLine{00041\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00043\ \ \ \ \ sf::RenderWindow\ window;}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ sf::Texture\ enemyTypes[4];}
-\DoxyCodeLine{00046\ \ \ \ \ sf::Sprite\ *enemySprites[4];}
+\DoxyCodeLine{00045\ \ \ \ \ sf::Texture\ playerTypes[2];}
+\DoxyCodeLine{00046\ \ \ \ \ sf::Sprite\ *playerSprites[2];}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ sf::Texture\ mapTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
-\DoxyCodeLine{00049\ \ \ \ \ sf::Sprite\ *mapSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00048\ \ \ \ \ sf::Texture\ enemyTypes[4];}
+\DoxyCodeLine{00049\ \ \ \ \ sf::Sprite\ *enemySprites[4];}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ sf::Texture\ bulletTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
-\DoxyCodeLine{00053\ \ \ \ \ sf::Sprite\ *bulletSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00051\ \ \ \ \ sf::Texture\ mapTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00052\ \ \ \ \ sf::Sprite\ *mapSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ sf::Texture\ itemTypes[20];}
-\DoxyCodeLine{00056\ \ \ \ \ sf::Texture\ collectibles;}
+\DoxyCodeLine{00055\ \ \ \ \ sf::Texture\ bulletTypes[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
+\DoxyCodeLine{00056\ \ \ \ \ sf::Sprite\ *bulletSprites[9];\textcolor{comment}{//one\ level\ uses\ one\ map}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ sf::Texture\ ui[10];}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ idMulti=0;}
-\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{classIHM_aade5baff871034cb667f43930620c121}{IHM}}();}
-\DoxyCodeLine{00071\ \ \ \ \ \doxymbox{\hyperlink{classIHM_af220622a4304f5a9ed1da28abb7da14d}{\string~IHM}}();}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHM_abfcf5cd8b1f70111c6884a33eea735dd}{renderShop}}();}
+\DoxyCodeLine{00058\ \ \ \ \ sf::Texture\ itemTypes[20];}
+\DoxyCodeLine{00059\ \ \ \ \ sf::Texture\ collectibles;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ sf::Texture\ ui[10];}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ idMulti=0;}
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ \doxymbox{\hyperlink{classIHM_aade5baff871034cb667f43930620c121}{IHM}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{classIHM_af220622a4304f5a9ed1da28abb7da14d}{\string~IHM}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ init();}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ renderShop();}
 \DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHM_af6c28e2a2b0d70b76993a362f672b525}{renderMap}}();}
 \DoxyCodeLine{00082\ }
 \DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classIHM_a3f95bbe4c215e746e7845abfaa2e5e6a}{renderMenu}}();}

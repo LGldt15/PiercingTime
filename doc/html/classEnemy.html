@@ -99,8 +99,8 @@ $(function(){initNavTree('classEnemy.html','','classEnemy-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a90dcf5d9ff47e6668ecfab72dfe54113" id="r_a90dcf5d9ff47e6668ecfab72dfe54113"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90dcf5d9ff47e6668ecfab72dfe54113">Enemy</a> (int health=1, int damage=1, bool a=false, float s=0.1, int idS=0, std::string t=&quot;Caveman&quot;)</td></tr>
-<tr class="memdesc:a90dcf5d9ff47e6668ecfab72dfe54113"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
+<tr class="memitem:a027f1e080b8a67ab005cb3865e31c4e4" id="r_a027f1e080b8a67ab005cb3865e31c4e4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a027f1e080b8a67ab005cb3865e31c4e4">Enemy</a> (int health=1, int damage=1, bool a=false, int g=10, float s=0.1, int idS=0, std::string t=&quot;Caveman&quot;)</td></tr>
+<tr class="memdesc:a027f1e080b8a67ab005cb3865e31c4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
 <tr class="memitem:a94ab3653b980c9ea7ad3f592ddf5c1ae" id="r_a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94ab3653b980c9ea7ad3f592ddf5c1ae">move</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
 <tr class="memdesc:a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de se deplacer vers le jouieur  <br /></td></tr>
 <tr class="memitem:afe7fc321801bbfdc444d6535a0bf54a4" id="r_afe7fc321801bbfdc444d6535a0bf54a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe7fc321801bbfdc444d6535a0bf54a4">moveAgro</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
@@ -117,6 +117,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a47b8fff3ca45789cf20ec7e3f8502412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi le sprite associer a un ennemy.  <br /></td></tr>
 <tr class="memitem:a5df26de21a1adb3386feb1c0e22a8135" id="r_a5df26de21a1adb3386feb1c0e22a8135"><td class="memItemLeft"><a class="el" href="structPosition.html">Position</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5df26de21a1adb3386feb1c0e22a8135">getPosition</a> ()</td></tr>
 <tr class="memdesc:a5df26de21a1adb3386feb1c0e22a8135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi la position associer a un ennemy.  <br /></td></tr>
+<tr class="memitem:a3a80641df04b3f60a892b77a9ff5e820" id="r_a3a80641df04b3f60a892b77a9ff5e820"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3a80641df04b3f60a892b77a9ff5e820">getGold</a> ()</td></tr>
+<tr class="memdesc:a3a80641df04b3f60a892b77a9ff5e820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi les l or associer a un ennemy.  <br /></td></tr>
 <tr class="memitem:a434a8fdb11753cefd1df9fa117675205" id="r_a434a8fdb11753cefd1df9fa117675205"><td class="memItemLeft"><a class="el" href="structStats.html">Stats</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a434a8fdb11753cefd1df9fa117675205">getStats</a> ()</td></tr>
 <tr class="memdesc:a434a8fdb11753cefd1df9fa117675205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi les stats associer a un ennemy.  <br /></td></tr>
 <tr class="memitem:aca4aab05e93a0a1b788311c3abd5ae59" id="r_aca4aab05e93a0a1b788311c3abd5ae59"><td class="memItemLeft">const <a class="el" href="structStats.html">Stats</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aca4aab05e93a0a1b788311c3abd5ae59">getStats</a> () const</td></tr>
@@ -142,8 +144,8 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe expriamnt un enemy quelconque de la carte. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a90dcf5d9ff47e6668ecfab72dfe54113" name="a90dcf5d9ff47e6668ecfab72dfe54113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90dcf5d9ff47e6668ecfab72dfe54113">&#9670;&#160;</a></span>Enemy()</h2>
+<a id="a027f1e080b8a67ab005cb3865e31c4e4" name="a027f1e080b8a67ab005cb3865e31c4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a027f1e080b8a67ab005cb3865e31c4e4">&#9670;&#160;</a></span>Enemy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,6 +164,11 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>a</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>g</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -187,6 +194,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
     <tr><td class="paramname">health</td><td>HP de l enemy </td></tr>
     <tr><td class="paramname">damage</td><td>degat de l enemy. </td></tr>
     <tr><td class="paramname">a</td><td>si l ennemy est vivant ou pas. </td></tr>
+    <tr><td class="paramname">g</td><td>le gold que vaux l ennemy </td></tr>
     <tr><td class="paramname">s</td><td>la vitese de l enemy. </td></tr>
     <tr><td class="paramname">idS</td><td>identifiant du sprite de l ennemy. </td></tr>
     <tr><td class="paramname">t</td><td>type de l enemy (son nom en gros). </td></tr>
@@ -197,6 +205,26 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3a80641df04b3f60a892b77a9ff5e820" name="a3a80641df04b3f60a892b77a9ff5e820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a80641df04b3f60a892b77a9ff5e820">&#9670;&#160;</a></span>getGold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Enemy::getGold </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoi les l or associer a un ennemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>renvoie les l or de l ennemy </dd></dl>
+
+</div>
+</div>
 <a id="a5df26de21a1adb3386feb1c0e22a8135" name="a5df26de21a1adb3386feb1c0e22a8135"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5df26de21a1adb3386feb1c0e22a8135">&#9670;&#160;</a></span>getPosition()</h2>
 

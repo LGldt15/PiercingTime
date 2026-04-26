@@ -7,7 +7,7 @@
 #include <string>
 
 
-Enemy::Enemy(int health,int damage,bool a,float s,int idS, std::string t){
+Enemy::Enemy(int health,int damage,bool a,int g,float s,int idS, std::string t){
     stats.hp=health; stats.attackDamage=damage; stats.playerSpeed=s; stats.bulletSpeed=0;
     isAlive=a;
     position.posX=rand()%800;
@@ -17,6 +17,7 @@ Enemy::Enemy(int health,int damage,bool a,float s,int idS, std::string t){
     next=nullptr;
     std::strcpy(type, t.c_str());
     rotationSide=rand()%1;
+    gold=g;
     
 }
 
@@ -138,4 +139,8 @@ bool Enemy::takeDamageBullet(Bullet &bullets){
     if (stats.hp<=dmg){stats.hp=0;isAlive=false;} 
     else stats.hp-=dmg;
     return true;
- }
+}
+
+int Enemy::getGold(){
+    return gold;
+}

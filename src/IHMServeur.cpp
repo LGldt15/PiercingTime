@@ -25,6 +25,7 @@ void IHMServeur::executionLoop() {
     while (true) {
         // Use a timeout so the thread doesn't freeze if no one is sending data
         roomMutex.lock();
+        float dt=gameClock.restart().asSeconds();
         if (selector.wait()) {
             
             for (auto it = clients.begin(); it != clients.end(); ) {
@@ -79,7 +80,7 @@ void IHMServeur::executionLoop() {
         roomMutex.unlock();
         // Update physics/game logic if the game has started
         if(!game.isInShop()){
-            game.update(inputs);
+            game.update(inputs,dt);
         }else{
             for(int i=0;i<game.getNbJoueur();i++)
                 game.getShop(i).refreshShop();

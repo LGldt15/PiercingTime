@@ -9,6 +9,5 @@ var classIHM =
     [ "getInputs", "classIHM.html#aea03da4cff03043f5f3ca13d4a48377f", null ],
     [ "handleShopInput", "classIHM.html#a48ee9a70c02c42810c0c4387b487fc4c", null ],
     [ "renderMap", "classIHM.html#af6c28e2a2b0d70b76993a362f672b525", null ],
-    [ "renderMenu", "classIHM.html#a3f95bbe4c215e746e7845abfaa2e5e6a", null ],
-    [ "renderShop", "classIHM.html#abfcf5cd8b1f70111c6884a33eea735dd", null ]
+    [ "renderMenu", "classIHM.html#a3f95bbe4c215e746e7845abfaa2e5e6a", null ]
 ];
