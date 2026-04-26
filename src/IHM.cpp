@@ -453,6 +453,7 @@ void IHM::gameLoopMulti() {
     }
     bool inMenu = true;
     int selected=0;
+    gameClock.restart();
     while (inMenu && window.isOpen()){
         while (const std::optional event = window.pollEvent())
         {
@@ -471,14 +472,16 @@ void IHM::gameLoopMulti() {
         std::string options[] = {"Create Room", "Join Room"};
 
         getInputs();
-        if (!releasedSelect && !inputs[idMulti].select){
-            releasedSelect=true;
-        }
-        if (inputs[idMulti].up || inputs[idMulti].down){
-            selected=(selected+1)%2;
-        }
-        if(releasedSelect && inputs[idMulti].select){
-            inMenu=false;
+        bool canMove = gameClock.getElapsedTime().asSeconds() > 0.2f;
+        if (canMove){
+            if (inputs[idMulti].up || inputs[idMulti].down){
+                selected=(selected+1)%2;
+                gameClock.restart();
+            }
+            if(inputs[idMulti].select){
+                inMenu=false;
+                gameClock.restart();
+            }
         }
         for (int i = 0; i < 2; i++) {
             float yPos = 400.f + (i * 100.f);
@@ -526,8 +529,9 @@ void IHM::gameLoopMulti() {
         }
     }
     else{
+        gameClock.restart();
         inMenu=true;
-        releasedSelect=false;
+        //releasedSelect=false;
         int rooms[11]={0,0,0,0,0,0,0,0,0,0};
         sf::Packet p;
         p << "info";
@@ -554,15 +558,17 @@ void IHM::gameLoopMulti() {
                 sf::FloatRect titleBounds = title.getGlobalBounds();
                 title.setPosition({400.f - titleBounds.size.x / 2.f, 150.f});
                 window.draw(title);
-                getInputs();
-                if (!releasedSelect && !inputs[idMulti].select){
-                    releasedSelect=true;
-                }
-                if (inputs[idMulti].up || inputs[idMulti].down){
-                    selected=(selected+1)%rooms[0];
-                }
-                if(releasedSelect && inputs[idMulti].select){
-                    inMenu=false;
+                getInputs();        bool canMove = gameClock.getElapsedTime().asSeconds() > 0.2f;
+                if (canMove){ 
+
+                    if (inputs[idMulti].up || inputs[idMulti].down){
+                        selected=(selected+1)%rooms[0];
+                        gameClock.restart();
+                    }
+                    if(inputs[idMulti].select){
+                        inMenu=false;
+                        gameClock.restart();
+                    }
                 }
                 for (int i = 0; i < rooms[0]; i++) {
                     float yPos = 400.f + (i * 100.f);
