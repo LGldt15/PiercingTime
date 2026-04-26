@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eihm_0',['~IHM',['../classIHM.html#af220622a4304f5a9ed1da28abb7da14d',1,'IHM']]]
+  ['update_0',['update',['../classGame.html#a241d6071847fdfacfbb89cdca17f473e',1,'Game']]]
 ];

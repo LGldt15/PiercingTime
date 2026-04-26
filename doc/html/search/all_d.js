@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weapon_0',['Weapon',['../structWeapon.html',1,'']]]
+  ['update_0',['update',['../classGame.html#a241d6071847fdfacfbb89cdca17f473e',1,'Game']]]
 ];

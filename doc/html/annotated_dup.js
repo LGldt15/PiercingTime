@@ -2,7 +2,7 @@ var annotated_dup =
 [
     [ "Bullet", "classBullet.html", "classBullet" ],
     [ "Controls", "structControls.html", null ],
-    [ "Enemy", "classEnemy.html", null ],
+    [ "Enemy", "classEnemy.html", "classEnemy" ],
     [ "Game", "classGame.html", "classGame" ],
     [ "IHM", "classIHM.html", "classIHM" ],
     [ "IHMServeur", "classIHMServeur.html", "classIHMServeur" ],

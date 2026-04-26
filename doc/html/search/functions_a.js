@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['update',['../classGame.html#a241d6071847fdfacfbb89cdca17f473e',1,'Game']]]
+  ['takedamagebullet_0',['takeDamageBullet',['../classEnemy.html#ac65e2e6810573f572c50293bc97221ad',1,'Enemy']]]
 ];
