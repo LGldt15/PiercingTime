@@ -52,12 +52,12 @@ Map::Map(int idS,Player &p,int nbP){
         enemies[i].isAlive = false;
     }
 
-    enemies[0]=Enemy(1,0,true,10,2,0);
-    enemies[1]=Enemy(1,0,true,10,1,0);
-    enemies[2]=Enemy(1,0,true,10,1,0);
-    enemies[3]=Enemy(1,0,true,10,1,0);
-    enemies[4]=Enemy(1,0,true,10,1,0);
-    enemies[5]=Enemy(1,0,true,10,1,0);
+    enemies[0]=Enemy(1,0,true,2,0);
+    enemies[1]=Enemy(1,0,true,1,0);
+    enemies[2]=Enemy(1,0,true,1,0);
+    enemies[3]=Enemy(1,0,true,1,0);
+    enemies[4]=Enemy(1,0,true,1,0);
+    enemies[5]=Enemy(1,0,true,1,0);
     nbBullets=0;
     //for (int i=0;i<MAX_BULLETS-1;i++){
     //    bullets[i].next=&bullets[i+1];
@@ -232,7 +232,7 @@ void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,
                 for (int c = 0; c < e.count; c++) {
                     for (int slot = 0; slot < MAX_ENEMY; slot++) {
                         if (!enemies[slot].isAlive) {
-                            enemies[slot] = Enemy(e.hp, e.dmg, true, e.speed, e.spriteId,10, e.type);
+                            enemies[slot] = Enemy(e.hp, e.dmg, true, e.speed, e.spriteId, e.type);
                             break; 
                         }
                     }

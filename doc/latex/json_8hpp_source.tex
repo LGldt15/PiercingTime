@@ -3126,17 +3126,17 @@
 \DoxyCodeLine{03271\ \{}
 \DoxyCodeLine{03272\ }
 \DoxyCodeLine{03273\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Seq,\ \textcolor{keywordtype}{size\_t}\ SeqSize,\ \textcolor{keywordtype}{size\_t}\ Rem>}
-\DoxyCodeLine{03274\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend}{Extend}};}
+\DoxyCodeLine{03274\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_extend}{Extend}};}
 \DoxyCodeLine{03275\ }
 \DoxyCodeLine{03276\ \textcolor{comment}{//\ Note\ that\ SeqSize\ ==\ sizeof...(Ints).\ It's\ passed\ explicitly\ for\ efficiency.}}
 \DoxyCodeLine{03277\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ T...\ Ints,\ \textcolor{keywordtype}{size\_t}\ SeqSize>}
-\DoxyCodeLine{03278\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend}{Extend}}<\doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}<T,\ Ints...>,\ SeqSize,\ 0>}
+\DoxyCodeLine{03278\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_extend}{Extend}}<\doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}<T,\ Ints...>,\ SeqSize,\ 0>}
 \DoxyCodeLine{03279\ \{}
 \DoxyCodeLine{03280\ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}\ <\ T,\ Ints...,\ (Ints\ +\ SeqSize)...\ >;}
 \DoxyCodeLine{03281\ \};}
 \DoxyCodeLine{03282\ }
 \DoxyCodeLine{03283\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ T...\ Ints,\ \textcolor{keywordtype}{size\_t}\ SeqSize>}
-\DoxyCodeLine{03284\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend}{Extend}}<\doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}<T,\ Ints...>,\ SeqSize,\ 1>}
+\DoxyCodeLine{03284\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_extend}{Extend}}<\doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}<T,\ Ints...>,\ SeqSize,\ 1>}
 \DoxyCodeLine{03285\ \{}
 \DoxyCodeLine{03286\ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence}}\ <\ T,\ Ints...,\ (Ints\ +\ SeqSize)...,\ 2\ *\ SeqSize\ >;}
 \DoxyCodeLine{03287\ \};}
@@ -3144,14 +3144,14 @@
 \DoxyCodeLine{03289\ \textcolor{comment}{//\ Recursion\ helper\ for\ 'make\_integer\_sequence<T,\ N>'.}}
 \DoxyCodeLine{03290\ \textcolor{comment}{//\ 'Gen<T,\ N>::type'\ is\ an\ alias\ for\ 'integer\_sequence<T,\ 0,\ 1,\ ...\ N-\/1>'.}}
 \DoxyCodeLine{03291\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{03292\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen}{Gen}}}
+\DoxyCodeLine{03292\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_gen}{Gen}}}
 \DoxyCodeLine{03293\ \{}
 \DoxyCodeLine{03294\ \ \ \ \ \textcolor{keyword}{using\ }type\ =}
-\DoxyCodeLine{03295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend}{Extend}}\ <\ \textcolor{keyword}{typename}\ \doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen}{Gen}}\ <\ T,\ N\ /\ 2\ >::type,\ N\ /\ 2,\ N\ \%\ 2\ >::type;}
+\DoxyCodeLine{03295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_extend}{Extend}}\ <\ \textcolor{keyword}{typename}\ \doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_gen}{Gen}}\ <\ T,\ N\ /\ 2\ >::type,\ N\ /\ 2,\ N\ \%\ 2\ >::type;}
 \DoxyCodeLine{03296\ \};}
 \DoxyCodeLine{03297\ }
 \DoxyCodeLine{03298\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{03299\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen}{Gen}}<T,\ 0>}
+\DoxyCodeLine{03299\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdetail_1_1utility__internal_1_1_gen}{Gen}}<T,\ 0>}
 \DoxyCodeLine{03300\ \{}
 \DoxyCodeLine{03301\ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \doxymbox{\hyperlink{structdetail_1_1integer__sequence}{integer\_sequence<T>}};}
 \DoxyCodeLine{03302\ \};}

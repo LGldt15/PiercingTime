@@ -19,18 +19,19 @@
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
 \DoxyCodeLine{00023\ \ \ \ \ sf::SocketSelector\ selector;}
 \DoxyCodeLine{00024\ \ \ \ \ std::list<sf::TcpSocket*>\ clients;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ std::thread\ roomThread;}
-\DoxyCodeLine{00027\ \ \ \ \ std::mutex\ roomMutex;}
-\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{class_i_h_m_serveur_a4ca7baa2439f5088ea8162e4c99d23dd}{IHMServeur}}(\textcolor{keywordtype}{int}\ i=0);}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_ad18dcd8c96a7f36057a71dc7156fbdc9}{executionLoop}}();}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a77ccc8a1d0a4f63df153b3c276f3e181}{startWithClient}}(sf::TcpSocket*\ creator);}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a3016b395fffec491eb4d3c13d1ece40e}{addPlayer}}(sf::TcpSocket*\ player);}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a25750ba01b3d358f2c65afa1f522cafe}{handleShopInput}}();}
-\DoxyCodeLine{00058\ \};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ \ \ \ \ sf::Clock\ gameClock;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ std::thread\ roomThread;}
+\DoxyCodeLine{00028\ \ \ \ \ std::mutex\ roomMutex;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \doxymbox{\hyperlink{class_i_h_m_serveur_a4ca7baa2439f5088ea8162e4c99d23dd}{IHMServeur}}(\textcolor{keywordtype}{int}\ i=0);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_ad18dcd8c96a7f36057a71dc7156fbdc9}{executionLoop}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a77ccc8a1d0a4f63df153b3c276f3e181}{startWithClient}}(sf::TcpSocket*\ creator);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a3016b395fffec491eb4d3c13d1ece40e}{addPlayer}}(sf::TcpSocket*\ player);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_i_h_m_serveur_a25750ba01b3d358f2c65afa1f522cafe}{handleShopInput}}();}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

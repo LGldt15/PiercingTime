@@ -30,6 +30,8 @@ unsigned int \doxymbox{\hyperlink{class_enemy_a47b8fff3ca45789cf20ec7e3f8502412}
 \begin{DoxyCompactList}\small\item\em Renvoi le sprite associer a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}{get\+Position}} ()
 \begin{DoxyCompactList}\small\item\em Renvoi la position associer a un ennemy. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_enemy_a3a80641df04b3f60a892b77a9ff5e820}{get\+Gold}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi les l or associer a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_a434a8fdb11753cefd1df9fa117675205}{get\+Stats}} ()
 \begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\item 
 const \doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_aca4aab05e93a0a1b788311c3abd5ae59}{get\+Stats}} () const
@@ -84,6 +86,8 @@ constructeur par defaut de \doxylink{class_enemy}{Enemy}
 \hline
 {\em a} & si l ennemy est vivant ou pas. \\
 \hline
+{\em g} & le gold que vaux l ennemy \\
+\hline
 {\em s} & la vitese de l enemy. \\
 \hline
 {\em idS} & identifiant du sprite de l ennemy. \\
@@ -96,6 +100,19 @@ constructeur par defaut de \doxylink{class_enemy}{Enemy}
 \label{doc-func-members}
 \Hypertarget{class_enemy_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_a3a80641df04b3f60a892b77a9ff5e820}\index{Enemy@{Enemy}!getGold@{getGold}}
+\index{getGold@{getGold}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getGold()}{getGold()}}
+{\footnotesize\ttfamily \label{class_enemy_a3a80641df04b3f60a892b77a9ff5e820} 
+int Enemy::\+get\+Gold (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoi les l or associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie les l or de l ennemy 
+\end{DoxyReturn}
 \Hypertarget{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}\index{Enemy@{Enemy}!getPosition@{getPosition}}
 \index{getPosition@{getPosition}!Enemy@{Enemy}}
 \doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}

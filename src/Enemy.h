@@ -42,7 +42,7 @@ public:
     * @param idS identifiant du sprite de l ennemy.
     * @param t type de l enemy (son nom en gros).
     */
-    Enemy(int health=1,int damage=1,bool a=false,int g=10,float s=0.1,int idS=0,std::string t="Caveman");
+    Enemy(int health=1,int damage=1,bool a=false,float s=0.1,int idS=0,std::string t="Caveman");
     ~Enemy();
     
     /**

@@ -1,6 +1,7 @@
 var class_enemy =
 [
     [ "Enemy", "class_enemy.html#a90dcf5d9ff47e6668ecfab72dfe54113", null ],
+    [ "getGold", "class_enemy.html#a3a80641df04b3f60a892b77a9ff5e820", null ],
     [ "getPosition", "class_enemy.html#a5df26de21a1adb3386feb1c0e22a8135", null ],
     [ "getSprite", "class_enemy.html#a47b8fff3ca45789cf20ec7e3f8502412", null ],
     [ "getStats", "class_enemy.html#a434a8fdb11753cefd1df9fa117675205", null ],

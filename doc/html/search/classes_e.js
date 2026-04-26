@@ -2,8 +2,8 @@ var searchData=
 [
   ['parse_5ferror_0',['parse_error',['../classdetail_1_1parse__error.html',1,'detail']]],
   ['parser_1',['parser',['../classdetail_1_1parser.html',1,'detail']]],
-  ['player_2',['Player',['../classPlayer.html',1,'']]],
-  ['position_3',['Position',['../structPosition.html',1,'']]],
+  ['player_2',['Player',['../class_player.html',1,'']]],
+  ['position_3',['Position',['../struct_position.html',1,'']]],
   ['position_5ft_4',['position_t',['../structdetail_1_1position__t.html',1,'detail']]],
   ['primitive_5fiterator_5ft_5',['primitive_iterator_t',['../classdetail_1_1primitive__iterator__t.html',1,'detail']]],
   ['priority_5ftag_6',['priority_tag',['../structdetail_1_1priority__tag.html',1,'detail']]],
