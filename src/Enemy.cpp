@@ -81,7 +81,7 @@ void Enemy::moveDeserter(Position &player){//move qui fuit le joueur et ne se co
     float bestScore = -1e9; // score du meilleur rayon initialisé très bas
     Position bestDir = -dir; // fallback = fuite directe
     for(int i = 1; i < n; i++){
-        float angle = i * (2*M_PI/n); // 360° divisées en (n-1) rayons
+        float angle = i * (2*3.14/n); // 360° divisées en (n-1) rayons
         
         float c = cos(angle);
         float s = sin(angle);

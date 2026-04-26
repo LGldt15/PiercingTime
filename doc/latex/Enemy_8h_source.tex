@@ -1,0 +1,60 @@
+\doxysection{Enemy.\+h}
+\hypertarget{Enemy_8h_source}{}\label{Enemy_8h_source}\index{src/Enemy.h@{src/Enemy.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_ENEMY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_ENEMY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classPlayer}{Player}};}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//nos\ include}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Bullet.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Inventory.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}}\{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{structStats}{Stats}}\ stats;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ experience;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ rotationSide;\ \textcolor{comment}{//\ utilisé\ dans\ le\ moveShooter}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,width;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sprite;}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ position;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ isAlive;}
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}}*\ next;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ type[20];}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}}(\textcolor{keywordtype}{int}\ health=1,\textcolor{keywordtype}{int}\ damage=1,\textcolor{keywordtype}{bool}\ a=\textcolor{keyword}{false},\textcolor{keywordtype}{float}\ s=0.1,\textcolor{keywordtype}{int}\ idS=0,std::string\ t=\textcolor{stringliteral}{"{}Caveman"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \doxymbox{\hyperlink{classEnemy_a90dcf5d9ff47e6668ecfab72dfe54113}{\string~Enemy}}();}
+\DoxyCodeLine{00045\ \ \ \ \ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEnemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}{move}}(\doxymbox{\hyperlink{structPosition}{Position}}\ \&player);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEnemy_afe7fc321801bbfdc444d6535a0bf54a4}{moveAgro}}(\doxymbox{\hyperlink{structPosition}{Position}}\ \&player);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEnemy_ac5ef5322af0a0d1986d17599f7e145f1}{moveShooter}}(\doxymbox{\hyperlink{structPosition}{Position}}\ \&player);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEnemy_a70d360d8f69d1a83886b7ee110e536ef}{moveDeserter}}(\doxymbox{\hyperlink{structPosition}{Position}}\ \&player);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classEnemy_a16993ad901ad1193c2761402e13ace56}{shoot}}(\doxymbox{\hyperlink{classBullet}{Bullet}}\ \&bullets,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nbP,\ \doxymbox{\hyperlink{classPlayer}{Player}}*\ tabP)\textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classEnemy_ac65e2e6810573f572c50293bc97221ad}{takeDamageBullet}}(\doxymbox{\hyperlink{classBullet}{Bullet}}\ \&bullets);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classEnemy_a47b8fff3ca45789cf20ec7e3f8502412}{getSprite}}();}
+\DoxyCodeLine{00098\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ \doxymbox{\hyperlink{classEnemy_a5df26de21a1adb3386feb1c0e22a8135}{getPosition}}();}
+\DoxyCodeLine{00104\ \ \ \ \ \doxymbox{\hyperlink{structStats}{Stats}}\&\ \doxymbox{\hyperlink{classEnemy_a434a8fdb11753cefd1df9fa117675205}{getStats}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structStats}{Stats}}\&\ \doxymbox{\hyperlink{classEnemy_a434a8fdb11753cefd1df9fa117675205}{getStats}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

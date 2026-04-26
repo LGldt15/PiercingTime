@@ -48,12 +48,14 @@ ifeq ($(PLATFORM), Windows)
     CXXFLAGS += -DSFML_STATIC
     CPPFLAGS += -I./include -I/usr/x86_64-w64-mingw32/include
     
-    # Added -lws2_32 at the end of the list
+    # Order: SFML -> Dependencies (FreeType, JPEG) -> Windows System APIs
     LIBS := ./lib/win/libsfml-graphics-s.a \
             ./lib/win/libsfml-window-s.a \
             ./lib/win/libsfml-system-s.a \
             ./lib/win/libsfml-network-s.a \
-            -lopengl32 -lgdi32 -lwinmm -lws2_32 -static-libgcc -static-libstdc++ -static
+            ./lib/win/libfreetype.a \
+            -lopengl32 -lgdi32 -lwinmm -lws2_32 \
+            -static-libgcc -static-libstdc++ -static
             
     LINUX_ONLY_OBJ := 
     TARGETS := $(BIN_DIR)/PiercingTime
@@ -76,7 +78,7 @@ endif
 
 # --- Rules ---
 
-all: $(TARGETS)
+all: $(TARGETS) doxygen
 
 # PiercingTime: Uses core objects + the main test file
 $(BIN_DIR)/PiercingTime: $(CORE_OBJ) $(OBJ_DIR)/mainTest.o
@@ -95,5 +97,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR)
+
+doxygen:
+	doxygen ./doc/doxyfile
 
 .PHONY: all clean

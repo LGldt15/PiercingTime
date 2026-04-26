@@ -1,0 +1,72 @@
+\doxysection{Player.\+h}
+\hypertarget{Player_8h_source}{}\label{Player_8h_source}\index{src/Player.h@{src/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_PLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//nos\ include}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Bullet.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Enemy.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Inventory.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Controls.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *@class\ Player}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *@brief\ gère\ le(s)\ joueur(s)\ humain(s)}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Player\{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{structStats}{Stats}}\ stats;}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{classInventory}{Inventory}}\ inventory;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ position;\textcolor{comment}{//\ !!!\ à\ utiliser\ avec\ le\ get}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,width;\textcolor{comment}{//\ !!!\ à\ utiliser\ avec\ le\ get}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sprites;\textcolor{comment}{//\ !!!\ à\ utiliser\ avec\ le\ get}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ experience;\textcolor{comment}{//\ !!!\ à\ utiliser\ avec\ le\ get}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gold;\textcolor{comment}{//\ !!!\ à\ utiliser\ avec\ le\ get\ et\ set}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ cooldown;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ start;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ Player();}
+\DoxyCodeLine{00031\ \ \ \ \ \string~Player();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ shoot(\doxymbox{\hyperlink{classBullet}{Bullet}}\ \&bullets,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nbE,\ \doxymbox{\hyperlink{classEnemy}{Enemy}}*\ tabE)\textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ takeDamageBullet(\doxymbox{\hyperlink{classBullet}{Bullet}}\ \&bullets);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ takeDamage(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classEnemy}{Enemy}}\ \&enemy);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControls}{Controls}}\ \&c,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ levcelUP();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{structStats}{Stats}}\&\ getStats();}
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{structPosition}{Position}}\ getPosition();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getHeight();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getWidth();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getSprites();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getExperience();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getGold();}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{classInventory}{Inventory}}\&\ getInventory();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ setGold(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ g);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//server\ managment}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ getIdMulti();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ doWeStart(\doxymbox{\hyperlink{structControls}{Controls}}\ c);}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\doxysection{Inventory.\+h}
+\hypertarget{Inventory_8h_source}{}\label{Inventory_8h_source}\index{src/Inventory.h@{src/Inventory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAX\_ITEMS\ 10}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Item.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }Weapon\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ baseDamage;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ Weapon(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ damage,\ \textcolor{keywordtype}{int}\ t);}
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Inventory\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{structItem}{Item}}\ items[MAX\_ITEMS];\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ nbItems;\ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{structWeapon}{Weapon}}\ weapon;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ Inventory(\textcolor{keywordtype}{int}\ round\ =\ 0);}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ addItem(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structItem}{Item}}\ \&i);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbItems()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structItem}{Item}}*\ getItems()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getTotalDamage()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{structWeapon}{Weapon}}\&\ getWeapon();}
+\DoxyCodeLine{00030\ \};}
+
+\end{DoxyCode}

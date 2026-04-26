@@ -12,6 +12,13 @@
 #include "Player.h"
 
 
+/**
+ * @class IHM
+ *
+ * @brief Class de controle d une partie qu elle soit en ligne ou en locale ainsi que toute l application en generale
+ *
+ * Une classe pour illustrer l'utilisation de Doxygen pour générer de la documentation.
+ */
 
 class IHM{
 private:
@@ -55,21 +62,64 @@ private:
 
     int idMulti=0;
 public:
+    /**
+    * @brief Constructeur par defaut de IHM
+    * 
+    */
     IHM();
+    /**
+    * @brief Destructeurr par defaut de IHM
+    * 
+    */
     ~IHM();
     void init();
     void renderShop();
+    /**
+    * @brief Fonction pour afficherLa caret durant les round
+    * 
+    */
     void renderMap();
+
+    /**
+    * @brief Fonction pour afficher le Menu principale au lancement d3e l application
+    * 
+    */
     void renderMenu();
     void playerSelect();
     //utilitaire
+    /**
+    * @brief Fonction pour recuperer les inputs fait par les joueurs
+    * 
+    */
     void getInputs();
     //loop
+    /**
+    * @brief Fonction qui gere une partie entiere 
+    * 
+    */
     void gameLoop();
+    /**
+    * @brief Fonction qui gere une partie en mode online
+    * 
+    */
     void gameLoopMulti();
+    /**
+    * @brief fonction de gestion des inputs lors que l on est dasn un shop
+    * 
+    */
     void handleShopInput();
+    /**
+    * @brief Fonction permettan d arfficher l inventaire des joueur en partie
+    *
+    * @param startX position de l inventaire en x 
+    * @param startY position de l inventaire en y 
+    */
     void drawInventoryOverlay(float startX, float startY);
     //tout
+    /**
+    * @brief Fonction de l application gere tout en se servant des autre fonctions
+    * 
+    */
     void app();
 
 };
