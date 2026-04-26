@@ -5,6 +5,6 @@ var searchData=
   ['binary_5freader_2',['binary_reader',['../classdetail_1_1binary__reader.html',1,'detail']]],
   ['binary_5fwriter_3',['binary_writer',['../classdetail_1_1binary__writer.html',1,'detail']]],
   ['boundaries_4',['boundaries',['../structdetail_1_1dtoa__impl_1_1boundaries.html',1,'detail::dtoa_impl']]],
-  ['bullet_5',['Bullet',['../class_bullet.html',1,'']]],
+  ['bullet_5',['Bullet',['../classBullet.html',1,'']]],
   ['byte_5fcontainer_5fwith_5fsubtype_6',['byte_container_with_subtype',['../classbyte__container__with__subtype.html',1,'']]]
 ];

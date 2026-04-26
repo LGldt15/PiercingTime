@@ -427,7 +427,7 @@ void IHM::gameLoop() {
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(10,42,179,8);
+    sf::IpAddress ip(127,0,0,1);
     int room;
     std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
