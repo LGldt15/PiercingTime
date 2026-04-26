@@ -3,7 +3,7 @@
 #include <iostream>
 
 Player::Player(){
-    stats.hp=10;
+    stats.hp=10000;
     stats.attackDamage=10;
     stats.playerSpeed=3;// à changer de nom ??
     stats.bulletSpeed=10;

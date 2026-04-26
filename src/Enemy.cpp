@@ -2,6 +2,7 @@
 #include "Bullet.h"
 #include "Player.h"
 #include <cmath>
+#include <cstring>
 #include <iostream>
 #include <string>
 
@@ -14,7 +15,7 @@ Enemy::Enemy(int health,int damage,bool a,float s,int idS, std::string t){
     sprite=idS;
     height=width=100;
     next=nullptr;
-    type=t;
+    std::strcpy(type, t.c_str());
     rotationSide=rand()%1;
     
 }
@@ -26,8 +27,10 @@ Stats& Enemy::getStats(){return stats;}
 const Stats& Enemy::getStats()const{return stats;}
 
 void Enemy::move(Position& player){
-    bool shooter= (type=="Archer")||(type=="Spearman");//...
-    bool deserter= (type=="Rabbit");//...
+    std::string t;
+    t= type;
+    bool shooter= ( t=="Archer")||(t=="Spearman");//...
+    bool deserter= (t=="Rabbit");//...
     if(int(position.posX)<50){ //prévient la sortie de case
         position.posX=50.f;
         return;
