@@ -99,8 +99,8 @@ $(function(){initNavTree('classEnemy.html','','classEnemy-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a90dcf5d9ff47e6668ecfab72dfe54113" id="r_a90dcf5d9ff47e6668ecfab72dfe54113"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90dcf5d9ff47e6668ecfab72dfe54113">Enemy</a> (int health=1, int damage=1, bool a=false, float s=0.1, int idS=0, std::string t=&quot;Caveman&quot;)</td></tr>
-<tr class="memdesc:a90dcf5d9ff47e6668ecfab72dfe54113"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
+<tr class="memitem:a027f1e080b8a67ab005cb3865e31c4e4" id="r_a027f1e080b8a67ab005cb3865e31c4e4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a027f1e080b8a67ab005cb3865e31c4e4">Enemy</a> (int health=1, int damage=1, bool a=false, int g=10, float s=0.1, int idS=0, std::string t=&quot;Caveman&quot;)</td></tr>
+<tr class="memdesc:a027f1e080b8a67ab005cb3865e31c4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
 <tr class="memitem:a94ab3653b980c9ea7ad3f592ddf5c1ae" id="r_a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94ab3653b980c9ea7ad3f592ddf5c1ae">move</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
 <tr class="memdesc:a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de se deplacer vers le jouieur  <br /></td></tr>
 <tr class="memitem:afe7fc321801bbfdc444d6535a0bf54a4" id="r_afe7fc321801bbfdc444d6535a0bf54a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe7fc321801bbfdc444d6535a0bf54a4">moveAgro</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
@@ -144,8 +144,8 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe expriamnt un enemy quelconque de la carte. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a90dcf5d9ff47e6668ecfab72dfe54113" name="a90dcf5d9ff47e6668ecfab72dfe54113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90dcf5d9ff47e6668ecfab72dfe54113">&#9670;&#160;</a></span>Enemy()</h2>
+<a id="a027f1e080b8a67ab005cb3865e31c4e4" name="a027f1e080b8a67ab005cb3865e31c4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a027f1e080b8a67ab005cb3865e31c4e4">&#9670;&#160;</a></span>Enemy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,6 +164,11 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>a</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>g</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -189,6 +194,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
     <tr><td class="paramname">health</td><td>HP de l enemy </td></tr>
     <tr><td class="paramname">damage</td><td>degat de l enemy. </td></tr>
     <tr><td class="paramname">a</td><td>si l ennemy est vivant ou pas. </td></tr>
+    <tr><td class="paramname">g</td><td>le gold que vaux l ennemy </td></tr>
     <tr><td class="paramname">s</td><td>la vitese de l enemy. </td></tr>
     <tr><td class="paramname">idS</td><td>identifiant du sprite de l ennemy. </td></tr>
     <tr><td class="paramname">t</td><td>type de l enemy (son nom en gros). </td></tr>

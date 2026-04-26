@@ -21,8 +21,8 @@ void {\bfseries damageP} (\doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfst
 \Hypertarget{classMap_a5779e8d885e5ebbe64af62f18d5cb3f4}\label{classMap_a5779e8d885e5ebbe64af62f18d5cb3f4} 
 void {\bfseries damage\+All} (\doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
 \item 
-\Hypertarget{classMap_a685fb495871e9ba14086d81d82f8811c}\label{classMap_a685fb495871e9ba14086d81d82f8811c} 
-void {\bfseries update} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
+\Hypertarget{classMap_a1ccd74112b857bb43ecaf48db528ece3}\label{classMap_a1ccd74112b857bb43ecaf48db528ece3} 
+void {\bfseries update} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players, float time)
 \item 
 \Hypertarget{classMap_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67}\label{classMap_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67} 
 int {\bfseries get\+Map\+Id} ()
@@ -39,6 +39,9 @@ int {\bfseries get\+Nb\+Bullet} ()
 \Hypertarget{classMap_ad1391aa55435b656f459a25cc318df96}\label{classMap_ad1391aa55435b656f459a25cc318df96} 
 \doxymbox{\hyperlink{classBullet}{Bullet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Bullets} ()
 \item 
+\Hypertarget{classMap_ac675c3da6f6bc52fc218ce1447ba68eb}\label{classMap_ac675c3da6f6bc52fc218ce1447ba68eb} 
+float {\bfseries get\+Timer} ()
+\item 
 \Hypertarget{classMap_a985139afc4bc327540b574e86e14dc5b}\label{classMap_a985139afc4bc327540b574e86e14dc5b} 
 void {\bfseries start\+Wave} ()
 \item 
@@ -53,6 +56,15 @@ void {\bfseries reset\+Timer} ()
 \item 
 \Hypertarget{classMap_a077402f022c3a23057cdc00e516c8894}\label{classMap_a077402f022c3a23057cdc00e516c8894} 
 void {\bfseries restart} ()
+\item 
+\Hypertarget{classMap_a3206ec4d597d15c6b8a0443a716324de}\label{classMap_a3206ec4d597d15c6b8a0443a716324de} 
+void {\bfseries load\+Waves} (const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+\Hypertarget{classMap_ac9978ab8ee8e10a8c6bb01688c66816c}\label{classMap_ac9978ab8ee8e10a8c6bb01688c66816c} 
+void {\bfseries reset\+Waves} ()
+\item 
+\Hypertarget{classMap_a9eb5c21fc19c1ea1f8b1087da1c8efe3}\label{classMap_a9eb5c21fc19c1ea1f8b1087da1c8efe3} 
+bool {\bfseries all\+Waves\+Finished} (int nb\+Enemies) const
 \end{DoxyCompactItemize}
 
 
