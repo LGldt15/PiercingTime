@@ -7,8 +7,9 @@ Game::Game(){
     inConfig=true;
     difficulty=0;
     level=Map(0,players[0],nbJoueur);
-    players[0].setGold(200);
+    players[0].setGold(500);
     isShopActive=false;
+    level.loadWaves("assets/config/waves.json");
 }
 
 Game::~Game(){
@@ -31,33 +32,33 @@ void Game::setNbPlayers (int i){
 
 
 
-void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight){
+void Game::update(Controls c,  unsigned int winWidth, unsigned int winHeight,float time){
     if (!isShopActive) {
-
-
         //std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
-
-
-        if (level.getNbEnemies() == 0) {
-            std::cout << "SHOP" << std::endl; 
-            isShopActive = true;
-            for(int i=0;i<nbJoueur;i++){
-                playerShop[i].refreshShop();
-            }
-        }
+        if (level.allWavesFinished(level.getNbEnemies()) && level.getTimer() > 2.0f) { 
+    std::cout << "SHOP OUVERT" << std::endl; 
+    isShopActive = true;
+    for(int i=0; i < nbJoueur; i++) {
+        playerShop[i].refreshShop();
+    }
+}
         for(int i=0;i<nbJoueur;i++){
             players[0].move(c, 800, 800);
         }
         //std::cout<<"BEFORE LEVEL UPDATE\n";
-        level.update(800,800,players,nbJoueur);
+        level.update(800,800,players,nbJoueur,time);
         //std::cout<<"AFTER LEVEL UPDATE\n";
-    } else {
+    }else{
+        if(c.next){
+            isShopActive = false; 
+            level.restart();
+        }
         playerShop[0].handleInput(c, players[0]);
     }
 }
 
 
-void Game::update(Controls *c){
+void Game::update(Controls *c, float time){
     if (!isShopActive) {
 
         //std::cout << "Ennemies left : " << level.getNbEnemies() << std::endl;
@@ -65,15 +66,14 @@ void Game::update(Controls *c){
         for(int i=0;i<nbJoueur;i++){
             players[i].move(c[i], 800, 800);
         }
-        level.update(800,800,players,nbJoueur);
-        if (level.getNbEnemies() == 0) {
-            //std::cout << "SHOP" << std::endl; 
-            isShopActive = true;
-            for(int i=0;i<nbJoueur;i++){
-                playerShop[i].refreshShop();
-            }
-        }
-        
+        level.update(800,800,players,nbJoueur,time);
+        if (level.allWavesFinished(level.getNbEnemies()) && level.getTimer() > 2.0f) { 
+    std::cout << "SHOP OUVERT" << std::endl; 
+    isShopActive = true;
+    for(int i=0; i < nbJoueur; i++) {
+        playerShop[i].refreshShop();
+    }
+    }
     } else {
         for(int i=0;i<nbJoueur;i++){
             playerShop[i].handleInput(c[i], players[i]);

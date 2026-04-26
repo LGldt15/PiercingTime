@@ -8,6 +8,8 @@
 #include <string>
 #include "../assets/Background/Background.h"
 #include "../assets/Enemy/gromgroi.h"
+#include "../assets/Enemy/enemy2.h"
+#include "../assets/Enemy/enemy3.h"
 #include "../assets/Player/player.h"
 #include "../assets/Bullet/caillou.h"
 #include "../assets/fonts/font.h"
@@ -24,8 +26,8 @@ static const sf::FloatRect nextBtnRect({650.f, 700.f}, {120.f, 50.f});
 IHM::IHM(){
     winWidth=800;
     winHeight=800;
-    sf::Vector2<unsigned int> size={winWidth,winHeight};
-    window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
+    
+    //window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
 // Y avait une segfault psk c t mal initialise les tableaux et du coup le destructeur
 // il comprennait pas quoi supp 
     for (int i = 0; i < 2; i++)  playerSprites[i] = nullptr;
@@ -55,6 +57,12 @@ IHM::IHM(){
     if (enemyTypes[0].loadFromMemory(gromgroi_png,gromgroi_png_len)){
         enemySprites[0]=new sf::Sprite(enemyTypes[0]);
     }
+    if (enemyTypes[1].loadFromMemory(enemy2_png,enemy2_png_len)){
+        enemySprites[1]=new sf::Sprite(enemyTypes[1]);
+    }
+    if (enemyTypes[2].loadFromMemory(enemy3_png,enemy3_png_len)){
+        enemySprites[2]=new sf::Sprite(enemyTypes[2]);
+    }
 
     if(bulletTypes[0].loadFromMemory(caillou_png,caillou_png_len)){
         bulletSprites[0]=new sf::Sprite(bulletTypes[0]);
@@ -74,6 +82,10 @@ IHM::IHM(){
     showInventory=false;
 }
 
+void IHM::init() {
+    sf::Vector2<unsigned int> size={winWidth,winHeight};
+    window=sf::RenderWindow(sf::VideoMode(size), "Piercing Time");
+}
 
 void IHM::getInputs() {
     inputs[idMulti].up = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
@@ -193,27 +205,37 @@ void IHM::renderShop() {
 }
 
 void IHM::renderMap() {
-    window.clear(sf::Color::Black);
+window.clear(sf::Color::Black);
     window.draw(*mapSprites[0]);
+    
+
     Player* p = game.getPlayers();
     for (int i = 0; i < game.getNbJoueur(); i++) {
-        sf::Vector2f pos;
-        pos.x = p[i].position.posX;
-        pos.y = p[i].position.posY;
+        sf::Vector2f pos = {p[i].position.posX, p[i].position.posY};
         playerSprites[0]->setPosition(pos);
         window.draw(*playerSprites[0]);
     }
+
+
     Enemy* enemyzero = game.getEnemies();
     for (int i = 0; i < 50; i++) {
         if (enemyzero[i].isAlive) {
-            sf::Vector2u s = enemyTypes[enemyzero[i].sprite].getSize();
-            sf::Vector2f si = {100.0f / s.x, 60.0f / s.y};
-            enemySprites[0]->setScale(si);
-            sf::Vector2f pos;
-            pos.x = enemyzero[i].position.posX;
-            pos.y = enemyzero[i].position.posY;
-            enemySprites[0]->setPosition(pos);
-            window.draw(*enemySprites[0]);
+
+            int typeID = enemyzero[i].sprite; 
+
+
+            if (typeID >= 0 && typeID < 4 && enemySprites[typeID] != nullptr) {
+                
+
+                sf::Vector2u s = enemyTypes[typeID].getSize();
+                sf::Vector2f si = {100.0f / s.x, 60.0f / s.y};
+                
+                enemySprites[typeID]->setScale(si);
+                sf::Vector2f pos = {enemyzero[i].position.posX, enemyzero[i].position.posY};
+                enemySprites[typeID]->setPosition(pos);
+                
+                window.draw(*enemySprites[typeID]);
+            }
         }
     }
     Bullet* bulletzero = game.getBullets();
@@ -343,12 +365,22 @@ void IHM::handleShopInput() {
 }
 
 void IHM::gameLoop() {
+    gameClock.restart();
+
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) window.close();
         }
+
+        //calcul du delta pour le tempsfloat dt = gameClock.restart().asSeconds();
+        
+        float dt=gameClock.restart().asSeconds();
+
+        if (dt > 0.1f) dt = 0.1f;
+
         getInputs();
 
+        
         if (inputs[idMulti].pause) {
             return; 
         }
@@ -385,7 +417,8 @@ void IHM::gameLoop() {
             }
             
             if (!showInventory) {
-                game.update(inputs[idMulti], 800, 800);
+                //modif avec dt
+                game.update(inputs[idMulti], 800, 800,dt);
             }
             renderMap();
         }

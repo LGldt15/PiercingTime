@@ -38,8 +38,8 @@ public:
     ///menu stuff (before game starts)
     void setNbPlayers(int i);
     ///in game stuff
-    void update(Controls c, unsigned int winWidth, unsigned int winHeight);
-    void update(Controls *c);
+    void update(Controls c, unsigned int winWidth, unsigned int winHeight, float time);
+    void update(Controls *c, float time);
     //get stuff for rendering
     int getMapId();
     Enemy* getEnemies();

@@ -26,6 +26,9 @@ private:
     private:
     sf::Clock menuClock;
 
+    //clock pour les waves
+    sf::Clock gameClock;
+
     //inventaire
     bool showInventory;
     
@@ -54,6 +57,7 @@ private:
 public:
     IHM();
     ~IHM();
+    void init();
     void renderShop();
     void renderMap();
     void renderMenu();
