@@ -38,12 +38,12 @@ Map::Map(int idS,Player &p,int nbP){
         enemies[i].isAlive = false;
     }
 
-    enemies[0]=Enemy(1,0,true,2,0);
-    enemies[1]=Enemy(1,0,true,1,0);
-    enemies[2]=Enemy(1,0,true,1,0);
-    enemies[3]=Enemy(1,0,true,1,0);
-    enemies[4]=Enemy(1,0,true,1,0);
-    enemies[5]=Enemy(1,0,true,1,0);
+    enemies[0]=Enemy(1,0,true,10,2,0);
+    enemies[1]=Enemy(1,0,true,10,1,0);
+    enemies[2]=Enemy(1,0,true,10,1,0);
+    enemies[3]=Enemy(1,0,true,10,1,0);
+    enemies[4]=Enemy(1,0,true,10,1,0);
+    enemies[5]=Enemy(1,0,true,10,1,0);
     nbBullets=0;
     //for (int i=0;i<MAX_BULLETS-1;i++){
     //    bullets[i].next=&bullets[i+1];
@@ -103,18 +103,24 @@ void Map::move(unsigned int winWidth, unsigned int winHeight,Player* players,int
 
 
     
-void Map::damageE(){
+int Map::damageE(){
     nbEnemies = 0; 
+    int gold=0;
     for(int i = 0; i < MAX_ENEMY; i++){
         if(enemies[i].isAlive){
             for(int j = 0; j < MAX_BULLETS; j++){
                 if (bullets[j].damage != 0) {
                     enemies[i].takeDamageBullet(bullets[j]);
                 }
+
+            }
+            if(!enemies[i].isAlive){
+                gold += enemies[i].getGold();
             }
             nbEnemies++; 
         }
     }
+    return gold;
 }
 
 void Map::damageP(Player* players,int nbPlayers , int player){
@@ -133,12 +139,13 @@ void Map::damageP(Player* players,int nbPlayers , int player){
 }
 
 void Map::damageAll(Player* players,int nbPlayers){
+    int g=damageE();
 
     for(int i=0;i<nbPlayers;i++){
         damageP(players,nbPlayers,i);
+        players[i].setGold(players[i].getGold()+g/nbPlayers);
     }
 
-    damageE();
 }
 
 void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,int nbPlayers){

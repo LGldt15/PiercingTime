@@ -21,6 +21,7 @@ class Enemy{
 private:
     Stats stats;
     unsigned int experience;
+    unsigned int gold;
     bool rotationSide; // utilisé dans le moveShooter
 public:
     unsigned int height,width;
@@ -36,11 +37,12 @@ public:
     * @param health HP de l enemy
     * @param damage degat de l enemy.
     * @param a si l ennemy est vivant ou pas.
+    * @param g le gold que vaux l ennemy 
     * @param s la vitese de l enemy.
     * @param idS identifiant du sprite de l ennemy.
     * @param t type de l enemy (son nom en gros).
     */
-    Enemy(int health=1,int damage=1,bool a=false,float s=0.1,int idS=0,std::string t="Caveman");
+    Enemy(int health=1,int damage=1,bool a=false,int g=10,float s=0.1,int idS=0,std::string t="Caveman");
     ~Enemy();
     
     /**
@@ -96,6 +98,12 @@ public:
     * @return renvoie la position de l ennemy
     */
     Position getPosition();
+    /**
+    * @brief Renvoi les l or associer a un ennemy
+    * 
+    * @return renvoie les l or de l ennemy
+    */
+    int getGold();
     /**
     * @brief Renvoi les stats associer a un ennemy
     * 

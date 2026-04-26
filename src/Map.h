@@ -29,7 +29,7 @@ public:
     Map(int idS, Player &p, int nbP);
     void move(Player* players,int nbPlayers);
     void move(unsigned int winWidth, unsigned int winHeight,Player* players,int nbPlayers);
-    void damageE();
+    int damageE();
     void damageP(Player* players,int nbPlayers , int player);
     void damageAll(Player* players,int nbPlayers);
 
