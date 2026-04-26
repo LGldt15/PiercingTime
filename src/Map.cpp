@@ -232,7 +232,7 @@ void Map::update(unsigned  int winWidth, unsigned int winHeight,Player* players,
                 for (int c = 0; c < e.count; c++) {
                     for (int slot = 0; slot < MAX_ENEMY; slot++) {
                         if (!enemies[slot].isAlive) {
-                            enemies[slot] = Enemy(e.hp, e.dmg, true, e.speed, e.spriteId, e.type);
+                            enemies[slot] = Enemy(e.hp, e.dmg, true, e.speed, e.spriteId,10, e.type);
                             break; 
                         }
                     }
