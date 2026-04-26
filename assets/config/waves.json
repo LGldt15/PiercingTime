@@ -6,7 +6,7 @@
     },
     {
       "time": 15.0,
-      "enemies": [ { "type": "Archer", "count": 15, "hp": 5, "dmg": 5, "speed": 2.0, "sprite": 1 } ]
+      "enemies": [ { "type": "Caveman", "count": 15, "hp": 5, "dmg": 5, "speed": 2.0, "sprite": 1 } ]
     },
     {
       "time": 20.0,
