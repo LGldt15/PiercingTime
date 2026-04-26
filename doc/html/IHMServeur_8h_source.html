@@ -110,26 +110,27 @@ $(function(){initNavTree('IHMServeur_8h_source.html','',''); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    sf::SocketSelector selector;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::list&lt;sf::TcpSocket*&gt; clients;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    sf::Clock gameClock;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::thread roomThread;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::mutex roomMutex;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="classIHMServeur.html#a4ca7baa2439f5088ea8162e4c99d23dd">IHMServeur</a>(<span class="keywordtype">int</span> i=0);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#ad18dcd8c96a7f36057a71dc7156fbdc9">executionLoop</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a77ccc8a1d0a4f63df153b3c276f3e181">startWithClient</a>(sf::TcpSocket* creator);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a3016b395fffec491eb4d3c13d1ece40e">addPlayer</a>(sf::TcpSocket* player);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a25750ba01b3d358f2c65afa1f522cafe">handleShopInput</a>();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    sf::Clock shopClock;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::thread roomThread;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::mutex roomMutex;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="classIHMServeur.html#a4ca7baa2439f5088ea8162e4c99d23dd">IHMServeur</a>(<span class="keywordtype">int</span> i=0);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#ad18dcd8c96a7f36057a71dc7156fbdc9">executionLoop</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a77ccc8a1d0a4f63df153b3c276f3e181">startWithClient</a>(sf::TcpSocket* creator);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a3016b395fffec491eb4d3c13d1ece40e">addPlayer</a>(sf::TcpSocket* player);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIHMServeur.html#a25750ba01b3d358f2c65afa1f522cafe">handleShopInput</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdoc">lib</div><div class="ttdef"><b>Definition</b> Game.h:15</div></div>
 <div class="ttc" id="aclassIHMServeur_html_a25750ba01b3d358f2c65afa1f522cafe"><div class="ttname"><a href="classIHMServeur.html#a25750ba01b3d358f2c65afa1f522cafe">IHMServeur::handleShopInput</a></div><div class="ttdeci">void handleShopInput()</div><div class="ttdoc">fonction pour gererla phase de Shop dans une partie</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:16</div></div>
-<div class="ttc" id="aclassIHMServeur_html_a3016b395fffec491eb4d3c13d1ece40e"><div class="ttname"><a href="classIHMServeur.html#a3016b395fffec491eb4d3c13d1ece40e">IHMServeur::addPlayer</a></div><div class="ttdeci">void addPlayer(sf::TcpSocket *player)</div><div class="ttdoc">fonction pour gerer la jout d un joueur</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:135</div></div>
+<div class="ttc" id="aclassIHMServeur_html_a3016b395fffec491eb4d3c13d1ece40e"><div class="ttname"><a href="classIHMServeur.html#a3016b395fffec491eb4d3c13d1ece40e">IHMServeur::addPlayer</a></div><div class="ttdeci">void addPlayer(sf::TcpSocket *player)</div><div class="ttdoc">fonction pour gerer la jout d un joueur</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:139</div></div>
 <div class="ttc" id="aclassIHMServeur_html_a4ca7baa2439f5088ea8162e4c99d23dd"><div class="ttname"><a href="classIHMServeur.html#a4ca7baa2439f5088ea8162e4c99d23dd">IHMServeur::IHMServeur</a></div><div class="ttdeci">IHMServeur(int i=0)</div><div class="ttdoc">cconstructeur par defaut</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:10</div></div>
-<div class="ttc" id="aclassIHMServeur_html_a77ccc8a1d0a4f63df153b3c276f3e181"><div class="ttname"><a href="classIHMServeur.html#a77ccc8a1d0a4f63df153b3c276f3e181">IHMServeur::startWithClient</a></div><div class="ttdeci">void startWithClient(sf::TcpSocket *creator)</div><div class="ttdoc">ajout du 1 er joueur joueur de la room et donc le createur de celle ci</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:115</div></div>
-<div class="ttc" id="aclassIHMServeur_html_ad18dcd8c96a7f36057a71dc7156fbdc9"><div class="ttname"><a href="classIHMServeur.html#ad18dcd8c96a7f36057a71dc7156fbdc9">IHMServeur::executionLoop</a></div><div class="ttdeci">void executionLoop()</div><div class="ttdoc">game loop gerer par le serveur</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:22</div></div>
+<div class="ttc" id="aclassIHMServeur_html_a77ccc8a1d0a4f63df153b3c276f3e181"><div class="ttname"><a href="classIHMServeur.html#a77ccc8a1d0a4f63df153b3c276f3e181">IHMServeur::startWithClient</a></div><div class="ttdeci">void startWithClient(sf::TcpSocket *creator)</div><div class="ttdoc">ajout du 1 er joueur joueur de la room et donc le createur de celle ci</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:119</div></div>
+<div class="ttc" id="aclassIHMServeur_html_ad18dcd8c96a7f36057a71dc7156fbdc9"><div class="ttname"><a href="classIHMServeur.html#ad18dcd8c96a7f36057a71dc7156fbdc9">IHMServeur::executionLoop</a></div><div class="ttdeci">void executionLoop()</div><div class="ttdoc">game loop gerer par le serveur</div><div class="ttdef"><b>Definition</b> IHMServeur.cpp:26</div></div>
 <div class="ttc" id="astructControls_html"><div class="ttname"><a href="structControls.html">Controls</a></div><div class="ttdef"><b>Definition</b> Controls.h:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
