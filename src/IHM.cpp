@@ -67,7 +67,7 @@ IHM::IHM(){
     //buttonSprites[0]->setPosition({100.0f,300.0f});
 
 
-    if(!font.openFromFile("./assets/fonts/font.ttf")) {
+    if(!font.openFromMemory(font_ttf,font_ttf_len)) {
         std::cout << "Erreur avec le font" << std::endl;
     }
     
@@ -394,7 +394,7 @@ void IHM::gameLoop() {
 
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
-    sf::IpAddress ip(192,168,1,120);
+    sf::IpAddress ip(10,42,179,8);
     int room;
     std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {

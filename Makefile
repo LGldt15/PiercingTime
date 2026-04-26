@@ -48,12 +48,14 @@ ifeq ($(PLATFORM), Windows)
     CXXFLAGS += -DSFML_STATIC
     CPPFLAGS += -I./include -I/usr/x86_64-w64-mingw32/include
     
-    # Added -lws2_32 at the end of the list
+    # Order: SFML -> Dependencies (FreeType, JPEG) -> Windows System APIs
     LIBS := ./lib/win/libsfml-graphics-s.a \
             ./lib/win/libsfml-window-s.a \
             ./lib/win/libsfml-system-s.a \
             ./lib/win/libsfml-network-s.a \
-            -lopengl32 -lgdi32 -lwinmm -lws2_32 -static-libgcc -static-libstdc++ -static
+            ./lib/win/libfreetype.a \
+            -lopengl32 -lgdi32 -lwinmm -lws2_32 \
+            -static-libgcc -static-libstdc++ -static
             
     LINUX_ONLY_OBJ := 
     TARGETS := $(BIN_DIR)/PiercingTime
