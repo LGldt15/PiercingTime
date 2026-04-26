@@ -65,7 +65,7 @@ void Map::startWave(){
         enemies[i] = Enemy(type, 0, true, 2, 0); 
     }
 
-    std::cout << "wave" << waveID << std::endl;
+    //std::cout << "wave" << waveID << std::endl;
     
 
     waveID++;

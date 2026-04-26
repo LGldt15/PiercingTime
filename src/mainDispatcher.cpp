@@ -54,7 +54,7 @@ int main() {
                             std::cout << "Message received from client "<<client.getRemoteAddress()->toString()<<"::"<<client.getRemotePort()<<" : " << message[0] << std::endl;
                         
                             if (message == "new") {
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                                 sf::TcpSocket* clientPtr = *it;
                                                         
                                 // 1. STOP the dispatcher from watching this socket
@@ -78,12 +78,12 @@ int main() {
                                 continue; // Skip the it++ because we already erased 'it'
                             }                              
                             else if (message=="info") {
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                                 int rooms[11]={-1,0,0,0,0,0,0,0,0,0,0};
                                 
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                                 sf::Packet responsePacket;
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                                 for(int i=0;i<activeRooms.size() && i<10;i++){
                                     rooms[i+1]=i;
                                 }
@@ -94,7 +94,7 @@ int main() {
                             }
                             else if (std::stoi(message)>=0 && std::stoi(message)<activeRooms.size()) {
                                 
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                                 int roomIndex=std::stoi(message);
                                 sf::TcpSocket* clientPtr = *it;
 
@@ -116,7 +116,7 @@ int main() {
                             }                
                             it++; 
                         } else {
-                                std::cout<<"here?";
+                                //std::cout<<"here?";
                             // Client disconnected
                             std::cout << "Client disconnected." << std::endl;
                             selector.remove(client);
