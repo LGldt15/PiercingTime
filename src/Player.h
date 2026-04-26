@@ -52,6 +52,7 @@ public:
     //server managment
     int getIdMulti();
     void doWeStart(Controls c);
+
 };
 
 
