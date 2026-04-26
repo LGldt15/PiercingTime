@@ -1,0 +1,95 @@
+\doxysection{Map.\+h}
+\hypertarget{_map_8h_source}{}\label{_map_8h_source}\index{src/Map.h@{src/Map.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_MAP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_MAP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Bullet.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Enemy.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_ENEMY\ =\ 75;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_BULLETS\ =\ 500;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_WAVES\ =\ 10;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nombre\ max\ de\ vagues}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_TYPES\_PER\_WAVE\ =\ 3;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//pour\ le\ json}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ type[32];}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ hp;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ dmg;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ speed;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ spriteId;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_wave}{Wave}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ triggerTime;}
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ enemyTypes[MAX\_TYPES\_PER\_WAVE];}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ nbTypes;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ triggered;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }Map\{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ idMap;}
+\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{class_player}{Player}}*\ players[4];}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ nbPlayers;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}\ enemies[MAX\_ENEMY];\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ nbEnemies;}
+\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}\ bullets[MAX\_BULLETS];}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ nbBullets;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//gestion\ de\ waves}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ waveID;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ timer;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ nbWaves;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{struct_wave}{Wave}}\ waves[MAX\_WAVES];}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ Map();}
+\DoxyCodeLine{00056\ \ \ \ \ Map(\textcolor{keywordtype}{int}\ idS,\ \doxymbox{\hyperlink{class_player}{Player}}\ \&p,\ \textcolor{keywordtype}{int}\ nbP);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ damageE();}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ damageP(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers\ ,\ \textcolor{keywordtype}{int}\ player);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ damageAll(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//utilities\ to\ get\ stuff\ vacj\ up\ to\ the\ renderer}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ getMapId();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbEnemies();}
+\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}*\ getEnemies();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbBullet();}
+\DoxyCodeLine{00072\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}*\ getBullets();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ getTimer()\{\textcolor{keywordflow}{return}\ timer;\};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//WAVES}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ startWave();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDead();}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ isTimeUp()\ \{\ \textcolor{keywordflow}{return}\ (timer\ >=\ 150.0f);\ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ resetTimer()\ \{\ timer\ =\ 0.0f;\ \}\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ restart();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ loadWaves(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ resetWaves();\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ allWavesFinished(\textcolor{keywordtype}{int}\ nbEnemies)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

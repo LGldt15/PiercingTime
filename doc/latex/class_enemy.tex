@@ -1,0 +1,253 @@
+\doxysection{Enemy Class Reference}
+\hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+Classe expriamnt un enemy quelconque de la carte.  
+
+
+
+
+{\ttfamily \+\#include $<$Enemy.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_enemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}} (int health=1, int damage=1, bool a=false, float s=0.\+1, int idS=0, std::\+string t="{}Caveman"{})
+\begin{DoxyCompactList}\small\item\em constructeur par defaut de \doxylink{class_enemy}{Enemy} \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_enemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}{move}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
+\begin{DoxyCompactList}\small\item\em permet de se deplacer vers le jouieur \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_enemy_afe7fc321801bbfdc444d6535a0bf54a4}{move\+Agro}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
+\begin{DoxyCompactList}\small\item\em deplacement de l ennemy de tyupe Agro \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1}{move\+Shooter}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
+\begin{DoxyCompactList}\small\item\em deplacement de l ennemy de type Shooter \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_enemy_a70d360d8f69d1a83886b7ee110e536ef}{move\+Deserter}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
+\begin{DoxyCompactList}\small\item\em deplacement de l ennemy de type Deserter \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_enemy_a16993ad901ad1193c2761402e13ace56}{shoot}} (\doxymbox{\hyperlink{class_bullet}{Bullet}} \&bullets, unsigned int nbP, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}tabP) const
+\begin{DoxyCompactList}\small\item\em permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_enemy_ac65e2e6810573f572c50293bc97221ad}{take\+Damage\+Bullet}} (\doxymbox{\hyperlink{class_bullet}{Bullet}} \&bullets)
+\begin{DoxyCompactList}\small\item\em Permet a un ennemy de prendre les degat d une ball. \end{DoxyCompactList}\item 
+unsigned int \doxymbox{\hyperlink{class_enemy_a47b8fff3ca45789cf20ec7e3f8502412}{get\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi le sprite associer a un ennemy. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi la position associer a un ennemy. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_a434a8fdb11753cefd1df9fa117675205}{get\+Stats}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_aca4aab05e93a0a1b788311c3abd5ae59}{get\+Stats}} () const
+\begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_acef13c516f7963719bbf40f51d814ff5}\label{class_enemy_acef13c516f7963719bbf40f51d814ff5} 
+unsigned int {\bfseries height}
+\item 
+\Hypertarget{class_enemy_a249e3de06231d346d456a44b6723a8fb}\label{class_enemy_a249e3de06231d346d456a44b6723a8fb} 
+unsigned int {\bfseries width}
+\item 
+\Hypertarget{class_enemy_a710f3121d11390b6b70f29dca3753b0d}\label{class_enemy_a710f3121d11390b6b70f29dca3753b0d} 
+unsigned int {\bfseries sprite}
+\item 
+\Hypertarget{class_enemy_af208804217fd225c2ff8824e81cc2e64}\label{class_enemy_af208804217fd225c2ff8824e81cc2e64} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries position}
+\item 
+\Hypertarget{class_enemy_ab5248aa58a25099463dbb164a3b84ac7}\label{class_enemy_ab5248aa58a25099463dbb164a3b84ac7} 
+bool {\bfseries is\+Alive}
+\item 
+\Hypertarget{class_enemy_a4b927559cc5a7ca4e4febf7c62e9ae13}\label{class_enemy_a4b927559cc5a7ca4e4febf7c62e9ae13} 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\item 
+\Hypertarget{class_enemy_a32c80eb915722432caa1d53809e0c439}\label{class_enemy_a32c80eb915722432caa1d53809e0c439} 
+char {\bfseries type} \+[20]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe expriamnt un enemy quelconque de la carte. 
+
+\label{doc-constructors}
+\Hypertarget{class_enemy_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_enemy_a90dcf5d9ff47e6668ecfab72dfe54113}\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}}
+{\footnotesize\ttfamily \label{class_enemy_a90dcf5d9ff47e6668ecfab72dfe54113} 
+Enemy::\+\+Enemy (\begin{DoxyParamCaption}\item[{int}]{health}{ = {\ttfamily 1}, }\item[{int}]{damage}{ = {\ttfamily 1}, }\item[{bool}]{a}{ = {\ttfamily false}, }\item[{float}]{s}{ = {\ttfamily 0.1}, }\item[{int}]{idS}{ = {\ttfamily 0}, }\item[{std::\+string}]{t}{ = {\ttfamily "{}Caveman"{}}}\end{DoxyParamCaption})}
+
+
+
+constructeur par defaut de \doxylink{class_enemy}{Enemy} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em health} & HP de l enemy \\
+\hline
+{\em damage} & degat de l enemy. \\
+\hline
+{\em a} & si l ennemy est vivant ou pas. \\
+\hline
+{\em s} & la vitese de l enemy. \\
+\hline
+{\em idS} & identifiant du sprite de l ennemy. \\
+\hline
+{\em t} & type de l enemy (son nom en gros). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_enemy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}\index{Enemy@{Enemy}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_enemy_a5df26de21a1adb3386feb1c0e22a8135} 
+\doxymbox{\hyperlink{struct_position}{Position}} Enemy::\+get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoi la position associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie la position de l ennemy 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_a47b8fff3ca45789cf20ec7e3f8502412}\index{Enemy@{Enemy}!getSprite@{getSprite}}
+\index{getSprite@{getSprite}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getSprite()}{getSprite()}}
+{\footnotesize\ttfamily \label{class_enemy_a47b8fff3ca45789cf20ec7e3f8502412} 
+unsigned int Enemy::\+get\+Sprite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoi le sprite associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie le sprite de l ennemy 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_a434a8fdb11753cefd1df9fa117675205}\index{Enemy@{Enemy}!getStats@{getStats}}
+\index{getStats@{getStats}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getStats()}{getStats()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_enemy_a434a8fdb11753cefd1df9fa117675205} 
+\doxymbox{\hyperlink{struct_stats}{Stats}} \& Enemy::\+get\+Stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoi les stats associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie les stats de l ennemy 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_aca4aab05e93a0a1b788311c3abd5ae59}\index{Enemy@{Enemy}!getStats@{getStats}}
+\index{getStats@{getStats}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getStats()}{getStats()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_enemy_aca4aab05e93a0a1b788311c3abd5ae59} 
+const \doxymbox{\hyperlink{struct_stats}{Stats}} \& Enemy::\+get\+Stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Renvoi les stats associer a un ennemy. 
+
+\begin{DoxyReturn}{Returns}
+renvoie les stats de l ennemy 
+\end{DoxyReturn}
+\Hypertarget{class_enemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}\index{Enemy@{Enemy}!move@{move}}
+\index{move@{move}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{class_enemy_a94ab3653b980c9ea7ad3f592ddf5c1ae} 
+void Enemy::\+move (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \&}]{player}{}\end{DoxyParamCaption})}
+
+
+
+permet de se deplacer vers le jouieur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_afe7fc321801bbfdc444d6535a0bf54a4}\index{Enemy@{Enemy}!moveAgro@{moveAgro}}
+\index{moveAgro@{moveAgro}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{moveAgro()}{moveAgro()}}
+{\footnotesize\ttfamily \label{class_enemy_afe7fc321801bbfdc444d6535a0bf54a4} 
+void Enemy::\+move\+Agro (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \&}]{player}{}\end{DoxyParamCaption})}
+
+
+
+deplacement de l ennemy de tyupe Agro 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a70d360d8f69d1a83886b7ee110e536ef}\index{Enemy@{Enemy}!moveDeserter@{moveDeserter}}
+\index{moveDeserter@{moveDeserter}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{moveDeserter()}{moveDeserter()}}
+{\footnotesize\ttfamily \label{class_enemy_a70d360d8f69d1a83886b7ee110e536ef} 
+void Enemy::\+move\+Deserter (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \&}]{player}{}\end{DoxyParamCaption})}
+
+
+
+deplacement de l ennemy de type Deserter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1}\index{Enemy@{Enemy}!moveShooter@{moveShooter}}
+\index{moveShooter@{moveShooter}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{moveShooter()}{moveShooter()}}
+{\footnotesize\ttfamily \label{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1} 
+void Enemy::\+move\+Shooter (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \&}]{player}{}\end{DoxyParamCaption})}
+
+
+
+deplacement de l ennemy de type Shooter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_a16993ad901ad1193c2761402e13ace56}\index{Enemy@{Enemy}!shoot@{shoot}}
+\index{shoot@{shoot}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{shoot()}{shoot()}}
+{\footnotesize\ttfamily \label{class_enemy_a16993ad901ad1193c2761402e13ace56} 
+void Enemy::\+shoot (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_bullet}{Bullet}} \&}]{bullets}{, }\item[{unsigned int}]{nbP}{, }\item[{\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{tabP}{}\end{DoxyParamCaption}) const}
+
+
+
+permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullets} & tableau de ball a laquelle ajouter son tir \\
+\hline
+{\em nbP} & nombre de joueur sur la carte \\
+\hline
+{\em tabP} & pointeur vers les joueurs (permet donc de trouver le joueur le plus proche pour tirer) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_ac65e2e6810573f572c50293bc97221ad}\index{Enemy@{Enemy}!takeDamageBullet@{takeDamageBullet}}
+\index{takeDamageBullet@{takeDamageBullet}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{takeDamageBullet()}{takeDamageBullet()}}
+{\footnotesize\ttfamily \label{class_enemy_ac65e2e6810573f572c50293bc97221ad} 
+bool Enemy::\+take\+Damage\+Bullet (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_bullet}{Bullet}} \&}]{bullets}{}\end{DoxyParamCaption})}
+
+
+
+Permet a un ennemy de prendre les degat d une ball. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullets} & balle par laquelle l ennemy doit prendre des degats. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie si l ennemy a ete toucher ou pas 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+src/\+Enemy.\+h\item 
+src/\+Enemy.\+cpp\end{DoxyCompactItemize}

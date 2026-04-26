@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['move_0',['move',['../classBullet.html#a6140db968c42c05e829e142f74f20b16',1,'Bullet::move()'],['../classEnemy.html#a94ab3653b980c9ea7ad3f592ddf5c1ae',1,'Enemy::move(Position &amp;player)']]],
-  ['moveagro_1',['moveAgro',['../classEnemy.html#afe7fc321801bbfdc444d6535a0bf54a4',1,'Enemy']]],
-  ['movedeserter_2',['moveDeserter',['../classEnemy.html#a70d360d8f69d1a83886b7ee110e536ef',1,'Enemy']]],
-  ['moveshooter_3',['moveShooter',['../classEnemy.html#ac5ef5322af0a0d1986d17599f7e145f1',1,'Enemy']]]
+  ['handleshopinput_0',['handleShopInput',['../class_i_h_m.html#a48ee9a70c02c42810c0c4387b487fc4c',1,'IHM::handleShopInput()'],['../class_i_h_m_serveur.html#a25750ba01b3d358f2c65afa1f522cafe',1,'IHMServeur::handleShopInput()']]],
+  ['has_5fsubtype_1',['has_subtype',['../classbyte__container__with__subtype.html#a793fab04ad06741b6909dde032d9ea35',1,'byte_container_with_subtype']]],
+  ['hash_2',['hash',['../namespacedetail.html#a9dd43d16a6a490b032ceaca358755a29',1,'detail']]],
+  ['hitormiss_3',['hitOrMiss',['../class_bullet.html#a628b645e5a2bf8daabcdf6dfbcd728c8',1,'Bullet']]]
 ];

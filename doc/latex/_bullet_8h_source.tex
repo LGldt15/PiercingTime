@@ -1,0 +1,44 @@
+\doxysection{Bullet.\+h}
+\hypertarget{_bullet_8h_source}{}\label{_bullet_8h_source}\index{src/Bullet.h@{src/Bullet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_BULLET\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_BULLET\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Position.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb}{Bullet}}\{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:\ \textcolor{comment}{//\ composantes\ en\ x\ et\ y\ du\ vecteur\ vitesse}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sprite;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{struct_position}{Position}}\ speed;}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{struct_position}{Position}}\ pos;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ fromPlayer;\textcolor{comment}{//true:\ viens\ d'un\ joueur\ ,\ false:\ viens\ d'un\ ennemy}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ damage;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb}{Bullet}}();}
+\DoxyCodeLine{00029\ \ \ \ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb}{Bullet}}(\doxymbox{\hyperlink{struct_position}{Position}}\ p,\doxymbox{\hyperlink{struct_position}{Position}}\ S,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ d,\textcolor{keywordtype}{bool}\ fP);}
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{class_bullet_acd7befc0bc18907cc1d871d37bbdddeb}{\string~Bullet}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_bullet_a628b645e5a2bf8daabcdf6dfbcd728c8}{hitOrMiss}}(\doxymbox{\hyperlink{struct_position}{Position}}\ min,\doxymbox{\hyperlink{struct_position}{Position}}\ max);\textcolor{comment}{//renvoie\ les\ degat\ fait\ un\ une\ entite\ en\ foncion\ de\ la\ hitbpx\ de\ celle\ ci(xMin\ et\ yMin)}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bullet_a6140db968c42c05e829e142f74f20b16}{move}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_bullet_a9d9ed6dfbf2c7665d771e3743b7a3ed7}{getSprite}}();}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
