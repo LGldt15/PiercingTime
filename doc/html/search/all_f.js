@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['parse_0',['parse',['../classdetail_1_1parser.html#a59f4b745d4aa146bf7a60a30060f592f',1,'detail::parser']]],
-  ['parse_5ferror_1',['parse_error',['../classdetail_1_1parse__error.html',1,'detail::parse_error'],['../structjson__sax.html#af165920966b60b78e57a2e4d92a63897',1,'json_sax::parse_error()'],['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540a456e19aeafa334241c7ff3f589547f9d',1,'detail::lexer_base::parse_error']]],
-  ['parser_2',['parser',['../classdetail_1_1parser.html',1,'detail']]],
-  ['player_3',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8',1,'Player::Player()']]],
-  ['position_4',['Position',['../structPosition.html',1,'']]],
-  ['position_5ft_5',['position_t',['../structdetail_1_1position__t.html',1,'detail']]],
-  ['primitive_5fiterator_5ft_6',['primitive_iterator_t',['../classdetail_1_1primitive__iterator__t.html',1,'detail']]],
-  ['priority_5ftag_7',['priority_tag',['../structdetail_1_1priority__tag.html',1,'detail']]],
-  ['priority_5ftag_3c_200_20_3e_8',['priority_tag&lt; 0 &gt;',['../structdetail_1_1priority__tag_3_010_01_4.html',1,'detail']]]
+  ['up_0',['up',['../classMainMenu.html#a72cb74cbfcf156885dcd19f4e1ae27b7',1,'MainMenu']]],
+  ['update_1',['update',['../classGame.html#a26b3975b282d4e550bb4556bb4277573',1,'Game::update(Controls c, unsigned int winWidth, unsigned int winHeight, float time)'],['../classGame.html#a4a70280ac329367ca8583c1f250b0cef',1,'Game::update(Controls *c, float time)'],['../classMap.html#a1ccd74112b857bb43ecaf48db528ece3',1,'Map::update()']]]
 ];

@@ -25,28 +25,12 @@
 var NAVTREE =
 [
   [ "PiercingTime", "index.html", [
-    [ "Requirements", "requirements.html", [
-      [ "Unsatisfied Requirements", "requirements.html#missing_satisfies", null ],
-      [ "Unverified Requirements", "requirements.html#missing_verifies", null ]
-    ] ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -57,10 +41,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Bullet_8h_source.html",
-"classdetail_1_1iteration__proxy__value.html#a54d22aec1f615a38697466817d7cc819",
-"structdetail_1_1conjunction_3_01B_01_4.html",
-"structdetail_1_1value__in__range__of__impl1.html"
+"Bullet_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

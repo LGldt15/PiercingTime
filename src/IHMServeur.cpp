@@ -1,8 +1,7 @@
 #include "IHMServeur.h"
 #include "Game.h"
-#include "Inventory.h"
-#include "Player.h"
 #include <SFML/Network/Packet.hpp>
+#include <SFML/Network/Socket.hpp>
 #include <cstring>
 #include <iostream>
 #include <string>
@@ -40,7 +39,6 @@ void IHMServeur::executionLoop() {
 
                     if (status == sf::Socket::Status::Done) {
 
-                        Player* currentPlayer=game.getPlayers();
                         
                         
                         
@@ -66,7 +64,9 @@ void IHMServeur::executionLoop() {
 
                         sf::Packet response;
                         response.append(&game, sizeof(Game)); 
-                        client.send(response);
+                        if(!(client.send(response)==sf::Socket::Status::Done)){
+                            std::cout<<"BIGG PB\n";
+                        }
                         
                     } else if (status == sf::Socket::Status::Disconnected) {
                         selector.remove(client);
@@ -86,7 +86,7 @@ void IHMServeur::executionLoop() {
         if(!game.isInShop()){
             game.update(inputs,dt);
         }else{
-            for(int i=0;i<game.getNbJoueur();i++)
+            for(int i=0;i<(int)game.getNbJoueur();i++)
                 game.getShop(i).refreshShop();
             handleShopInput();
             game.setShopActive(false);
@@ -129,11 +129,16 @@ void IHMServeur::startWithClient(sf::TcpSocket* creator) {
     sf::Packet responsePacket;
     std::string mess="r"+std::to_string(id);
     responsePacket<<mess;
-    creator->send(responsePacket);
+    if(!(creator->send(responsePacket)==sf::Socket::Status::Done)){
+        std::cout<<"BIG PROBLEM\n";
+    }
 
     sf::Packet response;
     response.append(&game, sizeof(Game)); 
-    creator->send(response);
+    if(!(creator->send(response)==sf::Socket::Status::Done)){
+        std::cout<<"BIG PROBLEM\n";
+    }
+    
 }
 
 void IHMServeur::addPlayer(sf::TcpSocket* player){
@@ -147,9 +152,13 @@ void IHMServeur::addPlayer(sf::TcpSocket* player){
     sf::Packet responsePacket;
     std::string mess="r"+std::to_string(id);
     responsePacket<<mess;
-    player->send(responsePacket);
+    if(!(player->send(responsePacket)==sf::Socket::Status::Done)){
+        std::cout<<"BIG PROBLEM\n";
+    }
 
     sf::Packet response;
     response.append(&game, sizeof(Game)); 
-    player->send(response);
+    if(!(player->send(response)==sf::Socket::Status::Done)){
+        std::cout<<"BIG PROBLEM\n";
+    }
 }

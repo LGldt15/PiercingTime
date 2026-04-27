@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['handleinput_0',['handleInput',['../classShop.html#ae411c56e453ac238893983a23e2aaeba',1,'Shop']]],
-  ['handleshopinput_1',['handleShopInput',['../classIHM.html#a48ee9a70c02c42810c0c4387b487fc4c',1,'IHM::handleShopInput()'],['../classIHMServeur.html#a25750ba01b3d358f2c65afa1f522cafe',1,'IHMServeur::handleShopInput()']]],
-  ['has_5fsubtype_2',['has_subtype',['../classbyte__container__with__subtype.html#a793fab04ad06741b6909dde032d9ea35',1,'byte_container_with_subtype']]],
-  ['hash_3',['hash',['../namespacedetail.html#a9dd43d16a6a490b032ceaca358755a29',1,'detail']]],
-  ['hitormiss_4',['hitOrMiss',['../classBullet.html#a628b645e5a2bf8daabcdf6dfbcd728c8',1,'Bullet']]]
+  ['ihm_0',['IHM',['../classIHM.html#aade5baff871034cb667f43930620c121',1,'IHM']]],
+  ['ihmserveur_1',['IHMServeur',['../classIHMServeur.html#a4ca7baa2439f5088ea8162e4c99d23dd',1,'IHMServeur']]],
+  ['inventory_2',['Inventory',['../classInventory.html#a10485613fc8bfb32ee564d9b5110f8fb',1,'Inventory']]],
+  ['isinshop_3',['isInShop',['../classGame.html#a7089c16c563eb25838ed93330f3cb8c6',1,'Game']]],
+  ['isplayerdead_4',['isPlayerDead',['../classGame.html#abecae2ed3526358ba4cd1ba38e38e898',1,'Game']]],
+  ['istimeup_5',['isTimeUp',['../classGame.html#ad618d5ebfb638715c4aebefa3270df65',1,'Game::isTimeUp()'],['../classMap.html#aa3373ce0979d0d171ca88f526c844f82',1,'Map::isTimeUp()']]],
+  ['itemrandselect_6',['itemRandSelect',['../classShop.html#a4f0bed3876da53354b4b05a7557b7d87',1,'Shop']]]
 ];

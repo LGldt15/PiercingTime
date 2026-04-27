@@ -441,7 +441,6 @@ void IHM::gameLoop() {
 void IHM::gameLoopMulti() {
     sf::TcpSocket socket;
     sf::IpAddress ip(88,184,64,49);
-    int room;
     std::cout<<"attempting connexion\n";
     if (socket.connect(ip, 53000) != sf::Socket::Status::Done) {
         std::cout<<"falled to connect\n";

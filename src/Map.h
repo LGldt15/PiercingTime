@@ -5,7 +5,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include <vector>
-#include "json.hpp"
+#include "../include/json.hpp"
 
 const int MAX_ENEMY = 75;
 const int MAX_BULLETS = 500;

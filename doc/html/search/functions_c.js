@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['mainmenu_0',['MainMenu',['../classMainMenu.html#a53eecf9d5ffd094f54ac4193e7e57eaf',1,'MainMenu']]],
-  ['map_1',['Map',['../classMap.html#a0f5ad0fd4563497b4214038cbca8b582',1,'Map::Map()'],['../classMap.html#a8cafaff80ed3f47e4be031f596292444',1,'Map::Map(int idS)']]],
-  ['move_2',['move',['../classBullet.html#a6140db968c42c05e829e142f74f20b16',1,'Bullet::move()'],['../classEnemy.html#a94ab3653b980c9ea7ad3f592ddf5c1ae',1,'Enemy::move()'],['../classMap.html#aa5e4e7d17f9ed1c7f3e771285c6f783d',1,'Map::move()'],['../classPlayer.html#a1f32a07654e129bd14a61cd97f032283',1,'Player::move()']]],
-  ['moveagro_3',['moveAgro',['../classEnemy.html#afe7fc321801bbfdc444d6535a0bf54a4',1,'Enemy']]],
-  ['movedeserter_4',['moveDeserter',['../classEnemy.html#a70d360d8f69d1a83886b7ee110e536ef',1,'Enemy']]],
-  ['moveleft_5',['moveLeft',['../classShop.html#a3c2bf22519f622c2c1a4873d006bdbd2',1,'Shop']]],
-  ['moveright_6',['moveRight',['../classShop.html#a252c2ea66d68389cca8f37373923a9e6',1,'Shop']]],
-  ['moveshooter_7',['moveShooter',['../classEnemy.html#ac5ef5322af0a0d1986d17599f7e145f1',1,'Enemy']]],
-  ['mul_8',['mul',['../structdetail_1_1dtoa__impl_1_1diyfp.html#a046c61f2c13411677eedfb5b9b7a8226',1,'detail::dtoa_impl::diyfp']]]
+  ['refreshshop_0',['refreshShop',['../classShop.html#a4d7a3282cad4c85d0f4b9645789e6953',1,'Shop']]],
+  ['rendermap_1',['renderMap',['../classIHM.html#af6c28e2a2b0d70b76993a362f672b525',1,'IHM']]],
+  ['rendermenu_2',['renderMenu',['../classIHM.html#a3f95bbe4c215e746e7845abfaa2e5e6a',1,'IHM']]],
+  ['resettimer_3',['resetTimer',['../classGame.html#a175c19ef3c4807d8547ccd211d318aed',1,'Game::resetTimer()'],['../classMap.html#af4c2f38f5a80c108e065b7ea4610a737',1,'Map::resetTimer()']]],
+  ['resetwaves_4',['resetWaves',['../classMap.html#ac9978ab8ee8e10a8c6bb01688c66816c',1,'Map']]],
+  ['restart_5',['restart',['../classGame.html#aeb468737e1495cfcfbf512cfdc751117',1,'Game::restart()'],['../classMap.html#a077402f022c3a23057cdc00e516c8894',1,'Map::restart()']]],
+  ['rotate_6',['rotate',['../structPosition.html#a487dd79de6e27bbde2b49945ad7ab8c6',1,'Position::rotate(const float &amp;phi)'],['../structPosition.html#af1bf2ac59e8a36f2a098cfb25fd97932',1,'Position::rotate(const float &amp;c, const float &amp;s)']]]
 ];

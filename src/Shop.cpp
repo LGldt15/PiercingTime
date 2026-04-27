@@ -8,8 +8,8 @@ Shop::Shop() {
     for (int i = 0; i < 4; i++) {
         item[i].price = 0;
 
-        std::strncpy(item[i].name, "None", 31);
-        item[i].name[31] = '\0';
+        std::strncpy(item[i].name, "None", 30);
+        item[i].name[29] = '\0';
         item[i].button = 0;
         item[i].isSelected = false;
     }
@@ -30,7 +30,7 @@ Item Shop::itemRandSelect() {
 
     switch (randInt) {
         case 1:
-            std::strncpy(selectedItem.name, "Dino essence", 31);
+            std::strncpy(selectedItem.name, "Dino essence", 30);
             selectedItem.price = 40;
             selectedItem.effect.attackDamage = 10;
             selectedItem.effect.bulletSpeed = 0.5f;
@@ -38,12 +38,12 @@ Item Shop::itemRandSelect() {
             selectedItem.effect.hp = 20.0f;
             break;
         case 2:
-            std::strncpy(selectedItem.name, "Rubber Elastic", 31);
+            std::strncpy(selectedItem.name, "Rubber Elastic", 30);
             selectedItem.price = 10;
             selectedItem.effect.bulletSpeed = 1.5f;
             break;
         case 3:
-            std::strncpy(selectedItem.name, "Armadillo Shell", 31);
+            std::strncpy(selectedItem.name, "Armadillo Shell", 30);
             selectedItem.price = 35;
             selectedItem.effect.attackDamage = 10.0;
             selectedItem.effect.bulletSpeed = -0.5;
@@ -51,7 +51,7 @@ Item Shop::itemRandSelect() {
             selectedItem.effect.hp = 50.0f;
             break;
         case 4:
-            std::strncpy(selectedItem.name, "Weird Black Liquid", 31);
+            std::strncpy(selectedItem.name, "Weird Black Liquid", 30);
             selectedItem.price = 75;
             selectedItem.effect.attackDamage = 20;
             selectedItem.effect.bulletSpeed = 8.0;
@@ -59,7 +59,7 @@ Item Shop::itemRandSelect() {
             selectedItem.effect.hp = -10;
             break;
         case 5:
-            std::strncpy(selectedItem.name, "Bone Broth", 31);
+            std::strncpy(selectedItem.name, "Bone Broth", 30);
             selectedItem.price = 15;
             selectedItem.effect.attackDamage = 5;
             selectedItem.effect.bulletSpeed = 2.0f;
@@ -67,7 +67,7 @@ Item Shop::itemRandSelect() {
             selectedItem.effect.hp = 25.0f;
             break;
     }
-    selectedItem.name[31] = '\0'; // Sécurité
+    selectedItem.name[29] = '\0'; // Sécurité
     return selectedItem;
 }
 

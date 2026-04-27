@@ -1,10 +1,9 @@
 #include <SFML/Network.hpp>
+#include <SFML/Network/Socket.hpp>
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
-#include <cstring>
 #include <iostream>
 #include <list>
-#include <cstdlib>
 #include <string>
 #include "IHMServeur.h"
 
@@ -12,7 +11,9 @@ std::vector<IHMServeur*> activeRooms;
 int nbRooms=0;
 int main() {
     sf::TcpListener listener;
-    listener.listen(53000);
+    if(!(listener.listen(53000)==sf::Socket::Status::Done)){
+        std::cout<<"FAILLED TO START LISTENING\n";
+    }
 
     // This manages the list of all sockets
     sf::SocketSelector selector;
@@ -22,8 +23,6 @@ int main() {
     std::list<sf::TcpSocket*> clients;
 
     std::cout << "Dispatcher Server running..." << std::endl;
-
-    int nextPort=53001;
 
     while (true) {
         // Wait until any socket has an event
@@ -84,15 +83,17 @@ int main() {
                                 //std::cout<<"here?";
                                 sf::Packet responsePacket;
                                 //std::cout<<"here?";
-                                for(int i=0;i<activeRooms.size() && i<10;i++){
+                                for(int i=0;i<(int)activeRooms.size() && i<10;i++){
                                     rooms[i+1]=i;
                                 }
                                 rooms[0]=activeRooms.size();
                                 std::cout<<rooms[0];
                                 responsePacket.append(rooms,sizeof(int[11]));
-                                client.send(responsePacket);
+                                if(!(client.send(responsePacket)==sf::Socket::Status::Done)){
+                                    std::cout<<"BIG PROBELM\n";
+                                }
                             }
-                            else if (std::stoi(message)>=0 && std::stoi(message)<activeRooms.size()) {
+                            else if (std::stoi(message)>=0 && std::stoi(message)<(int)activeRooms.size()) {
                                 
                                 //std::cout<<"here?";
                                 int roomIndex=std::stoi(message);
@@ -112,7 +113,9 @@ int main() {
                                 std::string reply = "Message received!";
                                 sf::Packet responsePacket;
                                 responsePacket <<reply;
-                                client.send(responsePacket);
+                                if(!(client.send(responsePacket)==sf::Socket::Status::Done)){
+                                    std::cout<<"BIG PROBELM\n";
+                                }
                             }                
                             it++; 
                         } else {

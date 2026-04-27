@@ -30,7 +30,6 @@ private:
     //COOLDOWN PR LE SHOP 
     sf::Clock shopClock;
     //COOLDOWN pour le main menu
-    private:
     sf::Clock menuClock;
 
     //clock pour les waves
@@ -61,6 +60,7 @@ private:
     sf::Texture ui[10];
 
     int idMulti=0;
+    int room;
 public:
     /**
     * @brief Constructeur par defaut de IHM

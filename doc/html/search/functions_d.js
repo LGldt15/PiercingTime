@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['normalize_0',['normalize',['../structdetail_1_1dtoa__impl_1_1diyfp.html#a5bad735c2cb50b194938a8a89b82f6ed',1,'detail::dtoa_impl::diyfp']]],
-  ['normalize_5fto_1',['normalize_to',['../structdetail_1_1dtoa__impl_1_1diyfp.html#a5a9ce83c6c1663c9aaac7ffd9009b971',1,'detail::dtoa_impl::diyfp']]],
-  ['null_2',['null',['../structjson__sax.html#acbcc09c0ada2782cd73cc4135823181d',1,'json_sax']]],
-  ['number_5ffloat_3',['number_float',['../structjson__sax.html#a19eafa3a92fc75e0258a842283396aa9',1,'json_sax']]],
-  ['number_5finteger_4',['number_integer',['../structjson__sax.html#a46cc306b7677553d8f6bd8c9592eb1bd',1,'json_sax']]],
-  ['number_5funsigned_5',['number_unsigned',['../structjson__sax.html#a32f8a32794cb384f0de3d3a96a6bb696',1,'json_sax']]]
+  ['setgold_0',['setGold',['../classPlayer.html#a7beb289effc459abcd41779129193b40',1,'Player']]],
+  ['setnbplayers_1',['setNbPlayers',['../classGame.html#aabcbbfa79f67ed7ea1c96839f5775de4',1,'Game']]],
+  ['setshopactive_2',['setShopActive',['../classGame.html#a562e48334b67285d613bdf2e94d07b4b',1,'Game']]],
+  ['shoot_3',['shoot',['../classEnemy.html#a16993ad901ad1193c2761402e13ace56',1,'Enemy::shoot()'],['../classPlayer.html#ad796e676307bf77b077d458ee8a88fb8',1,'Player::shoot()']]],
+  ['shop_4',['Shop',['../classShop.html#a579ed9f949f7db3f90c22dfe10b25797',1,'Shop']]],
+  ['squareintersection_5',['squareIntersection',['../structPosition.html#a196584e1841076ee09ea8ab2a9918cfe',1,'Position']]],
+  ['startwave_6',['startWave',['../classMap.html#a985139afc4bc327540b574e86e14dc5b',1,'Map']]],
+  ['startwithclient_7',['startWithClient',['../classIHMServeur.html#a77ccc8a1d0a4f63df153b3c276f3e181',1,'IHMServeur']]]
 ];
