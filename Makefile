@@ -44,7 +44,7 @@ ifeq ($(PLATFORM), Linux)
 endif
 
 ifeq ($(PLATFORM), Windows)
-    CXX := x86_64-w64-mingw32-g++
+    CXX := g++
     CXXFLAGS += -DSFML_STATIC
     CPPFLAGS += -I./include -I/usr/x86_64-w64-mingw32/include
     
