@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['takedamagebullet_0',['takeDamageBullet',['../class_enemy.html#ac65e2e6810573f572c50293bc97221ad',1,'Enemy']]],
-  ['to_5fchars_1',['to_chars',['../namespacedetail.html#a3f0588f1a546b169113e6e1e293168f4',1,'detail']]],
-  ['to_5fjson_2',['to_json',['../structadl__serializer.html#a0216149429fe899cf45cbf14e08e2166',1,'adl_serializer']]],
-  ['token_5ftype_5fname_3',['token_type_name',['../classdetail_1_1lexer__base.html#aadef66e89ad828e5f69479c85887fa6d',1,'detail::lexer_base']]]
+  ['takedamage_0',['takeDamage',['../classPlayer.html#ae68cc6edf6c14a7f35e546a040a4cbf2',1,'Player']]],
+  ['takedamagebullet_1',['takeDamageBullet',['../classEnemy.html#ac65e2e6810573f572c50293bc97221ad',1,'Enemy::takeDamageBullet()'],['../classPlayer.html#afda9548aa5ed2b73a72d852eea821ead',1,'Player::takeDamageBullet()']]],
+  ['to_5fchars_2',['to_chars',['../namespacedetail.html#a3f0588f1a546b169113e6e1e293168f4',1,'detail']]],
+  ['to_5fjson_3',['to_json',['../structadl__serializer.html#a0216149429fe899cf45cbf14e08e2166',1,'adl_serializer']]],
+  ['token_5ftype_5fname_4',['token_type_name',['../classdetail_1_1lexer__base.html#aadef66e89ad828e5f69479c85887fa6d',1,'detail::lexer_base']]]
 ];

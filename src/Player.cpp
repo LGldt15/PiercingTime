@@ -94,7 +94,7 @@ bool Player::takeDamageBullet(Bullet &bullets){
         }
     }
     if(canshoot){
-        Position speed=(tabE[idMin].position-position)/(position-tabE[idMin].position).length();
+        Position speed=(tabE[idMin].position-position +Position({50,50}))/(position-tabE[idMin].position).length();
         bullets.pos=position;
         bullets.speed=speed*stats.bulletSpeed;
         bullets.damage=stats.attackDamage;

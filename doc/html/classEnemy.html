@@ -92,7 +92,7 @@ $(function(){initNavTree('classEnemy.html','','classEnemy-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Classe expriamnt un enemy quelconque de la carte.  
+<p>Classe exprimant un enemy quelconque de la carte.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Enemy_8h_source.html">Enemy.h</a>&gt;</code></p>
@@ -100,9 +100,9 @@ $(function(){initNavTree('classEnemy.html','','classEnemy-members'); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a90dcf5d9ff47e6668ecfab72dfe54113" id="r_a90dcf5d9ff47e6668ecfab72dfe54113"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90dcf5d9ff47e6668ecfab72dfe54113">Enemy</a> (int health=1, int damage=1, bool a=false, float s=0.1, int idS=0, std::string t=&quot;Caveman&quot;)</td></tr>
-<tr class="memdesc:a90dcf5d9ff47e6668ecfab72dfe54113"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
+<tr class="memdesc:a90dcf5d9ff47e6668ecfab72dfe54113"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe exprimant un enemy quelconque de la carte.">Enemy</a>  <br /></td></tr>
 <tr class="memitem:a94ab3653b980c9ea7ad3f592ddf5c1ae" id="r_a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94ab3653b980c9ea7ad3f592ddf5c1ae">move</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
-<tr class="memdesc:a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de se deplacer vers le jouieur  <br /></td></tr>
+<tr class="memdesc:a94ab3653b980c9ea7ad3f592ddf5c1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de se deplacer selon un mode de déplacement dépendant de son type  <br /></td></tr>
 <tr class="memitem:afe7fc321801bbfdc444d6535a0bf54a4" id="r_afe7fc321801bbfdc444d6535a0bf54a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afe7fc321801bbfdc444d6535a0bf54a4">moveAgro</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
 <tr class="memdesc:afe7fc321801bbfdc444d6535a0bf54a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">deplacement de l ennemy de tyupe Agro  <br /></td></tr>
 <tr class="memitem:ac5ef5322af0a0d1986d17599f7e145f1" id="r_ac5ef5322af0a0d1986d17599f7e145f1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac5ef5322af0a0d1986d17599f7e145f1">moveShooter</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
@@ -110,19 +110,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70d360d8f69d1a83886b7ee110e536ef" id="r_a70d360d8f69d1a83886b7ee110e536ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70d360d8f69d1a83886b7ee110e536ef">moveDeserter</a> (<a class="el" href="structPosition.html">Position</a> &amp;player)</td></tr>
 <tr class="memdesc:a70d360d8f69d1a83886b7ee110e536ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">deplacement de l ennemy de type Deserter  <br /></td></tr>
 <tr class="memitem:a16993ad901ad1193c2761402e13ace56" id="r_a16993ad901ad1193c2761402e13ace56"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16993ad901ad1193c2761402e13ace56">shoot</a> (<a class="el" href="classBullet.html">Bullet</a> &amp;bullets, unsigned int nbP, <a class="el" href="classPlayer.html">Player</a> *tabP) const</td></tr>
-<tr class="memdesc:a16993ad901ad1193c2761402e13ace56"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map  <br /></td></tr>
+<tr class="memdesc:a16993ad901ad1193c2761402e13ace56"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet au enemy de type shooter de tirer une balle vers un joueur et l ajouter a la map  <br /></td></tr>
 <tr class="memitem:ac65e2e6810573f572c50293bc97221ad" id="r_ac65e2e6810573f572c50293bc97221ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac65e2e6810573f572c50293bc97221ad">takeDamageBullet</a> (<a class="el" href="classBullet.html">Bullet</a> &amp;bullets)</td></tr>
-<tr class="memdesc:ac65e2e6810573f572c50293bc97221ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet a un ennemy de prendre les degat d une ball.  <br /></td></tr>
+<tr class="memdesc:ac65e2e6810573f572c50293bc97221ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet a un ennemy de prendre les degat d une balle.  <br /></td></tr>
 <tr class="memitem:a47b8fff3ca45789cf20ec7e3f8502412" id="r_a47b8fff3ca45789cf20ec7e3f8502412"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a47b8fff3ca45789cf20ec7e3f8502412">getSprite</a> ()</td></tr>
-<tr class="memdesc:a47b8fff3ca45789cf20ec7e3f8502412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi le sprite associer a un ennemy.  <br /></td></tr>
+<tr class="memdesc:a47b8fff3ca45789cf20ec7e3f8502412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le sprite associe a un ennemy.  <br /></td></tr>
 <tr class="memitem:a5df26de21a1adb3386feb1c0e22a8135" id="r_a5df26de21a1adb3386feb1c0e22a8135"><td class="memItemLeft"><a class="el" href="structPosition.html">Position</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5df26de21a1adb3386feb1c0e22a8135">getPosition</a> ()</td></tr>
-<tr class="memdesc:a5df26de21a1adb3386feb1c0e22a8135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi la position associer a un ennemy.  <br /></td></tr>
+<tr class="memdesc:a5df26de21a1adb3386feb1c0e22a8135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la position associee a un ennemy.  <br /></td></tr>
 <tr class="memitem:a3a80641df04b3f60a892b77a9ff5e820" id="r_a3a80641df04b3f60a892b77a9ff5e820"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3a80641df04b3f60a892b77a9ff5e820">getGold</a> ()</td></tr>
-<tr class="memdesc:a3a80641df04b3f60a892b77a9ff5e820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi les l or associer a un ennemy.  <br /></td></tr>
+<tr class="memdesc:a3a80641df04b3f60a892b77a9ff5e820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l or associee a un ennemy.  <br /></td></tr>
 <tr class="memitem:a434a8fdb11753cefd1df9fa117675205" id="r_a434a8fdb11753cefd1df9fa117675205"><td class="memItemLeft"><a class="el" href="structStats.html">Stats</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a434a8fdb11753cefd1df9fa117675205">getStats</a> ()</td></tr>
-<tr class="memdesc:a434a8fdb11753cefd1df9fa117675205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi les stats associer a un ennemy.  <br /></td></tr>
+<tr class="memdesc:a434a8fdb11753cefd1df9fa117675205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie les stats associees a un ennemy.  <br /></td></tr>
 <tr class="memitem:aca4aab05e93a0a1b788311c3abd5ae59" id="r_aca4aab05e93a0a1b788311c3abd5ae59"><td class="memItemLeft">const <a class="el" href="structStats.html">Stats</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aca4aab05e93a0a1b788311c3abd5ae59">getStats</a> () const</td></tr>
-<tr class="memdesc:aca4aab05e93a0a1b788311c3abd5ae59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi les stats associer a un ennemy.  <br /></td></tr>
+<tr class="memdesc:aca4aab05e93a0a1b788311c3abd5ae59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie les stats associees a un ennemy.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -142,7 +142,7 @@ bool&#160;</td><td class="memItemRight"><b>isAlive</b></td></tr>
 char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe expriamnt un enemy quelconque de la carte. </p>
+<div class="textblock"><p>Classe exprimant un enemy quelconque de la carte. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a90dcf5d9ff47e6668ecfab72dfe54113" name="a90dcf5d9ff47e6668ecfab72dfe54113"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90dcf5d9ff47e6668ecfab72dfe54113">&#9670;&#160;</a></span>Enemy()</h2>
@@ -183,7 +183,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe expriamnt un enemy quelconque de la carte.">Enemy</a> </p>
+<p>constructeur par defaut de <a class="el" href="classEnemy.html" title="Classe exprimant un enemy quelconque de la carte.">Enemy</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">health</td><td>HP de l enemy </td></tr>
@@ -215,8 +215,8 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renvoi les l or associer a un ennemy. </p>
-<dl class="section return"><dt>Returns</dt><dd>renvoie les l or de l ennemy </dd></dl>
+<p>Renvoie l or associee a un ennemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>renvoie l or de l ennemy </dd></dl>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renvoi la position associer a un ennemy. </p>
+<p>Renvoie la position associee a un ennemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>renvoie la position de l ennemy </dd></dl>
 
 </div>
@@ -255,7 +255,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renvoi le sprite associer a un ennemy. </p>
+<p>Renvoie le sprite associe a un ennemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>renvoie le sprite de l ennemy </dd></dl>
 
 </div>
@@ -275,7 +275,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renvoi les stats associer a un ennemy. </p>
+<p>Renvoie les stats associees a un ennemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>renvoie les stats de l ennemy </dd></dl>
 
 </div>
@@ -295,7 +295,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Renvoi les stats associer a un ennemy. </p>
+<p>Renvoie les stats associees a un ennemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>renvoie les stats de l ennemy </dd></dl>
 
 </div>
@@ -315,10 +315,10 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>permet de se deplacer vers le jouieur </p>
+<p>permet de se deplacer selon un mode de déplacement dépendant de son type </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player vers lequelle se deplacer. </td></tr>
+    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player. </td></tr>
   </table>
   </dd>
 </dl>
@@ -368,7 +368,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 <p>deplacement de l ennemy de type Deserter </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player vers lequelle se deplacer. </td></tr>
+    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player à fuire. </td></tr>
   </table>
   </dd>
 </dl>
@@ -393,7 +393,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
 <p>deplacement de l ennemy de type Shooter </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player vers lequelle se deplacer. </td></tr>
+    <tr><td class="paramname">player</td><td><a class="el" href="structPosition.html">Position</a> du player autour duquel tourner. </td></tr>
   </table>
   </dd>
 </dl>
@@ -424,10 +424,10 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map </p>
+<p>permet au enemy de type shooter de tirer une balle vers un joueur et l ajouter a la map </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bullets</td><td>tableau de ball a laquelle ajouter son tir </td></tr>
+    <tr><td class="paramname">bullets</td><td>tableau de balle a laquelle ajouter son tir </td></tr>
     <tr><td class="paramname">nbP</td><td>nombre de joueur sur la carte </td></tr>
     <tr><td class="paramname">tabP</td><td>pointeur vers les joueurs (permet donc de trouver le joueur le plus proche pour tirer) </td></tr>
   </table>
@@ -451,7 +451,7 @@ char&#160;</td><td class="memItemRight"><b>type</b> [20]</td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Permet a un ennemy de prendre les degat d une ball. </p>
+<p>Permet a un ennemy de prendre les degat d une balle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bullets</td><td>balle par laquelle l ennemy doit prendre des degats. </td></tr>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['accept_0',['accept',['../classdetail_1_1parser.html#ac46da3262cbe66ade670c5b4782451e6',1,'detail::parser']]],
-  ['addplayer_1',['addPlayer',['../class_i_h_m_serveur.html#a3016b395fffec491eb4d3c13d1ece40e',1,'IHMServeur']]],
-  ['app_2',['app',['../class_i_h_m.html#a906d6859228e47a37280ce87f7a1dbbc',1,'IHM']]],
+  ['addplayer_1',['addPlayer',['../classIHMServeur.html#a3016b395fffec491eb4d3c13d1ece40e',1,'IHMServeur']]],
+  ['app_2',['app',['../classIHM.html#a906d6859228e47a37280ce87f7a1dbbc',1,'IHM']]],
   ['append_5fexponent_3',['append_exponent',['../namespacedetail_1_1dtoa__impl.html#aec9f6655c3b629aeb0e8c887aea5da87',1,'detail::dtoa_impl']]]
 ];

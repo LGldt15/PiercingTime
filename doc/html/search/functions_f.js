@@ -1,5 +1,6 @@
 var searchData=
 [
   ['parse_0',['parse',['../classdetail_1_1parser.html#a59f4b745d4aa146bf7a60a30060f592f',1,'detail::parser']]],
-  ['parse_5ferror_1',['parse_error',['../structjson__sax.html#af165920966b60b78e57a2e4d92a63897',1,'json_sax']]]
+  ['parse_5ferror_1',['parse_error',['../structjson__sax.html#af165920966b60b78e57a2e4d92a63897',1,'json_sax']]],
+  ['player_2',['Player',['../classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8',1,'Player']]]
 ];
