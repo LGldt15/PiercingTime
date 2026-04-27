@@ -7,30 +7,30 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Item.h"{}}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }Weapon\ \{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ baseDamage;}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ Weapon(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ damage,\ \textcolor{keywordtype}{int}\ t);}
-\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00006\ }
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Inventory\ \{}
-\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{struct_item}{Item}}\ items[MAX\_ITEMS];\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ nbItems;\ \ }
-\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{struct_weapon}{Weapon}}\ weapon;\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ Inventory(\textcolor{keywordtype}{int}\ round\ =\ 0);}
-\DoxyCodeLine{00023\ \ \ \ \ }
-\DoxyCodeLine{00024\ \ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ addItem(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_item}{Item}}\ \&i);}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbItems()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_item}{Item}}*\ getItems()\ \textcolor{keyword}{const};\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getTotalDamage()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{struct_weapon}{Weapon}}\&\ getWeapon();}
-\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_weapon_a066277166c622e968eaa8697c346490e}{Weapon}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ baseDamage;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{struct_weapon_a066277166c622e968eaa8697c346490e}{Weapon}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ damage,\ \textcolor{keywordtype}{int}\ t);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{struct_item}{Item}}\ items[MAX\_ITEMS];\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ nbItems;\ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{struct_weapon}{Weapon}}\ weapon;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}();}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_inventory_ac00b694ae25de878409cc4040b5c5a20}{addItem}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_item}{Item}}\ \&i);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_inventory_af92344788664f6d218dab6214977e28b}{getNbItems}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_item}{Item}}*\ \doxymbox{\hyperlink{class_inventory_aa9cea954ca063416661b52e10b20ac88}{getItems}}()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_inventory_a2390419547a4efd7556ce08ddcd39d05}{getTotalDamage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \ \ \ \ \doxymbox{\hyperlink{struct_weapon}{Weapon}}\&\ \doxymbox{\hyperlink{class_inventory_ab137f1163d722398de374b1f93551764}{getWeapon}}();}
+\DoxyCodeLine{00078\ \};}
 
 \end{DoxyCode}

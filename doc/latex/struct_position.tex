@@ -1,44 +1,41 @@
 \doxysection{Position Struct Reference}
 \hypertarget{struct_position}{}\label{struct_position}\index{Position@{Position}}
+
+
+Structure exprimant une position, comme un vecteur 2D.  
+
+
+
+
+{\ttfamily \+\#include $<$Position.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_position_a0d3840eb8a0755a5a1975eb5609f2b0b}\label{struct_position_a0d3840eb8a0755a5a1975eb5609f2b0b} 
-float {\bfseries length} ()
-\item 
-\Hypertarget{struct_position_a6ac5993e303c1d301fdabfdc660e5437}\label{struct_position_a6ac5993e303c1d301fdabfdc660e5437} 
-float {\bfseries angle} (\doxymbox{\hyperlink{struct_position}{Position}} \&p2)
-\item 
-\Hypertarget{struct_position_a487dd79de6e27bbde2b49945ad7ab8c6}\label{struct_position_a487dd79de6e27bbde2b49945ad7ab8c6} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries rotate} (const float \&phi)
-\item 
-\Hypertarget{struct_position_af1bf2ac59e8a36f2a098cfb25fd97932}\label{struct_position_af1bf2ac59e8a36f2a098cfb25fd97932} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries rotate} (const float \&c, const float \&s)
-\item 
-\Hypertarget{struct_position_ab54ba5ac4e5c0e676649ab9a634c0d74}\label{struct_position_ab54ba5ac4e5c0e676649ab9a634c0d74} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries operator+} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
-\item 
-\Hypertarget{struct_position_a50e168ef64d1f5cd79ef13c246554fff}\label{struct_position_a50e168ef64d1f5cd79ef13c246554fff} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries operator-\/} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
-\item 
-\Hypertarget{struct_position_a2d3415f8132f410863adf8a0d87ac61e}\label{struct_position_a2d3415f8132f410863adf8a0d87ac61e} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries operator-\/} () const
-\item 
-\Hypertarget{struct_position_aae379fe1548e6750aa876d6ee0d8582d}\label{struct_position_aae379fe1548e6750aa876d6ee0d8582d} 
-float {\bfseries operator\texorpdfstring{$\ast$}{*}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
-\item 
-\Hypertarget{struct_position_a19b2b75c607b11a4351a8b233ea9a883}\label{struct_position_a19b2b75c607b11a4351a8b233ea9a883} 
-float {\bfseries operator\texorpdfstring{$^\wedge$}{\string^}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
-\item 
-\Hypertarget{struct_position_ab3af776414a50a97ab82a30dc096c010}\label{struct_position_ab3af776414a50a97ab82a30dc096c010} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries operator\texorpdfstring{$\ast$}{*}} (const float \&q) const
-\item 
-\Hypertarget{struct_position_a1af1b2d6a16dce6c7cbe250c8ade5226}\label{struct_position_a1af1b2d6a16dce6c7cbe250c8ade5226} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries operator/\+} (const float \&q) const
-\item 
-\Hypertarget{struct_position_a196584e1841076ee09ea8ab2a9918cfe}\label{struct_position_a196584e1841076ee09ea8ab2a9918cfe} 
-\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries square\+Intersection} (const \doxymbox{\hyperlink{struct_position}{Position}} \&origin, unsigned int minX, unsigned int minY, unsigned int maxX, unsigned int maxY)
-\end{DoxyCompactItemize}
+float \doxymbox{\hyperlink{struct_position_a0d3840eb8a0755a5a1975eb5609f2b0b}{length}} ()
+\begin{DoxyCompactList}\small\item\em Calcule et renvoie la longeur du vecteur position. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{struct_position_a6ac5993e303c1d301fdabfdc660e5437}{angle}} (\doxymbox{\hyperlink{struct_position}{Position}} \&p2)
+\begin{DoxyCompactList}\small\item\em Calcule et renvoie l angle du vecteur position. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_a487dd79de6e27bbde2b49945ad7ab8c6}{rotate}} (const float \&phi)
+\begin{DoxyCompactList}\small\item\em Calcule et renvoie le vecteur rotationé \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_af1bf2ac59e8a36f2a098cfb25fd97932}{rotate}} (const float \&c, const float \&s)
+\begin{DoxyCompactList}\small\item\em Calcule et renvoie le vecteur rotationé \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_ab54ba5ac4e5c0e676649ab9a634c0d74}{operator+}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
+\begin{DoxyCompactList}\small\item\em operateur d addition de deux position \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_a50e168ef64d1f5cd79ef13c246554fff}{operator-\/}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
+\begin{DoxyCompactList}\small\item\em operateur de soustraction de deux position \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_a2d3415f8132f410863adf8a0d87ac61e}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em operateur d inversion de signe d une position \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{struct_position_aae379fe1548e6750aa876d6ee0d8582d}{operator\texorpdfstring{$\ast$}{*}}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
+\begin{DoxyCompactList}\small\item\em operateur de produit scalaire de deux position \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{struct_position_a19b2b75c607b11a4351a8b233ea9a883}{operator\texorpdfstring{$^\wedge$}{\string^}}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&p2) const
+\begin{DoxyCompactList}\small\item\em operateur de produit vectoriel de deux position \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_ab3af776414a50a97ab82a30dc096c010}{operator\texorpdfstring{$\ast$}{*}}} (const float \&q) const
+\begin{DoxyCompactList}\small\item\em operateur de multiplication du vecteur position par un scalaire \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_a1af1b2d6a16dce6c7cbe250c8ade5226}{operator/\+}} (const float \&q) const
+\begin{DoxyCompactList}\small\item\em operateur de division du vecteur position par un scalaire \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{struct_position_a196584e1841076ee09ea8ab2a9918cfe}{square\+Intersection}} (const \doxymbox{\hyperlink{struct_position}{Position}} \&origin, unsigned int minX, unsigned int minY, unsigned int maxX, unsigned int maxY)
+\begin{DoxyCompactList}\small\item\em Calcule et retourne la position d une intersection entre un rayon (vecteur position fixé) et un carré \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,6 +45,225 @@ float {\bfseries posX}
 \Hypertarget{struct_position_a931d18b8cb1efeea637e1a98f01bddcc}\label{struct_position_a931d18b8cb1efeea637e1a98f01bddcc} 
 float {\bfseries posY}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure exprimant une position, comme un vecteur 2D. 
+
+\label{doc-func-members}
+\Hypertarget{struct_position_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_position_a6ac5993e303c1d301fdabfdc660e5437}\index{Position@{Position}!angle@{angle}}
+\index{angle@{angle}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{angle()}{angle()}}
+{\footnotesize\ttfamily \label{struct_position_a6ac5993e303c1d301fdabfdc660e5437} 
+float Position::\+angle (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \&}]{p2}{}\end{DoxyParamCaption})}
+
+
+
+Calcule et renvoie l angle du vecteur position. 
+
+\begin{DoxyReturn}{Returns}
+angle du vecteur position en radiant 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a0d3840eb8a0755a5a1975eb5609f2b0b}\index{Position@{Position}!length@{length}}
+\index{length@{length}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily \label{struct_position_a0d3840eb8a0755a5a1975eb5609f2b0b} 
+float Position::\+length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Calcule et renvoie la longeur du vecteur position. 
+
+\begin{DoxyReturn}{Returns}
+longueur du vecteur 
+\end{DoxyReturn}
+\Hypertarget{struct_position_ab3af776414a50a97ab82a30dc096c010}\index{Position@{Position}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_position_ab3af776414a50a97ab82a30dc096c010} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const float \&}]{q}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur de multiplication du vecteur position par un scalaire 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & scalaire reel qui multiplie le vecteur position\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_aae379fe1548e6750aa876d6ee0d8582d}\index{Position@{Position}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_position_aae379fe1548e6750aa876d6ee0d8582d} 
+float Position::\+operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_position}{Position}} \&}]{p2}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur de produit scalaire de deux position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p2} & deuxieme vecteur position du profuit scalaire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_ab54ba5ac4e5c0e676649ab9a634c0d74}\index{Position@{Position}!operator+@{operator+}}
+\index{operator+@{operator+}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{struct_position_ab54ba5ac4e5c0e676649ab9a634c0d74} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+operator+ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_position}{Position}} \&}]{p2}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur d addition de deux position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p2} & deuxieme vecteur position a ajouter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position sommé 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a2d3415f8132f410863adf8a0d87ac61e}\index{Position@{Position}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_position_a2d3415f8132f410863adf8a0d87ac61e} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+operator-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur d inversion de signe d une position 
+
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a50e168ef64d1f5cd79ef13c246554fff}\index{Position@{Position}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_position_a50e168ef64d1f5cd79ef13c246554fff} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+operator-\/ (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_position}{Position}} \&}]{p2}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur de soustraction de deux position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p2} & deuxieme vecteur position a soustraire\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a1af1b2d6a16dce6c7cbe250c8ade5226}\index{Position@{Position}!operator/@{operator/}}
+\index{operator/@{operator/}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \label{struct_position_a1af1b2d6a16dce6c7cbe250c8ade5226} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+operator/\+ (\begin{DoxyParamCaption}\item[{const float \&}]{q}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur de division du vecteur position par un scalaire 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & scalaire reel qui divise le vecteur position\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a19b2b75c607b11a4351a8b233ea9a883}\index{Position@{Position}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}()}{operator\string^()}}
+{\footnotesize\ttfamily \label{struct_position_a19b2b75c607b11a4351a8b233ea9a883} 
+float Position::\+operator\texorpdfstring{$^\wedge$}{\string^} (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_position}{Position}} \&}]{p2}{}\end{DoxyParamCaption}) const}
+
+
+
+operateur de produit vectoriel de deux position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p2} & deuxieme vecteur position du profuit vectoriel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position résultat 
+\end{DoxyReturn}
+\Hypertarget{struct_position_af1bf2ac59e8a36f2a098cfb25fd97932}\index{Position@{Position}!rotate@{rotate}}
+\index{rotate@{rotate}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_position_af1bf2ac59e8a36f2a098cfb25fd97932} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+rotate (\begin{DoxyParamCaption}\item[{const float \&}]{c}{, }\item[{const float \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Calcule et renvoie le vecteur rotationé 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & cosinus de l\textquotesingle{}angle de rotation \\
+\hline
+{\em S} & sinus de l\textquotesingle{}angle de rotation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position rotationé 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a487dd79de6e27bbde2b49945ad7ab8c6}\index{Position@{Position}!rotate@{rotate}}
+\index{rotate@{rotate}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_position_a487dd79de6e27bbde2b49945ad7ab8c6} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+rotate (\begin{DoxyParamCaption}\item[{const float \&}]{phi}{}\end{DoxyParamCaption})}
+
+
+
+Calcule et renvoie le vecteur rotationé 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & de rotation en radiant\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vecteur position rotationé 
+\end{DoxyReturn}
+\Hypertarget{struct_position_a196584e1841076ee09ea8ab2a9918cfe}\index{Position@{Position}!squareIntersection@{squareIntersection}}
+\index{squareIntersection@{squareIntersection}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{squareIntersection()}{squareIntersection()}}
+{\footnotesize\ttfamily \label{struct_position_a196584e1841076ee09ea8ab2a9918cfe} 
+\doxymbox{\hyperlink{struct_position}{Position}} Position::\+square\+Intersection (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_position}{Position}} \&}]{origin}{, }\item[{unsigned int}]{minX}{, }\item[{unsigned int}]{minY}{, }\item[{unsigned int}]{maxX}{, }\item[{unsigned int}]{maxY}{}\end{DoxyParamCaption})}
+
+
+
+Calcule et retourne la position d une intersection entre un rayon (vecteur position fixé) et un carré 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & point de départ du rayon \\
+\hline
+{\em minX} & coordonée X du coin en haut à droite du carré \\
+\hline
+{\em minY} & coordonée Y du coin en haut à droite du carré \\
+\hline
+{\em maxX} & coordonée X du coin en bas à gauche du carré \\
+\hline
+{\em maxY} & coordonée Y du coin en bas à gauche du carré\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position du point d intersection 
+\end{DoxyReturn}
 
 
 The documentation for this struct was generated from the following files:\+\begin{DoxyCompactItemize}

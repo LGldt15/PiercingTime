@@ -9,7 +9,7 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Enemy.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}json.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../include/json.hpp"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_ENEMY\ =\ 75;}
 \DoxyCodeLine{00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_BULLETS\ =\ 500;}
@@ -17,79 +17,71 @@
 \DoxyCodeLine{00013\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_TYPES\_PER\_WAVE\ =\ 3;}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \textcolor{comment}{//pour\ le\ json}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ type[32];}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ hp;}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ dmg;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ speed;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ spriteId;}
-\DoxyCodeLine{00024\ \};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_wave}{Wave}}\ \{}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ triggerTime;}
-\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ enemyTypes[MAX\_TYPES\_PER\_WAVE];}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ nbTypes;\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ triggered;}
-\DoxyCodeLine{00032\ \};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }Map\{}
-\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ idMap;}
-\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{class_player}{Player}}*\ players[4];}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ nbPlayers;}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}\ enemies[MAX\_ENEMY];\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ nbEnemies;}
-\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}\ bullets[MAX\_BULLETS];}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ nbBullets;}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//gestion\ de\ waves}}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ waveID;}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ timer;}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ nbWaves;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{char}\ type[32];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ hp;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ dmg;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ speed;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ spriteId;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_wave}{Wave}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ triggerTime;}
+\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{struct_enemy_spawn_data}{EnemySpawnData}}\ enemyTypes[MAX\_TYPES\_PER\_WAVE];}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ nbTypes;\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ triggered;}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{struct_wave}{Wave}}\ waves[MAX\_WAVES];}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00055\ \ \ \ \ Map();}
-\DoxyCodeLine{00056\ \ \ \ \ Map(\textcolor{keywordtype}{int}\ idS,\ \doxymbox{\hyperlink{class_player}{Player}}\ \&p,\ \textcolor{keywordtype}{int}\ nbP);}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ damageE();}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ damageP(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers\ ,\ \textcolor{keywordtype}{int}\ player);}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ damageAll(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//utilities\ to\ get\ stuff\ vacj\ up\ to\ the\ renderer}}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ getMapId();}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbEnemies();}
-\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}*\ getEnemies();}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbBullet();}
-\DoxyCodeLine{00072\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}*\ getBullets();}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ getTimer()\{\textcolor{keywordflow}{return}\ timer;\};}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//WAVES}}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ startWave();}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDead();}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ isTimeUp()\ \{\ \textcolor{keywordflow}{return}\ (timer\ >=\ 150.0f);\ \}}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ resetTimer()\ \{\ timer\ =\ 0.0f;\ \}\ }
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ restart();}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ loadWaves(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ resetWaves();\ }
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ allWavesFinished(\textcolor{keywordtype}{int}\ nbEnemies)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \};}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}\{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ idMap;}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}\ enemies[MAX\_ENEMY];\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ nbEnemies;}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}\ bullets[MAX\_BULLETS];}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ nbBullets;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//gestion\ de\ waves}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ waveID;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ timer;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ dead;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ nbWaves;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{struct_wave}{Wave}}\ waves[MAX\_WAVES];}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \doxymbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}();}
+\DoxyCodeLine{00079\ \ \ \ \ \doxymbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}(\textcolor{keywordtype}{int}\ idS);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d}{move}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_map_a37c9eb4dfade85a1c305ba65445dc0bd}{damageE}}();}
+\DoxyCodeLine{00098\ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_ade85f4dc39805c31cea0f723a8b75f18}{damageP}}(\doxymbox{\hyperlink{class_player}{Player}}\ \&players);\ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4}{damageAll}}(\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_a1ccd74112b857bb43ecaf48db528ece3}{update}}(\textcolor{keywordtype}{unsigned}\ \ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\doxymbox{\hyperlink{class_player}{Player}}*\ players,\textcolor{keywordtype}{int}\ nbPlayers,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//utilities\ to\ get\ stuff\ vacj\ up\ to\ the\ renderer}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67}{getMapId}}();}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_map_af362fb5981124843c77a8bb68664386c}{getNbEnemies}}();}
+\DoxyCodeLine{00135\ \ \ \ \ \doxymbox{\hyperlink{class_enemy}{Enemy}}*\ \doxymbox{\hyperlink{class_map_a6cc08752b9a0d83462aa39fc65ec847c}{getEnemies}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_map_ad065f9de5bb693848aee5bd2709618f5}{getNbBullet}}();}
+\DoxyCodeLine{00148\ \ \ \ \ \doxymbox{\hyperlink{class_bullet}{Bullet}}*\ \doxymbox{\hyperlink{class_map_ad1391aa55435b656f459a25cc318df96}{getBullets}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_map_ac675c3da6f6bc52fc218ce1447ba68eb}{getTimer}}()\{\textcolor{keywordflow}{return}\ timer;\};}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//WAVES}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_a985139afc4bc327540b574e86e14dc5b}{startWave}}();\ \ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_map_aa3373ce0979d0d171ca88f526c844f82}{isTimeUp}}()\ \{\ \textcolor{keywordflow}{return}\ (timer\ >=\ 150.0f);\ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_af4c2f38f5a80c108e065b7ea4610a737}{resetTimer}}()\ \{\ timer\ =\ 0.0f;\ \}\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_a077402f022c3a23057cdc00e516c8894}{restart}}();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_a3206ec4d597d15c6b8a0443a716324de}{loadWaves}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_map_ac9978ab8ee8e10a8c6bb01688c66816c}{resetWaves}}();\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3}{allWavesFinished}}(\textcolor{keywordtype}{int}\ nbEnemies)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

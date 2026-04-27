@@ -1,38 +1,131 @@
 \doxysection{Shop Class Reference}
 \hypertarget{class_shop}{}\label{class_shop}\index{Shop@{Shop}}
+
+
+permet de gerer les shop de chaque joueur a la fin de chaque round  
+
+
+
+
+{\ttfamily \+\#include $<$Shop.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_shop_ae411c56e453ac238893983a23e2aaeba}\label{class_shop_ae411c56e453ac238893983a23e2aaeba} 
-void {\bfseries handle\+Input} (\doxymbox{\hyperlink{struct_controls}{Controls}} \&c, \doxymbox{\hyperlink{class_player}{Player}} \&p)
-\item 
+\Hypertarget{class_shop_a579ed9f949f7db3f90c22dfe10b25797}\label{class_shop_a579ed9f949f7db3f90c22dfe10b25797} 
+{\bfseries Shop} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut de \doxylink{class_shop}{Shop}. \end{DoxyCompactList}\item 
+\Hypertarget{class_shop_a36bf69bdc0da1b7258acc63a5fe89d40}\label{class_shop_a36bf69bdc0da1b7258acc63a5fe89d40} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Shop} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par defaut de \doxylink{class_shop}{Shop}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_shop_ae411c56e453ac238893983a23e2aaeba}{handle\+Input}} (\doxymbox{\hyperlink{struct_controls}{Controls}} \&c, \doxymbox{\hyperlink{class_player}{Player}} \&p)
+\begin{DoxyCompactList}\small\item\em s occupe de regarder quelle item est selectionner garce au controlles et ensuit l ajouter a un joueur specifier \end{DoxyCompactList}\item 
 \Hypertarget{class_shop_a4d7a3282cad4c85d0f4b9645789e6953}\label{class_shop_a4d7a3282cad4c85d0f4b9645789e6953} 
 void {\bfseries refresh\+Shop} ()
-\item 
-\Hypertarget{class_shop_aa859cec82a503f4ae4b68437d8b77dd2}\label{class_shop_aa859cec82a503f4ae4b68437d8b77dd2} 
-void {\bfseries effect\+On\+Player} (\doxymbox{\hyperlink{class_player}{Player}} \&p, \doxymbox{\hyperlink{struct_item}{Item}} i)
-\item 
-\Hypertarget{class_shop_a4f0bed3876da53354b4b05a7557b7d87}\label{class_shop_a4f0bed3876da53354b4b05a7557b7d87} 
-\doxymbox{\hyperlink{struct_item}{Item}} {\bfseries item\+Rand\+Select} ()
-\item 
-\Hypertarget{class_shop_aae33af50c51dedd2ac2aed752788c593}\label{class_shop_aae33af50c51dedd2ac2aed752788c593} 
-\doxymbox{\hyperlink{struct_item}{Item}} {\bfseries get\+Items} ()
-\item 
-\Hypertarget{class_shop_af6380e9dbccad7cb81d537a82067cbcf}\label{class_shop_af6380e9dbccad7cb81d537a82067cbcf} 
-\doxymbox{\hyperlink{struct_item}{Item}} {\bfseries get\+Item\+At} (int index)
-\item 
-\Hypertarget{class_shop_a3fa3ac072a1c60afea0f74a9fd2d1fb4}\label{class_shop_a3fa3ac072a1c60afea0f74a9fd2d1fb4} 
-int {\bfseries get\+Current\+Cursor} ()
-\item 
+\begin{DoxyCompactList}\small\item\em permet de remetre des items dans les cases vide quand on achete un item \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_shop_aa859cec82a503f4ae4b68437d8b77dd2}{effect\+On\+Player}} (\doxymbox{\hyperlink{class_player}{Player}} \&p, \doxymbox{\hyperlink{struct_item}{Item}} i)
+\begin{DoxyCompactList}\small\item\em modifie les stat d un joueur avec un item qu il a acheter \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_item}{Item}} \doxymbox{\hyperlink{class_shop_a4f0bed3876da53354b4b05a7557b7d87}{item\+Rand\+Select}} ()
+\begin{DoxyCompactList}\small\item\em renvoie un item aleatoir parmis une liste predefinie \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_item}{Item}} \doxymbox{\hyperlink{class_shop_af6380e9dbccad7cb81d537a82067cbcf}{get\+Item\+At}} (int index)
+\begin{DoxyCompactList}\small\item\em renvoie un item specifier \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_shop_a3fa3ac072a1c60afea0f74a9fd2d1fb4}{get\+Current\+Cursor}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l item actuelement selectioner (pa acheter selectione) \end{DoxyCompactList}\item 
 \Hypertarget{class_shop_a3c2bf22519f622c2c1a4873d006bdbd2}\label{class_shop_a3c2bf22519f622c2c1a4873d006bdbd2} 
 void {\bfseries move\+Left} ()
-\item 
+\begin{DoxyCompactList}\small\item\em deplace le curseur de selection vers la gauche \end{DoxyCompactList}\item 
 \Hypertarget{class_shop_a252c2ea66d68389cca8f37373923a9e6}\label{class_shop_a252c2ea66d68389cca8f37373923a9e6} 
 void {\bfseries move\+Right} ()
-\item 
+\begin{DoxyCompactList}\small\item\em deplace le curseur de selection vers la Droite \end{DoxyCompactList}\item 
 \Hypertarget{class_shop_abd9a69d363564a100acb969aa5514775}\label{class_shop_abd9a69d363564a100acb969aa5514775} 
 void {\bfseries console\+Shop} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em version console du shop avant l imlementation graphique \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+permet de gerer les shop de chaque joueur a la fin de chaque round 
+
+\label{doc-func-members}
+\Hypertarget{class_shop_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shop_aa859cec82a503f4ae4b68437d8b77dd2}\index{Shop@{Shop}!effectOnPlayer@{effectOnPlayer}}
+\index{effectOnPlayer@{effectOnPlayer}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{effectOnPlayer()}{effectOnPlayer()}}
+{\footnotesize\ttfamily \label{class_shop_aa859cec82a503f4ae4b68437d8b77dd2} 
+void Shop::\+effect\+On\+Player (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_player}{Player}} \&}]{p}{, }\item[{\doxymbox{\hyperlink{struct_item}{Item}}}]{i}{}\end{DoxyParamCaption})}
+
+
+
+modifie les stat d un joueur avec un item qu il a acheter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & joueur qui a acheter l item \\
+\hline
+{\em i} & items acheter et donc a "{}appliquer au joueur"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shop_a3fa3ac072a1c60afea0f74a9fd2d1fb4}\index{Shop@{Shop}!getCurrentCursor@{getCurrentCursor}}
+\index{getCurrentCursor@{getCurrentCursor}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getCurrentCursor()}{getCurrentCursor()}}
+{\footnotesize\ttfamily \label{class_shop_a3fa3ac072a1c60afea0f74a9fd2d1fb4} 
+int Shop::\+get\+Current\+Cursor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie l item actuelement selectioner (pa acheter selectione) 
+
+\begin{DoxyReturn}{Returns}
+l id de l item selectionne 
+\end{DoxyReturn}
+\Hypertarget{class_shop_af6380e9dbccad7cb81d537a82067cbcf}\index{Shop@{Shop}!getItemAt@{getItemAt}}
+\index{getItemAt@{getItemAt}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{getItemAt()}{getItemAt()}}
+{\footnotesize\ttfamily \label{class_shop_af6380e9dbccad7cb81d537a82067cbcf} 
+\doxymbox{\hyperlink{struct_item}{Item}} Shop::\+get\+Item\+At (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+renvoie un item specifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & numero de l item a renvoier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l item spcecifier 
+\end{DoxyReturn}
+\Hypertarget{class_shop_ae411c56e453ac238893983a23e2aaeba}\index{Shop@{Shop}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily \label{class_shop_ae411c56e453ac238893983a23e2aaeba} 
+void Shop::\+handle\+Input (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_controls}{Controls}} \&}]{c}{, }\item[{\doxymbox{\hyperlink{class_player}{Player}} \&}]{p}{}\end{DoxyParamCaption})}
+
+
+
+s occupe de regarder quelle item est selectionner garce au controlles et ensuit l ajouter a un joueur specifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & controls denner link a un joueur \\
+\hline
+{\em p} & joueur a qui apretien els inputs \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shop_a4f0bed3876da53354b4b05a7557b7d87}\index{Shop@{Shop}!itemRandSelect@{itemRandSelect}}
+\index{itemRandSelect@{itemRandSelect}!Shop@{Shop}}
+\doxysubsubsection{\texorpdfstring{itemRandSelect()}{itemRandSelect()}}
+{\footnotesize\ttfamily \label{class_shop_a4f0bed3876da53354b4b05a7557b7d87} 
+\doxymbox{\hyperlink{struct_item}{Item}} Shop::\+item\+Rand\+Select (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie un item aleatoir parmis une liste predefinie 
+
+\begin{DoxyReturn}{Returns}
+un item quelconque 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}

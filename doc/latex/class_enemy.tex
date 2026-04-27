@@ -2,7 +2,7 @@
 \hypertarget{class_enemy}{}\label{class_enemy}\index{Enemy@{Enemy}}
 
 
-Classe expriamnt un enemy quelconque de la carte.  
+Classe exprimant un enemy quelconque de la carte.  
 
 
 
@@ -15,7 +15,7 @@ Classe expriamnt un enemy quelconque de la carte.
 \doxymbox{\hyperlink{class_enemy_a90dcf5d9ff47e6668ecfab72dfe54113}{Enemy}} (int health=1, int damage=1, bool a=false, float s=0.\+1, int idS=0, std::\+string t="{}Caveman"{})
 \begin{DoxyCompactList}\small\item\em constructeur par defaut de \doxylink{class_enemy}{Enemy} \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_enemy_a94ab3653b980c9ea7ad3f592ddf5c1ae}{move}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
-\begin{DoxyCompactList}\small\item\em permet de se deplacer vers le jouieur \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em permet de se deplacer selon un mode de déplacement dépendant de son type \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_enemy_afe7fc321801bbfdc444d6535a0bf54a4}{move\+Agro}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
 \begin{DoxyCompactList}\small\item\em deplacement de l ennemy de tyupe Agro \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1}{move\+Shooter}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
@@ -23,19 +23,19 @@ void \doxymbox{\hyperlink{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1}{move\+S
 void \doxymbox{\hyperlink{class_enemy_a70d360d8f69d1a83886b7ee110e536ef}{move\+Deserter}} (\doxymbox{\hyperlink{struct_position}{Position}} \&player)
 \begin{DoxyCompactList}\small\item\em deplacement de l ennemy de type Deserter \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{class_enemy_a16993ad901ad1193c2761402e13ace56}{shoot}} (\doxymbox{\hyperlink{class_bullet}{Bullet}} \&bullets, unsigned int nbP, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}tabP) const
-\begin{DoxyCompactList}\small\item\em permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em permet au enemy de type shooter de tirer une balle vers un joueur et l ajouter a la map \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{class_enemy_ac65e2e6810573f572c50293bc97221ad}{take\+Damage\+Bullet}} (\doxymbox{\hyperlink{class_bullet}{Bullet}} \&bullets)
-\begin{DoxyCompactList}\small\item\em Permet a un ennemy de prendre les degat d une ball. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Permet a un ennemy de prendre les degat d une balle. \end{DoxyCompactList}\item 
 unsigned int \doxymbox{\hyperlink{class_enemy_a47b8fff3ca45789cf20ec7e3f8502412}{get\+Sprite}} ()
-\begin{DoxyCompactList}\small\item\em Renvoi le sprite associer a un ennemy. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renvoie le sprite associe a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}{get\+Position}} ()
-\begin{DoxyCompactList}\small\item\em Renvoi la position associer a un ennemy. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renvoie la position associee a un ennemy. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{class_enemy_a3a80641df04b3f60a892b77a9ff5e820}{get\+Gold}} ()
-\begin{DoxyCompactList}\small\item\em Renvoi les l or associer a un ennemy. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renvoie l or associee a un ennemy. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_a434a8fdb11753cefd1df9fa117675205}{get\+Stats}} ()
-\begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renvoie les stats associees a un ennemy. \end{DoxyCompactList}\item 
 const \doxymbox{\hyperlink{struct_stats}{Stats}} \& \doxymbox{\hyperlink{class_enemy_aca4aab05e93a0a1b788311c3abd5ae59}{get\+Stats}} () const
-\begin{DoxyCompactList}\small\item\em Renvoi les stats associer a un ennemy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renvoie les stats associees a un ennemy. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +63,7 @@ char {\bfseries type} \+[20]\+
 
 
 \doxysubsection{Detailed Description}
-Classe expriamnt un enemy quelconque de la carte. 
+Classe exprimant un enemy quelconque de la carte. 
 
 \label{doc-constructors}
 \Hypertarget{class_enemy_doc-constructors}
@@ -108,10 +108,10 @@ int Enemy::\+get\+Gold (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Renvoi les l or associer a un ennemy. 
+Renvoie l or associee a un ennemy. 
 
 \begin{DoxyReturn}{Returns}
-renvoie les l or de l ennemy 
+renvoie l or de l ennemy 
 \end{DoxyReturn}
 \Hypertarget{class_enemy_a5df26de21a1adb3386feb1c0e22a8135}\index{Enemy@{Enemy}!getPosition@{getPosition}}
 \index{getPosition@{getPosition}!Enemy@{Enemy}}
@@ -121,7 +121,7 @@ renvoie les l or de l ennemy
 
 
 
-Renvoi la position associer a un ennemy. 
+Renvoie la position associee a un ennemy. 
 
 \begin{DoxyReturn}{Returns}
 renvoie la position de l ennemy 
@@ -134,7 +134,7 @@ unsigned int Enemy::\+get\+Sprite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCap
 
 
 
-Renvoi le sprite associer a un ennemy. 
+Renvoie le sprite associe a un ennemy. 
 
 \begin{DoxyReturn}{Returns}
 renvoie le sprite de l ennemy 
@@ -147,7 +147,7 @@ renvoie le sprite de l ennemy
 
 
 
-Renvoi les stats associer a un ennemy. 
+Renvoie les stats associees a un ennemy. 
 
 \begin{DoxyReturn}{Returns}
 renvoie les stats de l ennemy 
@@ -160,7 +160,7 @@ const \doxymbox{\hyperlink{struct_stats}{Stats}} \& Enemy::\+get\+Stats (\begin{
 
 
 
-Renvoi les stats associer a un ennemy. 
+Renvoie les stats associees a un ennemy. 
 
 \begin{DoxyReturn}{Returns}
 renvoie les stats de l ennemy 
@@ -173,11 +173,11 @@ void Enemy::\+move (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_p
 
 
 
-permet de se deplacer vers le jouieur 
+permet de se deplacer selon un mode de déplacement dépendant de son type 
 
 
 \begin{DoxyParams}{Parameters}
-{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+{\em player} & \doxylink{struct_position}{Position} du player. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_enemy_afe7fc321801bbfdc444d6535a0bf54a4}\index{Enemy@{Enemy}!moveAgro@{moveAgro}}
@@ -207,7 +207,7 @@ deplacement de l ennemy de type Deserter
 
 
 \begin{DoxyParams}{Parameters}
-{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+{\em player} & \doxylink{struct_position}{Position} du player à fuire. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_enemy_ac5ef5322af0a0d1986d17599f7e145f1}\index{Enemy@{Enemy}!moveShooter@{moveShooter}}
@@ -222,7 +222,7 @@ deplacement de l ennemy de type Shooter
 
 
 \begin{DoxyParams}{Parameters}
-{\em player} & \doxylink{struct_position}{Position} du player vers lequelle se deplacer. \\
+{\em player} & \doxylink{struct_position}{Position} du player autour duquel tourner. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_enemy_a16993ad901ad1193c2761402e13ace56}\index{Enemy@{Enemy}!shoot@{shoot}}
@@ -233,11 +233,11 @@ void Enemy::\+shoot (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_b
 
 
 
-permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map 
+permet au enemy de type shooter de tirer une balle vers un joueur et l ajouter a la map 
 
 
 \begin{DoxyParams}{Parameters}
-{\em bullets} & tableau de ball a laquelle ajouter son tir \\
+{\em bullets} & tableau de balle a laquelle ajouter son tir \\
 \hline
 {\em nbP} & nombre de joueur sur la carte \\
 \hline
@@ -252,7 +252,7 @@ bool Enemy::\+take\+Damage\+Bullet (\begin{DoxyParamCaption}\item[{\doxymbox{\hy
 
 
 
-Permet a un ennemy de prendre les degat d une ball. 
+Permet a un ennemy de prendre les degat d une balle. 
 
 
 \begin{DoxyParams}{Parameters}

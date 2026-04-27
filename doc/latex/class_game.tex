@@ -12,63 +12,50 @@ lib
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_game_a3f062f38ab7815d97e57c875083ea2d3}\label{class_game_a3f062f38ab7815d97e57c875083ea2d3} 
-int {\bfseries get\+Nb\+Joueur} ()
-\item 
-\Hypertarget{class_game_a3021f28b5aacdf25658e3e72c5b5699c}\label{class_game_a3021f28b5aacdf25658e3e72c5b5699c} 
-\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
-\item 
-\Hypertarget{class_game_aabcbbfa79f67ed7ea1c96839f5775de4}\label{class_game_aabcbbfa79f67ed7ea1c96839f5775de4} 
-void {\bfseries set\+Nb\+Players} (int i)
+\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65} 
+{\bfseries Game} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut de \doxylink{class_game}{Game}. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par defaut de \doxylink{class_game}{Game}. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_game_a3f062f38ab7815d97e57c875083ea2d3}{get\+Nb\+Joueur}} ()
+\begin{DoxyCompactList}\small\item\em Renvoie le nombre de joueur dans la partie. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_game_a3021f28b5aacdf25658e3e72c5b5699c}{get\+Players}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le tableau des joueur (l adresse du tableau) cette focntion est a utilise avec get\+Nb\+Joueur \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_game_aabcbbfa79f67ed7ea1c96839f5775de4}{set\+Nb\+Players}} (int i)
 \begin{DoxyCompactList}\small\item\em menu stuff (before game starts) \end{DoxyCompactList}\item 
-\Hypertarget{class_game_a26b3975b282d4e550bb4556bb4277573}\label{class_game_a26b3975b282d4e550bb4556bb4277573} 
-void {\bfseries update} (\doxymbox{\hyperlink{struct_controls}{Controls}} c, unsigned int win\+Width, unsigned int win\+Height, float time)
+void \doxymbox{\hyperlink{class_game_a26b3975b282d4e550bb4556bb4277573}{update}} (\doxymbox{\hyperlink{struct_controls}{Controls}} c, unsigned int win\+Width, unsigned int win\+Height, float time)
 \begin{DoxyCompactList}\small\item\em in game stuff \end{DoxyCompactList}\item 
-\Hypertarget{class_game_a4a70280ac329367ca8583c1f250b0cef}\label{class_game_a4a70280ac329367ca8583c1f250b0cef} 
-void {\bfseries update} (\doxymbox{\hyperlink{struct_controls}{Controls}} \texorpdfstring{$\ast$}{*}c, float time)
-\item 
-\Hypertarget{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2}\label{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2} 
-int {\bfseries get\+Map\+Id} ()
-\item 
-\Hypertarget{class_game_a94d462983970e8d7c392da3f8b406408}\label{class_game_a94d462983970e8d7c392da3f8b406408} 
-\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Enemies} ()
-\item 
-\Hypertarget{class_game_ac956ade04d022213ae6d5e83040b93aa}\label{class_game_ac956ade04d022213ae6d5e83040b93aa} 
-int {\bfseries get\+Nb\+Enemys} ()
-\item 
-\Hypertarget{class_game_a870a968cd70843d1461a2610068a57b9}\label{class_game_a870a968cd70843d1461a2610068a57b9} 
-int {\bfseries get\+Player\+Id} (int i)
-\item 
-\Hypertarget{class_game_aa12c2e609ffb6ff58f917c81df34ea7c}\label{class_game_aa12c2e609ffb6ff58f917c81df34ea7c} 
-int {\bfseries get\+Nb\+Bullets} ()
-\item 
-\Hypertarget{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9}\label{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9} 
-\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Bullets} ()
-\item 
-\Hypertarget{class_game_a7089c16c563eb25838ed93330f3cb8c6}\label{class_game_a7089c16c563eb25838ed93330f3cb8c6} 
-bool {\bfseries is\+In\+Shop} () const
-\item 
-\Hypertarget{class_game_a562e48334b67285d613bdf2e94d07b4b}\label{class_game_a562e48334b67285d613bdf2e94d07b4b} 
-void {\bfseries set\+Shop\+Active} (bool active)
-\item 
-\Hypertarget{class_game_a1afefa784deda981ab150892c0d47898}\label{class_game_a1afefa784deda981ab150892c0d47898} 
-\doxymbox{\hyperlink{class_shop}{Shop}} \& {\bfseries get\+Shop} (int player\+Index)
-\item 
-\Hypertarget{class_game_ab8536df425c768f3524c87de99aa9cd9}\label{class_game_ab8536df425c768f3524c87de99aa9cd9} 
-bool {\bfseries is\+Over} ()
-\item 
-\Hypertarget{class_game_ad618d5ebfb638715c4aebefa3270df65}\label{class_game_ad618d5ebfb638715c4aebefa3270df65} 
-bool {\bfseries is\+Time\+Up} ()
-\item 
-\Hypertarget{class_game_abecae2ed3526358ba4cd1ba38e38e898}\label{class_game_abecae2ed3526358ba4cd1ba38e38e898} 
-bool {\bfseries is\+Player\+Dead} ()
-\item 
+void \doxymbox{\hyperlink{class_game_a4a70280ac329367ca8583c1f250b0cef}{update}} (\doxymbox{\hyperlink{struct_controls}{Controls}} \texorpdfstring{$\ast$}{*}c, float time)
+\begin{DoxyCompactList}\small\item\em met a jour game l equivalent des calculs a faire pour calculer 1 frame du jeu mais en version serveur \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2}{get\+Map\+Id}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l id du sprite de la map en cours \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_game_ac956ade04d022213ae6d5e83040b93aa}{get\+Nb\+Enemys}} ()
+\begin{DoxyCompactList}\small\item\em renvoie renvoie le nombre d ennemies sur la carte a un instant T \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_game_a94d462983970e8d7c392da3f8b406408}{get\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em renvoie les enemies de map pour les monter a l \doxylink{class_i_h_m}{IHM} pour le rendering (a utiliser avec get\+Nb\+Enemys) \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_game_a870a968cd70843d1461a2610068a57b9}{get\+Player\+Id}} (int i)
+\begin{DoxyCompactList}\small\item\em renvoie l id du sprite d un joueur specifier \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_game_aa12c2e609ffb6ff58f917c81df34ea7c}{get\+Nb\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em renvoie renvoie le nombre de bullet sur la carte a un instant T \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em renvoie les bullet de map pour les monter a l \doxylink{class_i_h_m}{IHM} pour le rendering (a utiliser avec get\+Nb\+Bullets) \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_game_a7089c16c563eb25838ed93330f3cb8c6}{is\+In\+Shop}} () const
+\begin{DoxyCompactList}\small\item\em permet de preciser a l \doxylink{class_i_h_m}{IHM} si on est dans une phase de shop ou pas \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_game_a562e48334b67285d613bdf2e94d07b4b}{set\+Shop\+Active}} (bool active)
+\begin{DoxyCompactList}\small\item\em permet de mettre le shop a actif \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_shop}{Shop}} \& \doxymbox{\hyperlink{class_game_a1afefa784deda981ab150892c0d47898}{get\+Shop}} (int player\+Index)
+\begin{DoxyCompactList}\small\item\em renvoie l adresse du shop d un joueur \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_game_ad618d5ebfb638715c4aebefa3270df65}{is\+Time\+Up}} ()
+\begin{DoxyCompactList}\small\item\em renvoie si une vague est finie ou pas \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_game_abecae2ed3526358ba4cd1ba38e38e898}{is\+Player\+Dead}} ()
+\begin{DoxyCompactList}\small\item\em renvoie si tout les joueur sont mort \end{DoxyCompactList}\item 
 \Hypertarget{class_game_a175c19ef3c4807d8547ccd211d318aed}\label{class_game_a175c19ef3c4807d8547ccd211d318aed} 
 void {\bfseries reset\+Timer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em remet le timer d un niveau \end{DoxyCompactList}\item 
 \Hypertarget{class_game_aeb468737e1495cfcfbf512cfdc751117}\label{class_game_aeb468737e1495cfcfbf512cfdc751117} 
 void {\bfseries restart} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em relance un niveau \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -79,6 +66,251 @@ bool {\bfseries in\+Config}
 
 \doxysubsection{Detailed Description}
 lib 
+
+Le jeu. gere les ennemy a travers map les joueur al difficulte les shop tout se qui est pas le menu principale 
+
+\label{doc-func-members}
+\Hypertarget{class_game_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9}\index{Game@{Game}!getBullets@{getBullets}}
+\index{getBullets@{getBullets}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getBullets()}{getBullets()}}
+{\footnotesize\ttfamily \label{class_game_a97ebbaa2608bf30c021d8b0974dfa0f9} 
+\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} Game::\+get\+Bullets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie les bullet de map pour les monter a l \doxylink{class_i_h_m}{IHM} pour le rendering (a utiliser avec get\+Nb\+Bullets) 
+
+\begin{DoxyReturn}{Returns}
+pointeur vers les bullet de la carte 
+\end{DoxyReturn}
+\Hypertarget{class_game_a94d462983970e8d7c392da3f8b406408}\index{Game@{Game}!getEnemies@{getEnemies}}
+\index{getEnemies@{getEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getEnemies()}{getEnemies()}}
+{\footnotesize\ttfamily \label{class_game_a94d462983970e8d7c392da3f8b406408} 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} Game::\+get\+Enemies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie les enemies de map pour les monter a l \doxylink{class_i_h_m}{IHM} pour le rendering (a utiliser avec get\+Nb\+Enemys) 
+
+\begin{DoxyReturn}{Returns}
+pointeur vers les enemie de la carte 
+\end{DoxyReturn}
+\Hypertarget{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2}\index{Game@{Game}!getMapId@{getMapId}}
+\index{getMapId@{getMapId}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getMapId()}{getMapId()}}
+{\footnotesize\ttfamily \label{class_game_a62b2fb3e96cfaecf0ba15c1ed28263b2} 
+int Game::\+get\+Map\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie l id du sprite de la map en cours 
+
+\begin{DoxyReturn}{Returns}
+l id du sprite de la carte 
+\end{DoxyReturn}
+\Hypertarget{class_game_aa12c2e609ffb6ff58f917c81df34ea7c}\index{Game@{Game}!getNbBullets@{getNbBullets}}
+\index{getNbBullets@{getNbBullets}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getNbBullets()}{getNbBullets()}}
+{\footnotesize\ttfamily \label{class_game_aa12c2e609ffb6ff58f917c81df34ea7c} 
+int Game::\+get\+Nb\+Bullets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie renvoie le nombre de bullet sur la carte a un instant T 
+
+\begin{DoxyReturn}{Returns}
+le nombre de bullet 
+\end{DoxyReturn}
+\Hypertarget{class_game_ac956ade04d022213ae6d5e83040b93aa}\index{Game@{Game}!getNbEnemys@{getNbEnemys}}
+\index{getNbEnemys@{getNbEnemys}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getNbEnemys()}{getNbEnemys()}}
+{\footnotesize\ttfamily \label{class_game_ac956ade04d022213ae6d5e83040b93aa} 
+int Game::\+get\+Nb\+Enemys (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie renvoie le nombre d ennemies sur la carte a un instant T 
+
+\begin{DoxyReturn}{Returns}
+le nombre d enemies 
+\end{DoxyReturn}
+\Hypertarget{class_game_a3f062f38ab7815d97e57c875083ea2d3}\index{Game@{Game}!getNbJoueur@{getNbJoueur}}
+\index{getNbJoueur@{getNbJoueur}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getNbJoueur()}{getNbJoueur()}}
+{\footnotesize\ttfamily \label{class_game_a3f062f38ab7815d97e57c875083ea2d3} 
+int Game::\+get\+Nb\+Joueur (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renvoie le nombre de joueur dans la partie. 
+
+\begin{DoxyReturn}{Returns}
+le nombre de joueur 
+\end{DoxyReturn}
+\Hypertarget{class_game_a870a968cd70843d1461a2610068a57b9}\index{Game@{Game}!getPlayerId@{getPlayerId}}
+\index{getPlayerId@{getPlayerId}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getPlayerId()}{getPlayerId()}}
+{\footnotesize\ttfamily \label{class_game_a870a968cd70843d1461a2610068a57b9} 
+int Game::\+get\+Player\+Id (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+
+renvoie l id du sprite d un joueur specifier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & numero du joueur a qui on veux l id du sprite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l id du sprite du joueur 
+\end{DoxyReturn}
+\Hypertarget{class_game_a3021f28b5aacdf25658e3e72c5b5699c}\index{Game@{Game}!getPlayers@{getPlayers}}
+\index{getPlayers@{getPlayers}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getPlayers()}{getPlayers()}}
+{\footnotesize\ttfamily \label{class_game_a3021f28b5aacdf25658e3e72c5b5699c} 
+\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Game::\+get\+Players (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie le tableau des joueur (l adresse du tableau) cette focntion est a utilise avec get\+Nb\+Joueur 
+
+\begin{DoxyReturn}{Returns}
+l adresse memoir de players\+[0]\+ 
+\end{DoxyReturn}
+\Hypertarget{class_game_a1afefa784deda981ab150892c0d47898}\index{Game@{Game}!getShop@{getShop}}
+\index{getShop@{getShop}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getShop()}{getShop()}}
+{\footnotesize\ttfamily \label{class_game_a1afefa784deda981ab150892c0d47898} 
+\doxymbox{\hyperlink{class_shop}{Shop}} \& Game::\+get\+Shop (\begin{DoxyParamCaption}\item[{int}]{player\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+renvoie l adresse du shop d un joueur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Index} & l id du joueur a qui on veux l inventire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le shop d un joueur 
+\end{DoxyReturn}
+\Hypertarget{class_game_a7089c16c563eb25838ed93330f3cb8c6}\index{Game@{Game}!isInShop@{isInShop}}
+\index{isInShop@{isInShop}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isInShop()}{isInShop()}}
+{\footnotesize\ttfamily \label{class_game_a7089c16c563eb25838ed93330f3cb8c6} 
+bool Game::\+is\+In\+Shop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+permet de preciser a l \doxylink{class_i_h_m}{IHM} si on est dans une phase de shop ou pas 
+
+\begin{DoxyReturn}{Returns}
+l etat du shop 
+\end{DoxyReturn}
+\Hypertarget{class_game_abecae2ed3526358ba4cd1ba38e38e898}\index{Game@{Game}!isPlayerDead@{isPlayerDead}}
+\index{isPlayerDead@{isPlayerDead}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isPlayerDead()}{isPlayerDead()}}
+{\footnotesize\ttfamily \label{class_game_abecae2ed3526358ba4cd1ba38e38e898} 
+bool Game::\+is\+Player\+Dead (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie si tout les joueur sont mort 
+
+\begin{DoxyReturn}{Returns}
+un bool qui indique l etat de tout les joueur 
+\end{DoxyReturn}
+\Hypertarget{class_game_ad618d5ebfb638715c4aebefa3270df65}\index{Game@{Game}!isTimeUp@{isTimeUp}}
+\index{isTimeUp@{isTimeUp}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isTimeUp()}{isTimeUp()}}
+{\footnotesize\ttfamily \label{class_game_ad618d5ebfb638715c4aebefa3270df65} 
+bool Game::\+is\+Time\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie si une vague est finie ou pas 
+
+\begin{DoxyReturn}{Returns}
+si le temps est fini 
+\end{DoxyReturn}
+\Hypertarget{class_game_aabcbbfa79f67ed7ea1c96839f5775de4}\index{Game@{Game}!setNbPlayers@{setNbPlayers}}
+\index{setNbPlayers@{setNbPlayers}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setNbPlayers()}{setNbPlayers()}}
+{\footnotesize\ttfamily \label{class_game_aabcbbfa79f67ed7ea1c96839f5775de4} 
+void Game::\+set\+Nb\+Players (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+
+menu stuff (before game starts) 
+
+permet de modifier le nombre de joueurs
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & nombre de joueur a mettre \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a562e48334b67285d613bdf2e94d07b4b}\index{Game@{Game}!setShopActive@{setShopActive}}
+\index{setShopActive@{setShopActive}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setShopActive()}{setShopActive()}}
+{\footnotesize\ttfamily \label{class_game_a562e48334b67285d613bdf2e94d07b4b} 
+void Game::\+set\+Shop\+Active (\begin{DoxyParamCaption}\item[{bool}]{active}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+permet de mettre le shop a actif 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & etant vers lequelle mettre le shop \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a4a70280ac329367ca8583c1f250b0cef}\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_game_a4a70280ac329367ca8583c1f250b0cef} 
+void Game::\+update (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_controls}{Controls}} \texorpdfstring{$\ast$}{*}}]{c}{, }\item[{float}]{time}{}\end{DoxyParamCaption})}
+
+
+
+met a jour game l equivalent des calculs a faire pour calculer 1 frame du jeu mais en version serveur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & pointeur vers les controls des joueur \\
+\hline
+{\em time} & le descend a level pour update les map et donc les waves \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_a26b3975b282d4e550bb4556bb4277573}\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_game_a26b3975b282d4e550bb4556bb4277573} 
+void Game::\+update (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_controls}{Controls}}}]{c}{, }\item[{unsigned int}]{win\+Width}{, }\item[{unsigned int}]{win\+Height}{, }\item[{float}]{time}{}\end{DoxyParamCaption})}
+
+
+
+in game stuff 
+
+met a jour game l equivalent des calculs a faire pour calculer 1 frame du jeu
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & control de l unique joueur a gerer \\
+\hline
+{\em win\+Width} & largeur de l ecran (permet de bloquer le deplacement des joueur et des enmey au jeu) \\
+\hline
+{\em win\+Height} & largeur de l ecran (permet de bloquer le deplacement des joueur et des enmey au jeu) \\
+\hline
+{\em time} & le descend a level pour update les map et donc les waves \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
 \item 

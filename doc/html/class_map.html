@@ -91,52 +91,437 @@ $(function(){initNavTree('class_map.html','','class_map-members'); });
   <div class="headertitle"><div class="title">Map Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>une carte du jeu avec des ennemy et des balles tirer  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_map_8h_source.html">Map.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a44fd93550873aae2955a7eaa17a18ee6" id="r_a44fd93550873aae2955a7eaa17a18ee6"><td class="memItemLeft"><a id="a44fd93550873aae2955a7eaa17a18ee6" name="a44fd93550873aae2955a7eaa17a18ee6"></a>
-&#160;</td><td class="memItemRight"><b>Map</b> (int idS, <a class="el" href="class_player.html">Player</a> &amp;p, int nbP)</td></tr>
-<tr class="memitem:a6ce8f83a86494b21e7c56c29e0edfc1d" id="r_a6ce8f83a86494b21e7c56c29e0edfc1d"><td class="memItemLeft"><a id="a6ce8f83a86494b21e7c56c29e0edfc1d" name="a6ce8f83a86494b21e7c56c29e0edfc1d"></a>
-void&#160;</td><td class="memItemRight"><b>move</b> (<a class="el" href="class_player.html">Player</a> *players, int nbPlayers)</td></tr>
-<tr class="memitem:aa5e4e7d17f9ed1c7f3e771285c6f783d" id="r_aa5e4e7d17f9ed1c7f3e771285c6f783d"><td class="memItemLeft"><a id="aa5e4e7d17f9ed1c7f3e771285c6f783d" name="aa5e4e7d17f9ed1c7f3e771285c6f783d"></a>
-void&#160;</td><td class="memItemRight"><b>move</b> (unsigned int winWidth, unsigned int winHeight, <a class="el" href="class_player.html">Player</a> *players, int nbPlayers)</td></tr>
+<tr class="memitem:a0f5ad0fd4563497b4214038cbca8b582" id="r_a0f5ad0fd4563497b4214038cbca8b582"><td class="memItemLeft"><a id="a0f5ad0fd4563497b4214038cbca8b582" name="a0f5ad0fd4563497b4214038cbca8b582"></a>
+&#160;</td><td class="memItemRight"><b>Map</b> ()</td></tr>
+<tr class="memdesc:a0f5ad0fd4563497b4214038cbca8b582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construteur par defaut de <a class="el" href="class_map.html" title="une carte du jeu avec des ennemy et des balles tirer">Map</a>. <br /></td></tr>
+<tr class="memitem:a8cafaff80ed3f47e4be031f596292444" id="r_a8cafaff80ed3f47e4be031f596292444"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8cafaff80ed3f47e4be031f596292444">Map</a> (int idS)</td></tr>
+<tr class="memdesc:a8cafaff80ed3f47e4be031f596292444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur utilise de <a class="el" href="class_map.html" title="une carte du jeu avec des ennemy et des balles tirer">Map</a>.  <br /></td></tr>
+<tr class="memitem:aa5e4e7d17f9ed1c7f3e771285c6f783d" id="r_aa5e4e7d17f9ed1c7f3e771285c6f783d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa5e4e7d17f9ed1c7f3e771285c6f783d">move</a> (unsigned int winWidth, unsigned int winHeight, <a class="el" href="class_player.html">Player</a> *players, int nbPlayers)</td></tr>
+<tr class="memdesc:aa5e4e7d17f9ed1c7f3e771285c6f783d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deplacement des joueur sur la carte.  <br /></td></tr>
 <tr class="memitem:a37c9eb4dfade85a1c305ba65445dc0bd" id="r_a37c9eb4dfade85a1c305ba65445dc0bd"><td class="memItemLeft"><a id="a37c9eb4dfade85a1c305ba65445dc0bd" name="a37c9eb4dfade85a1c305ba65445dc0bd"></a>
 int&#160;</td><td class="memItemRight"><b>damageE</b> ()</td></tr>
-<tr class="memitem:ab49a2d55ac7e26f9075121357746bace" id="r_ab49a2d55ac7e26f9075121357746bace"><td class="memItemLeft"><a id="ab49a2d55ac7e26f9075121357746bace" name="ab49a2d55ac7e26f9075121357746bace"></a>
-void&#160;</td><td class="memItemRight"><b>damageP</b> (<a class="el" href="class_player.html">Player</a> *players, int nbPlayers, int player)</td></tr>
-<tr class="memitem:a5779e8d885e5ebbe64af62f18d5cb3f4" id="r_a5779e8d885e5ebbe64af62f18d5cb3f4"><td class="memItemLeft"><a id="a5779e8d885e5ebbe64af62f18d5cb3f4" name="a5779e8d885e5ebbe64af62f18d5cb3f4"></a>
-void&#160;</td><td class="memItemRight"><b>damageAll</b> (<a class="el" href="class_player.html">Player</a> *players, int nbPlayers)</td></tr>
-<tr class="memitem:a1ccd74112b857bb43ecaf48db528ece3" id="r_a1ccd74112b857bb43ecaf48db528ece3"><td class="memItemLeft"><a id="a1ccd74112b857bb43ecaf48db528ece3" name="a1ccd74112b857bb43ecaf48db528ece3"></a>
-void&#160;</td><td class="memItemRight"><b>update</b> (unsigned int winWidth, unsigned int winHeight, <a class="el" href="class_player.html">Player</a> *players, int nbPlayers, float time)</td></tr>
-<tr class="memitem:ac86cf5c5f7c3b8a03a4bc0c2df6a7b67" id="r_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67"><td class="memItemLeft"><a id="ac86cf5c5f7c3b8a03a4bc0c2df6a7b67" name="ac86cf5c5f7c3b8a03a4bc0c2df6a7b67"></a>
-int&#160;</td><td class="memItemRight"><b>getMapId</b> ()</td></tr>
-<tr class="memitem:af362fb5981124843c77a8bb68664386c" id="r_af362fb5981124843c77a8bb68664386c"><td class="memItemLeft"><a id="af362fb5981124843c77a8bb68664386c" name="af362fb5981124843c77a8bb68664386c"></a>
-int&#160;</td><td class="memItemRight"><b>getNbEnemies</b> ()</td></tr>
-<tr class="memitem:a6cc08752b9a0d83462aa39fc65ec847c" id="r_a6cc08752b9a0d83462aa39fc65ec847c"><td class="memItemLeft"><a id="a6cc08752b9a0d83462aa39fc65ec847c" name="a6cc08752b9a0d83462aa39fc65ec847c"></a>
-<a class="el" href="class_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight"><b>getEnemies</b> ()</td></tr>
-<tr class="memitem:ad065f9de5bb693848aee5bd2709618f5" id="r_ad065f9de5bb693848aee5bd2709618f5"><td class="memItemLeft"><a id="ad065f9de5bb693848aee5bd2709618f5" name="ad065f9de5bb693848aee5bd2709618f5"></a>
-int&#160;</td><td class="memItemRight"><b>getNbBullet</b> ()</td></tr>
-<tr class="memitem:ad1391aa55435b656f459a25cc318df96" id="r_ad1391aa55435b656f459a25cc318df96"><td class="memItemLeft"><a id="ad1391aa55435b656f459a25cc318df96" name="ad1391aa55435b656f459a25cc318df96"></a>
-<a class="el" href="class_bullet.html">Bullet</a> *&#160;</td><td class="memItemRight"><b>getBullets</b> ()</td></tr>
-<tr class="memitem:ac675c3da6f6bc52fc218ce1447ba68eb" id="r_ac675c3da6f6bc52fc218ce1447ba68eb"><td class="memItemLeft"><a id="ac675c3da6f6bc52fc218ce1447ba68eb" name="ac675c3da6f6bc52fc218ce1447ba68eb"></a>
-float&#160;</td><td class="memItemRight"><b>getTimer</b> ()</td></tr>
+<tr class="memdesc:a37c9eb4dfade85a1c305ba65445dc0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de faire des degat au ennemy. <br /></td></tr>
+<tr class="memitem:ade85f4dc39805c31cea0f723a8b75f18" id="r_ade85f4dc39805c31cea0f723a8b75f18"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade85f4dc39805c31cea0f723a8b75f18">damageP</a> (<a class="el" href="class_player.html">Player</a> &amp;players)</td></tr>
+<tr class="memdesc:ade85f4dc39805c31cea0f723a8b75f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait des degat a un joueur specifier.  <br /></td></tr>
+<tr class="memitem:a5779e8d885e5ebbe64af62f18d5cb3f4" id="r_a5779e8d885e5ebbe64af62f18d5cb3f4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5779e8d885e5ebbe64af62f18d5cb3f4">damageAll</a> (<a class="el" href="class_player.html">Player</a> *players, int nbPlayers)</td></tr>
+<tr class="memdesc:a5779e8d885e5ebbe64af62f18d5cb3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait des degat a tout le monde (enemy et joueur) garce a damageP et damageE.  <br /></td></tr>
+<tr class="memitem:a1ccd74112b857bb43ecaf48db528ece3" id="r_a1ccd74112b857bb43ecaf48db528ece3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1ccd74112b857bb43ecaf48db528ece3">update</a> (unsigned int winWidth, unsigned int winHeight, <a class="el" href="class_player.html">Player</a> *players, int nbPlayers, float time)</td></tr>
+<tr class="memdesc:a1ccd74112b857bb43ecaf48db528ece3"><td class="mdescLeft">&#160;</td><td class="mdescRight">met a jour la carte a chaque tick  <br /></td></tr>
+<tr class="memitem:ac86cf5c5f7c3b8a03a4bc0c2df6a7b67" id="r_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ac86cf5c5f7c3b8a03a4bc0c2df6a7b67">getMapId</a> ()</td></tr>
+<tr class="memdesc:ac86cf5c5f7c3b8a03a4bc0c2df6a7b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l id de la carte pour l affichage graphique  <br /></td></tr>
+<tr class="memitem:af362fb5981124843c77a8bb68664386c" id="r_af362fb5981124843c77a8bb68664386c"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#af362fb5981124843c77a8bb68664386c">getNbEnemies</a> ()</td></tr>
+<tr class="memdesc:af362fb5981124843c77a8bb68664386c"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le nombre d ennemie sur la carte  <br /></td></tr>
+<tr class="memitem:a6cc08752b9a0d83462aa39fc65ec847c" id="r_a6cc08752b9a0d83462aa39fc65ec847c"><td class="memItemLeft"><a class="el" href="class_enemy.html">Enemy</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6cc08752b9a0d83462aa39fc65ec847c">getEnemies</a> ()</td></tr>
+<tr class="memdesc:a6cc08752b9a0d83462aa39fc65ec847c"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le pointeur vers le premier enemi  <br /></td></tr>
+<tr class="memitem:ad065f9de5bb693848aee5bd2709618f5" id="r_ad065f9de5bb693848aee5bd2709618f5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ad065f9de5bb693848aee5bd2709618f5">getNbBullet</a> ()</td></tr>
+<tr class="memdesc:ad065f9de5bb693848aee5bd2709618f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le nombre de bullet sur la carte  <br /></td></tr>
+<tr class="memitem:ad1391aa55435b656f459a25cc318df96" id="r_ad1391aa55435b656f459a25cc318df96"><td class="memItemLeft"><a class="el" href="class_bullet.html">Bullet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad1391aa55435b656f459a25cc318df96">getBullets</a> ()</td></tr>
+<tr class="memdesc:ad1391aa55435b656f459a25cc318df96"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le pointeur vers la premiere bullet  <br /></td></tr>
+<tr class="memitem:ac675c3da6f6bc52fc218ce1447ba68eb" id="r_ac675c3da6f6bc52fc218ce1447ba68eb"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac675c3da6f6bc52fc218ce1447ba68eb">getTimer</a> ()</td></tr>
+<tr class="memdesc:ac675c3da6f6bc52fc218ce1447ba68eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie le temps ecoule  <br /></td></tr>
 <tr class="memitem:a985139afc4bc327540b574e86e14dc5b" id="r_a985139afc4bc327540b574e86e14dc5b"><td class="memItemLeft"><a id="a985139afc4bc327540b574e86e14dc5b" name="a985139afc4bc327540b574e86e14dc5b"></a>
 void&#160;</td><td class="memItemRight"><b>startWave</b> ()</td></tr>
-<tr class="memitem:af10e807b68439045996c4a6fabdcf073" id="r_af10e807b68439045996c4a6fabdcf073"><td class="memItemLeft"><a id="af10e807b68439045996c4a6fabdcf073" name="af10e807b68439045996c4a6fabdcf073"></a>
-bool&#160;</td><td class="memItemRight"><b>isDead</b> ()</td></tr>
-<tr class="memitem:aa3373ce0979d0d171ca88f526c844f82" id="r_aa3373ce0979d0d171ca88f526c844f82"><td class="memItemLeft"><a id="aa3373ce0979d0d171ca88f526c844f82" name="aa3373ce0979d0d171ca88f526c844f82"></a>
-bool&#160;</td><td class="memItemRight"><b>isTimeUp</b> ()</td></tr>
+<tr class="memdesc:a985139afc4bc327540b574e86e14dc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">demarre une vague grace au fichier json <br /></td></tr>
+<tr class="memitem:aa3373ce0979d0d171ca88f526c844f82" id="r_aa3373ce0979d0d171ca88f526c844f82"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3373ce0979d0d171ca88f526c844f82">isTimeUp</a> ()</td></tr>
+<tr class="memdesc:aa3373ce0979d0d171ca88f526c844f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">dit si oui ou non la wave est finie  <br /></td></tr>
 <tr class="memitem:af4c2f38f5a80c108e065b7ea4610a737" id="r_af4c2f38f5a80c108e065b7ea4610a737"><td class="memItemLeft"><a id="af4c2f38f5a80c108e065b7ea4610a737" name="af4c2f38f5a80c108e065b7ea4610a737"></a>
 void&#160;</td><td class="memItemRight"><b>resetTimer</b> ()</td></tr>
+<tr class="memdesc:af4c2f38f5a80c108e065b7ea4610a737"><td class="mdescLeft">&#160;</td><td class="mdescRight">remet a 0 le timer <br /></td></tr>
 <tr class="memitem:a077402f022c3a23057cdc00e516c8894" id="r_a077402f022c3a23057cdc00e516c8894"><td class="memItemLeft"><a id="a077402f022c3a23057cdc00e516c8894" name="a077402f022c3a23057cdc00e516c8894"></a>
 void&#160;</td><td class="memItemRight"><b>restart</b> ()</td></tr>
-<tr class="memitem:a3206ec4d597d15c6b8a0443a716324de" id="r_a3206ec4d597d15c6b8a0443a716324de"><td class="memItemLeft"><a id="a3206ec4d597d15c6b8a0443a716324de" name="a3206ec4d597d15c6b8a0443a716324de"></a>
-void&#160;</td><td class="memItemRight"><b>loadWaves</b> (const char *filename)</td></tr>
+<tr class="memdesc:a077402f022c3a23057cdc00e516c8894"><td class="mdescLeft">&#160;</td><td class="mdescRight">redemare une carte de 0 <br /></td></tr>
+<tr class="memitem:a3206ec4d597d15c6b8a0443a716324de" id="r_a3206ec4d597d15c6b8a0443a716324de"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3206ec4d597d15c6b8a0443a716324de">loadWaves</a> (const char *filename)</td></tr>
+<tr class="memdesc:a3206ec4d597d15c6b8a0443a716324de"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de charger en memoire une vague d ennemie garce au fichier json  <br /></td></tr>
 <tr class="memitem:ac9978ab8ee8e10a8c6bb01688c66816c" id="r_ac9978ab8ee8e10a8c6bb01688c66816c"><td class="memItemLeft"><a id="ac9978ab8ee8e10a8c6bb01688c66816c" name="ac9978ab8ee8e10a8c6bb01688c66816c"></a>
 void&#160;</td><td class="memItemRight"><b>resetWaves</b> ()</td></tr>
-<tr class="memitem:a9eb5c21fc19c1ea1f8b1087da1c8efe3" id="r_a9eb5c21fc19c1ea1f8b1087da1c8efe3"><td class="memItemLeft"><a id="a9eb5c21fc19c1ea1f8b1087da1c8efe3" name="a9eb5c21fc19c1ea1f8b1087da1c8efe3"></a>
-bool&#160;</td><td class="memItemRight"><b>allWavesFinished</b> (int nbEnemies) const</td></tr>
+<tr class="memdesc:ac9978ab8ee8e10a8c6bb01688c66816c"><td class="mdescLeft">&#160;</td><td class="mdescRight">remet l etat des wave a 0 <br /></td></tr>
+<tr class="memitem:a9eb5c21fc19c1ea1f8b1087da1c8efe3" id="r_a9eb5c21fc19c1ea1f8b1087da1c8efe3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9eb5c21fc19c1ea1f8b1087da1c8efe3">allWavesFinished</a> (int nbEnemies) const</td></tr>
+<tr class="memdesc:a9eb5c21fc19c1ea1f8b1087da1c8efe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">dit si oui ou nom toute les vague d ennemie on ete tuer  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>une carte du jeu avec des ennemy et des balles tirer </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8cafaff80ed3f47e4be031f596292444" name="a8cafaff80ed3f47e4be031f596292444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cafaff80ed3f47e4be031f596292444">&#9670;&#160;</a></span>Map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map::Map </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>idS</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur utilise de <a class="el" href="class_map.html" title="une carte du jeu avec des ennemy et des balles tirer">Map</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idS</td><td>L id du sprite utiliser pour la carte </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a9eb5c21fc19c1ea1f8b1087da1c8efe3" name="a9eb5c21fc19c1ea1f8b1087da1c8efe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb5c21fc19c1ea1f8b1087da1c8efe3">&#9670;&#160;</a></span>allWavesFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Map::allWavesFinished </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nbEnemies</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>dit si oui ou nom toute les vague d ennemie on ete tuer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nbEnemies</td><td>le nombre d ennemie qui devrais etre tuer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5779e8d885e5ebbe64af62f18d5cb3f4" name="a5779e8d885e5ebbe64af62f18d5cb3f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5779e8d885e5ebbe64af62f18d5cb3f4">&#9670;&#160;</a></span>damageAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::damageAll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *</td>          <td class="paramname"><span class="paramname"><em>players</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nbPlayers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait des degat a tout le monde (enemy et joueur) garce a damageP et damageE. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">players</td><td>tableau de joueur existant </td></tr>
+    <tr><td class="paramname">nbPlayers</td><td>nombre de joueur a qui faire des degats </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade85f4dc39805c31cea0f723a8b75f18" name="ade85f4dc39805c31cea0f723a8b75f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade85f4dc39805c31cea0f723a8b75f18">&#9670;&#160;</a></span>damageP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::damageP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>players</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait des degat a un joueur specifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">players</td><td>joueur a qui faire des degat </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad1391aa55435b656f459a25cc318df96" name="ad1391aa55435b656f459a25cc318df96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1391aa55435b656f459a25cc318df96">&#9670;&#160;</a></span>getBullets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_bullet.html">Bullet</a> * Map::getBullets </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie le pointeur vers la premiere bullet </p>
+<dl class="section return"><dt>Returns</dt><dd>le pointeur vers bullet[0] </dd></dl>
+
+</div>
+</div>
+<a id="a6cc08752b9a0d83462aa39fc65ec847c" name="a6cc08752b9a0d83462aa39fc65ec847c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cc08752b9a0d83462aa39fc65ec847c">&#9670;&#160;</a></span>getEnemies()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_enemy.html">Enemy</a> * Map::getEnemies </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie le pointeur vers le premier enemi </p>
+<dl class="section return"><dt>Returns</dt><dd>le pointeur vers enemy[0] </dd></dl>
+
+</div>
+</div>
+<a id="ac86cf5c5f7c3b8a03a4bc0c2df6a7b67" name="ac86cf5c5f7c3b8a03a4bc0c2df6a7b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86cf5c5f7c3b8a03a4bc0c2df6a7b67">&#9670;&#160;</a></span>getMapId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::getMapId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie l id de la carte pour l affichage graphique </p>
+<dl class="section return"><dt>Returns</dt><dd>l id de la carte </dd></dl>
+
+</div>
+</div>
+<a id="ad065f9de5bb693848aee5bd2709618f5" name="ad065f9de5bb693848aee5bd2709618f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad065f9de5bb693848aee5bd2709618f5">&#9670;&#160;</a></span>getNbBullet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::getNbBullet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie le nombre de bullet sur la carte </p>
+<dl class="section return"><dt>Returns</dt><dd>le nobre de bullet </dd></dl>
+
+</div>
+</div>
+<a id="af362fb5981124843c77a8bb68664386c" name="af362fb5981124843c77a8bb68664386c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af362fb5981124843c77a8bb68664386c">&#9670;&#160;</a></span>getNbEnemies()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::getNbEnemies </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie le nombre d ennemie sur la carte </p>
+<dl class="section return"><dt>Returns</dt><dd>le nobre d ennemi </dd></dl>
+
+</div>
+</div>
+<a id="ac675c3da6f6bc52fc218ce1447ba68eb" name="ac675c3da6f6bc52fc218ce1447ba68eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac675c3da6f6bc52fc218ce1447ba68eb">&#9670;&#160;</a></span>getTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Map::getTimer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>renvoie le temps ecoule </p>
+<dl class="section return"><dt>Returns</dt><dd>le temps ecoule </dd></dl>
+
+</div>
+</div>
+<a id="aa3373ce0979d0d171ca88f526c844f82" name="aa3373ce0979d0d171ca88f526c844f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3373ce0979d0d171ca88f526c844f82">&#9670;&#160;</a></span>isTimeUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Map::isTimeUp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dit si oui ou non la wave est finie </p>
+<dl class="section return"><dt>Returns</dt><dd>l etat de la wave (fini ou non) </dd></dl>
+
+</div>
+</div>
+<a id="a3206ec4d597d15c6b8a0443a716324de" name="a3206ec4d597d15c6b8a0443a716324de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3206ec4d597d15c6b8a0443a716324de">&#9670;&#160;</a></span>loadWaves()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::loadWaves </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>permet de charger en memoire une vague d ennemie garce au fichier json </p>
+<p>le fichier json contenant les waves </p>
+
+</div>
+</div>
+<a id="aa5e4e7d17f9ed1c7f3e771285c6f783d" name="aa5e4e7d17f9ed1c7f3e771285c6f783d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e4e7d17f9ed1c7f3e771285c6f783d">&#9670;&#160;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::move </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>winWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>winHeight</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *</td>          <td class="paramname"><span class="paramname"><em>players</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nbPlayers</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deplacement des joueur sur la carte. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">winWidth</td><td>largeur de la feunetre </td></tr>
+    <tr><td class="paramname">winHwight</td><td>hauteur de la feunetre </td></tr>
+    <tr><td class="paramname">players</td><td>Tableau de joueur a deplacer </td></tr>
+    <tr><td class="paramname">nbPlayers</td><td>Nombre de joueur a gerer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1ccd74112b857bb43ecaf48db528ece3" name="a1ccd74112b857bb43ecaf48db528ece3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ccd74112b857bb43ecaf48db528ece3">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::update </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>winWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>winHeight</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_player.html">Player</a> *</td>          <td class="paramname"><span class="paramname"><em>players</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nbPlayers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>time</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>met a jour la carte a chaque tick </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">winWidth</td><td>largeur de la feunetre </td></tr>
+    <tr><td class="paramname">winHwight</td><td>hauteur de la feunetre </td></tr>
+    <tr><td class="paramname">players</td><td>Tableau de joueur a deplacer </td></tr>
+    <tr><td class="paramname">nbPlayers</td><td>Nombre de joueur a gerer <br  />
+ </td></tr>
+    <tr><td class="paramname">time</td><td>present pour la gestion des vague (savoir si il faut en mettre une ou pas) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_map_8h_source.html">Map.h</a></li>
 <li>src/<b>Map.cpp</b></li>

@@ -1,71 +1,284 @@
 \doxysection{Map Class Reference}
 \hypertarget{class_map}{}\label{class_map}\index{Map@{Map}}
+
+
+une carte du jeu avec des ennemy et des balles tirer  
+
+
+
+
+{\ttfamily \+\#include $<$Map.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_map_a44fd93550873aae2955a7eaa17a18ee6}\label{class_map_a44fd93550873aae2955a7eaa17a18ee6} 
-{\bfseries Map} (int idS, \doxymbox{\hyperlink{class_player}{Player}} \&p, int nbP)
-\item 
-\Hypertarget{class_map_a6ce8f83a86494b21e7c56c29e0edfc1d}\label{class_map_a6ce8f83a86494b21e7c56c29e0edfc1d} 
-void {\bfseries move} (\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
-\item 
-\Hypertarget{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d}\label{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d} 
-void {\bfseries move} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
-\item 
+\Hypertarget{class_map_a0f5ad0fd4563497b4214038cbca8b582}\label{class_map_a0f5ad0fd4563497b4214038cbca8b582} 
+{\bfseries Map} ()
+\begin{DoxyCompactList}\small\item\em Construteur par defaut de \doxylink{class_map}{Map}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_map_a8cafaff80ed3f47e4be031f596292444}{Map}} (int idS)
+\begin{DoxyCompactList}\small\item\em Constructeur utilise de \doxylink{class_map}{Map}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d}{move}} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
+\begin{DoxyCompactList}\small\item\em Deplacement des joueur sur la carte. \end{DoxyCompactList}\item 
 \Hypertarget{class_map_a37c9eb4dfade85a1c305ba65445dc0bd}\label{class_map_a37c9eb4dfade85a1c305ba65445dc0bd} 
 int {\bfseries damageE} ()
-\item 
-\Hypertarget{class_map_ab49a2d55ac7e26f9075121357746bace}\label{class_map_ab49a2d55ac7e26f9075121357746bace} 
-void {\bfseries damageP} (\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players, int player)
-\item 
-\Hypertarget{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4}\label{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4} 
-void {\bfseries damage\+All} (\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
-\item 
-\Hypertarget{class_map_a1ccd74112b857bb43ecaf48db528ece3}\label{class_map_a1ccd74112b857bb43ecaf48db528ece3} 
-void {\bfseries update} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players, float time)
-\item 
-\Hypertarget{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67}\label{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67} 
-int {\bfseries get\+Map\+Id} ()
-\item 
-\Hypertarget{class_map_af362fb5981124843c77a8bb68664386c}\label{class_map_af362fb5981124843c77a8bb68664386c} 
-int {\bfseries get\+Nb\+Enemies} ()
-\item 
-\Hypertarget{class_map_a6cc08752b9a0d83462aa39fc65ec847c}\label{class_map_a6cc08752b9a0d83462aa39fc65ec847c} 
-\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Enemies} ()
-\item 
-\Hypertarget{class_map_ad065f9de5bb693848aee5bd2709618f5}\label{class_map_ad065f9de5bb693848aee5bd2709618f5} 
-int {\bfseries get\+Nb\+Bullet} ()
-\item 
-\Hypertarget{class_map_ad1391aa55435b656f459a25cc318df96}\label{class_map_ad1391aa55435b656f459a25cc318df96} 
-\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Bullets} ()
-\item 
-\Hypertarget{class_map_ac675c3da6f6bc52fc218ce1447ba68eb}\label{class_map_ac675c3da6f6bc52fc218ce1447ba68eb} 
-float {\bfseries get\+Timer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Permet de faire des degat au ennemy. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_map_ade85f4dc39805c31cea0f723a8b75f18}{damageP}} (\doxymbox{\hyperlink{class_player}{Player}} \&players)
+\begin{DoxyCompactList}\small\item\em Fait des degat a un joueur specifier. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4}{damage\+All}} (\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
+\begin{DoxyCompactList}\small\item\em Fait des degat a tout le monde (enemy et joueur) garce a damageP et damageE. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_map_a1ccd74112b857bb43ecaf48db528ece3}{update}} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players, float time)
+\begin{DoxyCompactList}\small\item\em met a jour la carte a chaque tick \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67}{get\+Map\+Id}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l id de la carte pour l affichage graphique \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_map_af362fb5981124843c77a8bb68664386c}{get\+Nb\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le nombre d ennemie sur la carte \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_map_a6cc08752b9a0d83462aa39fc65ec847c}{get\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le pointeur vers le premier enemi \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{class_map_ad065f9de5bb693848aee5bd2709618f5}{get\+Nb\+Bullet}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le nombre de bullet sur la carte \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_map_ad1391aa55435b656f459a25cc318df96}{get\+Bullets}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le pointeur vers la premiere bullet \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_map_ac675c3da6f6bc52fc218ce1447ba68eb}{get\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em renvoie le temps ecoule \end{DoxyCompactList}\item 
 \Hypertarget{class_map_a985139afc4bc327540b574e86e14dc5b}\label{class_map_a985139afc4bc327540b574e86e14dc5b} 
 void {\bfseries start\+Wave} ()
-\item 
-\Hypertarget{class_map_af10e807b68439045996c4a6fabdcf073}\label{class_map_af10e807b68439045996c4a6fabdcf073} 
-bool {\bfseries is\+Dead} ()
-\item 
-\Hypertarget{class_map_aa3373ce0979d0d171ca88f526c844f82}\label{class_map_aa3373ce0979d0d171ca88f526c844f82} 
-bool {\bfseries is\+Time\+Up} ()
-\item 
+\begin{DoxyCompactList}\small\item\em demarre une vague grace au fichier json \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_map_aa3373ce0979d0d171ca88f526c844f82}{is\+Time\+Up}} ()
+\begin{DoxyCompactList}\small\item\em dit si oui ou non la wave est finie \end{DoxyCompactList}\item 
 \Hypertarget{class_map_af4c2f38f5a80c108e065b7ea4610a737}\label{class_map_af4c2f38f5a80c108e065b7ea4610a737} 
 void {\bfseries reset\+Timer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em remet a 0 le timer \end{DoxyCompactList}\item 
 \Hypertarget{class_map_a077402f022c3a23057cdc00e516c8894}\label{class_map_a077402f022c3a23057cdc00e516c8894} 
 void {\bfseries restart} ()
-\item 
-\Hypertarget{class_map_a3206ec4d597d15c6b8a0443a716324de}\label{class_map_a3206ec4d597d15c6b8a0443a716324de} 
-void {\bfseries load\+Waves} (const char \texorpdfstring{$\ast$}{*}filename)
-\item 
+\begin{DoxyCompactList}\small\item\em redemare une carte de 0 \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_map_a3206ec4d597d15c6b8a0443a716324de}{load\+Waves}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em permet de charger en memoire une vague d ennemie garce au fichier json \end{DoxyCompactList}\item 
 \Hypertarget{class_map_ac9978ab8ee8e10a8c6bb01688c66816c}\label{class_map_ac9978ab8ee8e10a8c6bb01688c66816c} 
 void {\bfseries reset\+Waves} ()
-\item 
-\Hypertarget{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3}\label{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3} 
-bool {\bfseries all\+Waves\+Finished} (int nb\+Enemies) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em remet l etat des wave a 0 \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3}{all\+Waves\+Finished}} (int nb\+Enemies) const
+\begin{DoxyCompactList}\small\item\em dit si oui ou nom toute les vague d ennemie on ete tuer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+une carte du jeu avec des ennemy et des balles tirer 
+
+\label{doc-constructors}
+\Hypertarget{class_map_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_map_a8cafaff80ed3f47e4be031f596292444}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily \label{class_map_a8cafaff80ed3f47e4be031f596292444} 
+Map::\+\+Map (\begin{DoxyParamCaption}\item[{int}]{idS}{}\end{DoxyParamCaption})}
+
+
+
+Constructeur utilise de \doxylink{class_map}{Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idS} & L id du sprite utiliser pour la carte \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_map_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3}\index{Map@{Map}!allWavesFinished@{allWavesFinished}}
+\index{allWavesFinished@{allWavesFinished}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{allWavesFinished()}{allWavesFinished()}}
+{\footnotesize\ttfamily \label{class_map_a9eb5c21fc19c1ea1f8b1087da1c8efe3} 
+bool Map::\+all\+Waves\+Finished (\begin{DoxyParamCaption}\item[{int}]{nb\+Enemies}{}\end{DoxyParamCaption}) const}
+
+
+
+dit si oui ou nom toute les vague d ennemie on ete tuer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Enemies} & le nombre d ennemie qui devrais etre tuer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4}\index{Map@{Map}!damageAll@{damageAll}}
+\index{damageAll@{damageAll}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{damageAll()}{damageAll()}}
+{\footnotesize\ttfamily \label{class_map_a5779e8d885e5ebbe64af62f18d5cb3f4} 
+void Map::\+damage\+All (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{players}{, }\item[{int}]{nb\+Players}{}\end{DoxyParamCaption})}
+
+
+
+Fait des degat a tout le monde (enemy et joueur) garce a damageP et damageE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em players} & tableau de joueur existant \\
+\hline
+{\em nb\+Players} & nombre de joueur a qui faire des degats \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_map_ade85f4dc39805c31cea0f723a8b75f18}\index{Map@{Map}!damageP@{damageP}}
+\index{damageP@{damageP}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{damageP()}{damageP()}}
+{\footnotesize\ttfamily \label{class_map_ade85f4dc39805c31cea0f723a8b75f18} 
+void Map::\+damageP (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_player}{Player}} \&}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Fait des degat a un joueur specifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em players} & joueur a qui faire des degat \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_map_ad1391aa55435b656f459a25cc318df96}\index{Map@{Map}!getBullets@{getBullets}}
+\index{getBullets@{getBullets}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getBullets()}{getBullets()}}
+{\footnotesize\ttfamily \label{class_map_ad1391aa55435b656f459a25cc318df96} 
+\doxymbox{\hyperlink{class_bullet}{Bullet}} \texorpdfstring{$\ast$}{*} Map::\+get\+Bullets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie le pointeur vers la premiere bullet 
+
+\begin{DoxyReturn}{Returns}
+le pointeur vers bullet\+[0]\+ 
+\end{DoxyReturn}
+\Hypertarget{class_map_a6cc08752b9a0d83462aa39fc65ec847c}\index{Map@{Map}!getEnemies@{getEnemies}}
+\index{getEnemies@{getEnemies}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getEnemies()}{getEnemies()}}
+{\footnotesize\ttfamily \label{class_map_a6cc08752b9a0d83462aa39fc65ec847c} 
+\doxymbox{\hyperlink{class_enemy}{Enemy}} \texorpdfstring{$\ast$}{*} Map::\+get\+Enemies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie le pointeur vers le premier enemi 
+
+\begin{DoxyReturn}{Returns}
+le pointeur vers enemy\+[0]\+ 
+\end{DoxyReturn}
+\Hypertarget{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67}\index{Map@{Map}!getMapId@{getMapId}}
+\index{getMapId@{getMapId}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getMapId()}{getMapId()}}
+{\footnotesize\ttfamily \label{class_map_ac86cf5c5f7c3b8a03a4bc0c2df6a7b67} 
+int Map::\+get\+Map\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie l id de la carte pour l affichage graphique 
+
+\begin{DoxyReturn}{Returns}
+l id de la carte 
+\end{DoxyReturn}
+\Hypertarget{class_map_ad065f9de5bb693848aee5bd2709618f5}\index{Map@{Map}!getNbBullet@{getNbBullet}}
+\index{getNbBullet@{getNbBullet}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getNbBullet()}{getNbBullet()}}
+{\footnotesize\ttfamily \label{class_map_ad065f9de5bb693848aee5bd2709618f5} 
+int Map::\+get\+Nb\+Bullet (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie le nombre de bullet sur la carte 
+
+\begin{DoxyReturn}{Returns}
+le nobre de bullet 
+\end{DoxyReturn}
+\Hypertarget{class_map_af362fb5981124843c77a8bb68664386c}\index{Map@{Map}!getNbEnemies@{getNbEnemies}}
+\index{getNbEnemies@{getNbEnemies}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getNbEnemies()}{getNbEnemies()}}
+{\footnotesize\ttfamily \label{class_map_af362fb5981124843c77a8bb68664386c} 
+int Map::\+get\+Nb\+Enemies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie le nombre d ennemie sur la carte 
+
+\begin{DoxyReturn}{Returns}
+le nobre d ennemi 
+\end{DoxyReturn}
+\Hypertarget{class_map_ac675c3da6f6bc52fc218ce1447ba68eb}\index{Map@{Map}!getTimer@{getTimer}}
+\index{getTimer@{getTimer}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getTimer()}{getTimer()}}
+{\footnotesize\ttfamily \label{class_map_ac675c3da6f6bc52fc218ce1447ba68eb} 
+float Map::\+get\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+renvoie le temps ecoule 
+
+\begin{DoxyReturn}{Returns}
+le temps ecoule 
+\end{DoxyReturn}
+\Hypertarget{class_map_aa3373ce0979d0d171ca88f526c844f82}\index{Map@{Map}!isTimeUp@{isTimeUp}}
+\index{isTimeUp@{isTimeUp}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{isTimeUp()}{isTimeUp()}}
+{\footnotesize\ttfamily \label{class_map_aa3373ce0979d0d171ca88f526c844f82} 
+bool Map::\+is\+Time\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+dit si oui ou non la wave est finie 
+
+\begin{DoxyReturn}{Returns}
+l etat de la wave (fini ou non) 
+\end{DoxyReturn}
+\Hypertarget{class_map_a3206ec4d597d15c6b8a0443a716324de}\index{Map@{Map}!loadWaves@{loadWaves}}
+\index{loadWaves@{loadWaves}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{loadWaves()}{loadWaves()}}
+{\footnotesize\ttfamily \label{class_map_a3206ec4d597d15c6b8a0443a716324de} 
+void Map::\+load\+Waves (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+permet de charger en memoire une vague d ennemie garce au fichier json 
+
+le fichier json contenant les waves \Hypertarget{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d}\index{Map@{Map}!move@{move}}
+\index{move@{move}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{class_map_aa5e4e7d17f9ed1c7f3e771285c6f783d} 
+void Map::\+move (\begin{DoxyParamCaption}\item[{unsigned int}]{win\+Width}{, }\item[{unsigned int}]{win\+Height}{, }\item[{\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{players}{, }\item[{int}]{nb\+Players}{}\end{DoxyParamCaption})}
+
+
+
+Deplacement des joueur sur la carte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em win\+Width} & largeur de la feunetre \\
+\hline
+{\em win\+Hwight} & hauteur de la feunetre \\
+\hline
+{\em players} & Tableau de joueur a deplacer \\
+\hline
+{\em nb\+Players} & Nombre de joueur a gerer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_map_a1ccd74112b857bb43ecaf48db528ece3}\index{Map@{Map}!update@{update}}
+\index{update@{update}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_map_a1ccd74112b857bb43ecaf48db528ece3} 
+void Map::\+update (\begin{DoxyParamCaption}\item[{unsigned int}]{win\+Width}{, }\item[{unsigned int}]{win\+Height}{, }\item[{\doxymbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{players}{, }\item[{int}]{nb\+Players}{, }\item[{float}]{time}{}\end{DoxyParamCaption})}
+
+
+
+met a jour la carte a chaque tick 
+
+
+\begin{DoxyParams}{Parameters}
+{\em win\+Width} & largeur de la feunetre \\
+\hline
+{\em win\+Hwight} & hauteur de la feunetre \\
+\hline
+{\em players} & Tableau de joueur a deplacer \\
+\hline
+{\em nb\+Players} & Nombre de joueur a gerer ~\newline
+ \\
+\hline
+{\em time} & present pour la gestion des vague (savoir si il faut en mettre une ou pas) \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
