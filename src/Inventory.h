@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _INVENTORY_H
+#define _INVENTORY_H
 #define MAX_ITEMS 10
 
 #include "Item.h"
@@ -76,3 +78,6 @@ public:
     */
     Weapon& getWeapon();
 };
+
+
+#endif

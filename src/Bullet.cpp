@@ -1,5 +1,4 @@
 #include "Bullet.h"
-#include "cmath"
 
 Bullet::Bullet(){
     //next=nullptr;
