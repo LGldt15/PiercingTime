@@ -1,45 +1,23 @@
-# p2402839_p2303354_p2405561
+# Piercing Time - UE LIFAPCD
 
-# Module Image, UE LIFAPCD
+Projet réalisé dans le cadre du module **Image (LIFAPCD)**.
 
-## Contributeurs et License
-owner: 
-- Lina Guellali
+## 👥 Contributeurs
+- **Développeurs :**
+    - Nicolas de Brebisson
+    - Lina Guellali
+    - Charlie Merchadou
 
-devlopper : 
-- Nicolas de Brebisson
-- Lina Guellali
-- Charlie Merchadou
+## 📋 Description
+Piercing Time est un jeu de type survie/action développé en C++ utilisant la bibliothèque SFML. Le jeu intègre un système de vagues d'ennemis, une gestion d'inventaire, une boutique d'objets, et un mode multijoueur.
 
-## Pour compiler
-executer make 
-il y a un warning pour le memcpy mais il est a igniorer il n y a pas de problem avec
+## ⚙️ Prérequis
+Pour compiler et exécuter ce projet, assurez-vous d'avoir installé :
+- Un compilateur C++ compatible (g++).
+- La bibliothèque **SFML** (2.5 ou supérieur).
 
-## Les fichiers
-Bullet.cpp
-Bullet.h
-Controls.h
-Enemy.cpp
-Enemy.h
-Game.cpp
-Game.h
-IHM.cpp
-IHM.h
-IHMServeur.cpp
-IHMServeur.h
-Inventory.cpp
-Inventory.h
-Item.h
-mainDispatcher.cpp
-MainMenu.cpp
-MainMenu.h
-mainTest.cpp
-Map.cpp
-Map.h
-Player.cpp
-Player.h
-Position.cpp
-Position.h
-Shop.cpp
-Shop.h
-stats.h
+## 🚀 Compilation
+Le projet utilise un `Makefile`. Pour compiler, placez-vous à la racine du dossier et exécutez la commande suivante dans votre terminal :
+
+```bash
+make
