@@ -1,6 +1,6 @@
 # Piercing Time - UE LIFAPCD
 
-Projet réalisé dans le cadre du module **Image (LIFAPCD)**.
+Projet réalisé dans le cadre de **(LIFAPCD)**.
 
 ## 👥 Contributeurs
 - **Développeurs :**
