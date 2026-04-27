@@ -2,58 +2,58 @@
 \hypertarget{_controls_8h_source}{}\label{_controls_8h_source}\index{src/Controls.h@{src/Controls.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_controls}{Controls}}\{}
-\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{bool}\ up;\textcolor{comment}{//1}}
-\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{bool}\ down;\textcolor{comment}{//2}}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{bool}\ right;\textcolor{comment}{//3}}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{bool}\ left;\textcolor{comment}{//4}}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{bool}\ pause;\textcolor{comment}{//5}}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{bool}\ select;\textcolor{comment}{//6}}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ tab;\textcolor{comment}{//7}}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ back;}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ next;}
-\DoxyCodeLine{00013\ \};}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\#ifndef\ INPUTMANAGER\_H}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\#define\ INPUTMANAGER\_H}}
-\DoxyCodeLine{00020\ \textcolor{comment}{}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\#include\ <SFML/Window/Keyboard.hpp>}}
-\DoxyCodeLine{00022\ \textcolor{comment}{\#include\ <map>}}
-\DoxyCodeLine{00023\ \textcolor{comment}{\#include\ <string>}}
-\DoxyCodeLine{00024\ \textcolor{comment}{}}
-\DoxyCodeLine{00025\ \textcolor{comment}{//\ On\ définit\ les\ actions\ possibles\ de\ manière\ propre}}
-\DoxyCodeLine{00026\ \textcolor{comment}{enum\ class\ Action\ \{}}
-\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ Up,}}
-\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ Down,}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ Left,}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ Right,}}
-\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ Pause,}}
-\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ Select}}
-\DoxyCodeLine{00033\ \textcolor{comment}{\};}}
-\DoxyCodeLine{00034\ \textcolor{comment}{}}
-\DoxyCodeLine{00035\ \textcolor{comment}{class\ InputManager\ \{}}
-\DoxyCodeLine{00036\ \textcolor{comment}{private:}}
-\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ //\ Le\ mapping\ :\ Associe\ une\ Action\ à\ une\ touche\ SFML}}
-\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ std::map<Action,\ sf::Keyboard::Key>\ keyMap;}}
-\DoxyCodeLine{00039\ \textcolor{comment}{}}
-\DoxyCodeLine{00040\ \textcolor{comment}{public:}}
-\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ InputManager();}}
-\DoxyCodeLine{00042\ \textcolor{comment}{}}
-\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ //\ Permet\ de\ changer\ une\ touche\ en\ plein\ jeu\ (ex:\ passer\ de\ ZQSD\ à\ Flèches)}}
-\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ void\ remap(Action\ action,\ sf::Keyboard::Key\ newKey);}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_controls}{Controls}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ up;\textcolor{comment}{//1}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ down;\textcolor{comment}{//2}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ right;\textcolor{comment}{//3}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ left;\textcolor{comment}{//4}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ pause;\textcolor{comment}{//5}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ select;\textcolor{comment}{//6}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ tab;\textcolor{comment}{//7}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ back;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ next;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#ifndef\ INPUTMANAGER\_H}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#define\ INPUTMANAGER\_H}}
+\DoxyCodeLine{00026\ \textcolor{comment}{}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#include\ <SFML/Window/Keyboard.hpp>}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#include\ <map>}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#include\ <string>}}
+\DoxyCodeLine{00030\ \textcolor{comment}{}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ On\ définit\ les\ actions\ possibles\ de\ manière\ propre}}
+\DoxyCodeLine{00032\ \textcolor{comment}{enum\ class\ Action\ \{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ Up,}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ Down,}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ Left,}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ Right,}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ Pause,}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ Select}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00040\ \textcolor{comment}{}}
+\DoxyCodeLine{00041\ \textcolor{comment}{class\ InputManager\ \{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{private:}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ //\ Le\ mapping\ :\ Associe\ une\ Action\ à\ une\ touche\ SFML}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ std::map<Action,\ sf::Keyboard::Key>\ keyMap;}}
 \DoxyCodeLine{00045\ \textcolor{comment}{}}
-\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ //\ Renvoie\ true\ si\ l'action\ est\ pressée}}
-\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ bool\ isActionPressed(Action\ action)\ const;}}
+\DoxyCodeLine{00046\ \textcolor{comment}{public:}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ InputManager();}}
 \DoxyCodeLine{00048\ \textcolor{comment}{}}
-\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ //\ Version\ pour\ les\ événements\ (pression\ unique)}}
-\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ bool\ isActionJustPressed(const\ sf::Event::KeyPressed*\ event,\ Action\ action)\ const;}}
-\DoxyCodeLine{00051\ \textcolor{comment}{\};}}
-\DoxyCodeLine{00052\ \textcolor{comment}{}}
-\DoxyCodeLine{00053\ \textcolor{comment}{\#endif*/}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ //\ Permet\ de\ changer\ une\ touche\ en\ plein\ jeu\ (ex:\ passer\ de\ ZQSD\ à\ Flèches)}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ void\ remap(Action\ action,\ sf::Keyboard::Key\ newKey);}}
+\DoxyCodeLine{00051\ \textcolor{comment}{}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ //\ Renvoie\ true\ si\ l'action\ est\ pressée}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ bool\ isActionPressed(Action\ action)\ const;}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ \ //\ Version\ pour\ les\ événements\ (pression\ unique)}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ bool\ isActionJustPressed(const\ sf::Event::KeyPressed*\ event,\ Action\ action)\ const;}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00058\ \textcolor{comment}{}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\#endif*/}}
 
 \end{DoxyCode}
