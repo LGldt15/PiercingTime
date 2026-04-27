@@ -16,7 +16,7 @@ Enemy::Enemy(int health,int damage,bool a,float s,int idS, std::string t){
     height=width=100;
     next=nullptr;
     std::strcpy(type, t.c_str());
-    rotationSide=rand()%1;
+    rotationSide=rand()%2;
     gold=10;
     
 }

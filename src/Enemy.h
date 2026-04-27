@@ -12,7 +12,7 @@ class Player;
 /**
  * @class   Enemy
  *
- * @brief Classe expriamnt un enemy quelconque de la carte 
+ * @brief Classe exprimant un enemy quelconque de la carte 
  *
  * 
  */
@@ -46,14 +46,13 @@ public:
     ~Enemy();
     
     /**
-    * @brief permet de se deplacer vers le jouieur 
+    * @brief permet de se deplacer selon un mode de déplacement dépendant de son type
     * 
-    * @param player Position du player vers lequelle se deplacer.
+    * @param player Position du player.
     */
-
     void move(Position &player);
     /**
-    * @brief deplacement de l ennemy de tyupe Agro 
+    * @brief deplacement de l ennemy de tyupe Agro
     * 
     * @param player Position du player vers lequelle se deplacer.
     */
@@ -61,57 +60,56 @@ public:
     /**
     * @brief deplacement de l ennemy de type Shooter
     * 
-    * @param player Position du player vers lequelle se deplacer.
+    * @param player Position du player autour duquel tourner.
     */
     void moveShooter(Position &player);
     /**
     * @brief deplacement de l ennemy de type Deserter
     * 
-    * @param player Position du player vers lequelle se deplacer.
+    * @param player Position du player à fuire.
     */
     void moveDeserter(Position &player);
     /**
-    * @brief permet au enemy de typoe shooter de tirer une ball vers un joueur et la jouter a la map
+    * @brief permet au enemy de type shooter de tirer une balle vers un joueur et l ajouter a la map
     * 
-    * @param bullets tableau de ball a laquelle ajouter son tir
+    * @param bullets tableau de balle a laquelle ajouter son tir
     * @param nbP nombre de joueur sur la carte
     * @param tabP pointeur vers les joueurs (permet donc de trouver le joueur le plus proche pour tirer)
     */
     void shoot(Bullet &bullets, unsigned int nbP, Player* tabP)const;
     /**
-    * @brief Permet a un ennemy de prendre les degat d une ball 
+    * @brief Permet a un ennemy de prendre les degat d une balle 
     * 
     * @param bullets balle par laquelle l ennemy doit prendre des degats.
     * @return renvoie si l ennemy a ete toucher ou pas
     */
-
     bool takeDamageBullet(Bullet &bullets);
     /**
-    * @brief Renvoi le sprite associer a un ennemy
+    * @brief Renvoie le sprite associe a un ennemy
     * 
     * @return renvoie le sprite de l ennemy
     */
     unsigned int getSprite();
     /**
-    * @brief Renvoi la position associer a un ennemy
+    * @brief Renvoie la position associee a un ennemy
     * 
     * @return renvoie la position de l ennemy
     */
     Position getPosition();
     /**
-    * @brief Renvoi les l or associer a un ennemy
+    * @brief Renvoie l or associee a un ennemy
     * 
-    * @return renvoie les l or de l ennemy
+    * @return renvoie l or de l ennemy
     */
     int getGold();
     /**
-    * @brief Renvoi les stats associer a un ennemy
+    * @brief Renvoie les stats associees a un ennemy
     * 
     * @return renvoie les stats de l ennemy
     */
     Stats& getStats();
     /**
-    * @brief Renvoi les stats associer a un ennemy
+    * @brief Renvoie les stats associees a un ennemy
     * 
     * @return renvoie les stats de l ennemy
     */
