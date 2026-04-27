@@ -13,6 +13,11 @@ const int MAX_WAVES = 10;          // Nombre max de vagues
 const int MAX_TYPES_PER_WAVE = 3;
 
 //pour le json
+/**
+ * @struct EnemySpawnData
+ *
+ * @brief Permet de recuperer les infos du JSON pour les utilisee dans le constructeur de Enemy
+ */
 
 struct EnemySpawnData {
     char type[32];
@@ -23,7 +28,11 @@ struct EnemySpawnData {
     int spriteId;
 };
 
-
+/**
+ * @struct Wave
+ *
+ * @brief contien une vague d ennemies (generer grace au JSON)
+ */
 struct Wave {
     float triggerTime;
     EnemySpawnData enemyTypes[MAX_TYPES_PER_WAVE];
