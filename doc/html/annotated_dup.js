@@ -199,7 +199,7 @@ var annotated_dup =
     [ "json_pointer", "classjson__pointer.html", null ],
     [ "json_sax", "structjson__sax.html", "structjson__sax" ],
     [ "MainMenu", "classMainMenu.html", null ],
-    [ "Map", "classMap.html", null ],
+    [ "Map", "classMap.html", "classMap" ],
     [ "ordered_map", "structordered__map.html", null ],
     [ "Player", "classPlayer.html", "classPlayer" ],
     [ "Position", "structPosition.html", null ],

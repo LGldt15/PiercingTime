@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"structdetail_1_1is__complete__type.html":[1,0,0,51],
+"structdetail_1_1is__complete__type.html":[2,0,0,53],
 "structdetail_1_1is__complete__type_3_01T_00_01decltype_07void_07sizeof_07T_08_08_08_4.html":[1,0,0,52],
 "structdetail_1_1is__complete__type_3_01T_00_01decltype_07void_07sizeof_07T_08_08_08_4.html":[2,0,0,54],
 "structdetail_1_1is__constructible.html":[1,0,0,43],

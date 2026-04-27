@@ -1,4 +1,10 @@
 #pragma once
+/**
+ * @struct Controls
+ *
+ * @brief struct permettant de savoir vers ou le joueur veux aller et donner ces information au rest du jeux sans passer par SFML et donc garder une distinction IHM
+ *
+ */
 
 struct Controls{
     bool up;//1

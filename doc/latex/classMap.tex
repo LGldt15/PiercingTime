@@ -1,14 +1,22 @@
 \doxysection{Map Class Reference}
 \hypertarget{classMap}{}\label{classMap}\index{Map@{Map}}
+
+
+une carte du jeu avec des ennemy et des balles tirer  
+
+
+
+
+{\ttfamily \+\#include $<$Map.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classMap_a44fd93550873aae2955a7eaa17a18ee6}\label{classMap_a44fd93550873aae2955a7eaa17a18ee6} 
-{\bfseries Map} (int idS, \doxymbox{\hyperlink{classPlayer}{Player}} \&p, int nbP)
-\item 
-\Hypertarget{classMap_a6ce8f83a86494b21e7c56c29e0edfc1d}\label{classMap_a6ce8f83a86494b21e7c56c29e0edfc1d} 
-void {\bfseries move} (\doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
-\item 
+\Hypertarget{classMap_a0f5ad0fd4563497b4214038cbca8b582}\label{classMap_a0f5ad0fd4563497b4214038cbca8b582} 
+{\bfseries Map} ()
+\begin{DoxyCompactList}\small\item\em Construteur par defaut de \doxylink{classMap}{Map}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classMap_a8cafaff80ed3f47e4be031f596292444}{Map}} (int idS)
+\begin{DoxyCompactList}\small\item\em Constructeur utilise de \doxylink{classMap}{Map}. \end{DoxyCompactList}\item 
 \Hypertarget{classMap_aa5e4e7d17f9ed1c7f3e771285c6f783d}\label{classMap_aa5e4e7d17f9ed1c7f3e771285c6f783d} 
 void {\bfseries move} (unsigned int win\+Width, unsigned int win\+Height, \doxymbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}players, int nb\+Players)
 \item 
@@ -66,6 +74,29 @@ void {\bfseries reset\+Waves} ()
 \Hypertarget{classMap_a9eb5c21fc19c1ea1f8b1087da1c8efe3}\label{classMap_a9eb5c21fc19c1ea1f8b1087da1c8efe3} 
 bool {\bfseries all\+Waves\+Finished} (int nb\+Enemies) const
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+une carte du jeu avec des ennemy et des balles tirer 
+
+\label{doc-constructors}
+\Hypertarget{classMap_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMap_a8cafaff80ed3f47e4be031f596292444}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily \label{classMap_a8cafaff80ed3f47e4be031f596292444} 
+Map::\+\+Map (\begin{DoxyParamCaption}\item[{int}]{idS}{}\end{DoxyParamCaption})}
+
+
+
+Constructeur utilise de \doxylink{classMap}{Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idS} & L id du sprite utiliser pour la carte \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}

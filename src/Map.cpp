@@ -21,7 +21,6 @@ Map::Map(){
 
     
     idMap=0;
-    nbPlayers=0;
     nbEnemies=0;
     nbBullets=0;
 
@@ -37,10 +36,8 @@ Map::Map(){
 }
 
 
-Map::Map(int idS,Player &p,int nbP){
+Map::Map(int idS){
     idMap=idS;
-    players[0]=&p;
-    nbPlayers=nbP;
     nbEnemies=6;
 
 
@@ -90,18 +87,6 @@ void Map::startWave(){
 
 
     
-void Map::move(Player* players,int nbPlayers){
-    for (int i=0;i<nbPlayers;i++){
-        for (int j=0;j<50;j++){
-            if(enemies[j].isAlive)enemies[j].move(players[i].position);
-
-        }
-    }    
-    for (int i=0;i<500;i++){
-        if(bullets[i].damage!=0)bullets[i].move();
-    }
-
-}
 
 void Map::move(unsigned int winWidth, unsigned int winHeight,Player* players,int nbPlayers){
     for (int i=0;i<nbPlayers;i++){
@@ -140,15 +125,15 @@ int Map::damageE(){
     return gold;
 }
 
-void Map::damageP(Player* players,int nbPlayers , int player){
+void Map::damageP(Player &players){
     for(int i=0;i<MAX_ENEMY;i++){
         if(enemies[i].isAlive){
-            if(players[player].takeDamage(enemies[i])) return;
+            if(players.takeDamage(enemies[i])) return;
         }
     }
     for(int i=0;i<MAX_BULLETS;i++){
         if(bullets[i].damage!=0){
-            if(players[player].takeDamageBullet(bullets[i])){
+            if(players.takeDamageBullet(bullets[i])){
                 return;
             } 
         }
@@ -159,7 +144,7 @@ void Map::damageAll(Player* players,int nbPlayers){
     int g=damageE();
 
     for(int i=0;i<nbPlayers;i++){
-        damageP(players,nbPlayers,i);
+        damageP(players[i]);
         players[i].setGold(players[i].getGold()+g/nbPlayers);
     }
 
@@ -302,7 +287,6 @@ Bullet* Map::getBullets(){
 }
 
 
-bool Map::isDead() { return dead; }
 
 void Map::restart() {
     timer = 0.0f; // Reset horloge
