@@ -29,6 +29,7 @@ Le projet supporte le mode multijoueur via une connexion réseau. Pour configure
 2. Localisez la ligne suivante :
    ```cpp
    sf::IpAddress ip(88, 184, 64, 49);
+3. Mettre l'IP à 127.0.0.1 pour les tests de serveur local ou à l'IP sur lequel le serveur tourne.
 
 ## 🚀 Compilation
 Le projet utilise un `Makefile`. Pour compiler, placez-vous à la racine du dossier et exécutez la commande suivante dans votre terminal :
