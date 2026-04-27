@@ -98,40 +98,50 @@ $(function(){initNavTree('Shop_8h_source.html','',''); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Player.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classShop.html">   10</a></span><span class="keyword">class </span>Shop{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><a class="code hl_struct" href="structItem.html">Item</a> item[5];<span class="comment">//5 different items possible avec chacun un prix et des stats</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">int</span> currentCursor;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>Shop();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>~Shop();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> handleInput(<a class="code hl_struct" href="structControls.html">Controls</a>&amp; c, <a class="code hl_class" href="classPlayer.html">Player</a>&amp; p);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> refreshShop();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> effectOnPlayer(<a class="code hl_class" href="classPlayer.html">Player</a>&amp; p, <a class="code hl_struct" href="structItem.html">Item</a> i);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_struct" href="structItem.html">Item</a> itemRandSelect();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//getter items</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_struct" href="structItem.html">Item</a> getItems();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_struct" href="structItem.html">Item</a> getItemAt(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">int</span> getCurrentCursor();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> moveLeft();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> moveRight();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> consoleShop();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classShop.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="classShop.html#a579ed9f949f7db3f90c22dfe10b25797">Shop</a>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_struct" href="structItem.html">Item</a> item[5];<span class="comment">//5 different items possible avec chacun un prix et des stats</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">int</span> currentCursor;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><a class="code hl_function" href="classShop.html#a579ed9f949f7db3f90c22dfe10b25797">Shop</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><a class="code hl_function" href="classShop.html#a36bf69bdc0da1b7258acc63a5fe89d40">~Shop</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#ae411c56e453ac238893983a23e2aaeba">handleInput</a>(<a class="code hl_struct" href="structControls.html">Controls</a>&amp; c, <a class="code hl_class" href="classPlayer.html">Player</a>&amp; p);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#a4d7a3282cad4c85d0f4b9645789e6953">refreshShop</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#aa859cec82a503f4ae4b68437d8b77dd2">effectOnPlayer</a>(<a class="code hl_class" href="classPlayer.html">Player</a>&amp; p, <a class="code hl_struct" href="structItem.html">Item</a> i);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><a class="code hl_struct" href="structItem.html">Item</a> <a class="code hl_function" href="classShop.html#a4f0bed3876da53354b4b05a7557b7d87">itemRandSelect</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//getter items</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><a class="code hl_struct" href="structItem.html">Item</a> <a class="code hl_function" href="classShop.html#af6380e9dbccad7cb81d537a82067cbcf">getItemAt</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> <a class="code hl_function" href="classShop.html#a3fa3ac072a1c60afea0f74a9fd2d1fb4">getCurrentCursor</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#a3c2bf22519f622c2c1a4873d006bdbd2">moveLeft</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#a252c2ea66d68389cca8f37373923a9e6">moveRight</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classShop.html#abd9a69d363564a100acb969aa5514775">   84</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classShop.html#abd9a69d363564a100acb969aa5514775">consoleShop</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdoc">classe gérant le(s) joueur(s) humain(s)</div><div class="ttdef"><b>Definition</b> Player.h:17</div></div>
+<div class="ttc" id="aclassShop_html_a252c2ea66d68389cca8f37373923a9e6"><div class="ttname"><a href="classShop.html#a252c2ea66d68389cca8f37373923a9e6">Shop::moveRight</a></div><div class="ttdeci">void moveRight()</div><div class="ttdoc">deplace le curseur de selection vers la Droite</div><div class="ttdef"><b>Definition</b> Shop.cpp:127</div></div>
+<div class="ttc" id="aclassShop_html_a36bf69bdc0da1b7258acc63a5fe89d40"><div class="ttname"><a href="classShop.html#a36bf69bdc0da1b7258acc63a5fe89d40">Shop::~Shop</a></div><div class="ttdeci">~Shop()</div><div class="ttdoc">Destructeur par defaut de Shop.</div><div class="ttdef"><b>Definition</b> Shop.cpp:19</div></div>
+<div class="ttc" id="aclassShop_html_a3c2bf22519f622c2c1a4873d006bdbd2"><div class="ttname"><a href="classShop.html#a3c2bf22519f622c2c1a4873d006bdbd2">Shop::moveLeft</a></div><div class="ttdeci">void moveLeft()</div><div class="ttdoc">deplace le curseur de selection vers la gauche</div><div class="ttdef"><b>Definition</b> Shop.cpp:126</div></div>
+<div class="ttc" id="aclassShop_html_a3fa3ac072a1c60afea0f74a9fd2d1fb4"><div class="ttname"><a href="classShop.html#a3fa3ac072a1c60afea0f74a9fd2d1fb4">Shop::getCurrentCursor</a></div><div class="ttdeci">int getCurrentCursor()</div><div class="ttdoc">renvoie l item actuelement selectioner (pa acheter selectione)</div><div class="ttdef"><b>Definition</b> Shop.cpp:124</div></div>
+<div class="ttc" id="aclassShop_html_a4d7a3282cad4c85d0f4b9645789e6953"><div class="ttname"><a href="classShop.html#a4d7a3282cad4c85d0f4b9645789e6953">Shop::refreshShop</a></div><div class="ttdeci">void refreshShop()</div><div class="ttdoc">permet de remetre des items dans les cases vide quand on achete un item</div><div class="ttdef"><b>Definition</b> Shop.cpp:74</div></div>
+<div class="ttc" id="aclassShop_html_a4f0bed3876da53354b4b05a7557b7d87"><div class="ttname"><a href="classShop.html#a4f0bed3876da53354b4b05a7557b7d87">Shop::itemRandSelect</a></div><div class="ttdeci">Item itemRandSelect()</div><div class="ttdoc">renvoie un item aleatoir parmis une liste predefinie</div><div class="ttdef"><b>Definition</b> Shop.cpp:21</div></div>
+<div class="ttc" id="aclassShop_html_a579ed9f949f7db3f90c22dfe10b25797"><div class="ttname"><a href="classShop.html#a579ed9f949f7db3f90c22dfe10b25797">Shop::Shop</a></div><div class="ttdeci">Shop()</div><div class="ttdoc">Constructeur par defaut de Shop.</div><div class="ttdef"><b>Definition</b> Shop.cpp:6</div></div>
+<div class="ttc" id="aclassShop_html_aa859cec82a503f4ae4b68437d8b77dd2"><div class="ttname"><a href="classShop.html#aa859cec82a503f4ae4b68437d8b77dd2">Shop::effectOnPlayer</a></div><div class="ttdeci">void effectOnPlayer(Player &amp;p, Item i)</div><div class="ttdoc">modifie les stat d un joueur avec un item qu il a acheter</div><div class="ttdef"><b>Definition</b> Shop.cpp:112</div></div>
+<div class="ttc" id="aclassShop_html_abd9a69d363564a100acb969aa5514775"><div class="ttname"><a href="classShop.html#abd9a69d363564a100acb969aa5514775">Shop::consoleShop</a></div><div class="ttdeci">void consoleShop()</div><div class="ttdoc">version console du shop avant l imlementation graphique</div></div>
+<div class="ttc" id="aclassShop_html_ae411c56e453ac238893983a23e2aaeba"><div class="ttname"><a href="classShop.html#ae411c56e453ac238893983a23e2aaeba">Shop::handleInput</a></div><div class="ttdeci">void handleInput(Controls &amp;c, Player &amp;p)</div><div class="ttdoc">s occupe de regarder quelle item est selectionner garce au controlles et ensuit l ajouter a un joueur...</div><div class="ttdef"><b>Definition</b> Shop.cpp:85</div></div>
+<div class="ttc" id="aclassShop_html_af6380e9dbccad7cb81d537a82067cbcf"><div class="ttname"><a href="classShop.html#af6380e9dbccad7cb81d537a82067cbcf">Shop::getItemAt</a></div><div class="ttdeci">Item getItemAt(int index)</div><div class="ttdoc">renvoie un item specifier</div><div class="ttdef"><b>Definition</b> Shop.cpp:119</div></div>
 <div class="ttc" id="astructControls_html"><div class="ttname"><a href="structControls.html">Controls</a></div><div class="ttdoc">struct permettant de savoir vers ou le joueur veux aller et donner ces information au rest du jeux sa...</div><div class="ttdef"><b>Definition</b> Controls.h:9</div></div>
-<div class="ttc" id="astructItem_html"><div class="ttname"><a href="structItem.html">Item</a></div><div class="ttdef"><b>Definition</b> Item.h:11</div></div>
+<div class="ttc" id="astructItem_html"><div class="ttname"><a href="structItem.html">Item</a></div><div class="ttdoc">Item utiliser dasn le shop ( a donc des starts qu il deva ajouter a un jouer quand il est acheter).</div><div class="ttdef"><b>Definition</b> Item.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

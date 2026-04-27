@@ -1,7 +1,7 @@
 var searchData=
 [
   ['wave_0',['Wave',['../structWave.html',1,'']]],
-  ['weapon_1',['Weapon',['../structWeapon.html',1,'']]],
+  ['weapon_1',['Weapon',['../structWeapon.html',1,'Weapon'],['../structWeapon.html#a066277166c622e968eaa8697c346490e',1,'Weapon::Weapon()']]],
   ['what_2',['what',['../classdetail_1_1exception.html#ae75d7315f5f2d85958da6d961375caf0',1,'detail::exception']]],
   ['wide_5fstring_5finput_5fadapter_3',['wide_string_input_adapter',['../classdetail_1_1wide__string__input__adapter.html',1,'detail']]],
   ['wide_5fstring_5finput_5fadapter_3c_20base_5fadapter_5ftype_2c_20char_5ftype_20_3e_4',['wide_string_input_adapter&lt; base_adapter_type, char_type &gt;',['../classdetail_1_1wide__string__input__adapter.html',1,'detail']]],

@@ -42,8 +42,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
@@ -58,8 +58,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Bullet_8h_source.html",
-"classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540",
-"structdetail_1_1is__compatible__object__type.html"
+"classdetail_1_1iteration__proxy__value.html#a54d22aec1f615a38697466817d7cc819",
+"structdetail_1_1conjunction_3_01B_01_4.html",
+"structdetail_1_1value__in__range__of__impl1.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -3,6 +3,7 @@
 #include "Bullet.h"
 #include "Enemy.h"
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Network/Socket.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <cstring>
 #include <string>
@@ -512,8 +513,11 @@ void IHM::gameLoopMulti() {
 
     if(selected==0){
         sf::Packet p;
-        p << "new";
-        socket.send(p);
+        p << "new";        
+        if(socket.send(p)==sf::Socket::Status::Done){
+            std::cout<<"packet sent waiting for response\n";
+
+        };
         sf::Packet response;
         if (socket.receive(response) == sf::Socket::Status::Done) {
             std::string serverMsg;
@@ -535,9 +539,11 @@ void IHM::gameLoopMulti() {
         int rooms[11]={0,0,0,0,0,0,0,0,0,0};
         sf::Packet p;
         p << "info";
-        socket.send(p);
+        if(socket.send(p)==sf::Socket::Status::Done){
+            std::cout<<"packet sent waiting for response\n";
+
+        };
         sf::Packet response;
-        std::cout<<"packet sent waitong for response\n";
         if (socket.receive(response) == sf::Socket::Status::Done) {
             std::cout<<"sent 'info' awaiting response\n";
             std::memcpy(&rooms, response.getData(), sizeof(int[11]));
@@ -598,7 +604,10 @@ void IHM::gameLoopMulti() {
             sf::Packet roomM;
             std::cout<<selected<<std::endl;
             roomM<<std::to_string(selected);
-            socket.send(roomM);
+            if(!(socket.send(roomM)==sf::Socket::Status::Done)){
+                std::cout<<"BIG PROBLEM\n";
+
+            }
             sf::Packet roomC;
             std::cout<<"packet sent waitong for response\n";
             if (socket.receive(roomC) == sf::Socket::Status::Done) {
@@ -637,7 +646,11 @@ void IHM::gameLoopMulti() {
             sf::Packet sendPacket;
             sendPacket.append(&idMulti, sizeof(int));
             sendPacket.append(&inputs, sizeof(Controls));
-            socket.send(sendPacket);
+            if(!(socket.send(sendPacket)==sf::Socket::Status::Done)){
+                std::cout<<"BIG PROBLEM\n";
+
+            }
+            
         }
         if (game.isInShop()) {
             renderShop();      

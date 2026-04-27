@@ -14,53 +14,55 @@
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Map.h"{}}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Shop.h"{}}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Game\{}
-\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00017\ \ \ \ \doxymbox{\hyperlink{classInventory}{Inventory}}\ inventory[4];}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nbJoueur;}
-\DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{classMap}{Map}}\ level;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ difficulty;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//PARTIE\ shop\ }}
-\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{classPlayer}{Player}}\ players[4];}
-\DoxyCodeLine{00026\ \ \ \ \ \doxymbox{\hyperlink{classShop}{Shop}}\ playerShop[4];\ \textcolor{comment}{//\ un\ shop\ pour\ chaque\ joueur}}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ isShopActive;}
-\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}\{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \doxymbox{\hyperlink{classInventory}{Inventory}}\ inventory[4];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nbJoueur;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{classMap}{Map}}\ level;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ difficulty;}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ inConfig;\textcolor{comment}{//pour\ savoir\ si\ on\ affiche\ l\ ajou\ de\ joueur\ ou\ le\ jeu}}
-\DoxyCodeLine{00033\ \ \ \ \ Game();}
-\DoxyCodeLine{00034\ \ \ \ \ \string~Game();}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//utilistaire}}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbJoueur();}
-\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{classPlayer}{Player}}*\ getPlayers();}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_aabcbbfa79f67ed7ea1c96839f5775de4}{setNbPlayers}}(\textcolor{keywordtype}{int}\ i);}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a26b3975b282d4e550bb4556bb4277573}{update}}(\doxymbox{\hyperlink{structControls}{Controls}}\ c,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a26b3975b282d4e550bb4556bb4277573}{update}}(\doxymbox{\hyperlink{structControls}{Controls}}\ *c,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//get\ stuff\ for\ rendering}}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ getMapId();}
-\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{classEnemy}{Enemy}}*\ getEnemies();}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbEnemys();}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ getPlayerId(\textcolor{keywordtype}{int}\ i);}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ getNbBullets();}
-\DoxyCodeLine{00049\ \ \ \ \ \doxymbox{\hyperlink{classBullet}{Bullet}}*\ getBullets();}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isInShop()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isShopActive;\ \}}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ setShopActive(\textcolor{keywordtype}{bool}\ active)\ \{\ isShopActive\ =\ active;\ \}}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//recup\ l\ idex\ du\ shop\ du\ joueur}}
-\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{classShop}{Shop}}\&\ getShop(\textcolor{keywordtype}{int}\ playerIndex)\ \{\ \textcolor{keywordflow}{return}\ playerShop[playerIndex];\ \}}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOver()\{\textcolor{keywordflow}{return}\ level.isDead();\};}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ isTimeUp();\ \ \ \ \ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPlayerDead();}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ resetTimer();}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ restart();\ \textcolor{comment}{//reconstruit}}
-\DoxyCodeLine{00061\ \};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//PARTIE\ shop\ }}
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{classPlayer}{Player}}\ players[4];}
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{classShop}{Shop}}\ playerShop[4];\ \textcolor{comment}{//\ un\ shop\ pour\ chaque\ joueur}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ isShopActive;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ inConfig;\textcolor{comment}{//pour\ savoir\ si\ on\ affiche\ l\ ajou\ de\ joueur\ ou\ le\ jeu}}
+\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//utilistaire}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classGame_a3f062f38ab7815d97e57c875083ea2d3}{getNbJoueur}}();}
+\DoxyCodeLine{00061\ \ \ \ \ \doxymbox{\hyperlink{classPlayer}{Player}}*\ \doxymbox{\hyperlink{classGame_a3021f28b5aacdf25658e3e72c5b5699c}{getPlayers}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_aabcbbfa79f67ed7ea1c96839f5775de4}{setNbPlayers}}(\textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a26b3975b282d4e550bb4556bb4277573}{update}}(\doxymbox{\hyperlink{structControls}{Controls}}\ c,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winWidth,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ winHeight,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a26b3975b282d4e550bb4556bb4277573}{update}}(\doxymbox{\hyperlink{structControls}{Controls}}\ *c,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//get\ stuff\ for\ rendering}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classGame_a62b2fb3e96cfaecf0ba15c1ed28263b2}{getMapId}}();\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classGame_ac956ade04d022213ae6d5e83040b93aa}{getNbEnemys}}();}
+\DoxyCodeLine{00104\ \ \ \ \ \doxymbox{\hyperlink{classEnemy}{Enemy}}*\ \doxymbox{\hyperlink{classGame_a94d462983970e8d7c392da3f8b406408}{getEnemies}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classGame_a870a968cd70843d1461a2610068a57b9}{getPlayerId}}(\textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classGame_aa12c2e609ffb6ff58f917c81df34ea7c}{getNbBullets}}();}
+\DoxyCodeLine{00124\ \ \ \ \ \doxymbox{\hyperlink{classBullet}{Bullet}}*\ \doxymbox{\hyperlink{classGame_a97ebbaa2608bf30c021d8b0974dfa0f9}{getBullets}}();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classGame_a7089c16c563eb25838ed93330f3cb8c6}{isInShop}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isShopActive;\ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a562e48334b67285d613bdf2e94d07b4b}{setShopActive}}(\textcolor{keywordtype}{bool}\ active)\ \{\ isShopActive\ =\ active;\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//recup\ l\ idex\ du\ shop\ du\ joueur}}
+\DoxyCodeLine{00146\ \ \ \ \ \doxymbox{\hyperlink{classShop}{Shop}}\&\ \doxymbox{\hyperlink{classGame_a1afefa784deda981ab150892c0d47898}{getShop}}(\textcolor{keywordtype}{int}\ playerIndex)\ \{\ \textcolor{keywordflow}{return}\ playerShop[playerIndex];\ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classGame_ad618d5ebfb638715c4aebefa3270df65}{isTimeUp}}();\ \ \ \ \ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classGame_abecae2ed3526358ba4cd1ba38e38e898}{isPlayerDead}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_a175c19ef3c4807d8547ccd211d318aed}{resetTimer}}();}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classGame_aeb468737e1495cfcfbf512cfdc751117}{restart}}();\ \textcolor{comment}{//reconstruit}}
+\DoxyCodeLine{00169\ \};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

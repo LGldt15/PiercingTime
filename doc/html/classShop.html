@@ -91,30 +91,172 @@ $(function(){initNavTree('classShop.html','','classShop-members'); });
   <div class="headertitle"><div class="title">Shop Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>permet de gerer les shop de chaque joueur a la fin de chaque round  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Shop_8h_source.html">Shop.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae411c56e453ac238893983a23e2aaeba" id="r_ae411c56e453ac238893983a23e2aaeba"><td class="memItemLeft"><a id="ae411c56e453ac238893983a23e2aaeba" name="ae411c56e453ac238893983a23e2aaeba"></a>
-void&#160;</td><td class="memItemRight"><b>handleInput</b> (<a class="el" href="structControls.html">Controls</a> &amp;c, <a class="el" href="classPlayer.html">Player</a> &amp;p)</td></tr>
+<tr class="memitem:a579ed9f949f7db3f90c22dfe10b25797" id="r_a579ed9f949f7db3f90c22dfe10b25797"><td class="memItemLeft"><a id="a579ed9f949f7db3f90c22dfe10b25797" name="a579ed9f949f7db3f90c22dfe10b25797"></a>
+&#160;</td><td class="memItemRight"><b>Shop</b> ()</td></tr>
+<tr class="memdesc:a579ed9f949f7db3f90c22dfe10b25797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par defaut de <a class="el" href="classShop.html" title="permet de gerer les shop de chaque joueur a la fin de chaque round">Shop</a>. <br /></td></tr>
+<tr class="memitem:a36bf69bdc0da1b7258acc63a5fe89d40" id="r_a36bf69bdc0da1b7258acc63a5fe89d40"><td class="memItemLeft"><a id="a36bf69bdc0da1b7258acc63a5fe89d40" name="a36bf69bdc0da1b7258acc63a5fe89d40"></a>
+&#160;</td><td class="memItemRight"><b>~Shop</b> ()</td></tr>
+<tr class="memdesc:a36bf69bdc0da1b7258acc63a5fe89d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur par defaut de <a class="el" href="classShop.html" title="permet de gerer les shop de chaque joueur a la fin de chaque round">Shop</a>. <br /></td></tr>
+<tr class="memitem:ae411c56e453ac238893983a23e2aaeba" id="r_ae411c56e453ac238893983a23e2aaeba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae411c56e453ac238893983a23e2aaeba">handleInput</a> (<a class="el" href="structControls.html">Controls</a> &amp;c, <a class="el" href="classPlayer.html">Player</a> &amp;p)</td></tr>
+<tr class="memdesc:ae411c56e453ac238893983a23e2aaeba"><td class="mdescLeft">&#160;</td><td class="mdescRight">s occupe de regarder quelle item est selectionner garce au controlles et ensuit l ajouter a un joueur specifier  <br /></td></tr>
 <tr class="memitem:a4d7a3282cad4c85d0f4b9645789e6953" id="r_a4d7a3282cad4c85d0f4b9645789e6953"><td class="memItemLeft"><a id="a4d7a3282cad4c85d0f4b9645789e6953" name="a4d7a3282cad4c85d0f4b9645789e6953"></a>
 void&#160;</td><td class="memItemRight"><b>refreshShop</b> ()</td></tr>
-<tr class="memitem:aa859cec82a503f4ae4b68437d8b77dd2" id="r_aa859cec82a503f4ae4b68437d8b77dd2"><td class="memItemLeft"><a id="aa859cec82a503f4ae4b68437d8b77dd2" name="aa859cec82a503f4ae4b68437d8b77dd2"></a>
-void&#160;</td><td class="memItemRight"><b>effectOnPlayer</b> (<a class="el" href="classPlayer.html">Player</a> &amp;p, <a class="el" href="structItem.html">Item</a> i)</td></tr>
-<tr class="memitem:a4f0bed3876da53354b4b05a7557b7d87" id="r_a4f0bed3876da53354b4b05a7557b7d87"><td class="memItemLeft"><a id="a4f0bed3876da53354b4b05a7557b7d87" name="a4f0bed3876da53354b4b05a7557b7d87"></a>
-<a class="el" href="structItem.html">Item</a>&#160;</td><td class="memItemRight"><b>itemRandSelect</b> ()</td></tr>
-<tr class="memitem:aae33af50c51dedd2ac2aed752788c593" id="r_aae33af50c51dedd2ac2aed752788c593"><td class="memItemLeft"><a id="aae33af50c51dedd2ac2aed752788c593" name="aae33af50c51dedd2ac2aed752788c593"></a>
-<a class="el" href="structItem.html">Item</a>&#160;</td><td class="memItemRight"><b>getItems</b> ()</td></tr>
-<tr class="memitem:af6380e9dbccad7cb81d537a82067cbcf" id="r_af6380e9dbccad7cb81d537a82067cbcf"><td class="memItemLeft"><a id="af6380e9dbccad7cb81d537a82067cbcf" name="af6380e9dbccad7cb81d537a82067cbcf"></a>
-<a class="el" href="structItem.html">Item</a>&#160;</td><td class="memItemRight"><b>getItemAt</b> (int index)</td></tr>
-<tr class="memitem:a3fa3ac072a1c60afea0f74a9fd2d1fb4" id="r_a3fa3ac072a1c60afea0f74a9fd2d1fb4"><td class="memItemLeft"><a id="a3fa3ac072a1c60afea0f74a9fd2d1fb4" name="a3fa3ac072a1c60afea0f74a9fd2d1fb4"></a>
-int&#160;</td><td class="memItemRight"><b>getCurrentCursor</b> ()</td></tr>
+<tr class="memdesc:a4d7a3282cad4c85d0f4b9645789e6953"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de remetre des items dans les cases vide quand on achete un item <br /></td></tr>
+<tr class="memitem:aa859cec82a503f4ae4b68437d8b77dd2" id="r_aa859cec82a503f4ae4b68437d8b77dd2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa859cec82a503f4ae4b68437d8b77dd2">effectOnPlayer</a> (<a class="el" href="classPlayer.html">Player</a> &amp;p, <a class="el" href="structItem.html">Item</a> i)</td></tr>
+<tr class="memdesc:aa859cec82a503f4ae4b68437d8b77dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifie les stat d un joueur avec un item qu il a acheter  <br /></td></tr>
+<tr class="memitem:a4f0bed3876da53354b4b05a7557b7d87" id="r_a4f0bed3876da53354b4b05a7557b7d87"><td class="memItemLeft"><a class="el" href="structItem.html">Item</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4f0bed3876da53354b4b05a7557b7d87">itemRandSelect</a> ()</td></tr>
+<tr class="memdesc:a4f0bed3876da53354b4b05a7557b7d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie un item aleatoir parmis une liste predefinie  <br /></td></tr>
+<tr class="memitem:af6380e9dbccad7cb81d537a82067cbcf" id="r_af6380e9dbccad7cb81d537a82067cbcf"><td class="memItemLeft"><a class="el" href="structItem.html">Item</a>&#160;</td><td class="memItemRight"><a class="el" href="#af6380e9dbccad7cb81d537a82067cbcf">getItemAt</a> (int index)</td></tr>
+<tr class="memdesc:af6380e9dbccad7cb81d537a82067cbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie un item specifier  <br /></td></tr>
+<tr class="memitem:a3fa3ac072a1c60afea0f74a9fd2d1fb4" id="r_a3fa3ac072a1c60afea0f74a9fd2d1fb4"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3fa3ac072a1c60afea0f74a9fd2d1fb4">getCurrentCursor</a> ()</td></tr>
+<tr class="memdesc:a3fa3ac072a1c60afea0f74a9fd2d1fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie l item actuelement selectioner (pa acheter selectione)  <br /></td></tr>
 <tr class="memitem:a3c2bf22519f622c2c1a4873d006bdbd2" id="r_a3c2bf22519f622c2c1a4873d006bdbd2"><td class="memItemLeft"><a id="a3c2bf22519f622c2c1a4873d006bdbd2" name="a3c2bf22519f622c2c1a4873d006bdbd2"></a>
 void&#160;</td><td class="memItemRight"><b>moveLeft</b> ()</td></tr>
+<tr class="memdesc:a3c2bf22519f622c2c1a4873d006bdbd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">deplace le curseur de selection vers la gauche <br /></td></tr>
 <tr class="memitem:a252c2ea66d68389cca8f37373923a9e6" id="r_a252c2ea66d68389cca8f37373923a9e6"><td class="memItemLeft"><a id="a252c2ea66d68389cca8f37373923a9e6" name="a252c2ea66d68389cca8f37373923a9e6"></a>
 void&#160;</td><td class="memItemRight"><b>moveRight</b> ()</td></tr>
+<tr class="memdesc:a252c2ea66d68389cca8f37373923a9e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">deplace le curseur de selection vers la Droite <br /></td></tr>
 <tr class="memitem:abd9a69d363564a100acb969aa5514775" id="r_abd9a69d363564a100acb969aa5514775"><td class="memItemLeft"><a id="abd9a69d363564a100acb969aa5514775" name="abd9a69d363564a100acb969aa5514775"></a>
 void&#160;</td><td class="memItemRight"><b>consoleShop</b> ()</td></tr>
+<tr class="memdesc:abd9a69d363564a100acb969aa5514775"><td class="mdescLeft">&#160;</td><td class="mdescRight">version console du shop avant l imlementation graphique <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>permet de gerer les shop de chaque joueur a la fin de chaque round </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aa859cec82a503f4ae4b68437d8b77dd2" name="aa859cec82a503f4ae4b68437d8b77dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa859cec82a503f4ae4b68437d8b77dd2">&#9670;&#160;</a></span>effectOnPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Shop::effectOnPlayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structItem.html">Item</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>modifie les stat d un joueur avec un item qu il a acheter </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>joueur qui a acheter l item </td></tr>
+    <tr><td class="paramname">i</td><td>items acheter et donc a "appliquer au joueur" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3fa3ac072a1c60afea0f74a9fd2d1fb4" name="a3fa3ac072a1c60afea0f74a9fd2d1fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa3ac072a1c60afea0f74a9fd2d1fb4">&#9670;&#160;</a></span>getCurrentCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Shop::getCurrentCursor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie l item actuelement selectioner (pa acheter selectione) </p>
+<dl class="section return"><dt>Returns</dt><dd>l id de l item selectionne </dd></dl>
+
+</div>
+</div>
+<a id="af6380e9dbccad7cb81d537a82067cbcf" name="af6380e9dbccad7cb81d537a82067cbcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6380e9dbccad7cb81d537a82067cbcf">&#9670;&#160;</a></span>getItemAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structItem.html">Item</a> Shop::getItemAt </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie un item specifier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>numero de l item a renvoier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>l item spcecifier </dd></dl>
+
+</div>
+</div>
+<a id="ae411c56e453ac238893983a23e2aaeba" name="ae411c56e453ac238893983a23e2aaeba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae411c56e453ac238893983a23e2aaeba">&#9670;&#160;</a></span>handleInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Shop::handleInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structControls.html">Controls</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>s occupe de regarder quelle item est selectionner garce au controlles et ensuit l ajouter a un joueur specifier </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>controls denner link a un joueur </td></tr>
+    <tr><td class="paramname">p</td><td>joueur a qui apretien els inputs </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4f0bed3876da53354b4b05a7557b7d87" name="a4f0bed3876da53354b4b05a7557b7d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0bed3876da53354b4b05a7557b7d87">&#9670;&#160;</a></span>itemRandSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structItem.html">Item</a> Shop::itemRandSelect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie un item aleatoir parmis une liste predefinie </p>
+<dl class="section return"><dt>Returns</dt><dd>un item quelconque </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Shop_8h_source.html">Shop.h</a></li>
 <li>src/<b>Shop.cpp</b></li>

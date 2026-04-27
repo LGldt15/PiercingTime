@@ -4,7 +4,7 @@
 
 Weapon::Weapon(unsigned int damage, int t) : baseDamage(damage), type(t) {}
 
-Inventory::Inventory(int round) : nbItems(0), weapon(10, 0) {
+Inventory::Inventory() : nbItems(0), weapon(10, 0) {
     for(int i = 0; i < MAX_ITEMS; i++) {
         items[i].name[0] = 'N';
     }

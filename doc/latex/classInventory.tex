@@ -1,26 +1,105 @@
 \doxysection{Inventory Class Reference}
 \hypertarget{classInventory}{}\label{classInventory}\index{Inventory@{Inventory}}
+
+
+Decrit un inventaire d un joueur (ses armes et ses items).  
+
+
+
+
+{\ttfamily \+\#include $<$Inventory.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classInventory_ac3d76803ac202ce5aea1e5c0c7fa57c7}\label{classInventory_ac3d76803ac202ce5aea1e5c0c7fa57c7} 
-{\bfseries Inventory} (int round=0)
-\item 
-\Hypertarget{classInventory_ac00b694ae25de878409cc4040b5c5a20}\label{classInventory_ac00b694ae25de878409cc4040b5c5a20} 
-void {\bfseries add\+Item} (const \doxymbox{\hyperlink{structItem}{Item}} \&i)
-\item 
-\Hypertarget{classInventory_af92344788664f6d218dab6214977e28b}\label{classInventory_af92344788664f6d218dab6214977e28b} 
-int {\bfseries get\+Nb\+Items} () const
-\item 
-\Hypertarget{classInventory_aa9cea954ca063416661b52e10b20ac88}\label{classInventory_aa9cea954ca063416661b52e10b20ac88} 
-const \doxymbox{\hyperlink{structItem}{Item}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Items} () const
-\item 
-\Hypertarget{classInventory_a2390419547a4efd7556ce08ddcd39d05}\label{classInventory_a2390419547a4efd7556ce08ddcd39d05} 
-unsigned int {\bfseries get\+Total\+Damage} () const
-\item 
-\Hypertarget{classInventory_ab137f1163d722398de374b1f93551764}\label{classInventory_ab137f1163d722398de374b1f93551764} 
-\doxymbox{\hyperlink{structWeapon}{Weapon}} \& {\bfseries get\+Weapon} ()
-\end{DoxyCompactItemize}
+\Hypertarget{classInventory_a10485613fc8bfb32ee564d9b5110f8fb}\label{classInventory_a10485613fc8bfb32ee564d9b5110f8fb} 
+{\bfseries Inventory} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par defaut de Inventaire. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classInventory_ac00b694ae25de878409cc4040b5c5a20}{add\+Item}} (const \doxymbox{\hyperlink{structItem}{Item}} \&i)
+\begin{DoxyCompactList}\small\item\em Ajoute un \doxylink{structItem}{Item} a l inventaire. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classInventory_af92344788664f6d218dab6214977e28b}{get\+Nb\+Items}} () const
+\begin{DoxyCompactList}\small\item\em renvoie le nombre d item d un joueur \end{DoxyCompactList}\item 
+const \doxymbox{\hyperlink{structItem}{Item}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classInventory_aa9cea954ca063416661b52e10b20ac88}{get\+Items}} () const
+\begin{DoxyCompactList}\small\item\em renvoie le pointeur vers le \doxylink{structItem}{Item}\+[0]\+ et permet d onc avec getnb\+Item de parcourire les tableau a partire de l \doxylink{classIHM}{IHM} \end{DoxyCompactList}\item 
+unsigned int \doxymbox{\hyperlink{classInventory_a2390419547a4efd7556ce08ddcd39d05}{get\+Total\+Damage}} () const
+\begin{DoxyCompactList}\small\item\em renvoie les degat total du joueur \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{structWeapon}{Weapon}} \& \doxymbox{\hyperlink{classInventory_ab137f1163d722398de374b1f93551764}{get\+Weapon}} ()
+\begin{DoxyCompactList}\small\item\em renvoie l\textquotesingle{}arme du joueur \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Decrit un inventaire d un joueur (ses armes et ses items). 
+
+\label{doc-func-members}
+\Hypertarget{classInventory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInventory_ac00b694ae25de878409cc4040b5c5a20}\index{Inventory@{Inventory}!addItem@{addItem}}
+\index{addItem@{addItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
+{\footnotesize\ttfamily \label{classInventory_ac00b694ae25de878409cc4040b5c5a20} 
+void Inventory::\+add\+Item (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structItem}{Item}} \&}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Ajoute un \doxylink{structItem}{Item} a l inventaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & item a rajouter a l inventaire du joueur \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classInventory_aa9cea954ca063416661b52e10b20ac88}\index{Inventory@{Inventory}!getItems@{getItems}}
+\index{getItems@{getItems}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily \label{classInventory_aa9cea954ca063416661b52e10b20ac88} 
+const \doxymbox{\hyperlink{structItem}{Item}} \texorpdfstring{$\ast$}{*} Inventory::\+get\+Items (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+renvoie le pointeur vers le \doxylink{structItem}{Item}\+[0]\+ et permet d onc avec getnb\+Item de parcourire les tableau a partire de l \doxylink{classIHM}{IHM} 
+
+\begin{DoxyReturn}{Returns}
+l inventaire 
+\end{DoxyReturn}
+\Hypertarget{classInventory_af92344788664f6d218dab6214977e28b}\index{Inventory@{Inventory}!getNbItems@{getNbItems}}
+\index{getNbItems@{getNbItems}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getNbItems()}{getNbItems()}}
+{\footnotesize\ttfamily \label{classInventory_af92344788664f6d218dab6214977e28b} 
+int Inventory::\+get\+Nb\+Items (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+renvoie le nombre d item d un joueur 
+
+\begin{DoxyReturn}{Returns}
+le nombre d item dans l inventaire 
+\end{DoxyReturn}
+\Hypertarget{classInventory_a2390419547a4efd7556ce08ddcd39d05}\index{Inventory@{Inventory}!getTotalDamage@{getTotalDamage}}
+\index{getTotalDamage@{getTotalDamage}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getTotalDamage()}{getTotalDamage()}}
+{\footnotesize\ttfamily \label{classInventory_a2390419547a4efd7556ce08ddcd39d05} 
+unsigned int Inventory::\+get\+Total\+Damage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+renvoie les degat total du joueur 
+
+\begin{DoxyReturn}{Returns}
+la quantite de degat 
+\end{DoxyReturn}
+\Hypertarget{classInventory_ab137f1163d722398de374b1f93551764}\index{Inventory@{Inventory}!getWeapon@{getWeapon}}
+\index{getWeapon@{getWeapon}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getWeapon()}{getWeapon()}}
+{\footnotesize\ttfamily \label{classInventory_ab137f1163d722398de374b1f93551764} 
+\doxymbox{\hyperlink{structWeapon}{Weapon}} \& Inventory::\+get\+Weapon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+renvoie l\textquotesingle{}arme du joueur 
+
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}arme du joueur 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
