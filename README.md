@@ -4,9 +4,9 @@ Projet réalisé dans le cadre du module **Image (LIFAPCD)**.
 
 ## 👥 Contributeurs
 - **Développeurs :**
-    - Nicolas de Brebisson
-    - Lina Guellali
-    - Charlie Merchadou
+    - Nicolas de Brebisson : 12402839
+    - Lina Guellali : 12405561
+    - Charlie Merchadou : 12303354
 
 ## 📋 Description
 Piercing Time est un jeu de type ROGUELIKE développé en C++ utilisant la bibliothèque SFML et une config en .json. 
