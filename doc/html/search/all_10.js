@@ -5,5 +5,8 @@ var searchData=
   ['replace_2',['replace',['../namespacedetail.html#abe7cfa1fd8fa706ff4392bff9d1a8298a9dde360102c103867bd2f45872f1129c',1,'detail']]],
   ['replace_5fsubstring_3',['replace_substring',['../namespacedetail.html#a6fd295e53b1dd4f46e235e6afee26d5e',1,'detail']]],
   ['requirements_4',['Requirements',['../requirements.html',1,'Requirements'],['../requirements.html#missing_satisfies',1,'Unsatisfied Requirements'],['../requirements.html#missing_verifies',1,'Unverified Requirements']]],
-  ['requirements_3a_5',['class satisfies the following concept requirements:',['../requirements.html#The',1,'']]]
+  ['requirements_3a_5',['class satisfies the following concept requirements:',['../requirements.html#The',1,'']]],
+  ['resettimer_6',['resetTimer',['../classMap.html#af4c2f38f5a80c108e065b7ea4610a737',1,'Map']]],
+  ['resetwaves_7',['resetWaves',['../classMap.html#ac9978ab8ee8e10a8c6bb01688c66816c',1,'Map']]],
+  ['restart_8',['restart',['../classMap.html#a077402f022c3a23057cdc00e516c8894',1,'Map']]]
 ];

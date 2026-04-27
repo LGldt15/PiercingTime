@@ -9,5 +9,6 @@ var searchData=
   ['literal_5fnull_6',['literal_null',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540ab7ae4c0e46d86f884677768160b26e9e',1,'detail::lexer_base']]],
   ['literal_5for_5fvalue_7',['literal_or_value',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540ad2a8e6f6721cccec0b466301dd9495a5',1,'detail::lexer_base']]],
   ['literal_5ftrue_8',['literal_true',['../classdetail_1_1lexer__base.html#add65fa7a85aa15052963809fbcc04540a85cc1a37b0aaa52de40e72f0ed4e0c0d',1,'detail::lexer_base']]],
-  ['little_5fendianness_9',['little_endianness',['../namespacedetail.html#a7afa6a4fb43d64d557e25cf099d8e20d',1,'detail']]]
+  ['little_5fendianness_9',['little_endianness',['../namespacedetail.html#a7afa6a4fb43d64d557e25cf099d8e20d',1,'detail']]],
+  ['loadwaves_10',['loadWaves',['../classMap.html#a3206ec4d597d15c6b8a0443a716324de',1,'Map']]]
 ];
