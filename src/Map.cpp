@@ -25,7 +25,7 @@ Map::Map(){
     
 
 //test
-    std::ifstream file("../assets/config/waves.json"); 
+    std::ifstream file("./assets/config/waves.json"); 
         if (file.is_open()) {
     std::cout << "Fichier JSON trouvé avec succès !" << std::endl;
         } else {
