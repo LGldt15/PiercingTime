@@ -644,7 +644,7 @@ void IHM::gameLoopMulti() {
             getInputs();
             sf::Packet sendPacket;
             sendPacket.append(&idMulti, sizeof(int));
-            sendPacket.append(&inputs, sizeof(Controls));
+            sendPacket.append(&inputs[idMulti], sizeof(Controls));
             if(!(socket.send(sendPacket)==sf::Socket::Status::Done)){
                 std::cout<<"BIG PROBLEM\n";
 
